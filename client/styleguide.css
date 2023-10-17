@@ -1,0 +1,33 @@
+:root {
+    /* colors */
+    --accent-blue-semi: rgba(164, 228, 249, 0.5);
+    --accent-purple-semi: rgba(244, 212, 255, 0.5);
+    --accentblue: rgba(73, 201, 242, 1);
+    --accentpurple: rgba(210, 84, 255, 1);
+    --blk: rgba(41, 9, 40, 1);
+    --light: rgba(244, 252, 255, 1);
+    --grey: rgba(221, 234, 238, 1);
+    --infocolor: rgba(244, 252, 255, 0.8);
+    --navuntermenu: rgba(41, 9, 40, 0.85);
+
+    /* bodytext */
+    --body-desktop: "Roboto-Regular", Helvetica, 24px, normal, 400, 0.6px, normal;
+    --body-mobile: "Roboto-Regular", Helvetica, 16px, normal, 400, 0.4px, normal;
+    --body-sm: "Roboto-Regular", Helvetica, 14px, normal, 400, 0.35px, normal;
+
+    /* headings */
+    --h1: "Roboto-Bold", Helvetica, 48px, 700, 1.2px;
+    --h2: "Roboto-Bold", Helvetica, 40px, normal, 700;
+    --h3: "Roboto-Bold", Helvetica, 36px, normal, 700, 0.9px, normal;
+    --h4: "Roboto-Regular", Helvetica, 32px, normal, 400, 0.8px, normal;
+    --h5: "Roboto-Light", Helvetica, 32px, normal, 300, 0.8px, normal;
+    --h6: "Roboto-SemiBold", Helvetica, 16px, normal, 600, 0.4px, normal;
+
+    /* other text */
+    --info-sm: "Inter-Light", Helvetica, 12px, normal, 300, 0px, normal;
+    --stars-reviews: "Inter-Regular", Helvetica, 12px, normal, 400, 0px, normal;
+    --subtitle: "Roboto-Bold", Helvetica, 32px, normal, 700, 0.48px, normal;
+    --subtitle-sm: "Roboto-Bold", Helvetica, 20px, normal, 700, 0.5px, normal;
+    --subtitle-xs: "Roboto-Bold", Helvetica, 16px, normal, 700, 0.4px, normal;
+  }
+  
