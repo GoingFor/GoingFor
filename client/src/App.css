@@ -1,3 +1,20 @@
+@import 'typeface-roboto';
+
+
+body {
+  font-family: 'Roboto', sans-serif;
+  border: 2px solid red;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -138,5 +155,12 @@
 
 .App {
   background-color: var(--blk);
+  width: 100%;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
