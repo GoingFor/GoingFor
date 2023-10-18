@@ -1,14 +1,16 @@
 #root {
   max-width: 1280px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
+  margin:0;
   padding: 0;
   text-align: center;
   font-size: 62.5%;
 
-
+  
     /* colors */
     --accent-blue-semi: rgba(164, 228, 249, 0.5);
     --accent-purple-semi: rgba(244, 212, 255, 0.5);
+    --accent-blue-light: rgba(231, 249, 255, 0.31);
     --accentblue: rgba(73, 201, 242, 1);
     --accentpurple: rgba(210, 84, 255, 1);
     --blk: rgba(41, 9, 40, 1);
@@ -132,11 +134,20 @@
     --variable-collection-infocolor: rgba(244, 252, 255, 0.8);
     --variable-collection-navuntermenu: rgba(41, 9, 40, 0.85); 
     --drop-shadow: 10px 10px 5px 0 rgba(0, 0, 0, 0.5);
+    --inset-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
 
 }
 
 
 .App {
-  background-color: var(--blk);
+  /* layout */
+  height: 100vh;
+  background-image: url('./assets/background_goingfor.png');
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
