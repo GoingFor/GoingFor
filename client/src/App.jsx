@@ -1,4 +1,5 @@
 import { Button } from './components/Buttons';
+import { Card } from './components/Card/index.js'
 import './App.css';
 
 function App() {
@@ -15,9 +16,11 @@ function App() {
         <div className='App'>
             <Button label='Login' onClick={handleLogin}/>
             <Button label='Anmelden' onClick={handleSignup}/>
+              
+            <Card/>
 
         </div>
     )
-}
+
 
 export default App
