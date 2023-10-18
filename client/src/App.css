@@ -3,6 +3,8 @@
   margin: 0 auto;
   padding: 0;
   text-align: center;
+  font-size: 62.5%;
+
 
     /* colors */
     --accent-blue-semi: rgba(164, 228, 249, 0.5);
@@ -130,8 +132,7 @@
     --variable-collection-infocolor: rgba(244, 252, 255, 0.8);
     --variable-collection-navuntermenu: rgba(41, 9, 40, 0.85); 
     --drop-shadow: 10px 10px 5px 0 rgba(0, 0, 0, 0.5);
-  
-    
+
 }
 
 
