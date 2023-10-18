@@ -1,7 +1,142 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
   text-align: center;
   font-size: 62.5%;
+
+
+    /* colors */
+    --accent-blue-semi: rgba(164, 228, 249, 0.5);
+    --accent-purple-semi: rgba(244, 212, 255, 0.5);
+    --accentblue: rgba(73, 201, 242, 1);
+    --accentpurple: rgba(210, 84, 255, 1);
+    --blk: rgba(41, 9, 40, 1);
+    --light: rgba(244, 252, 255, 1);
+    --grey: rgba(221, 234, 238, 1);
+    --infocolor: rgba(244, 252, 255, 0.8);
+    --navuntermenu: rgba(41, 9, 40, 0.85);
+
+    /* bodytext */
+    --body-desktop: "Roboto-Regular", Helvetica, 24px, normal, 400, 0.6px, normal;
+    --body-mobile: "Roboto-Regular", Helvetica, 16px, normal, 400, 0.4px, normal;
+    --body-sm: "Roboto-Regular", Helvetica, 14px, normal, 400, 0.35px, normal;
+
+    /* headings */
+    --h1: "Roboto-Bold", Helvetica, 48px, 700, 1.2px;
+    --h2: "Roboto-Bold", Helvetica, 40px, normal, 700;
+    --h3: "Roboto-Bold", Helvetica, 36px, normal, 700, 0.9px, normal;
+    --h4: "Roboto-Regular", Helvetica, 32px, normal, 400, 0.8px, normal;
+    --h5: "Roboto-Light", Helvetica, 32px, normal, 300, 0.8px, normal;
+    --h6: "Roboto-SemiBold", Helvetica, 16px, normal, 600, 0.4px, normal;
+
+    /* other text */
+    --info-sm: "Inter-Light", Helvetica, 12px, normal, 300, 0px, normal;
+    --stars-reviews: "Inter-Regular", Helvetica, 12px, normal, 400, 0px, normal;
+    --subtitle: "Roboto-Bold", Helvetica, 32px, normal, 700, 0.48px, normal;
+    --subtitle-sm: "Roboto-Bold", Helvetica, 20px, normal, 700, 0.5px, normal;
+    --subtitle-xs: "Roboto-Bold", Helvetica, 16px, normal, 700, 0.4px, normal;
+
+    --accent-blue-semi: rgba(164, 228, 249, 0.5);
+    --accent-purple-semi: rgba(244, 212, 255, 0.5);
+    --accentblue: rgba(73, 201, 242, 1);
+    --accentpurple: rgba(210, 84, 255, 1);
+    --blk: rgba(41, 9, 40, 1);
+    --body-desktop-font-family: "Roboto-Regular", Helvetica;
+    --body-desktop-font-size: 24px;
+    --body-desktop-font-style: normal;
+    --body-desktop-font-weight: 400;
+    --body-desktop-letter-spacing: 0.6px;
+    --body-desktop-line-height: normal;
+    --body-font-family: "Roboto-Regular", Helvetica;
+    --body-font-size: 16px;
+    --body-font-style: normal;
+    --body-font-weight: 400;
+    --body-letter-spacing: 0.4px;
+    --body-line-height: normal;
+    --body-sm-font-family: "Roboto-Regular", Helvetica;
+    --body-sm-font-size: 14px;
+    --body-sm-font-style: normal;
+    --body-sm-font-weight: 400;
+    --body-sm-letter-spacing: 0.35px;
+    --body-sm-line-height: normal;
+    --h-1-font-family: "Roboto-Bold", Helvetica;
+    --h-1-font-size: 48px;
+    --h-1-font-style: normal;
+    --h-1-font-weight: 700;
+    --h-1-letter-spacing: 1.2px;
+    --h-1-line-height: normal;
+    --h-2-font-family: "Roboto-Bold", Helvetica;
+    --h-2-font-size: 40px;
+    --h-2-font-style: normal;
+    --h-2-font-weight: 700;
+    --h-2-letter-spacing: 0.6px;
+    --h-2-line-height: normal;
+    --h-3-font-family: "Roboto-Bold", Helvetica;
+    --h-3-font-size: 36px;
+    --h-3-font-style: normal;
+    --h-3-font-weight: 700;
+    --h-3-letter-spacing: 0.9px;
+    --h-3-line-height: normal;
+    --h-4-font-family: "Roboto-Regular", Helvetica;
+    --h-4-font-size: 32px;
+    --h-4-font-style: normal;
+    --h-4-font-weight: 400;
+    --h-4-letter-spacing: 0.8px;
+    --h-4-line-height: normal;
+    --h-5-font-family: "Roboto-Light", Helvetica;
+    --h-5-font-size: 32px;
+    --h-5-font-style: normal;
+    --h-5-font-weight: 300;
+    --h-5-letter-spacing: 0.8px;
+    --h-5-line-height: normal;
+    --h-6-font-family: "Roboto-SemiBold", Helvetica;
+    --h-6-font-size: 16px;
+    --h-6-font-style: normal;
+    --h-6-font-weight: 600;
+    --h-6-letter-spacing: 0.4px;
+    --h-6-line-height: normal;
+    --info-sm-font-family: "Inter-Light", Helvetica;
+    --info-sm-font-size: 12px;
+    --info-sm-font-style: normal;
+    --info-sm-font-weight: 300;
+    --info-sm-letter-spacing: 0px;
+    --info-sm-line-height: normal;
+    --inner-blue: ;
+    --light: rgba(244, 252, 255, 1);
+    --stars-reviews-font-family: "Inter-Regular", Helvetica;
+    --stars-reviews-font-size: 12px;
+    --stars-reviews-font-style: normal;
+    --stars-reviews-font-weight: 400;
+    --stars-reviews-letter-spacing: 0px;
+    --stars-reviews-line-height: normal;
+    --subtitle-font-family: "Roboto-Bold", Helvetica;
+    --subtitle-font-size: 32px;
+    --subtitle-font-style: normal;
+    --subtitle-font-weight: 700;
+    --subtitle-letter-spacing: 0.48px;
+    --subtitle-line-height: normal;
+    --subtitle-sm-font-family: "Roboto-Bold", Helvetica;
+    --subtitle-sm-font-size: 20px;
+    --subtitle-sm-font-style: normal;
+    --subtitle-sm-font-weight: 700;
+    --subtitle-sm-letter-spacing: 0.5px;
+    --subtitle-sm-line-height: normal;
+    --subtitle-xs-font-family: "Roboto-Bold", Helvetica;
+    --subtitle-xs-font-size: 16px;
+    --subtitle-xs-font-style: normal;
+    --subtitle-xs-font-weight: 700;
+    --subtitle-xs-letter-spacing: 0.4px;
+    --subtitle-xs-line-height: normal;
+    --variable-collection-grey: rgba(221, 234, 238, 1);
+    --variable-collection-infocolor: rgba(244, 252, 255, 0.8);
+    --variable-collection-navuntermenu: rgba(41, 9, 40, 0.85); 
+    --drop-shadow: 10px 10px 5px 0 rgba(0, 0, 0, 0.5);
+
 }
+
+
+.App {
+  background-color: var(--blk);
+}
+
