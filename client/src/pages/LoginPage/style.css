@@ -1,24 +1,21 @@
 .login_container{
     /* layout */
-    height: 100vh;
-    width: 100vw;
     display: flex;
+    flex-direction: column;
     align-items: center; 
-    justify-content: center;
-    position: absolute;
+    box-sizing: border-box;
 }
 
 .login_form{
     /* layout */
     width: 24rem;
     height: 32rem;
-    position: absolute;
-    top: 3rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-shrink: 0;
-    gap: 3rem;
+    margin-top: 3rem;
+    gap: 2rem;
 
     /* style */
     border-radius: 1.25rem;
@@ -30,13 +27,18 @@ input{
     /* layout */
     width: 12.75rem;
     height: 4.25rem;
-    margin-top: 1rem;
+    text-align: center;
 
     /* style */
     border-radius: 1.25rem;
     border: none;
+    outline: none;
     background: var(--accent-blue-semi);
     box-shadow: var(--inset-shadow);
+}
+
+input:first-child{
+    margin-top: 2rem;
 }
 
 input::placeholder{
@@ -54,15 +56,19 @@ input::placeholder{
     letter-spacing: var(--subtitle-sm-letter-spacing);  
 }
 
-.login-btn{
-    margin-top: 5rem;
+input:focus-visible{
+    border: 1px solid rgba(73, 201, 242, 1);
 }
 
-.other_login{
-    margin-top: 1rem;
+.loginBtn{
+    margin-top: 2rem;
+}
+
+.social-media-login{
+    margin-top: 2rem;
 } 
 
-.other-login-text{
+.social-media-login-text{
     /* style */
     color: var(--light);
 
@@ -85,8 +91,7 @@ input::placeholder{
     border: none;
 }
 
-img{
-    width: 300px;
-    position: relative;
-    bottom: -5rem;
+.goingfor_logo{
+    width: 200px; 
+    margin-bottom: 2rem; 
 }
