@@ -16,7 +16,6 @@ router.post('/google', google);
 //Login facebook
 // http://localhost:3002/api/auth/facebook
 router.post('/facebook', facebook);
-
 //Login twitter
 // http://localhost:3002/api/auth/twitter
 router.post('/twitter', twitter);
