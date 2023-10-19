@@ -1,0 +1,48 @@
+.navbar {
+    width: 60%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    background-color: var(--blk); 
+    padding: 10px 20px;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 3rem; 
+    padding-right: 2rem;
+  }
+  
+  .navbar li {
+    cursor: pointer;
+    color: var(--light);
+    font-size: 1.6rem;
+    font-weight: bold;
+    position: relative;
+    text-transform: uppercase;
+  }
+  
+  
+  .submenu {
+    display: none;
+    position: absolute;
+    justify-content: center;
+    text-align: start;
+    width: 15rem;
+    left: 0;
+    padding: 0.5rem;
+    background-color: var(--navuntermenu); /* Hintergrundfarbe des Dropdown-Menüs */
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); /* Schatten für das Dropdown-Menü */
+  }
+
+  .submenu li {
+    color: var(--light);
+    text-transform: uppercase;
+  }
+  
+
+  .navbar li:hover .submenu {
+    display: block;
+  }
+  
