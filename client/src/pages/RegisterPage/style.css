@@ -1,0 +1,99 @@
+.register_container{
+    /* layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    box-sizing: border-box;
+}
+
+.register_form{
+    /* layout */
+    width: 24rem;
+    min-height: 32rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    margin-top: 3rem;
+    gap: 2rem;
+
+    /* style */
+    border-radius: 1.25rem;
+    background: var(--accent-blue-light);
+    box-shadow: var(--inset-shadow);  
+    /* border: 2px solid red;   */
+}
+
+input{
+    /* layout */
+    width: 12.75rem;
+    height: 4.25rem;
+    text-align: center;
+
+    /* style */
+    border-radius: 1.25rem;
+    border: none;
+    outline: none;
+    background: var(--accent-blue-semi);
+    box-shadow: var(--inset-shadow);
+}
+
+input:first-child{
+    margin-top: 2rem;
+}
+
+input::placeholder{
+    /* layout */
+    text-align: center;
+
+    /* subtitle-sm */
+    color: var(--grey);
+    font-family: var( --subtitle-sm-font-family);
+    font-size: var(--subtitle-sm-font-size);
+    font-style: var(--subtitle-sm-font-style);
+    font-weight: var(--subtitle-sm-font-weight);
+    line-height: var(--subtitle-sm-line-height);
+    font-variant: small-caps;
+    letter-spacing: var(--subtitle-sm-letter-spacing);  
+}
+
+input:focus-visible{
+    border: 1px solid rgba(73, 201, 242, 1);
+}
+
+.registerBtn{
+    margin-top: 2rem;
+}
+
+.social-media-register{
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+} 
+
+.social-media-register-text{
+    /* style */
+    color: var(--light);
+
+    /* body-sm */
+    font-family: var(--body-sm-font-family);
+    font-size: var(--body-sm-font-size);
+    font-style: var(--body-sm-font-style);
+    font-weight: var(--body-sm-font-weight);
+    letter-spacing: var(--body-sm-letter-spacing);
+    line-height: var(--body-sm-line-height);
+}
+
+.icon-style{
+    /* layout */
+    font-size: 2rem;
+
+    /* style */
+    color: var(--light);
+    background: none;
+    border: none;
+}
+
+.goingfor_logo{
+    width: 200px; 
+    margin-bottom: 2rem; 
+}
