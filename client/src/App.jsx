@@ -20,6 +20,7 @@ function App() {
 
     return(
         <div className='App'>
+          <Navbar />
             {/* <Login/> */}
             {/* <Button label='Anmelden'/> */}
             {/* <Button label='Anmelden' onClick={handleSignup}/> */}

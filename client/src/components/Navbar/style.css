@@ -1,48 +1,175 @@
 .navbar {
-    width: 60%;
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     align-items: center;
-    background-color: var(--blk); 
-    padding: 10px 20px;
+    min-height: 8rem;
+    width: 100vw;
+    background-color: var(--blk);
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+
+  .obermenu {
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    color: var(--light);
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--light);
+    text-decoration: none;
+  }
+
+
+  
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    max-width: 12rem;
+    padding-left: 1rem;
   }
   
-  .navbar ul {
-    list-style: none;
+  .nav-links {
     display: flex;
-    gap: 3rem; 
+    padding: 1rem;
+  }
+  
+  .nav-links li {
+    margin-left: 1rem;
+    list-style: none;
+    background-color: var(--blk);
+  }
+  
+  .nav-links a {
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--light);
+    text-decoration: none;
+  }
+  
+  .nav-links a:hover {
+    color: var(--light);
+    font-size: 1.7rem;
+  }
+  
+  a.btn {
+    border-radius: 5px;
+    font-weight: 500;
+    padding: 5px 8px;
+  }
+  
+  a.btn-dark {
+    background: var(--blk);
+  }
+  
+  
+  .navbar .menu-icons {
+    display: none;
     padding-right: 2rem;
   }
   
-  .navbar li {
-    cursor: pointer;
-    color: var(--light);
-    font-size: 1.6rem;
-    font-weight: bold;
-    position: relative;
-    text-transform: uppercase;
-  }
-  
-  
-  .submenu {
-    display: none;
-    position: absolute;
-    justify-content: center;
-    text-align: start;
-    width: 15rem;
-    left: 0;
+
+  .submenu-1, .submenu-2 {
+    display: flex;
+    flex-direction: column;
     padding: 0.5rem;
-    background-color: var(--navuntermenu); /* Hintergrundfarbe des Dropdown-Menüs */
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); /* Schatten für das Dropdown-Menü */
+    max-height: 25rem; /* Beispiel für maximale Höhe des Submenüs */
+    overflow-y: auto;
   }
 
-  .submenu li {
-    color: var(--light);
-    text-transform: uppercase;
+  .submenu-1 a, .submenu-2 a {
+    padding: 0.5rem;
+    color: rgb(199, 199, 199);
+    pointer-events: auto; /* Füge diese Zeile hinzu, um die Links anklickbar zu machen */
+  }
+
+  .submenu-2 a:hover, .submenu-2 a:hover {
+    font-size: 1.7rem;
+    cursor: pointer;
   }
   
+  
+  
+  @media screen and (max-width: 910px) {
+    .nav-btn {
+      display: block;
+    }
+  
+    .nav-links {
+      display: none;
+    }
+  
+    .navbar .menu-icons {
+      display: block;
+      cursor: pointer;
+    }
+  
+    .navbar #mobile-nav-links,
+    .navbar #hide-mobile-nav-links {
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 8rem;
+      width: 100%;
+      background: var(--dark-blue);
+      padding-bottom: 5px;
+      transition: all 0.3s;
+      z-index: 111;
+    }
+  
+    /* Mobile Nav Links Positioning */
+    .navbar #mobile-nav-links {
+      left: 0;
+    }
+  
+    .navbar #hide-mobile-nav-links {
+      left: -100%;
+    }
+  
+    .navbar #mobile-nav-links li,
+    .navbar #hide-mobile-nav-links li {
+      text-align: center;
+      padding: 1rem 0;
+      margin: 0 3rem;
+    }
+  
+    .navbar #mobile-nav-links li:last-child,
+    .navbar #hide-mobile-nav-links li:last-child {
+      border-bottom: none;
+    }
 
-  .navbar li:hover .submenu {
-    display: block;
+    .submenu-1, .submenu-2 {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--dark-blue);
+        padding: 0.5rem;
+        max-height: 25rem; /* maximale Höhe des Submenüs */
+        overflow-y: auto; /* scrollbalken im submenü */
+      }
+
+      .navbar .submenu-1.active, .navbar .submenu-2.active {
+        display: block; 
+      }
+    
+      .submenu-1 a, .submenu-2 a {
+        display: block;
+        padding: 0.5rem;
+        color: rgb(199, 199, 199);
+        text-align: center;
+        text-decoration: none;
+      }
+    
+      .submenu-1 a:hover, .submenu-2 a:hover {
+        font-size: 1.7rem;
+        cursor: pointer;
+      }
   }
   
