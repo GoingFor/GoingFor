@@ -1,0 +1,92 @@
+.login_container{
+    /* layout */
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    position: absolute;
+}
+
+.login_form{
+    /* layout */
+    width: 24rem;
+    height: 32rem;
+    position: absolute;
+    top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 3rem;
+
+    /* style */
+    border-radius: 1.25rem;
+    background: var(--accent-blue-light);
+    box-shadow: var(--inset-shadow);    
+}
+
+input{
+    /* layout */
+    width: 12.75rem;
+    height: 4.25rem;
+    margin-top: 1rem;
+
+    /* style */
+    border-radius: 1.25rem;
+    border: none;
+    background: var(--accent-blue-semi);
+    box-shadow: var(--inset-shadow);
+}
+
+input::placeholder{
+    /* layout */
+    text-align: center;
+
+    /* subtitle-sm */
+    color: var(--grey);
+    font-family: var( --subtitle-sm-font-family);
+    font-size: var(--subtitle-sm-font-size);
+    font-style: var(--subtitle-sm-font-style);
+    font-weight: var(--subtitle-sm-font-weight);
+    line-height: var(--subtitle-sm-line-height);
+    font-variant: small-caps;
+    letter-spacing: var(--subtitle-sm-letter-spacing);  
+}
+
+.login-btn{
+    margin-top: 5rem;
+}
+
+.other_login{
+    margin-top: 1rem;
+} 
+
+.other-login-text{
+    /* style */
+    color: var(--light);
+
+    /* body-sm */
+    font-family: var(--body-sm-font-family);
+    font-size: var(--body-sm-font-size);
+    font-style: var(--body-sm-font-style);
+    font-weight: var(--body-sm-font-weight);
+    letter-spacing: var(--body-sm-letter-spacing);
+    line-height: var(--body-sm-line-height);
+}
+
+.icon-style{
+    /* layout */
+    font-size: 2rem;
+
+    /* style */
+    color: var(--light);
+    background: none;
+    border: none;
+}
+
+img{
+    width: 300px;
+    position: relative;
+    bottom: -5rem;
+}
