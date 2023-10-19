@@ -3,7 +3,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  border: 2px solid red;
+  /* border: 2px solid red; */
 }
 
 body, html {
@@ -22,6 +22,7 @@ body, html {
   padding: 0;
   text-align: center;
   font-size: 62.5%;
+  
 
   
     /* colors */

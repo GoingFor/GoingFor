@@ -1,4 +1,4 @@
-.def_btn {
+#default-button{
     /* subtitle-sm */
     color: var(--light);
     font-family: var( --subtitle-sm-font-family);
@@ -20,7 +20,11 @@
 
     /* style */
     border-radius: 1.25rem;
-    border: 1px solid var(--accentBlue);
+    border: none;
     background: var(--accent-blue-semi);
     box-shadow: var(--inset-shadow);
 }
+
+/* .def_btn:focus{
+    border: 1px solid rgba(73, 201, 242, 1);
+} */

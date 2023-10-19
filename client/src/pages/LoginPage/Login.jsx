@@ -32,12 +32,11 @@ const Login = () => {
                     type='password' 
                     placeholder='Password'
                 />
-
                 {/* hier kommt die button comp rein */}
-                <Button label='Login' onClick={handleLogin} className='login-btn'/>
+                <Button label='Login' onClick={handleLogin} className='loginBtn'/>
 
-                <div className="other_login">
-                    <p className='other-login-text'>or login with</p>
+                <div className='social-media-login'>
+                    <p className='social-media-login-text'>or login with</p>
 
 
                     {/* hier kommt der google button rein */}
@@ -62,7 +61,7 @@ const Login = () => {
                 </div>      
             </form>   
 
-            <img src={goingfor_logo} alt='goingfor-logo'/>
+            <img className='goingfor_logo' src={goingfor_logo} alt='goingfor-logo'/>
         </div>
     )
 }
