@@ -19,7 +19,7 @@
     gap: 0.625rem;
 
     /* style */
-    border-radius: 20px;
+    border-radius: 1.25rem;
     border: 1px solid var(--accentBlue);
     background: var(--accent-blue-semi);
     box-shadow: var(--inset-shadow);
