@@ -1,5 +1,5 @@
 import express from 'express';
-import { facebook, google, signOut, signin, signup } from '../controllers/auth.controller.js';
+import { facebook, google, instagram, twitter, signOut, signin, signup } from '../controllers/auth.controller.js';
 
 const router = express.Router();
 
@@ -13,8 +13,16 @@ router.post("/signin", signin);
 //Login Google
 // http://localhost:3002/api/auth/google
 router.post('/google', google);
-
+//Login facebook
+// http://localhost:3002/api/auth/facebook
 router.post('/facebook', facebook);
+
+//Login twitter
+// http://localhost:3002/api/auth/twitter
+router.post('/twitter', twitter);
+//Login instagram
+// http://localhost:3002/api/auth/instagram
+router.post('/instagram', instagram);
 
 //Signout
 // http://localhost:3002/api/auth/signout
