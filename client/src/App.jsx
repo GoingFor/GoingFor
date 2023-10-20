@@ -3,7 +3,7 @@ import { Button } from './components/Button/index.js';
 import { Card } from './components/Card/index.js'
 import { Login } from './pages/LoginPage/index.js';
 import { Register } from './pages/RegisterPage/index.js';
-import { Header } from './components/Header/index.js';
+// import { Header } from './components/Header/index.js';
 import Logo from './components/Logo';
 import Navbar from './components/Navbar/Navbar';
 import 'typeface-roboto';
@@ -25,15 +25,15 @@ function App() {
         <div className='App'>
 
             {/* <Login /> */}
-            <Register />
+            {/* <Register /> */}
 
 
-            <Login/>
+            {/* <Login/> */}
 
     
             {/* <Button label='Anmelden' onClick={handleLogin}/> */}
 
-          <Navbar />
+            {/* <Navbar /> */}
             {/* <Login/> */}
             {/* <Button label='Anmelden'/> */}
             {/* <Button label='Anmelden' onClick={handleSignup}/> */}

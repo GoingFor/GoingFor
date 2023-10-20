@@ -1,15 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
+import axios from 'axios';
 import { Button } from '../../components/Button/index.js';
 import {FaGoogle, FaInstagram, FaFacebook, FaXTwitter} from 'react-icons/fa6';
 import goingfor_logo from '../../assets/goingfor_logo.png';
 import './style.css';
 
 const Login = () => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
 
     const googleLink = 'https://www.google.com'
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
+
+        try {
+            const response = await axios.post('api/login', {username, password});
+
+            if(response.status === 200){
+                // erfolgreiche anmeldung = weiterleitung zur startseite
+                window.location.href = '/startseite';
+            } else {
+                console.log('anmedlung fehlgeschlaggen');
+            }
+        } catch(error){
+            console.error('Fehler bei der Anmeldung', error);
+        }
     }
 
     const handleLogin = () => {
@@ -27,17 +43,21 @@ const Login = () => {
                 <input 
                     type='text'
                     placeholder='Username'
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
                 /> 
                 <input 
                     type='password' 
                     placeholder='Password'
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                 />
                 {/* hier kommt die button comp rein */}
                 <Button label='Login' onClick={handleLogin} className='loginBtn'/>
 
+
                 <div className='social-media-login'>
                     <p className='social-media-login-text'>or login with</p>
-
 
                     {/* hier kommt der google button rein */}
                     <button onClick={googleLogin} className='icon-style'>
@@ -60,6 +80,7 @@ const Login = () => {
                     </button> 
                 </div>      
             </form>   
+
 
             <img className='goingfor_logo' src={goingfor_logo} alt='goingfor-logo'/>
         </div>
