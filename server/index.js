@@ -70,3 +70,21 @@ app.use((err, req, res, next) => {
     message,
   });
 });
+
+
+// CHATGPT_INTEGRATION
+// const express = require('express');
+// // const app = express();
+// const { sendMessageToGPT } = require('./gptService');
+
+// app.use(express.json());
+
+// app.post('/chat', async (req, res) => {
+//   const userMessage = req.body.message;
+//   const gptResponse = await sendMessageToGPT(userMessage);
+//   res.json({ response: gptResponse });
+// });
+
+// app.listen(5000, () => {
+//   console.log('The server is running on the port 3002');
+// });
