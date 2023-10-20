@@ -8,6 +8,8 @@ import Logo from './components/Logo';
 import Navbar from './components/Navbar/Navbar';
 import 'typeface-roboto';
 import './App.css';
+import Hero from './components/Herosection/Herosection.jsx';
+
 
 function App() {
 
@@ -40,6 +42,13 @@ function App() {
             {/* <Card/> */}
 
             {/* <Header /> */}
+            <Hero
+              subtitle="Woraus Träume gemacht sind"
+              title="Events für Abenteurer"
+              text="Wir finden für Dich dein einmaliges Ereignis. Sag uns einfach, was Du magst und wir zeigen Dir die beste Location voll mit Abenteuer und Spaß. Sag’s deinen  Freunden und habt eine tolle Zeit zusammen."
+            />
+         
+            
 
       
 
