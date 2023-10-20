@@ -1,13 +1,9 @@
 .layoutContainer {
+    background-image: url('../../assets/background_goingfor.png');
     background-color: var(--blk);
     min-height: 200vh;
     width: 100vw;
-}
-
-.background {
-    background-image: url('../../assets/background_goingfor.png');
-    width: 100vw;
-    height: 85vh;
-    background-size: cover;
-    background-position: center;
+    background-position: top center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
