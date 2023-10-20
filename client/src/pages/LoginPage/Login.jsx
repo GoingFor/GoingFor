@@ -55,9 +55,9 @@ const Login = () => {
                 {/* hier kommt die button comp rein */}
                 <Button label='Login' onClick={handleLogin} className='loginBtn'/>
 
+
                 <div className='social-media-login'>
                     <p className='social-media-login-text'>or login with</p>
-
 
                     {/* hier kommt der google button rein */}
                     <button onClick={googleLogin} className='icon-style'>
@@ -80,6 +80,7 @@ const Login = () => {
                     </button> 
                 </div>      
             </form>   
+
 
             <img className='goingfor_logo' src={goingfor_logo} alt='goingfor-logo'/>
         </div>
