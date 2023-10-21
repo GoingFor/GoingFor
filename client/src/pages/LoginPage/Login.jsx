@@ -41,12 +41,14 @@ const Login = () => {
         <div className='login_container'>
             <form className='login_form' onSubmit={handleSubmit}>
                 <input 
+                    className='login-input'
                     type='text'
                     placeholder='Username'
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                 /> 
                 <input 
+                    className='login-input'
                     type='password' 
                     placeholder='Password'
                     value={password}
