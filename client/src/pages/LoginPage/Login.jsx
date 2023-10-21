@@ -55,7 +55,7 @@ const Login = () => {
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 {/* hier kommt die button comp rein */}
-                <Button label='Login' onClick={handleLogin} className='loginBtn'/>
+                <Button className='login-btn' onClick={handleLogin}>Login</Button>
 
 
                 <div className='social-media-login'>
