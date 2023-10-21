@@ -1,28 +1,40 @@
 .profile{
+     /* layout */
     display: flex;
     flex-direction: column;
+    margin-top: 200px;
 }
 
 .side-header{
+     /* layout */
     display: flex;
     justify-content: flex-start;
+    align-items: center;
+    padding-left: 20px;
+    /* border: 2px solid red; */
+    gap: 20px;
 }
 
-.custom-btn{
+.side-header-btn{
     /* layout */
-    width: 50px;
-    height: 50px;
-    /* font-size: 2rem; */
+    width: 80px;
+    height: 80px;
 
     /* style */
     border-radius: 50px;
-    /* color: var(--light); */
     border: none;
     background-color: var(--accent-blue-semi);
     box-shadow: var(--inset-shadow);
 }
 
+.side-header-icon{
+     /* layout */
+    font-size: 30rem;
+    color: var(--light);
+}
+
 .side-h2{
+     /* layout */
     color: var(--light);
     text-align: center;  
 

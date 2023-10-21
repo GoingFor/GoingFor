@@ -10,7 +10,10 @@ const Profile = () => {
     return(
         <div className='profile'>
             <section className='side-header'>
-                <Button className='custom-btn'> <ImArrowLeft2 /> </Button>
+                <Button className='side-header-btn'>
+                    <ImArrowLeft2 className='side-header-icon'/>    
+                </Button>
+                
                 <h2 className='side-h2'>Profil</h2>
             </section>
 
