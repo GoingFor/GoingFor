@@ -40,7 +40,8 @@ const Register = () => {
                     placeholder='Password'
                 />
                 {/* hier kommt die button comp rein */}
-                <Button label='Register' onClick={handleRegister} className='register-btn'/>
+                {/* <Button label='Register' onClick={handleRegister} className='register-btn'/> */}
+                <Button className='register-btn' onClick={handleRegister}>Register</Button>
 
                 <div className='social-media-register'>
                     <p className='social-media-register-text'>or register with</p>
