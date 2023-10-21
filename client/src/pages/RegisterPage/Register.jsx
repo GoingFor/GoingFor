@@ -25,7 +25,7 @@ const Register = () => {
         <div className='register_container'>
             <form className='register_form' onSubmit={handleSubmit}>
                 <input 
-                className='register-input'
+                    className='register-input'
                     type='text'
                     placeholder='Username'
                 /> 
