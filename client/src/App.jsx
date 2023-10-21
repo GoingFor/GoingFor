@@ -24,15 +24,15 @@ function App() {
     return(
         <div className='App'>
 
-            {/* <Navbar /> */}
-            {/* <Profile /> */}
+            <Navbar />
+            <Profile />
             {/* <Hero
               subtitle="Woraus Träume gemacht sind"
               title="Events für Abenteurer"
               text="Wir finden für Dich dein einmaliges Ereignis. Sag uns einfach, was Du magst und wir zeigen Dir die beste Location voll mit Abenteuer und Spaß. Sag’s deinen  Freunden und habt eine tolle Zeit zusammen."
             /> */}
             {/* <Login /> */}
-            <Register />
+            {/* <Register /> */}
 
 
             {/* <Login/> */}
