@@ -6,4 +6,22 @@
     background-position: top center;
     background-size: contain;
     background-repeat: no-repeat;
+    position: relative;
+}
+
+.rechtliches {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    position: absolute;
+    bottom: 0.3rem;
+    width: 100%;
+}
+
+.rechtliches a {
+    transition: font-size 0.3s ease; 
+}
+
+.rechtliches a:hover {
+    font-size: 0.8rem;
 }
