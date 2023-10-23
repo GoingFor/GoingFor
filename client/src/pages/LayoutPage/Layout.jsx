@@ -8,7 +8,7 @@ const LayoutPage = () => {
     return(
         <div className='layoutContainer'>
             <Navbar />
-                <Outlet />
+                 <Outlet />
             <Footer />
         </div>
     )
