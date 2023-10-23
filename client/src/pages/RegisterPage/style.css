@@ -24,7 +24,7 @@
     /* border: 2px solid red;   */
 }
 
-input{
+.register-input{
     /* layout */
     width: 12.75rem;
     height: 4.25rem;
@@ -38,11 +38,11 @@ input{
     box-shadow: var(--inset-shadow);
 }
 
-input:first-child{
+.register-input:first-child{
     margin-top: 2rem;
 }
 
-input::placeholder{
+.register-input::placeholder{
     /* layout */
     text-align: center;
 
@@ -57,11 +57,11 @@ input::placeholder{
     letter-spacing: var(--subtitle-sm-letter-spacing);  
 }
 
-input:focus-visible{
+.register-input:focus-visible{
     border: 1px solid rgba(73, 201, 242, 1);
 }
 
-.registerBtn{
+.register-btn{
     margin-top: 2rem;
 }
 
