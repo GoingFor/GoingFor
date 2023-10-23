@@ -1,4 +1,14 @@
 import React from 'react';
+// import { Button } from './components/Button/index.js';
+// import { Card } from './components/Card/index.js'
+// import { Login } from './pages/LoginPage/index.js';
+import { Register } from './pages/RegisterPage/index.js';
+// import Logo from './components/Logo';
+import Navbar from './components/Navbar/Navbar';
+// import Hero from './components/Herosection/Herosection.jsx';
+import { Profile } from './pages/ProfilePage/index.js';
+import 'typeface-roboto';
+import './App.css';
 import 'typeface-roboto';
 import './App.css';
 //import { Button } from './components/Button/index.js';
@@ -22,10 +32,18 @@ function App() {
     return(
         <div className='App'>
 
+            {/* <Navbar /> */}
+            {/* <Profile /> */}
+            {/* <Hero
+              subtitle="Woraus Träume gemacht sind"
+              title="Events für Abenteurer"
+              text="Wir finden für Dich dein einmaliges Ereignis. Sag uns einfach, was Du magst und wir zeigen Dir die beste Location voll mit Abenteuer und Spaß. Sag’s deinen  Freunden und habt eine tolle Zeit zusammen."
+            /> */}
+
             <LayoutPage />
 
             {/* <Login /> */}
-            {/* <Register /> */}
+            <Register />
 
 
             {/* <Login/> */}
@@ -40,6 +58,7 @@ function App() {
             
             {/* <Card/> */}
 
+
             {/* <Header /> */}
             {/* <Hero
               subtitle="Woraus Träume gemacht sind"
@@ -49,8 +68,7 @@ function App() {
          
             
 
-      
-
+   
         </div>
     )
 }

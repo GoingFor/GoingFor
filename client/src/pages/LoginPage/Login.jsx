@@ -41,19 +41,21 @@ const Login = () => {
         <div className='login_container'>
             <form className='login_form' onSubmit={handleSubmit}>
                 <input 
+                    className='login-input'
                     type='text'
                     placeholder='Username'
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                 /> 
                 <input 
+                    className='login-input'
                     type='password' 
                     placeholder='Password'
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 {/* hier kommt die button comp rein */}
-                <Button label='Login' onClick={handleLogin} className='loginBtn'/>
+                <Button className='login-btn' onClick={handleLogin}>Login</Button>
 
 
                 <div className='social-media-login'>

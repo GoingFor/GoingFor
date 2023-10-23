@@ -25,19 +25,23 @@ const Register = () => {
         <div className='register_container'>
             <form className='register_form' onSubmit={handleSubmit}>
                 <input 
+                    className='register-input'
                     type='text'
                     placeholder='Username'
                 /> 
                 <input 
+                    className='register-input'
                     type='email'
                     placeholder='Email'
                 /> 
                 <input 
+                    className='register-input'
                     type='password' 
                     placeholder='Password'
                 />
                 {/* hier kommt die button comp rein */}
-                <Button label='Register' onClick={handleRegister} className='registerBtn'/>
+                {/* <Button label='Register' onClick={handleRegister} className='register-btn'/> */}
+                <Button className='register-btn' onClick={handleRegister}>Register</Button>
 
                 <div className='social-media-register'>
                     <p className='social-media-register-text'>or register with</p>

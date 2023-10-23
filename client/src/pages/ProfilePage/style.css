@@ -1,0 +1,48 @@
+.profile{
+     /* layout */
+    display: flex;
+    flex-direction: column;
+    margin-top: 200px;
+}
+
+.side-header{
+     /* layout */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 20px;
+    /* border: 2px solid red; */
+    gap: 20px;
+}
+
+.side-header-btn{
+    /* layout */
+    width: 80px;
+    height: 80px;
+
+    /* style */
+    border-radius: 50px;
+    border: none;
+    background-color: var(--accent-blue-semi);
+    box-shadow: var(--inset-shadow);
+}
+
+.side-header-icon{
+     /* layout */
+    font-size: 30rem;
+    color: var(--light);
+}
+
+.side-h2{
+     /* layout */
+    color: var(--light);
+    text-align: center;  
+
+    /* h2 */
+    font-size: var(--h-2-font-size);
+    font-style: var(--h-2-font-style);
+    font-weight: var(--h-2-font-weight);
+    line-height: var(--h-2-line-height);
+    letter-spacing: var(--h-2-letter-spacing);
+
+}
