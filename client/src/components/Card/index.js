@@ -1,2 +1,2 @@
-import Card from './Card_edit'; 
+import Card from './Card'; 
 export { Card };
