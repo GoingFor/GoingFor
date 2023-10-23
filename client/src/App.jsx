@@ -32,8 +32,8 @@ function App() {
     return(
         <div className='App'>
 
-            {/* <Navbar /> */}
-            {/* <Profile /> */}
+            <Navbar />
+            <Profile />
             {/* <Hero
               subtitle="Woraus Träume gemacht sind"
               title="Events für Abenteurer"
@@ -43,7 +43,7 @@ function App() {
             <LayoutPage />
 
             {/* <Login /> */}
-            <Register />
+            {/* <Register /> */}
 
 
             {/* <Login/> */}
