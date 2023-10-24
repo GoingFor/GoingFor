@@ -41,8 +41,8 @@ function App() {
               text="Wir finden für Dich dein einmaliges Ereignis. Sag uns einfach, was Du magst und wir zeigen Dir die beste Location voll mit Abenteuer und Spaß. Sag’s deinen  Freunden und habt eine tolle Zeit zusammen."
             /> */}
 
-            {/* <LayoutPage /> */}
-            <MinimalLayoutPage/>
+            <LayoutPage />
+            {/* <MinimalLayoutPage/> */}
 
             {/* <Login /> */}
             {/* <Register /> */}
