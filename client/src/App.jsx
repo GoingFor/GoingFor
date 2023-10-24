@@ -2,23 +2,17 @@ import React from 'react';
 // import { Button } from './components/Button/index.js';
 // import { Card } from './components/Card/index.js'
 // import { Login } from './pages/LoginPage/index.js';
-import { Register } from './pages/RegisterPage/index.js';
+// import { Register } from './pages/RegisterPage/index.js';
 // import Logo from './components/Logo';
-import Navbar from './components/Navbar/Navbar';
+// import Navbar from './components/Navbar/Navbar';
 // import Hero from './components/Herosection/Herosection.jsx';
 import { Profile } from './pages/ProfilePage/index.js';
-import { ProfilePersonalData } from './pages/ProfilePersonalData/index.js';
+// import { ProfilePersonalData } from './pages/ProfilePersonalData/index.js';
+// import LayoutPage from './pages/LayoutPage/Layout.jsx';
+// import MinimalLayoutPage from './pages/minimalLayoutPage/MinimalLayout.jsx';
 import 'typeface-roboto';
 import './App.css';
-import 'typeface-roboto';
-import './App.css';
-//import { Button } from './components/Button/index.js';
-//import { Card } from './components/Card/index.js'
-//import { Login } from './pages/LoginPage/index.js';
-//import { Register } from './pages/RegisterPage/index.js';
-//import Hero from './components/Herosection/Herosection.jsx';
-import LayoutPage from './pages/LayoutPage/Layout.jsx';
-import MinimalLayoutPage from './pages/minimalLayoutPage/MinimalLayout.jsx';
+
 
 
 function App() {
@@ -44,10 +38,12 @@ function App() {
               text="Wir finden für Dich dein einmaliges Ereignis. Sag uns einfach, was Du magst und wir zeigen Dir die beste Location voll mit Abenteuer und Spaß. Sag’s deinen  Freunden und habt eine tolle Zeit zusammen."
             /> */}
 
+
             
             {/* <ProfilePersonalData /> */}
             
             <Profile />
+              
             {/* <MinimalLayoutPage/> */}
 
             {/* <Login /> */}

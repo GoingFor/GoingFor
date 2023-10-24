@@ -7,6 +7,10 @@ const MinimalLayoutPage = () => {
     return(
         <div className='layoutContainer'>
                  <Outlet />
+                 <div className='rechtliches'>
+                    <a href="#">Impressum</a>
+                    <a href="#">Datenschutz</a>
+                 </div>
         </div>
     )
 }

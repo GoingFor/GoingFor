@@ -5,13 +5,15 @@ import Footer from '../../components/Footer/index.js';
 import { Outlet } from 'react-router-dom';
 
 const LayoutPage = () => {
-    return(
+    return (
         <div className='layoutContainer'>
             <Navbar />
-                 <Outlet />
+            <div className='content'>
+                <Outlet />
+            </div>
             <Footer />
         </div>
-    )
+    );
 }
 
 export default LayoutPage;
