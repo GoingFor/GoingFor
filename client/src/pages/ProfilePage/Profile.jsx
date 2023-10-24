@@ -27,77 +27,77 @@ const Profile = () => {
                     pageTitle='Profil'
                 />
 
-                <main className='mobile-content'>
-                    <div className='mc-user'>
-                        <div className='mc-user-le'>
-                            <div className='mc-user-avatar-icon'></div>
-                            <div className='mc-user-le-text'>
-                                <p className='mc-user-name'>Pipilotta</p>
-                                <p className='mc-user-show-profile'>Profil anzeigen</p>
+                <main className='pr-mobile-content'>
+                    <div className='pr-mc-user'>
+                        <div className='pr-mc-user-le'>
+                            <div className='pr-mc-user-avatar-icon'></div>
+                            <div className='pr-mc-user-le-text'>
+                                <p className='pr-mc-user-name'>Pipilotta</p>
+                                <p className='pr-mc-user-show-profile'>Profil anzeigen</p>
                             </div>
 
                         </div>
-                        <div className='mc-user-ri'>
-                            <HiChevronRight className='mc-icon-ri'/> 
+                        <div className='pr-mc-user-ri'>
+                            <HiChevronRight className='pr-mc-icon-ri'/> 
                         </div>
 
                     </div>
 
 
                     <Button 
-                        className='mc-btn' 
+                        className='pr-mc-btn' 
                         onClick={handleFeedback}
                             >Inseriere ein Festival
                     </Button>
 
-                    <div className='mc-text'>
-                        <h4 className='mc-text-header'>Einstellungen</h4>
+                    <div className='pr-mc-text'>
+                        <h4 className='pr-mc-text-header'>Einstellungen</h4>
 
-                        <ul className='mc-list'>
-                            <li className='mc-list-item'> 
-                                <div className='mc-list-item-wrapper'>
-                                    <div className='mc-list-item-le'>
-                                        <PiUserCircle className='mc-icon-le'/>
-                                        <p className='text-body-le'>Persönliche Daten</p>
+                        <ul className='pr-mc-list'>
+                            <li className='pr-mc-list-item'> 
+                                <div className='pr-mc-list-item-wrapper'>
+                                    <div className='pr-mc-list-item-le'>
+                                        <PiUserCircle className='pr-mc-icon-le'/>
+                                        <p className='pr-text-body-le'>Persönliche Daten</p>
                                     </div>
-                                    <div className='mc-list-item-ri'>
-                                        <HiChevronRight className='mc-icon-ri'/> 
+                                    <div className='pr-mc-list-item-ri'>
+                                        <HiChevronRight className='pr-mc-icon-ri'/> 
                                     </div>
                                 </div>   
                             </li>
 
-                            <li className='mc-list-item'> 
-                                <div className='mc-list-item-wrapper'>
-                                    <div className='mc-list-item-le'>
-                                        <HiPencil className='mc-icon-le'/>
+                            <li className='pr-mc-list-item'> 
+                                <div className='pr-mc-list-item-wrapper'>
+                                    <div className='pr-mc-list-item-le'>
+                                        <HiPencil className='pr-mc-icon-le'/>
                                         <p className='text-body-le'>Gib uns Feedback</p>
                                     </div>
-                                    <div className='mc-list-item-ri'>
-                                        <HiChevronRight className='mc-icon-ri'/> 
+                                    <div className='pr-mc-list-item-ri'>
+                                        <HiChevronRight className='pr-mc-icon-ri'/> 
                                     </div>
                                 </div>   
                             </li>
 
-                            <li className='mc-list-item'> 
-                                <div className='mc-list-item-wrapper'>
-                                    <div className='mc-list-item-le'>
-                                        <HiOutlineHeart className='mc-icon-le'/>
+                            <li className='pr-mc-list-item'> 
+                                <div className='pr-mc-list-item-wrapper'>
+                                    <div className='pr-mc-list-item-le'>
+                                        <HiOutlineHeart className='pr-mc-icon-le'/>
                                         <p className='text-body-le'>Wunschliste</p>
                                     </div>
-                                    <div className='mc-list-item-ri'>
-                                        <HiChevronRight className='mc-icon-ri'/> 
+                                    <div className='pr-mc-list-item-ri'>
+                                        <HiChevronRight className='pr-mc-icon-ri'/> 
                                     </div>
                                 </div>   
                             </li>
 
-                            <li className='mc-list-item'> 
-                                <div className='mc-list-item-wrapper'>
-                                    <div className='mc-list-item-le'>
-                                        <HiMap className='mc-icon-le'/>
+                            <li className='pr-mc-list-item'> 
+                                <div className='pr-mc-list-item-wrapper'>
+                                    <div className='pr-mc-list-item-le'>
+                                        <HiMap className='pr-mc-icon-le'/>
                                         <p className='text-body-le'>Meine Inserate</p>
                                     </div>
-                                    <div className='mc-list-item-ri'>
-                                        <HiChevronRight className='mc-icon-ri'/> 
+                                    <div className='pr-mc-list-item-ri'>
+                                        <HiChevronRight className='pr-mc-icon-ri'/> 
                                     </div>
                                 </div>   
                             </li>

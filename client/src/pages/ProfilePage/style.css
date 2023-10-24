@@ -11,7 +11,7 @@
     margin-top: 3rem;
     /* border: 2px solid red; */
 }
-.mobile-content{
+.pr-mobile-content{
     display: flex;
     flex-direction: column;
     margin-left: 3rem;
@@ -20,24 +20,24 @@
     color: var(--light);
 }
 
-.mc-user,
-.mc-user-le,
-.mc-avatar-le-text{
+.pr-mc-user,
+.pr-mc-user-le,
+.pr-mc-avatar-le-text{
     display: flex; 
     align-items: center;
 }
 
-.mc-user{
+.pr-mc-user{
     padding-top: 1rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid rgba(244, 252, 255, 1);
 }
 
-.mc-user-le{
+.pr-mc-user-le{
     flex: 1 1 0%;
 }
 
-.mc-user-avatar-icon{
+.pr-mc-user-avatar-icon{
     width: 80px;
     height: 80px;
     background-color: blueviolet;
@@ -45,7 +45,7 @@
 
 }
 
-.mc-user-le-text{
+.pr-mc-user-le-text{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -54,7 +54,7 @@
     gap: 0.625rem;
 }
 
-.mc-user-show-profile{
+.pr-mc-user-show-profile{
     font-family: var(--info-sm-font-family);
     font-size: var(--info-sm-font-size);
     font-style: var(--info-sm-font-style);
@@ -64,7 +64,7 @@
     margin: 0;
 }
 
-.mc-btn{
+.pr-mc-btn{
     display: inline-block;
     width: 400px;
     height: 100px;
@@ -74,11 +74,11 @@
     margin-bottom: 3rem;
 }
 
-.mc-text{
+.pr-mc-text{
     margin-bottom: 3rem;
 }
 
-.mc-text-header{
+.pr-mc-text-header{
     font-family: var(--h-4-font-family);
     font-size: var(--h-4-font-size);
     font-style: var(--h-4-font-style);
@@ -89,35 +89,36 @@
     margin: 0;
 }
 
-.mc-list{
+.pr-mc-list{
     margin: 0;
     padding: 0;
     list-style-type: none;
 }
 
-.mc-list-item{
+.pr-mc-list-item{
     padding-top: 1rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid rgba(244, 252, 255, 1);
 }
 
-.mc-list-item-wrapper,
-.mc-list-item-le{
+.pr-mc-list-item-wrapper,
+.pr-mc-list-item-le{
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 10px;
 }
 
-.mc-list-item-le{
+.pr-mc-list-item-le{
     justify-content: flex-start;
     flex: 1;
 }
 
-.mc-icon-le,
-.text-body-le,
-.mc-icon-ri,
-.mc-user-name{
+.pr-mc-icon-le,
+.pr-text-body-le,
+.pr-pr-mc-icon-ri,
+.pr-mc-user-name{
     font-family: var(--body-font-family);
     font-size: var(--body-font-size);
     font-style: var(--body-font-style);
@@ -128,8 +129,8 @@
     margin: 0;
 }
 
-.mc-icon-le,
-.mc-icon-ri{
+.pr-mc-icon-le,
+.pr-mc-icon-ri{
     font-size: var(--body-desktop-font-size);
 }
 
