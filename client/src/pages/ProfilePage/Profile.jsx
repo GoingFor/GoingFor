@@ -13,6 +13,13 @@ const Profile = () => {
         e.preventDefault();
     }
 
+    // Seiten verlinken:
+    // Inseriere ein Festival
+    // Persönliche Daten
+    // Gib uns Feedback
+    // Wunschliste
+    // Meine Inserate
+
     return(
         <div className='profile'>
             <section className='mobile'>
@@ -29,45 +36,54 @@ const Profile = () => {
 
                     <div className='mc-text'>
                         <h4 className='mc-text-header'>Einstellungen</h4>
-                        <ul className='mc-text-list'>
-                            <li> 
-                                <span>
-                                    <PiUserCircle className='mc-icon'/>
-                                </span>
-                                <span>Persönliche Daten</span> 
-                                <span>
-                                    <HiChevronRight className='mc-icon-re'/> 
-                                </span>
+
+                        <ul className='mc-list'>
+                            <li className='mc-list-item'> 
+                                <div className='mc-list-item-wrapper'>
+                                    <div className='mc-list-item-le'>
+                                        <PiUserCircle className='mc-icon-le'/>
+                                        <p className='text-body-le'>Persönliche Daten</p>
+                                    </div>
+                                    <div className='mc-list-item-ri'>
+                                        <HiChevronRight className='mc-icon-ri'/> 
+                                    </div>
+                                </div>   
                             </li>
 
-                            <li>
-                                <span>
-                                    <HiPencil className='mc-icon'/> 
-                                </span>                               
-                                <span>Gib uns Feedback </span>
-                                <span>
-                                    <HiChevronRight className='mc-icon-re'/>    
-                                </span>                                
+                            <li className='mc-list-item'> 
+                                <div className='mc-list-item-wrapper'>
+                                    <div className='mc-list-item-le'>
+                                        <HiPencil className='mc-icon-le'/>
+                                        <p className='text-body-le'>Gib uns Feedback</p>
+                                    </div>
+                                    <div className='mc-list-item-ri'>
+                                        <HiChevronRight className='mc-icon-ri'/> 
+                                    </div>
+                                </div>   
                             </li>
 
-                            <li> 
-                                <span>
-                                    <HiOutlineHeart className='mc-icon'/> 
-                                </span>
-                                <span>Wunschliste </span>
-                                <span>
-                                    <HiChevronRight className='mc-icon-re'/> 
-                                </span>
+                            <li className='mc-list-item'> 
+                                <div className='mc-list-item-wrapper'>
+                                    <div className='mc-list-item-le'>
+                                        <HiOutlineHeart className='mc-icon-le'/>
+                                        <p className='text-body-le'>Wunschliste</p>
+                                    </div>
+                                    <div className='mc-list-item-ri'>
+                                        <HiChevronRight className='mc-icon-ri'/> 
+                                    </div>
+                                </div>   
                             </li>
 
-                            <li> 
-                                <span>
-                                    <HiMap className='mc-icon'/> 
-                                </span> 
-                                <span>Meine Inserate </span>
-                                <span>
-                                    <HiChevronRight className='mc-icon-re'/> 
-                                </span>  
+                            <li className='mc-list-item'> 
+                                <div className='mc-list-item-wrapper'>
+                                    <div className='mc-list-item-le'>
+                                        <HiMap className='mc-icon-le'/>
+                                        <p className='text-body-le'>Meine Inserate</p>
+                                    </div>
+                                    <div className='mc-list-item-ri'>
+                                        <HiChevronRight className='mc-icon-ri'/> 
+                                    </div>
+                                </div>   
                             </li>
                         </ul>  
                     </div>
