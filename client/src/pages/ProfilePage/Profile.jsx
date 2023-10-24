@@ -28,6 +28,22 @@ const Profile = () => {
                 />
 
                 <main className='mobile-content'>
+                    <div className='mc-user'>
+                        <div className='mc-user-le'>
+                            <div className='mc-user-avatar-icon'></div>
+                            <div className='mc-user-le-text'>
+                                <p className='mc-user-name'>Pipilotta</p>
+                                <p className='mc-user-show-profile'>Profil anzeigen</p>
+                            </div>
+
+                        </div>
+                        <div className='mc-user-ri'>
+                            <HiChevronRight className='mc-icon-ri'/> 
+                        </div>
+
+                    </div>
+
+
                     <Button 
                         className='mc-btn' 
                         onClick={handleFeedback}
