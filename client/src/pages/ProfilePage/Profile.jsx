@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from '../../components/Card/index.js';
 import { Button } from '../../components/Button/index.js';
-import { ImArrowLeft2 } from 'react-icons/im';
+import { PageHeader } from '../../components/PageHeader/index.js';
 import { PiUserCircle } from 'react-icons/pi';
 import { HiPencil, HiOutlineHeart, HiMap, HiChevronRight } from 'react-icons/hi2';
 
@@ -16,13 +16,9 @@ const Profile = () => {
     return(
         <div className='profile'>
             <section className='mobile'>
-                <header className='mobile-header'>
-                    <Button className='mh-btn'>
-                        <ImArrowLeft2 className='mh-icon'/>    
-                    </Button>
-
-                    <h2 className='mh-h2'>Profil</h2>
-                </header>
+                <PageHeader 
+                    pageTitle='Profil'
+                />
 
                 <main className='mobile-content'>
                     <Button 
@@ -78,7 +74,7 @@ const Profile = () => {
                 </main>
             </section>
 
-            <section className='desktop'>
+            <section className='profile-desktop'>
                 <Card className='a-card'>
                     <div className="text">
                         <p className="subtitle">Festival Inserieren</p>

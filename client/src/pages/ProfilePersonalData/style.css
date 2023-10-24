@@ -12,53 +12,9 @@
     /* border: 2px solid red; */
 }
 
-.mobile-header{
-    /* layout */
-    display: flex;
-    align-items: center; 
-    gap: 1rem; 
-    margin-top: 13rem;
-    margin-left: 1rem;
-    /* border: 2px solid purple; */
-}
-
-.mh-btn{
-    /* layout */
-    width: 40px;
-    height: 40px;
-
-    /* style */
-    border-radius: 50px;
-    border: none;
-    background-color: var(--accent-blue-semi);
-    box-shadow: var(--inset-shadow);
-}
-
-.mh-icon{
-    /* layout */
-    font-size: 1rem;
-    color: var(--light);
-}
-
-.mh-h2{
-    /* layout */
-   color: var(--light);
-   text-align: left;  
-   margin: 0;
-   /* border: 2px solid purple; */
-
-   /* h2 */
-   /* font-size: var(--h-2-font-size); */
-   font-size: 2rem;
-   font-style: var(--h-2-font-style);
-   font-weight: var(--h-2-font-weight);
-   line-height: var(--h-2-line-height);
-   letter-spacing: var(--h-2-letter-spacing);
-
-}
-
 .mobile-content{
-    margin: 1rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
     margin-top: 4rem;
     color: var(--light);
 }
