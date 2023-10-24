@@ -1,20 +1,16 @@
 import React from 'react';
 // import { Card } from '../../components/Card/index.js';
 // import { Button } from '../../components/Button/index.js';
-import { ImArrowLeft2 } from 'react-icons/im';
+import { PageHeader } from '../../components/PageHeader/index.js';
 import './style.css';
 
 const ProfilePersonalData = () => {
     return(
         <div className="personalData">
             <section className='mobile'>
-                <header className='mobile-header'>
-                    <button className='mh-btn'>
-                        <ImArrowLeft2 className='mh-icon'/>    
-                    </button>
-
-                    <h2 className='mh-h2'>Persönliche Daten</h2>
-                </header>
+                <PageHeader 
+                    pageTitle='Persönliche Daten'
+                />
 
                 <main className='mobile-content'>
                     <ul className='mc-list'>

@@ -10,54 +10,16 @@
     flex-direction: column;
     /* border: 2px solid red; */
 }
-
-.mobile-header{
-    /* layout */
-    display: flex;
-    align-items: center; 
-    gap: 1rem; 
-    margin-top: 15rem;
+.mobile-content{
     margin-left: 3rem;
-
-    /* border: 2px solid purple; */
-}
-
-.mh-btn{
-    /* layout */
-    width: 60px;
-    height: 60px;
-
-    /* style */
-    border-radius: 50px;
-    border: none;
-    background-color: var(--accent-blue-semi);
-    box-shadow: var(--inset-shadow);
-}
-
-.mh-icon{
-    /* layout */
-    font-size: 40px;
-    color: var(--light);
-}
-
-.mh-h2{
-    /* layout */
-   color: var(--light);
-   text-align: center;  
-
-   /* h2 */
-   font-size: var(--h-2-font-size);
-   font-style: var(--h-2-font-style);
-   font-weight: var(--h-2-font-weight);
-   line-height: var(--h-2-line-height);
-   letter-spacing: var(--h-2-letter-spacing);
+    margin-right: 3rem;
 }
 
 .mc-btn{
     display: inline-block;
     width: 400px;
     height: 100px;
-    font-size: 2rem;
+    /* font-size: 2rem; */
     margin: 0 auto;
     margin-top: 5rem;
 }
@@ -72,7 +34,7 @@
     /* layout */
     color: var(--light);
     text-align: left;
-    margin-left: 3rem;
+    /* margin-left: 3rem; */
 
     /* h4 */
     font-size: var(--h-4-font-size);
@@ -88,13 +50,13 @@
 .mc-text-list{
     /* layout */
     padding-left: 0;
-    margin-right: 3rem;
+    /* margin-right: 3rem; */
 
     /* style */
     list-style-type: none;
 
     /* body */
-    /* font-size: var(--body-font-size); */
+    font-size: var(--body-font-size);
     font-style: var(--body-font-style);
     font-weight: var(--body-font-weight);
     line-height: var(--body-line-height);
@@ -133,7 +95,7 @@
 
 
 /* MAIN DESKTOP */
-.desktop{
+.profile-desktop{
     display: none;
 }
 
@@ -147,7 +109,7 @@
         display: none;
     }
 
-    .desktop{
+    .profile-desktop{
         margin-top: 20rem;
         display: grid;
         grid-template-columns: 1fr 1fr;
