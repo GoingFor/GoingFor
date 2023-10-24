@@ -1,17 +1,17 @@
-.profile{
+.pr{
     min-width: 100vw;
     min-height: 100vh;
 }
 
 /* MOBILE SECTION */
-.mobile{
+.pr-mobile{
     width: 100vw;
     display: flex;
     flex-direction: column;
     margin-top: 3rem;
     /* border: 2px solid red; */
 }
-.pr-mobile-content{
+.pr-mc{
     display: flex;
     flex-direction: column;
     margin-left: 3rem;
@@ -54,7 +54,7 @@
     gap: 0.625rem;
 }
 
-.pr-mc-user-show-profile{
+.pr-mc-user-show-pr{
     font-family: var(--info-sm-font-family);
     font-size: var(--info-sm-font-size);
     font-style: var(--info-sm-font-style);
@@ -65,9 +65,9 @@
 }
 
 .pr-mc-btn{
-    display: inline-block;
-    width: 400px;
-    height: 100px;
+    /* display: inline-block; */
+    /* width: 400px; */
+    /* height: 100px; */
     /* font-size: 2rem; */
     margin: 0 auto;
     margin-top: 3rem;
@@ -136,17 +136,17 @@
 
 
 /* MAIN DESKTOP */
-.profile-desktop{
+.pr-desktop{
     display: none;
 }
 
 
 @media screen and (min-width: 768px) {
-    .mobile{
+    .pr-mobile{
         display: none;
     }
 
-    .profile-desktop{
+    .pr-desktop{
         margin-top: 20rem;
         display: grid;
         grid-template-columns: 1fr 1fr;

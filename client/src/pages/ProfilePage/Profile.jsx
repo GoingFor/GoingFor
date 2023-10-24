@@ -21,19 +21,24 @@ const Profile = () => {
     // Meine Inserate
 
     return(
-        <div className='profile'>
-            <section className='mobile'>
+        <div className='pr'>
+            <section className='pr-mobile'>
                 <PageHeader 
                     pageTitle='Profil'
                 />
 
-                <main className='pr-mobile-content'>
+                {/* pr = profilseite */}
+                {/* mc = mobile content */}
+                {/* le = left */}
+                {/* ri = right */}
+                {/* btn = button */}
+                <main className='pr-mc'>
                     <div className='pr-mc-user'>
                         <div className='pr-mc-user-le'>
                             <div className='pr-mc-user-avatar-icon'></div>
                             <div className='pr-mc-user-le-text'>
                                 <p className='pr-mc-user-name'>Pipilotta</p>
-                                <p className='pr-mc-user-show-profile'>Profil anzeigen</p>
+                                <p className='pr-mc-user-show-pr'>Profil anzeigen</p>
                             </div>
 
                         </div>
@@ -42,7 +47,6 @@ const Profile = () => {
                         </div>
 
                     </div>
-
 
                     <Button 
                         className='pr-mc-btn' 
@@ -70,7 +74,7 @@ const Profile = () => {
                                 <div className='pr-mc-list-item-wrapper'>
                                     <div className='pr-mc-list-item-le'>
                                         <HiPencil className='pr-mc-icon-le'/>
-                                        <p className='text-body-le'>Gib uns Feedback</p>
+                                        <p className='pr-text-body-le'>Gib uns Feedback</p>
                                     </div>
                                     <div className='pr-mc-list-item-ri'>
                                         <HiChevronRight className='pr-mc-icon-ri'/> 
@@ -82,7 +86,7 @@ const Profile = () => {
                                 <div className='pr-mc-list-item-wrapper'>
                                     <div className='pr-mc-list-item-le'>
                                         <HiOutlineHeart className='pr-mc-icon-le'/>
-                                        <p className='text-body-le'>Wunschliste</p>
+                                        <p className='pr-text-body-le'>Wunschliste</p>
                                     </div>
                                     <div className='pr-mc-list-item-ri'>
                                         <HiChevronRight className='pr-mc-icon-ri'/> 
@@ -94,7 +98,7 @@ const Profile = () => {
                                 <div className='pr-mc-list-item-wrapper'>
                                     <div className='pr-mc-list-item-le'>
                                         <HiMap className='pr-mc-icon-le'/>
-                                        <p className='text-body-le'>Meine Inserate</p>
+                                        <p className='pr-text-body-le'>Meine Inserate</p>
                                     </div>
                                     <div className='pr-mc-list-item-ri'>
                                         <HiChevronRight className='pr-mc-icon-ri'/> 
@@ -106,7 +110,7 @@ const Profile = () => {
                 </main>
             </section>
 
-            <section className='profile-desktop'>
+            <section className='pr-desktop'>
                 <Card className='a-card'>
                     <div className="text">
                         <p className="subtitle">Festival Inserieren</p>
