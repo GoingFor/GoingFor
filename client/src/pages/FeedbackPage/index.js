@@ -1,2 +1,2 @@
-import FeedbackPage from './FeedbackPage';
-export { FeedbackPage };
+import Feedback from './Feedback';
+export { Feedback };

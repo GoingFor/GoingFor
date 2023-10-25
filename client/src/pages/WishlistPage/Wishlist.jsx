@@ -2,11 +2,10 @@ import React from 'react';
 import { PageHeader } from '../../components/PageHeader/index.js';
 import './style.css';
 
-const WishlistPage = () => {
+const Wishlist = () => {
     return(
         <div className='wl'>
-            {/* fb = feedbackseite */}
-            {/* mc = mobile content */}
+            {/* wl = feedbackseite */}
             {/* le = left */}
             {/* ri = right */}
             {/* btn = button */}
@@ -14,8 +13,10 @@ const WishlistPage = () => {
             <PageHeader
                 pageTitle='Wunschliste'>
             </PageHeader>
+
+
         </div>
     )
 }
 
-export default WishlistPage;
+export default Wishlist;

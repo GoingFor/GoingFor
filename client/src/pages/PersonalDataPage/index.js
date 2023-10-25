@@ -1,2 +1,2 @@
-import PersonalDataPage from './PersonalDataPage';
-export { PersonalDataPage };
+import PersonalData from './PersonalData';
+export { PersonalData };

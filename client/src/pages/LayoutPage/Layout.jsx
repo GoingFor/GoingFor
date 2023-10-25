@@ -1,8 +1,8 @@
 import React from 'react';
-import './style.css';
+import { Outlet } from 'react-router-dom';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/index.js';
-import { Outlet } from 'react-router-dom';
+import './style.css';
 
 const LayoutPage = () => {
     return (

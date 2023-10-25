@@ -1,4 +1,4 @@
-.layoutContainer {
+.minimal-layoutContainer{
     background-image: url('../../assets/goingfor_background.png');
     background-color: var(--blk);
     min-height: 200vh;

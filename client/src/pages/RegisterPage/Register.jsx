@@ -31,8 +31,6 @@ const Register = () => {
                         type='password' 
                         placeholder='Password'
                     />
-                    {/* hier kommt die button comp rein */}
-                    {/* <Button label='Register' onClick={handleRegister} className='register-btn'/> */}
                     <Button className='reg-btn'>Register</Button>
                 </form>  
 
@@ -40,7 +38,6 @@ const Register = () => {
                     <p className='reg-social-text'>or register with</p>
 
                     <div className='reg-social-icon-wrapper'>
-                        {/* hier kommt der google button rein */}
                         <button className='reg-icon'>
                             <FaGoogle/>
                         </button>

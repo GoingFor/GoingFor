@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import goingfor_logo from '../../assets/goingfor_logo.png';
 import { Button } from '../../components/Button/index.js';
 import './style.css';
-import { FaBurger } from 'react-icons/fa6';
 
 const Info = () => {
     return(
@@ -28,11 +27,10 @@ const Info = () => {
                     <Button className='ip-login-btn'>Login</Button>
                 </Link>
                 
-                <Button className='ip-register-btn'>Anmelden</Button>
-            </div>
-            
-            
-            
+                <Link to={'/register'}>
+                    <Button className='ip-register-btn'>Anmelden</Button>
+                </Link>
+            </div>  
         </div>
     )
 }
