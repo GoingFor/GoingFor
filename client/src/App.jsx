@@ -7,7 +7,9 @@ import React from 'react';
 // import Navbar from './components/Navbar/Navbar';
 // import Hero from './components/Herosection/Herosection.jsx';
 import { Profile } from './pages/ProfilePage/index.js';
-// import { ProfilePersonalData } from './pages/ProfilePersonalData/index.js';
+import { PersonalDataPage } from './pages/PersonalDataPage/index.js';
+import { FeedbackPage } from './pages/FeedbackPage/index.js';
+import { WishlistPage } from './pages/WishlistPage/index.js';
 // import LayoutPage from './pages/LayoutPage/Layout.jsx';
 // import MinimalLayoutPage from './pages/minimalLayoutPage/MinimalLayout.jsx';
 import 'typeface-roboto';
@@ -42,7 +44,8 @@ function App() {
             
             {/* <ProfilePersonalData /> */}
             
-            <Profile />
+            {/* <Profile /> */}
+            <WishlistPage />
               
             {/* <MinimalLayoutPage/> */}
 
