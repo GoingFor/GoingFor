@@ -9,7 +9,7 @@ import './style.css';
 
 const Profile = () => {
 
-    const handleFeedback = (e) => {
+    const handleFestival = (e) => {
         e.preventDefault();
     }
 
@@ -50,7 +50,7 @@ const Profile = () => {
 
                     <Button 
                         className='pr-mc-btn' 
-                        onClick={handleFeedback}
+                        onClick={handleFestival}
                             >Inseriere ein Festival
                     </Button>
 
