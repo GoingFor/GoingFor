@@ -13,68 +13,104 @@ const Profile = () => {
         e.preventDefault();
     }
 
+    // Seiten verlinken:
+    // Inseriere ein Festival
+    // Persönliche Daten
+    // Gib uns Feedback
+    // Wunschliste
+    // Meine Inserate
+
     return(
-        <div className='profile'>
-            <section className='mobile'>
+        <div className='pr'>
+            <section className='pr-mobile'>
                 <PageHeader 
                     pageTitle='Profil'
                 />
 
-                <main className='mobile-content'>
+                {/* pr = profilseite */}
+                {/* mc = mobile content */}
+                {/* le = left */}
+                {/* ri = right */}
+                {/* btn = button */}
+                <main className='pr-mc'>
+                    <div className='pr-mc-user'>
+                        <div className='pr-mc-user-le'>
+                            <div className='pr-mc-user-avatar-icon'></div>
+                            <div className='pr-mc-user-le-text'>
+                                <p className='pr-mc-user-name'>Pipilotta</p>
+                                <p className='pr-mc-user-show-pr'>Profil anzeigen</p>
+                            </div>
+
+                        </div>
+                        <div className='pr-mc-user-ri'>
+                            <HiChevronRight className='pr-mc-icon-ri'/> 
+                        </div>
+
+                    </div>
+
                     <Button 
-                        className='mc-btn' 
+                        className='pr-mc-btn' 
                         onClick={handleFeedback}
                             >Inseriere ein Festival
                     </Button>
 
-                    <div className='mc-text'>
-                        <h4 className='mc-text-header'>Einstellungen</h4>
-                        <ul className='mc-text-list'>
-                            <li> 
-                                <span>
-                                    <PiUserCircle className='mc-icon'/>
-                                </span>
-                                <span>Persönliche Daten</span> 
-                                <span>
-                                    <HiChevronRight className='mc-icon-re'/> 
-                                </span>
+                    <div className='pr-mc-text'>
+                        <h4 className='pr-mc-text-header'>Einstellungen</h4>
+
+                        <ul className='pr-mc-list'>
+                            <li className='pr-mc-list-item'> 
+                                <div className='pr-mc-list-item-wrapper'>
+                                    <div className='pr-mc-list-item-le'>
+                                        <PiUserCircle className='pr-mc-icon-le'/>
+                                        <p className='pr-text-body-le'>Persönliche Daten</p>
+                                    </div>
+                                    <div className='pr-mc-list-item-ri'>
+                                        <HiChevronRight className='pr-mc-icon-ri'/> 
+                                    </div>
+                                </div>   
                             </li>
 
-                            <li>
-                                <span>
-                                    <HiPencil className='mc-icon'/> 
-                                </span>                               
-                                <span>Gib uns Feedback </span>
-                                <span>
-                                    <HiChevronRight className='mc-icon-re'/>    
-                                </span>                                
+                            <li className='pr-mc-list-item'> 
+                                <div className='pr-mc-list-item-wrapper'>
+                                    <div className='pr-mc-list-item-le'>
+                                        <HiPencil className='pr-mc-icon-le'/>
+                                        <p className='pr-text-body-le'>Gib uns Feedback</p>
+                                    </div>
+                                    <div className='pr-mc-list-item-ri'>
+                                        <HiChevronRight className='pr-mc-icon-ri'/> 
+                                    </div>
+                                </div>   
                             </li>
 
-                            <li> 
-                                <span>
-                                    <HiOutlineHeart className='mc-icon'/> 
-                                </span>
-                                <span>Wunschliste </span>
-                                <span>
-                                    <HiChevronRight className='mc-icon-re'/> 
-                                </span>
+                            <li className='pr-mc-list-item'> 
+                                <div className='pr-mc-list-item-wrapper'>
+                                    <div className='pr-mc-list-item-le'>
+                                        <HiOutlineHeart className='pr-mc-icon-le'/>
+                                        <p className='pr-text-body-le'>Wunschliste</p>
+                                    </div>
+                                    <div className='pr-mc-list-item-ri'>
+                                        <HiChevronRight className='pr-mc-icon-ri'/> 
+                                    </div>
+                                </div>   
                             </li>
 
-                            <li> 
-                                <span>
-                                    <HiMap className='mc-icon'/> 
-                                </span> 
-                                <span>Meine Inserate </span>
-                                <span>
-                                    <HiChevronRight className='mc-icon-re'/> 
-                                </span>  
+                            <li className='pr-mc-list-item'> 
+                                <div className='pr-mc-list-item-wrapper'>
+                                    <div className='pr-mc-list-item-le'>
+                                        <HiMap className='pr-mc-icon-le'/>
+                                        <p className='pr-text-body-le'>Meine Inserate</p>
+                                    </div>
+                                    <div className='pr-mc-list-item-ri'>
+                                        <HiChevronRight className='pr-mc-icon-ri'/> 
+                                    </div>
+                                </div>   
                             </li>
                         </ul>  
                     </div>
                 </main>
             </section>
 
-            <section className='profile-desktop'>
+            <section className='pr-desktop'>
                 <Card className='a-card'>
                     <div className="text">
                         <p className="subtitle">Festival Inserieren</p>

@@ -1,115 +1,152 @@
-.profile{
+.pr{
     min-width: 100vw;
     min-height: 100vh;
 }
 
 /* MOBILE SECTION */
-.mobile{
+.pr-mobile{
     width: 100vw;
     display: flex;
     flex-direction: column;
+    margin-top: 3rem;
     /* border: 2px solid red; */
 }
-.mobile-content{
+.pr-mc{
+    display: flex;
+    flex-direction: column;
     margin-left: 3rem;
     margin-right: 3rem;
+    margin-top: 3rem;
+    color: var(--light);
 }
 
-.mc-btn{
-    display: inline-block;
-    width: 400px;
-    height: 100px;
+.pr-mc-user,
+.pr-mc-user-le,
+.pr-mc-avatar-le-text{
+    display: flex; 
+    align-items: center;
+}
+
+.pr-mc-user{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(244, 252, 255, 1);
+}
+
+.pr-mc-user-le{
+    flex: 1 1 0%;
+}
+
+.pr-mc-user-avatar-icon{
+    width: 80px;
+    height: 80px;
+    background-color: blueviolet;
+    border-radius: 50%;
+
+}
+
+.pr-mc-user-le-text{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 1rem;
+    text-align: left;
+    gap: 0.625rem;
+}
+
+.pr-mc-user-show-pr{
+    font-family: var(--info-sm-font-family);
+    font-size: var(--info-sm-font-size);
+    font-style: var(--info-sm-font-style);
+    font-weight: var(--info-sm-font-weight);
+    letter-spacing: var(--info-sm-letter-spacing);
+    line-height: var(--info-sm-line-height);
+    margin: 0;
+}
+
+.pr-mc-btn{
+    /* display: inline-block; */
+    /* width: 400px; */
+    /* height: 100px; */
     /* font-size: 2rem; */
     margin: 0 auto;
-    margin-top: 5rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 }
 
-.mc-text{
-    margin-top: 5rem;
-    /* border: 2px solid green; */
+.pr-mc-text{
+    margin-bottom: 3rem;
 }
 
-.mc-text-header,
-.mc-text-list{
-    /* layout */
-    color: var(--light);
-    text-align: left;
-    /* margin-left: 3rem; */
-
-    /* h4 */
+.pr-mc-text-header{
+    font-family: var(--h-4-font-family);
     font-size: var(--h-4-font-size);
     font-style: var(--h-4-font-style);
     font-weight: var(--h-4-font-weight);
     line-height: var(--h-4-line-height);
     letter-spacing: var(--h-4-letter-spacing);
-
-    /* border: 2px solid green; */
-
+    text-align: left;
+    margin: 0;
 }
 
-.mc-text-list{
-    /* layout */
-    padding-left: 0;
-    /* margin-right: 3rem; */
-
-    /* style */
+.pr-mc-list{
+    margin: 0;
+    padding: 0;
     list-style-type: none;
-
-    /* body */
-    font-size: var(--body-font-size);
-    font-style: var(--body-font-style);
-    font-weight: var(--body-font-weight);
-    line-height: var(--body-line-height);
-    letter-spacing: var(--body-letter-spacing);
 }
 
-.mc-text-list li{
-    display: flex;
-    align-items: center;
-    position: relative;
-
-    /* font-size: 2rem; */
-
-    gap: 3rem;
-    padding-top: 20px;
-    padding-bottom: 20px;
+.pr-mc-list-item{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     border-bottom: 1px solid rgba(244, 252, 255, 1);
 }
 
-.mc-icon,
-.mc-icon-re
-{
-    font-size: 2rem;
-    position: absolute;
-    top: 22px;
+.pr-mc-list-item-wrapper,
+.pr-mc-list-item-le{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
-.mc-icon{
-    left: 0;
+.pr-mc-list-item-le{
+    justify-content: flex-start;
+    flex: 1;
 }
 
-.mc-icon-re{
-    /* left: 300px; */
-    right: 0;
+.pr-mc-icon-le,
+.pr-text-body-le,
+.pr-pr-mc-icon-ri,
+.pr-mc-user-name{
+    font-family: var(--body-font-family);
+    font-size: var(--body-font-size);
+    font-style: var(--body-font-style);
+    font-weight: var(--body-font-weight);
+    letter-spacing: var(--body-letter-spacing);
+    line-height: var(--body-line-height);
+
+    margin: 0;
+}
+
+.pr-mc-icon-le,
+.pr-mc-icon-ri{
+    font-size: var(--body-desktop-font-size);
 }
 
 
 /* MAIN DESKTOP */
-.profile-desktop{
+.pr-desktop{
     display: none;
 }
 
 
-
-
-
-
 @media screen and (min-width: 768px) {
-    .mobile{
+    .pr-mobile{
         display: none;
     }
 
-    .profile-desktop{
+    .pr-desktop{
         margin-top: 20rem;
         display: grid;
         grid-template-columns: 1fr 1fr;
