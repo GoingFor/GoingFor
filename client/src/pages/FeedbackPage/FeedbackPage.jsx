@@ -51,7 +51,6 @@ const FeedbackPage = () => {
 
                 </main>
             </section>
-
         </div>
     )
 
