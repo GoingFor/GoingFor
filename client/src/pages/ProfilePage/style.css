@@ -89,7 +89,14 @@
     list-style-type: none;
 }
 
+.pr-mc-link{
+    color: var(--light);
+    
+}
+
 .pr-mc-list-item{
+
+    color: var(--light);
     padding-top: 1rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid var(--light-grey);

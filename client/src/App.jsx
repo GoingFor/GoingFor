@@ -31,10 +31,10 @@ function App() {
             <Route path='/home' element={ <LayoutPage /> }>
                 {/* <Route index element={ <Home />}/> */}
                 <Route path='/home/profile' element={ <Profile/> }/>
-                {/* <Route path='/home/personaldata' element={ <PersonalData />}/> */}
-                {/* <Route path='/home/feedback' element={ <Feedback />}/> */}
-                {/* <Route path='/home/wishlist' element={ <Wishlist />}/> */}
-                {/* <Route path='/home/hosting' element={ <Hosting />}/> */}
+                <Route path='/home/personaldata' element={ <PersonalData />}/>
+                <Route path='/home/feedback' element={ <Feedback />}/>
+                <Route path='/home/wishlist' element={ <Wishlist />}/>
+                <Route path='/home/hosting' element={ <Hosting />}/>
             </Route> 
 
             

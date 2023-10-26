@@ -11,7 +11,7 @@ const Wishlist = () => {
             {/* ri = right */}
             {/* btn = button */}
             <section className='wl-mobile'>
-                <Link to={'/profile'}>
+                <Link to={'/home/profile'}>
                     <PageHeader 
                         pageTitle='Wunschliste'
                     />

@@ -14,7 +14,7 @@ const PersonalData = () => {
         {/* ri = right */}
         {/* btn = button */}
             <section className='pd-mobile'>
-                <Link to={'/profile'}>
+                <Link to={'/home/profile'}>
                     <PageHeader 
                         pageTitle='Persönliche Daten'
                     />

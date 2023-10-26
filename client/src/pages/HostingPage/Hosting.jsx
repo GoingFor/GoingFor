@@ -8,7 +8,7 @@ const Hosting = () => {
     return(
         <div className='ho'>
             <section className='ho-mobile'>
-                <Link to={'/profile'}>
+                <Link to={'/home/profile'}>
                     <PageHeader 
                         pageTitle='Meine Inserate'
                     />

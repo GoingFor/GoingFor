@@ -22,11 +22,14 @@ const Feedback = () => {
             {/* btn = button */}
 
             <section className='fb-mobile'>
-                <Link to={'/profile'}>
-                    <PageHeader 
-                        pageTitle='Teile dein Feedback'
-                    />
-                </Link>
+                <div className='fb-ph-mobile-header'>
+                    <Link to={'/home/profile'}>
+                        <PageHeader 
+                            pageTitle='Teile dein Feedback'
+                        />
+                    </Link>
+                </div>
+                
 
                 <main className='fb-mc'>
                     <div className='fb-mc-text-container'>
