@@ -1,10 +1,7 @@
 .footercontainer {
-    width: 100vw;
+    max-width: 100%;
     background-color: var(--blk);
-    /* height: 9rem; */
     color: var(--light);
-    /* position: fixed; */
-    /* bottom: 0; */
     padding: 1rem;
 }
 
@@ -14,7 +11,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
 .footer-link{
@@ -43,8 +40,12 @@
     position: relative;
     bottom: -1rem;
 }
-.rechtl-link{
+.rechtl-link {
     color: grey;
     text-decoration: none;
+}
+
+.rechtl-link:hover {
+    color: var(--light);
 }
 

@@ -20,8 +20,10 @@
 
 .rechtliches a {
     transition: font-size 0.3s ease; 
+    color: grey;
+    text-decoration: none;
 }
 
 .rechtliches a:hover {
-    font-size: 0.8rem;
+    color: var(--light);
 }
