@@ -2,10 +2,10 @@ import React from "react";
 import "./style.css";
 
 
-const Card = (props) => {
+const Card = ({children, className}) => {
     return (
-        <div className="card">
-            {props.children}
+        <div className={`card ${className}`}>
+            {children}
         </div>
     );
 }

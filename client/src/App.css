@@ -13,10 +13,10 @@ body, html {
   height: 100%;
 }
 
-a{
+/* a{
   text-transform: none;
   
-}
+} */
 
 
 #root {
@@ -162,16 +162,15 @@ a{
 }
 
 
-.App {
-  /* layout */
+/* .App {
   min-width: 100vw;
   min-height: 100vh;
-  /* background-image: url('./assets/goingfor_background.png'); */
-  /* background-size: cover; */
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* position: relative; */
-}
+  background-image: url('./assets/goingfor_background.png');
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+} */
 
