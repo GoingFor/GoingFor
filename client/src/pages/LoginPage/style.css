@@ -57,6 +57,24 @@
     margin-top: 3rem;
 }
 
+.login-to-register{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid red; */
+}
+
+.login-to-register-text,
+.login-to-register-link{
+    color: #1a1a1a;
+    /* border: 2px solid red; */
+}
+
+.login-to-register-link{
+    text-decoration: underline;
+    margin-left: 0.25rem;
+}
+
 .login-btn,
 .login-social-text,
 .social-icon{

@@ -9,6 +9,7 @@ import { PersonalData } from './pages/PersonalDataPage/index.js';
 import { Feedback } from './pages/FeedbackPage/index.js' ;
 import { Wishlist } from './pages/WishlistPage/index.js';
 import { Hosting } from './pages/HostingPage/index.js';
+import { Home } from './pages/HomePage/index.js';
 import LayoutPage from './pages/LayoutPage/Layout.jsx';
 import MinimalLayoutPage from './pages/minimalLayoutPage/MinimalLayout.jsx';
 import 'typeface-roboto';
@@ -31,8 +32,8 @@ function App() {
             </Route>
 
 
-            <Route path='/home' element={ <LayoutPage /> }>
-                {/* <Route index element={ <Home />}/> */}
+            <Route element={ <LayoutPage /> }>
+                <Route path='/home' element={ <Home />}/>
                 <Route path='/home/profile' element={ <Profile/> }/>
                 <Route path='/home/personaldata' element={ <PersonalData />}/>
                 <Route path='/home/feedback' element={ <Feedback />}/>

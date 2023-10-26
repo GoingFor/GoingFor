@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Button } from '../../components/Button/index.js';
 import {FaGoogle, FaInstagram, FaFacebook, FaXTwitter} from 'react-icons/fa6';
@@ -47,28 +48,35 @@ const Login = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    {/* hier kommt die button comp rein */}
-                    <Button className='login-btn'>Login</Button>
-          
+                    
+                    <Link to={'/home'}>
+                        <Button className='login-btn'>Login</Button>
+                    </Link>
+
+                    <div className='login-to-register'>
+                        <p className='login-to-register-text'>
+                            Du hast noch kein Konto?
+                        </p>
+                        <Link className='login-to-register-link' to={'/register'}>Jetzt registrieren</Link>
+                    </div>
                 </form> 
 
                 <div className='login-social-wrapper'>
                     <p className='login-social-text'>or login with</p>
 
                     <div className='login-social-icon-wrapper'>
-                        {/* hier kommt der google button rein */}
                         <button className='social-icon'>
                             <FaGoogle/>
                         </button>
-                        {/* hier kommt der insta button rein*/}
+
                         <button className='social-icon'>
                             <FaInstagram/>
                         </button>
-                        {/* hier kommt der fb button rein */}
+
                         <button className='social-icon'>
                             <FaFacebook/>
                         </button>
-                        {/* hier kommt der twitter button rein */}
+
                         <button className='social-icon'>
                             <FaXTwitter/>
                         </button> 
