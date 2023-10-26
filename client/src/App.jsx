@@ -1,10 +1,11 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 // import { Button } from './components/Button/index.js';
 // import { Card } from './components/Card/index.js'
 // import { Login } from './pages/LoginPage/index.js';
 // import { Register } from './pages/RegisterPage/index.js';
 // import Logo from './components/Logo';
-// import Navbar from './components/Navbar/Navbar';
+import Navbar from './components/Navbar/Navbar';
 // import Hero from './components/Herosection/Herosection.jsx';
 import { Profile } from './pages/ProfilePage/index.js';
 // import { ProfilePersonalData } from './pages/ProfilePersonalData/index.js';
@@ -12,6 +13,8 @@ import { Profile } from './pages/ProfilePage/index.js';
 // import MinimalLayoutPage from './pages/minimalLayoutPage/MinimalLayout.jsx';
 import 'typeface-roboto';
 import './App.css';
+import Header from './components/Header/Header';
+import { Route } from 'react-router-dom';
 
 
 
@@ -27,8 +30,9 @@ function App() {
 
     return(
         <div className='App'>
-
-            {/* <Header /> */}
+          <Router>
+            <Header/>
+          </Router>
 
             {/* <Navbar /> */}
             
@@ -42,7 +46,7 @@ function App() {
             
             {/* <ProfilePersonalData /> */}
             
-            <Profile />
+            {/* <Profile /> */}
               
             {/* <MinimalLayoutPage/> */}
 
