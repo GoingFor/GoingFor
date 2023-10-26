@@ -7,26 +7,16 @@
     width: 100vw;
     display: flex;
     flex-direction: column;
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
 /* MOBILE SECTION */
-.fb-mobile,
-.fb-mc,
-.fb-mc-form-container,
-.fb-mc-from{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 3rem;
-    /* border: 2px solid red; */
-}
 .fb-mc
 {
     color: var(--light);
     margin-left: 2rem;
     margin-right: 2rem;
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
 .fb-mc-btn{

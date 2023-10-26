@@ -1,14 +1,14 @@
-.pd{
+/* .pd{
     min-width: 100vw;
     min-height: 100vh;
-}
+} */
 
 /* MOBILE SECTION */
 .pd-mobile{
     width: 100vw;
     display: flex;
     flex-direction: column;
-    margin-top: 3rem;
+    margin-top: 2rem;
     
     /* border: 2px solid red; */
 }
@@ -16,7 +16,7 @@
 .pd-mc{
     margin-left: 3rem;
     margin-right: 3rem;
-    margin-top: 3rem;
+    margin-top: 2rem;
     color: var(--light);
 }
 

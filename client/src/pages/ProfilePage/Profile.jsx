@@ -20,16 +20,22 @@ const Profile = () => {
 
     return(
         <div className='pr'>
-            <section className='pr-mobile'>
-                <PageHeader 
-                    pageTitle='Profil'
-                />
+            {/* pr = profilseite */}
+            {/* mc = mobile content */}
+            {/* le = left */}
+            {/* ri = right */}
+            {/* btn = button */}
 
-                {/* pr = profilseite */}
-                {/* mc = mobile content */}
-                {/* le = left */}
-                {/* ri = right */}
-                {/* btn = button */}
+            <section className='pr-mobile'>
+                <div className='pr-ph-wrapper'>
+                    <Link to={'/home'}>
+                        <PageHeader 
+                            pageTitle='Profil'
+                        />
+                    </Link>
+                    
+                </div>
+
                 <main className='pr-mc'>
                     <div className='pr-mc-user'>
                         <div className='pr-mc-user-le'>
