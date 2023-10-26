@@ -9,7 +9,7 @@ const Footer = () =>
         <div className="footercontainer">
             <div className="footericons">
                 <div className="iconcontainer">
-                    <a className="footer-link" href="#">
+                <a className="footer-link" href="/home/hosting">
                         <div className="icon">
                             <IoMdAddCircleOutline/>
                         </div>
@@ -17,7 +17,7 @@ const Footer = () =>
                     </a>
                 </div>
                 <div className="iconcontainer">
-                    <a className="footer-link" href="#">
+                    <a className="footer-link" href="/home/find">
                         <div className="icon">
                             <IoMdSearch/>
                         </div>
@@ -25,7 +25,7 @@ const Footer = () =>
                     </a>
                 </div>
                 <div className="iconcontainer">
-                    <a className="footer-link" href="#">
+                    <a className="footer-link" href="/home/wishlist">
                         <div className="icon">
                             <IoIosHeartEmpty/>
                         </div>
@@ -33,7 +33,7 @@ const Footer = () =>
                     </a>
                 </div>
                 <div className="iconcontainer">
-                    <a className="footer-link" href="#">
+                    <a className="footer-link" href="/home/profile">
                         <div className="icon">
                             <PiUserCircleLight/>
                         </div>
@@ -41,6 +41,7 @@ const Footer = () =>
                     </a>
                 </div>
             </div>
+            
             <div className="rechtl">
                 <a className="rechtl-link" href="#">Impressum</a>
                 <a className="rechtl-link" href="#">Datenschutz</a>
