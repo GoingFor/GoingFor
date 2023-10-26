@@ -44,9 +44,10 @@ body {
   list-style-type: none;
 }
 
-.nav-elements ul li:not(:last-child) {
-  margin-right: 60px;
-}
+.nav-elements ul li {
+    margin-right: 2rem;
+  }
+  
 
 .nav-elements ul a {
   font-size: 16px;
@@ -71,11 +72,55 @@ body {
   background-color: var(--blk);
 }
 
-@media (max-width: 768px) {
-  .nav-elements ul li:not(:last-child) {
-    margin-right: 30px;
-  }
+span {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--light);
+    text-decoration: none;
 }
+
+.submenu {
+    position: absolute;
+    top: 4rem;
+    right: 0;
+    background-color: var(--blk);
+    width: 20rem; 
+    max-height: 80vh; 
+    padding: 1rem 0;
+    display: block;
+    flex-direction: column;
+    z-index: 1;
+    color: var(--light);
+    overflow-y: auto; 
+}
+
+.submenu li {
+    margin: 1rem 0;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--light);
+    text-decoration: none;
+}
+
+.submenu a {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--light);
+    text-decoration: none;
+}
+
+.submenu a:hover {
+    color: var(--accentblue);
+    background-color: var(--gray); /* Hintergrundfarbe beim Hover anpassen */
+}
+
+.submenu li a:active {
+    color: var(--accentblue);
+    font-weight: 500;
+}
+
+
+
 
 @media (max-width: 600px) {
   .menu-icon {
@@ -111,4 +156,5 @@ body {
     margin-right: unset;
     margin-top: 22px;
   }
+
 }

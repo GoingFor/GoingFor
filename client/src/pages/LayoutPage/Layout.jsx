@@ -1,13 +1,13 @@
 import React from 'react';
 import './style.css';
-import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/index.js';
 import { Outlet } from 'react-router-dom';
+import Header from '../../components/Header/Header';
 
 const LayoutPage = () => {
     return (
         <div className='layoutContainer'>
-            <Navbar />
+            <Header/>
             <div className='content'>
                 <Outlet />
             </div>
