@@ -5,15 +5,16 @@ import './style.css';
 const PageHeader = ({ pageTitle }) => {
 
     return(
-        <header className='mh'>
-                {/* mh = mobile header */}
+        <header className='ph-mc'>
+                {/* ph = page header */}
+                {/* mc = mobile content */}
                 {/* btn = button */}
                 
-            <button className='mh-return-btn'>
-                <ImArrowLeft2 className='mh-icon'/>    
+            <button className='ph-mc-return-btn'>
+                <ImArrowLeft2 className='ph-mc-icon'/>    
             </button>
 
-            <h2 className='mh-h2'>{pageTitle}</h2>
+            <p className='ph-mc-h2'>{pageTitle}</p>
         </header>
     )
 }

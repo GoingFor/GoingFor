@@ -1,4 +1,4 @@
-.mh{
+.ph-mc{
     display: flex;
     align-items: center; 
     gap: 1rem; 
@@ -8,7 +8,7 @@
 
 }
 
-.mh-return-btn{
+.ph-mc-return-btn{
     width: 40px;
     height: 40px;
     display: flex;
@@ -21,17 +21,18 @@
     box-shadow: var(--inset-shadow);
 }
 
-.mh-icon{
+.ph-mc-icon{
     font-size: 1rem;
     color: var(--light);
 }
 
-.mh-h2{
+.ph-mc-h2{
    color: var(--light);
    text-align: left;  
    margin: 0;
 
-   font-size: 2rem;
+   font-family: var(--h-2-font-family);
+   font-size: var(--h-4-font-size);
    font-style: var(--h-2-font-style);
    font-weight: var(--h-2-font-weight);
    line-height: var(--h-2-line-height);

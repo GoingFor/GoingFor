@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { PageHeader } from '../../components/PageHeader/index.js';
 import { Button } from '../../components/Button/index.js';
 import './style.css';
@@ -21,9 +22,11 @@ const Feedback = () => {
             {/* btn = button */}
 
             <section className='fb-mobile'>
-                <PageHeader 
-                    pageTitle='Teile dein Feedback'
-                />
+                <Link to={'/profile'}>
+                    <PageHeader 
+                        pageTitle='Teile dein Feedback'
+                    />
+                </Link>
 
                 <main className='fb-mc'>
                     <div className='fb-mc-text-container'>

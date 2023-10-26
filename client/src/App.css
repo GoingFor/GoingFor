@@ -13,6 +13,10 @@ body, html {
   height: 100%;
 }
 
+a{
+  text-transform: none;
+  
+}
 
 
 #root {
