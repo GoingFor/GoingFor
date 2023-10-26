@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--blk);
+    font-family: 'Roboto';
   }
 
 .nav-container {
@@ -54,6 +55,7 @@ body {
   font-weight: 400;
   color: var(--light);
   text-decoration: none;
+  text-transform: uppercase;
 }
 
 .nav-elements ul a.active {
@@ -77,6 +79,7 @@ span {
     font-weight: 400;
     color: var(--light);
     text-decoration: none;
+    text-transform: uppercase;
 }
 
 .submenu {

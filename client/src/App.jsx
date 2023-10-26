@@ -5,7 +5,6 @@ import { BrowserRouter as Router } from 'react-router-dom';
 // import { Login } from './pages/LoginPage/index.js';
 // import { Register } from './pages/RegisterPage/index.js';
 // import Logo from './components/Logo';
-import Navbar from './components/Navbar/Navbar';
 // import Hero from './components/Herosection/Herosection.jsx';
 import { Profile } from './pages/ProfilePage/index.js';
 // import { ProfilePersonalData } from './pages/ProfilePersonalData/index.js';
