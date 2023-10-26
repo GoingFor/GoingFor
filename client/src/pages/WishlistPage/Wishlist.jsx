@@ -11,11 +11,17 @@ const Wishlist = () => {
             {/* ri = right */}
             {/* btn = button */}
             <section className='wl-mobile'>
-                <Link to={'/profile'}>
-                    <PageHeader 
-                        pageTitle='Wunschliste'
-                    />
-                </Link>
+                <div className='wl-ph-wrapper'>
+                    <Link to={'/home/profile'}>
+                        <PageHeader 
+                            pageTitle='Wunschliste'
+                        />
+                    </Link>
+                </div>
+
+                <main className='wl-mc'>
+                    Hier kommen cards im grid modus rein
+                </main>
 
             </section>
         </div>

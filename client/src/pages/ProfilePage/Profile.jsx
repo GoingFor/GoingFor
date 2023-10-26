@@ -20,16 +20,22 @@ const Profile = () => {
 
     return(
         <div className='pr'>
-            <section className='pr-mobile'>
-                <PageHeader 
-                    pageTitle='Profil'
-                />
+            {/* pr = profilseite */}
+            {/* mc = mobile content */}
+            {/* le = left */}
+            {/* ri = right */}
+            {/* btn = button */}
 
-                {/* pr = profilseite */}
-                {/* mc = mobile content */}
-                {/* le = left */}
-                {/* ri = right */}
-                {/* btn = button */}
+            <section className='pr-mobile'>
+                <div className='pr-ph-wrapper'>
+                    <Link to={'/home'}>
+                        <PageHeader 
+                            pageTitle='Profil'
+                        />
+                    </Link>
+                    
+                </div>
+
                 <main className='pr-mc'>
                     <div className='pr-mc-user'>
                         <div className='pr-mc-user-le'>
@@ -53,7 +59,7 @@ const Profile = () => {
                         <h4 className='pr-mc-text-header'>Einstellungen</h4>
 
                         <ul className='pr-mc-list'>
-                            <Link to={'/personaldata'}>
+                            <Link className='pr-mc-link' to={'/home/personaldata'}>
                                 <li className='pr-mc-list-item'> 
                                     <div className='pr-mc-list-item-wrapper'>
                                         <div className='pr-mc-list-item-le'>
@@ -67,7 +73,7 @@ const Profile = () => {
                                 </li>
                             </Link>
 
-                            <Link to={'/feedback'}>
+                            <Link className='pr-mc-link' to={'/home/feedback'}>
                                 <li className='pr-mc-list-item'> 
                                     <div className='pr-mc-list-item-wrapper'>
                                         <div className='pr-mc-list-item-le'>
@@ -81,7 +87,7 @@ const Profile = () => {
                                 </li>
                             </Link>
 
-                            <Link to={'/wishlist'}>
+                            <Link className='pr-mc-link' to={'/home/wishlist'}>
                                 <li className='pr-mc-list-item'> 
                                     <div className='pr-mc-list-item-wrapper'>
                                         <div className='pr-mc-list-item-le'>
@@ -95,7 +101,7 @@ const Profile = () => {
                                 </li>
                             </Link>
 
-                            <Link to={'/hosting'}>
+                            <Link className='pr-mc-link' to={'/home/hosting'}>
                                 <li className='pr-mc-list-item'> 
                                     <div className='pr-mc-list-item-wrapper'>
                                         <div className='pr-mc-list-item-le'>

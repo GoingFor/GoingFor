@@ -1,10 +1,11 @@
 .ph-mc{
     display: flex;
-    align-items: center; 
+    align-items: flex-start; 
     gap: 1rem; 
     margin-left: 2rem;
     margin-right: 2rem;
-    margin-top: 2rem;
+    
+    /* border: 2px solid red; */
 
 }
 
@@ -14,11 +15,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-grow: 1;
     
     border-radius: 50px;
     border: none;
     background-color: var(--accent-blue-semi);
     box-shadow: var(--inset-shadow);
+
+    /* border: 2px solid green; */
 }
 
 .ph-mc-icon{

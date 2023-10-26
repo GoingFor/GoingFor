@@ -14,7 +14,6 @@ const Feedback = () => {
     return(
         
         <div className='fb'>
-
             {/* fb = feedbackseite */}
             {/* mc = mobile content */}
             {/* le = left */}
@@ -22,11 +21,15 @@ const Feedback = () => {
             {/* btn = button */}
 
             <section className='fb-mobile'>
-                <Link to={'/profile'}>
-                    <PageHeader 
-                        pageTitle='Teile dein Feedback'
-                    />
-                </Link>
+                <div className='fb-ph-wrapper'>
+                    <Link to={'/home/profile'}>
+                        <PageHeader 
+                            pageTitle='Teile dein Feedback'
+                        />
+                    </Link>
+                </div>
+                
+                
 
                 <main className='fb-mc'>
                     <div className='fb-mc-text-container'>

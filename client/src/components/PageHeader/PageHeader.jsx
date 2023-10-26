@@ -9,12 +9,15 @@ const PageHeader = ({ pageTitle }) => {
                 {/* ph = page header */}
                 {/* mc = mobile content */}
                 {/* btn = button */}
-                
-            <button className='ph-mc-return-btn'>
-                <ImArrowLeft2 className='ph-mc-icon'/>    
-            </button>
-
-            <p className='ph-mc-h2'>{pageTitle}</p>
+            <div className="ph-mc-btn-wrapper">
+                <button className='ph-mc-return-btn'>
+                    <ImArrowLeft2 className='ph-mc-icon'/>    
+                </button>
+            </div>
+            
+            <div className="ph-mc-text-wrapper">
+                <p className='ph-mc-h2'>{pageTitle}</p>
+            </div>
         </header>
     )
 }

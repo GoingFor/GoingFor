@@ -14,11 +14,13 @@ const PersonalData = () => {
         {/* ri = right */}
         {/* btn = button */}
             <section className='pd-mobile'>
-                <Link to={'/profile'}>
-                    <PageHeader 
-                        pageTitle='Persönliche Daten'
-                    />
-                </Link>
+                <div className='pd-ph-wrapper'>
+                    <Link to={'/home/profile'}>
+                        <PageHeader 
+                            pageTitle='Persönliche Daten'
+                        />
+                    </Link>
+                </div>
 
                 <main className='pd-mc'>
                     <ul className='pd-mc-list'>

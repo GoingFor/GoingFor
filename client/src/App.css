@@ -13,10 +13,10 @@ body, html {
   height: 100%;
 }
 
-/* a{
+a{
   text-transform: none;
-  
-} */
+  text-decoration: none;
+}
 
 
 #root {

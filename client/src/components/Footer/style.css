@@ -3,8 +3,8 @@
     background-color: var(--blk);
     /* height: 9rem; */
     color: var(--light);
-    position: absolute;
-    bottom: 0;
+    /* position: fixed; */
+    /* bottom: 0; */
     padding: 1rem;
 }
 
