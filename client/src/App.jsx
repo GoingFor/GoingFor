@@ -6,10 +6,20 @@ import { BrowserRouter as Router } from 'react-router-dom';
 // import { Register } from './pages/RegisterPage/index.js';
 // import Logo from './components/Logo';
 // import Hero from './components/Herosection/Herosection.jsx';
+
+import { Route, Routes } from 'react-router-dom';
+import { Info } from './pages/InfoPage/index.js';
+import { Register } from './pages/RegisterPage/index.js';
+import { Login } from './pages/LoginPage/index.js';
+import Hero from './components/Herosection/Herosection.jsx';
+
 import { Profile } from './pages/ProfilePage/index.js';
-// import { ProfilePersonalData } from './pages/ProfilePersonalData/index.js';
-// import LayoutPage from './pages/LayoutPage/Layout.jsx';
-// import MinimalLayoutPage from './pages/minimalLayoutPage/MinimalLayout.jsx';
+import { PersonalData } from './pages/PersonalDataPage/index.js';
+import { Feedback } from './pages/FeedbackPage/index.js' ;
+import { Wishlist } from './pages/WishlistPage/index.js';
+import { Hosting } from './pages/HostingPage/index.js';
+import LayoutPage from './pages/LayoutPage/Layout.jsx';
+import MinimalLayoutPage from './pages/minimalLayoutPage/MinimalLayout.jsx';
 import 'typeface-roboto';
 import './App.css';
 import Header from './components/Header/Header';
@@ -19,15 +29,9 @@ import { Route } from 'react-router-dom';
 
 function App() {
 
-    const handleLogin = () => {
-        console.log('login erfolgreich');
-    }
-
-    // const handleSignup = () => {
-    //     console.log('anmeldung erfolgreich');
-    // }
-
+      
     return(
+
         <div className='App'>
           <Router>
             <Header/>
@@ -49,39 +53,36 @@ function App() {
               
             {/* <MinimalLayoutPage/> */}
 
-            {/* <Login /> */}
-            {/* <Register /> */}
+        <Routes>
+            {/* <Route path='/' element={ <MinimalLayoutPage />}>
+                <Route index element={ <Info />}/>
+                <Route path='/login' element={ <Login />}/>
+                <Route path='/register' element={ <Register />}/>
+            </Route> */}
 
 
-            {/* <Login/> */}
+            <Route path='/home' element={ <LayoutPage /> }>
+                {/* <Route index element={ <Home />}/> */}
+                <Route path='/home/profile' element={ <Profile/> }/>
+                {/* <Route path='/home/personaldata' element={ <PersonalData />}/> */}
+                {/* <Route path='/home/feedback' element={ <Feedback />}/> */}
+                {/* <Route path='/home/wishlist' element={ <Wishlist />}/> */}
+                {/* <Route path='/home/hosting' element={ <Hosting />}/> */}
+            </Route> 
 
-    
-            {/* <Button label='Anmelden' onClick={handleLogin}/> */}
-
-            {/* <Login/> */}
-            {/* <Button label='Anmelden'/> */}
-            {/* <Button label='Anmelden' onClick={handleSignup}/> */}
 
             
-            {/* <Card/> */}
 
-
-            
-            {/* <Hero
-              subtitle="Woraus Träume gemacht sind"
-              title="Events für Abenteurer"
-              text="Wir finden für Dich dein einmaliges Ereignis. Sag uns einfach, was Du magst und wir zeigen Dir die beste Location voll mit Abenteuer und Spaß. Sag’s deinen  Freunden und habt eine tolle Zeit zusammen."
-            /> */}
-         
-            
-
-   
-        </div>
+        </Routes>
     )
 }
 
 export default App
 
+// Hero
+//     subtitle="Woraus Träume gemacht sind"
+//     title="Events für Abenteurer"
+//     text="Wir finden für Dich dein einmaliges Ereignis. Sag uns einfach, was Du magst und wir zeigen Dir die beste Location voll mit Abenteuer und Spaß. Sag’s deinen  Freunden und habt eine tolle Zeit zusammen."
 
 
 // CHATGPT_INTEGRATION

@@ -13,7 +13,8 @@
     /* width: 9rem; */
     /* height: 4.25rem; */
     display: flex;
-    padding: 2rem 2.625rem;
+    padding: 1rem 1.625rem;
+    /* padding: 12px 22px; */
     justify-content: center;
     align-items: center;
     gap: 0.625rem;
@@ -26,6 +27,6 @@
     box-shadow: var(--inset-shadow);
 }
 
-/* .def_btn:focus{
-    border: 1px solid rgba(73, 201, 242, 1);
-} */
+.btn:hover{
+    cursor: pointer;
+}

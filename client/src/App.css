@@ -13,6 +13,10 @@ body, html {
   height: 100%;
 }
 
+/* a{
+  text-transform: none;
+  
+} */
 
 
 #root {
@@ -34,6 +38,7 @@ body, html {
     --blk: rgba(41, 9, 40, 1);
     --light: rgba(244, 252, 255, 1);
     --grey: rgba(221, 234, 238, 1);
+    --light-grey: rgba(174, 174, 174, 1);
     --infocolor: rgba(244, 252, 255, 0.8);
     --navuntermenu: rgba(41, 9, 40, 0.85);
 
@@ -157,8 +162,7 @@ body, html {
 }
 
 
-.App {
-  /* layout */
+/* .App {
   min-width: 100vw;
   min-height: 100vh;
   background-image: url('./assets/goingfor_background.png');
@@ -168,5 +172,5 @@ body, html {
   justify-content: center;
   align-items: center;
   position: relative;
-}
+} */
 

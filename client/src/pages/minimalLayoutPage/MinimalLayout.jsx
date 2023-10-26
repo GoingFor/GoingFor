@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom';
 
 const MinimalLayoutPage = () => {
     return(
-        <div className='layoutContainer'>
+        <div className='minimal-layoutContainer'>
                  <Outlet />
                  <div className='rechtliches'>
                     <a href="#">Impressum</a>

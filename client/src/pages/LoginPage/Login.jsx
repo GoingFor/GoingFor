@@ -9,8 +9,6 @@ const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const googleLink = 'https://www.google.com'
-
     const handleSubmit = async(e) => {
         e.preventDefault();
 
@@ -28,65 +26,62 @@ const Login = () => {
         }
     }
 
-    const handleLogin = () => {
-        console.log('login erfolgreich');
-    }
-
-    const googleLogin = () => {
-        window.open(googleLink, '_blank');
-    }
-
 
     return(
-        <div className='login_container'>
-            <form className='login_form' onSubmit={handleSubmit}>
-                <input 
-                    className='login-input'
-                    type='text'
-                    placeholder='Username'
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                /> 
-                <input 
-                    className='login-input'
-                    type='password' 
-                    placeholder='Password'
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                {/* hier kommt die button comp rein */}
-                <Button className='login-btn' onClick={handleLogin}>Login</Button>
+        <div className='login'>
+                {/* mc = mobile content */}
+                {/* btn = button */}
+            <div className='login-wrapper'>
+                <form className='login-form' onSubmit={handleSubmit}>
+                    <input 
+                        className='login-input'
+                        type='text'
+                        placeholder='Username'
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    /> 
+                    <input 
+                        className='login-input'
+                        type='password' 
+                        placeholder='Password'
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    {/* hier kommt die button comp rein */}
+                    <Button className='login-btn'>Login</Button>
+          
+                </form> 
 
+                <div className='login-social-wrapper'>
+                    <p className='login-social-text'>or login with</p>
 
-                <div className='social-media-login'>
-                    <p className='social-media-login-text'>or login with</p>
-
-                    {/* hier kommt der google button rein */}
-                    <button onClick={googleLogin} className='icon-style'>
-                        <FaGoogle/>
-                    </button>
-
-                    {/* hier kommt der insta button rein*/}
-                    <button className='icon-style'>
-                        <FaInstagram/>
-                    </button>
-
-                    {/* hier kommt der fb button rein */}
-                    <button className='icon-style'>
-                        <FaFacebook/>
-                    </button>
-
-                    {/* hier kommt der twitter button rein */}
-                    <button className='icon-style'>
-                        <FaXTwitter/>
-                    </button> 
-                </div>      
-            </form>   
-
-
-            <img className='goingfor_logo' src={goingfor_logo} alt='goingfor-logo'/>
+                    <div className='login-social-icon-wrapper'>
+                        {/* hier kommt der google button rein */}
+                        <button className='social-icon'>
+                            <FaGoogle/>
+                        </button>
+                        {/* hier kommt der insta button rein*/}
+                        <button className='social-icon'>
+                            <FaInstagram/>
+                        </button>
+                        {/* hier kommt der fb button rein */}
+                        <button className='social-icon'>
+                            <FaFacebook/>
+                        </button>
+                        {/* hier kommt der twitter button rein */}
+                        <button className='social-icon'>
+                            <FaXTwitter/>
+                        </button> 
+                    </div>
+                    
+                </div>  
+            </div>
+              
+            <div className='login-logo-wrapper'>
+                <img className='login-logo' src={goingfor_logo} alt='goingfor-logo'/>
+            </div>
         </div>
     )
 }
 
-export default Login
+export default Login;
