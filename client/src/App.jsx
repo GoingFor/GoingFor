@@ -45,10 +45,7 @@ function App() {
 
 export default App
 
-// Hero
-//     subtitle="Woraus Träume gemacht sind"
-//     title="Events für Abenteurer"
-//     text="Wir finden für Dich dein einmaliges Ereignis. Sag uns einfach, was Du magst und wir zeigen Dir die beste Location voll mit Abenteuer und Spaß. Sag’s deinen  Freunden und habt eine tolle Zeit zusammen."
+
 
 
 // CHATGPT_INTEGRATION

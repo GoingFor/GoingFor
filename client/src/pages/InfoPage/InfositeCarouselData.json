@@ -1,0 +1,16 @@
+{
+    "slides": [
+      {
+        "src": "https://picsum.photos/id/836/600/400",
+        "alt": "frau mit Gitarre"
+      },
+      {
+        "src": "https://picsum.photos/id/452/600/400",
+        "alt": "band"
+      },
+      {
+        "src": "https://picsum.photos/id/1079/600/400",
+        "alt": "party"
+      }
+    ]
+  }

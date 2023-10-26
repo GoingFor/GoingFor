@@ -3,6 +3,7 @@
     flex-direction: column;
     margin-left: 2rem;
     margin-right: 2rem;
+    justify-content: center;
 }
 
 .ip-logo-wrapper,
@@ -40,4 +41,33 @@
     line-height: var(--subtitle-sm-line-height);
     font-variant: small-caps;
 }
+.ip-heros {
+    padding-top: 4rem;
+   
+}
+
+.ip-carousel {
+    width: 70%;
+    justify-content: center;
+    margin: 0 auto;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-bottom: 4rem;
+}
+
+.hero-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--light);
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+.hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: var(--accentblue);
+    text-transform: uppercase;
+    font-weight: 700;
+  }
 
