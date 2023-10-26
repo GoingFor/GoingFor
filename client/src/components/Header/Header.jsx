@@ -39,7 +39,7 @@ const Header = () => {
             <div className={`nav-elements  ${showNavbar && 'active'}`}>
                 <ul>
                     <li>
-                    <NavLink to="/">Home</NavLink>
+                    <NavLink to={'/home'}>Home</NavLink>
                     </li>
                     <li onClick={handleCategoriesMenu}>
                         <span>Kategorien</span>
@@ -123,7 +123,7 @@ const Header = () => {
                     <NavLink to="/contact">Kontakt</NavLink>
                     </li>
                     <li>
-                    <NavLink to="/profil">Profil</NavLink>
+                    <NavLink to={'/home/profile'}>Profil</NavLink>
                     </li>
                 </ul>
             </div>   
