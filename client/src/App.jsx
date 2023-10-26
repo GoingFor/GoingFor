@@ -1,14 +1,17 @@
 import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 // import { Button } from './components/Button/index.js';
 // import { Card } from './components/Card/index.js'
-// import { Login } from './pages/LoginPage/index.js';
+import { Login } from './pages/LoginPage/index.js';
 // import { Register } from './pages/RegisterPage/index.js';
 // import Logo from './components/Logo';
 // import Navbar from './components/Navbar/Navbar';
 // import Hero from './components/Herosection/Herosection.jsx';
 import { Profile } from './pages/ProfilePage/index.js';
-// import { ProfilePersonalData } from './pages/ProfilePersonalData/index.js';
-// import LayoutPage from './pages/LayoutPage/Layout.jsx';
+import { PersonalDataPage } from './pages/PersonalDataPage/index.js';
+import { FeedbackPage } from './pages/FeedbackPage/index.js';
+import { WishlistPage } from './pages/WishlistPage/index.js';
+import LayoutPage from './pages/LayoutPage/Layout.jsx';
 // import MinimalLayoutPage from './pages/minimalLayoutPage/MinimalLayout.jsx';
 import 'typeface-roboto';
 import './App.css';
@@ -26,59 +29,21 @@ function App() {
     // }
 
     return(
-        <div className='App'>
-
-            {/* <Header /> */}
-
-            {/* <Navbar /> */}
-            
-            {/* <Hero
-              subtitle="Woraus Träume gemacht sind"
-              title="Events für Abenteurer"
-              text="Wir finden für Dich dein einmaliges Ereignis. Sag uns einfach, was Du magst und wir zeigen Dir die beste Location voll mit Abenteuer und Spaß. Sag’s deinen  Freunden und habt eine tolle Zeit zusammen."
-            /> */}
-
-
-            
-            {/* <ProfilePersonalData /> */}
-            
-            <Profile />
-              
-            {/* <MinimalLayoutPage/> */}
-
-            {/* <Login /> */}
-            {/* <Register /> */}
-
-
-            {/* <Login/> */}
-
-    
-            {/* <Button label='Anmelden' onClick={handleLogin}/> */}
-
-            {/* <Login/> */}
-            {/* <Button label='Anmelden'/> */}
-            {/* <Button label='Anmelden' onClick={handleSignup}/> */}
-
-            
-            {/* <Card/> */}
-
-
-            
-            {/* <Hero
-              subtitle="Woraus Träume gemacht sind"
-              title="Events für Abenteurer"
-              text="Wir finden für Dich dein einmaliges Ereignis. Sag uns einfach, was Du magst und wir zeigen Dir die beste Location voll mit Abenteuer und Spaß. Sag’s deinen  Freunden und habt eine tolle Zeit zusammen."
-            /> */}
-         
-            
-
-   
-        </div>
+        <Routes>
+          <Route path='/' element={ <LayoutPage /> }>
+            {/* <Route path='/login' element={ <Login />}/> */}
+            <Route path='/profile' element={ <Profile/> }/>
+          </Route>
+        </Routes>
     )
 }
 
 export default App
 
+// Hero
+//     subtitle="Woraus Träume gemacht sind"
+//     title="Events für Abenteurer"
+//     text="Wir finden für Dich dein einmaliges Ereignis. Sag uns einfach, was Du magst und wir zeigen Dir die beste Location voll mit Abenteuer und Spaß. Sag’s deinen  Freunden und habt eine tolle Zeit zusammen."
 
 
 // CHATGPT_INTEGRATION

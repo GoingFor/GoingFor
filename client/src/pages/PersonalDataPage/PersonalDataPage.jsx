@@ -4,7 +4,7 @@ import React from 'react';
 import { PageHeader } from '../../components/PageHeader/index.js';
 import './style.css';
 
-const ProfilePersonalData = () => {
+const PersonalDataPage = () => {
     return(
         <div className="personalData">
             <section className='mobile'>
@@ -110,4 +110,4 @@ const ProfilePersonalData = () => {
     )
 }
 
-export default ProfilePersonalData;
+export default PersonalDataPage;

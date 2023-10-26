@@ -4,7 +4,7 @@ import { Button } from '../../components/Button/index.js';
 import './style.css';
 
 
-const ProfileFeedbackPage = () => {
+const FeedbackPage = () => {
 
     const handleSubmit = () => {
         e.preventDefault();
@@ -57,4 +57,4 @@ const ProfileFeedbackPage = () => {
 
 }
 
-export default ProfileFeedbackPage;
+export default FeedbackPage;
