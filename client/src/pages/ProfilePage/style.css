@@ -1,7 +1,7 @@
-.pr{
+/* .pr{
     min-width: 100vw;
     min-height: 100vh;
-}
+} */
 
 /* MOBILE SECTION */
 .pr-mobile{
@@ -155,14 +155,14 @@
         gap: 15px 10px;
     }
     
-    .a-card,
+    /* .a-card,
     .b-card,
     .c-card,
     .d-card,
     .e-card{
         width: 430px;
         height: 250px;
-    }
+    } */
 
     .a-card{
         grid-area: a-card;
