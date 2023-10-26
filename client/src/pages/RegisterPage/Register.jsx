@@ -35,6 +35,13 @@ const Register = () => {
                     <Link to={'/home'}>
                         <Button className='reg-btn'>Register</Button>
                     </Link>
+
+                    <div className='register-to-login'>
+                        <p className='register-to-login-text'>
+                            Du bist bereits registriert?
+                        </p>
+                        <Link className='register-to-login-link' to={'/login'}>Login</Link>
+                    </div>
                 </form>  
 
                 <div className='reg-social-wrapper'>

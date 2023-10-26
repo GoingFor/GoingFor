@@ -55,9 +55,9 @@ const Login = () => {
 
                     <div className='login-to-register'>
                         <p className='login-to-register-text'>
-                            Du hast noch keinen Accout?
+                            Du hast noch kein Konto?
                         </p>
-                        <Link className='login-to-register-link' to={'/register'}> Jetzt anmelden</Link>
+                        <Link className='login-to-register-link' to={'/register'}>Jetzt registrieren</Link>
                     </div>
                 </form> 
 
