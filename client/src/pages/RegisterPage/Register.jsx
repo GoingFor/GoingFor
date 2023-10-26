@@ -6,70 +6,60 @@ import './style.css';
 
 const Register = () => {
 
-    const googleLink = 'https://www.google.com'
-
     const handleSubmit = (e) => {
         e.preventDefault();
     }
 
-    const handleRegister = () => {
-        console.log('anmeldung erfolgreich');
-    }
-
-    const googleLogin = () => {
-        window.open(googleLink, '_blank');
-    }
-
-
     return(
-        <div className='register_container'>
-            <form className='register_form' onSubmit={handleSubmit}>
-                <input 
-                    className='register-input'
-                    type='text'
-                    placeholder='Username'
-                /> 
-                <input 
-                    className='register-input'
-                    type='email'
-                    placeholder='Email'
-                /> 
-                <input 
-                    className='register-input'
-                    type='password' 
-                    placeholder='Password'
-                />
-                {/* hier kommt die button comp rein */}
-                {/* <Button label='Register' onClick={handleRegister} className='register-btn'/> */}
-                <Button className='register-btn' onClick={handleRegister}>Register</Button>
+        <div className='reg'>
+                {/* reg = register */}
+                {/* btn = button */}
+            <div className='reg-wrapper'>
+                <form className='reg-form' onSubmit={handleSubmit}>
+                    <input 
+                        className='reg-input'
+                        type='text'
+                        placeholder='Username'
+                    /> 
+                    <input 
+                        className='reg-input'
+                        type='email'
+                        placeholder='Email'
+                    /> 
+                    <input 
+                        className='reg-input'
+                        type='password' 
+                        placeholder='Password'
+                    />
+                    <Button className='reg-btn'>Register</Button>
+                </form>  
 
-                <div className='social-media-register'>
-                    <p className='social-media-register-text'>or register with</p>
+                <div className='reg-social-wrapper'>
+                    <p className='reg-social-text'>or register with</p>
 
+                    <div className='reg-social-icon-wrapper'>
+                        <button className='reg-icon'>
+                            <FaGoogle/>
+                        </button>
 
-                    {/* hier kommt der google button rein */}
-                    <button onClick={googleLogin} className='icon-style'>
-                        <FaGoogle/>
-                    </button>
+                        <button className='reg-icon'>
+                            <FaInstagram/>
+                        </button>
 
-                    {/* hier kommt der insta button rein*/}
-                    <button className='icon-style'>
-                        <FaInstagram/>
-                    </button>
+                        <button className='reg-icon'>
+                            <FaFacebook/>
+                        </button>
 
-                    {/* hier kommt der fb button rein */}
-                    <button className='icon-style'>
-                        <FaFacebook/>
-                    </button>
+                        <button className='reg-icon'>
+                            <FaXTwitter/>
+                        </button> 
+                    </div>
+                </div>     
+            </div>
 
-                    {/* hier kommt der twitter button rein */}
-                    <button className='icon-style'>
-                        <FaXTwitter/>
-                    </button> 
-                </div>      
-            </form>   
-
-            <img className='goingfor_logo' src={goingfor_logo} alt='goingfor-logo'/>
+            <div className='reg-logo-wrapper'>
+                <img className='reg-logo' src={goingfor_logo} alt='goingfor-logo'/>
+            </div>
         </div>
     )
 }

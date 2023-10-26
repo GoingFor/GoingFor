@@ -1,18 +1,16 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-// import { Button } from './components/Button/index.js';
-// import { Card } from './components/Card/index.js'
+import { Info } from './pages/InfoPage/index.js';
+import { Register } from './pages/RegisterPage/index.js';
 import { Login } from './pages/LoginPage/index.js';
-// import { Register } from './pages/RegisterPage/index.js';
-// import Logo from './components/Logo';
-// import Navbar from './components/Navbar/Navbar';
-// import Hero from './components/Herosection/Herosection.jsx';
+import Hero from './components/Herosection/Herosection.jsx';
 import { Profile } from './pages/ProfilePage/index.js';
-import { PersonalDataPage } from './pages/PersonalDataPage/index.js';
-import { FeedbackPage } from './pages/FeedbackPage/index.js';
-import { WishlistPage } from './pages/WishlistPage/index.js';
+import { PersonalData } from './pages/PersonalDataPage/index.js';
+import { Feedback } from './pages/FeedbackPage/index.js' ;
+import { Wishlist } from './pages/WishlistPage/index.js';
+import { Hosting } from './pages/HostingPage/index.js';
 import LayoutPage from './pages/LayoutPage/Layout.jsx';
-// import MinimalLayoutPage from './pages/minimalLayoutPage/MinimalLayout.jsx';
+import MinimalLayoutPage from './pages/minimalLayoutPage/MinimalLayout.jsx';
 import 'typeface-roboto';
 import './App.css';
 
@@ -20,20 +18,26 @@ import './App.css';
 
 function App() {
 
-    const handleLogin = () => {
-        console.log('login erfolgreich');
-    }
-
-    // const handleSignup = () => {
-    //     console.log('anmeldung erfolgreich');
-    // }
-
+      
     return(
         <Routes>
-          <Route path='/' element={ <LayoutPage /> }>
-            {/* <Route path='/login' element={ <Login />}/> */}
-            <Route path='/profile' element={ <Profile/> }/>
-          </Route>
+            {/* <Route path='/' element={ <MinimalLayoutPage />}>
+                <Route index element={ <Info />}/>
+                <Route path='/login' element={ <Login />}/>
+                <Route path='/register' element={ <Register />}/>
+            </Route> */}
+
+
+            <Route path='/' element={ <LayoutPage /> }>
+                <Route path='/profile' element={ <Profile/> }/>
+                <Route path='/personaldata' element={ <PersonalData />}/>
+                <Route path='/feedback' element={ <Feedback />}/>
+                <Route path='/wishlist' element={ <Wishlist />}/>
+                <Route path='/hosting' element={ <Hosting />}/>
+            </Route> 
+
+            
+
         </Routes>
     )
 }

@@ -1,2 +1,2 @@
-import WishlistPage from './WishlistPage';
-export { WishlistPage };
+import Wishlist from './Wishlist';
+export { Wishlist };

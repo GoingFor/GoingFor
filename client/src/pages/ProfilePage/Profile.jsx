@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Card } from '../../components/Card/index.js';
 import { Button } from '../../components/Button/index.js';
 import { PageHeader } from '../../components/PageHeader/index.js';
@@ -7,11 +8,8 @@ import { HiPencil, HiOutlineHeart, HiMap, HiChevronRight } from 'react-icons/hi2
 
 import './style.css';
 
-const Profile = () => {
 
-    const handleFestival = (e) => {
-        e.preventDefault();
-    }
+const Profile = () => {
 
     // Seiten verlinken:
     // Inseriere ein Festival
@@ -40,17 +38,14 @@ const Profile = () => {
                                 <p className='pr-mc-user-name'>Pipilotta</p>
                                 <p className='pr-mc-user-show-pr'>Profil anzeigen</p>
                             </div>
-
                         </div>
                         <div className='pr-mc-user-ri'>
                             <HiChevronRight className='pr-mc-icon-ri'/> 
                         </div>
-
                     </div>
 
                     <Button 
                         className='pr-mc-btn' 
-                        onClick={handleFestival}
                             >Inseriere ein Festival
                     </Button>
 
@@ -58,53 +53,62 @@ const Profile = () => {
                         <h4 className='pr-mc-text-header'>Einstellungen</h4>
 
                         <ul className='pr-mc-list'>
-                            <li className='pr-mc-list-item'> 
-                                <div className='pr-mc-list-item-wrapper'>
-                                    <div className='pr-mc-list-item-le'>
-                                        <PiUserCircle className='pr-mc-icon-le'/>
-                                        <p className='pr-text-body-le'>Persönliche Daten</p>
-                                    </div>
-                                    <div className='pr-mc-list-item-ri'>
-                                        <HiChevronRight className='pr-mc-icon-ri'/> 
-                                    </div>
-                                </div>   
-                            </li>
+                            <Link to={'/personaldata'}>
+                                <li className='pr-mc-list-item'> 
+                                    <div className='pr-mc-list-item-wrapper'>
+                                        <div className='pr-mc-list-item-le'>
+                                            <PiUserCircle className='pr-mc-icon-le'/>
+                                            <p className='pr-text-body-le'>Persönliche Daten</p>
+                                        </div>
+                                        <div className='pr-mc-list-item-ri'>
+                                            <HiChevronRight className='pr-mc-icon-ri'/> 
+                                        </div>
+                                    </div>   
+                                </li>
+                            </Link>
 
-                            <li className='pr-mc-list-item'> 
-                                <div className='pr-mc-list-item-wrapper'>
-                                    <div className='pr-mc-list-item-le'>
-                                        <HiPencil className='pr-mc-icon-le'/>
-                                        <p className='pr-text-body-le'>Gib uns Feedback</p>
-                                    </div>
-                                    <div className='pr-mc-list-item-ri'>
-                                        <HiChevronRight className='pr-mc-icon-ri'/> 
-                                    </div>
-                                </div>   
-                            </li>
+                            <Link to={'/feedback'}>
+                                <li className='pr-mc-list-item'> 
+                                    <div className='pr-mc-list-item-wrapper'>
+                                        <div className='pr-mc-list-item-le'>
+                                            <HiPencil className='pr-mc-icon-le'/>
+                                            <p className='pr-text-body-le'>Gib uns Feedback</p>
+                                        </div>
+                                        <div className='pr-mc-list-item-ri'>
+                                            <HiChevronRight className='pr-mc-icon-ri'/> 
+                                        </div>
+                                    </div>   
+                                </li>
+                            </Link>
 
-                            <li className='pr-mc-list-item'> 
-                                <div className='pr-mc-list-item-wrapper'>
-                                    <div className='pr-mc-list-item-le'>
-                                        <HiOutlineHeart className='pr-mc-icon-le'/>
-                                        <p className='pr-text-body-le'>Wunschliste</p>
-                                    </div>
-                                    <div className='pr-mc-list-item-ri'>
-                                        <HiChevronRight className='pr-mc-icon-ri'/> 
-                                    </div>
-                                </div>   
-                            </li>
+                            <Link to={'/wishlist'}>
+                                <li className='pr-mc-list-item'> 
+                                    <div className='pr-mc-list-item-wrapper'>
+                                        <div className='pr-mc-list-item-le'>
+                                            <HiOutlineHeart className='pr-mc-icon-le'/>
+                                            <p className='pr-text-body-le'>Wunschliste</p>
+                                        </div>
+                                        <div className='pr-mc-list-item-ri'>
+                                            <HiChevronRight className='pr-mc-icon-ri'/> 
+                                        </div>
+                                    </div>   
+                                </li>
+                            </Link>
 
-                            <li className='pr-mc-list-item'> 
-                                <div className='pr-mc-list-item-wrapper'>
-                                    <div className='pr-mc-list-item-le'>
-                                        <HiMap className='pr-mc-icon-le'/>
-                                        <p className='pr-text-body-le'>Meine Inserate</p>
-                                    </div>
-                                    <div className='pr-mc-list-item-ri'>
-                                        <HiChevronRight className='pr-mc-icon-ri'/> 
-                                    </div>
-                                </div>   
-                            </li>
+                            <Link to={'/hosting'}>
+                                <li className='pr-mc-list-item'> 
+                                    <div className='pr-mc-list-item-wrapper'>
+                                        <div className='pr-mc-list-item-le'>
+                                            <HiMap className='pr-mc-icon-le'/>
+                                            <p className='pr-text-body-le'>Meine Inserate</p>
+                                        </div>
+                                        <div className='pr-mc-list-item-ri'>
+                                            <HiChevronRight className='pr-mc-icon-ri'/> 
+                                        </div>
+                                    </div>   
+                                </li>
+                            </Link>
+                            
                         </ul>  
                     </div>
                 </main>

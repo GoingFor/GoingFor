@@ -1,12 +1,11 @@
-.wl{
+.ho{
     min-width: 100vw;
     min-height: 100vh;
 }
 
-.wl-mobile{
+.ho-mobile{
     width: 100vw;
     display: flex;
     flex-direction: column;
     margin-top: 3rem;
 }
-
