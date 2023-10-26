@@ -52,7 +52,13 @@ const Login = () => {
                     <Link to={'/home'}>
                         <Button className='login-btn'>Login</Button>
                     </Link>
-          
+
+                    <div className='login-to-register'>
+                        <p className='login-to-register-text'>
+                            Du hast noch keinen Accout?
+                        </p>
+                        <Link className='login-to-register-link' to={'/register'}> Jetzt anmelden</Link>
+                    </div>
                 </form> 
 
                 <div className='login-social-wrapper'>
