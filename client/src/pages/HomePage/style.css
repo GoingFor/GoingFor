@@ -1,0 +1,13 @@
+.home-content{
+    margin-top: 5rem;
+    color: var(--light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-text-dummy{
+    font-size: 2rem;
+    margin-top: 2rem;
+    padding: 2rem;
+}

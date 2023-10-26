@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '../../components/Button/index.js';
 import {FaGoogle, FaInstagram, FaFacebook, FaXTwitter} from 'react-icons/fa6';
 import goingfor_logo from '../../assets/goingfor_logo.png';
@@ -31,7 +32,9 @@ const Register = () => {
                         type='password' 
                         placeholder='Password'
                     />
-                    <Button className='reg-btn'>Register</Button>
+                    <Link to={'/home'}>
+                        <Button className='reg-btn'>Register</Button>
+                    </Link>
                 </form>  
 
                 <div className='reg-social-wrapper'>
