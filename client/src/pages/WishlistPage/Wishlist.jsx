@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { PageHeader } from '../../components/PageHeader/index.js';
+import { Carousel } from '../../components/Carousel/Carousel.jsx';
+import festivalmeppenData from './festivalmeppenData.json';
 import './style.css';
 
 const Wishlist = () => {
@@ -20,7 +22,10 @@ const Wishlist = () => {
                 </div>
 
                 <main className='wl-mc'>
-                    Hier kommen cards im grid modus rein
+                    <div className='wl-carousel'>
+                        <Carousel data={festivalmeppenData.slides}/>
+
+                    </div>
                 </main>
 
             </section>
