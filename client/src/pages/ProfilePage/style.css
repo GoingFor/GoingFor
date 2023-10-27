@@ -3,14 +3,18 @@
     min-height: 100vh;
 } */
 
+.pr-ph-wrapper{
+    margin-top: 7rem;
+}
+
 /* MOBILE SECTION */
-.pr-mobile{
+.pr-mc-wrapper{
     width: 100vw;
     display: flex;
     flex-direction: column;
-    margin-top: 5rem;
+    margin-top: 2rem;
     margin-bottom: 10rem;
-    /* border: 2px solid red; */
+    /* border: 2px solid red;  */
 }
 .pr-mc{
     display: flex;
@@ -19,6 +23,7 @@
     margin-right: 2rem;
     margin-top: 2rem;
     color: var(--light);
+    /* border: 2px solid purple; */
 }
 
 .pr-mc-user,
@@ -139,21 +144,35 @@
 
 
 /* MAIN DESKTOP */
-.pr-desktop{
+.pr-dc-wrapper{
     display: none;
 }
 
+@media screen and (min-width: 601px) {
+    .pr-ph-wrapper{
+        margin-top: 9rem;
+    }
+}
 
 @media screen and (min-width: 768px) {
-    .pr-mobile{
+    .pr-mc-wrapper{
         display: none;
     }
 
-    .pr-desktop{
-        margin-top: 20rem;
+    .pr-dc-wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 7rem;
+        margin-bottom: 5rem;
+
+        /* border: 2px solid purple; */
+    }
+
+    .pr-dc{
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
+        grid-template-rows: 200px;
         grid-template-areas: 
         'a-card a-card'
         'b-card c-card'
@@ -161,9 +180,14 @@
         place-items: center;
         justify-content: space-evenly;
         gap: 15px 10px;
+
+        margin-left: 5rem;
+        margin-right: 5rem;
+
+        /* border: 2px solid red; */
     }
 
-    .pr-desktop-link{
+    .pr-dc-link{
         color: var(--light);  
     }
     
