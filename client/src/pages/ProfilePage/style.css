@@ -162,6 +162,10 @@
         justify-content: space-evenly;
         gap: 15px 10px;
     }
+
+    .pr-desktop-link{
+        color: var(--light);  
+    }
     
     /* .a-card,
     .b-card,
