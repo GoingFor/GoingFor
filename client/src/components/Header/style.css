@@ -80,6 +80,7 @@ span {
     color: var(--light);
     text-decoration: none;
     text-transform: uppercase;
+    cursor: pointer;
 }
 
 .submenu {
