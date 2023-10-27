@@ -1,14 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import { Button } from '../../components/Button/index.js';
 import {FaGoogle, FaInstagram, FaFacebook, FaXTwitter} from 'react-icons/fa6';
 import goingfor_logo from '../../assets/goingfor_logo.png';
 import './style.css';
 
 const Register = () => {
+    const [ name, setName ] = useState('');
+    const [ email, setEmail ] = useState('');
+    const [ password, setPassword ] = useState('');
 
-    const handleSubmit = (e) => {
+
+    const handleRegister = (e) => {
         e.preventDefault();
+
+        axios.get('http://localhost:4000/test');
+        
     }
 
     return(
@@ -16,21 +24,27 @@ const Register = () => {
                 {/* reg = register */}
                 {/* btn = button */}
             <div className='reg-wrapper'>
-                <form className='reg-form' onSubmit={handleSubmit}>
+                <form className='reg-form' onSubmit={handleRegister}>
                     <input 
                         className='reg-input'
                         type='text'
                         placeholder='Username'
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
                     /> 
                     <input 
                         className='reg-input'
                         type='email'
                         placeholder='Email'
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                     /> 
                     <input 
                         className='reg-input'
                         type='password' 
                         placeholder='Password'
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                     <Link to={'/home'}>
                         <Button className='reg-btn'>Register</Button>

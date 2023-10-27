@@ -42,8 +42,8 @@ const Feedback = () => {
                         <form className='fb-mc-from' onSubmit={handleSubmit}>
                             <textarea 
                                 placeholder='Gib uns Feedback...'
-                                name='feedback'
-                                id='feedback' 
+                                name='fb-text'
+                                id='fb-text' 
                                 cols='30' 
                                 rows='10'>
                             </textarea>
