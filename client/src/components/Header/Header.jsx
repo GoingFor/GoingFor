@@ -120,7 +120,7 @@ const Header = () => {
                         )}
                     </li>
                     <li>
-                    <NavLink to="/contact">Kontakt</NavLink>
+                    <NavLink to="/home/contact">Kontakt</NavLink>
                     </li>
                     <li>
                     <NavLink to={'/home/profile'}>Profil</NavLink>
