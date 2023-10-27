@@ -3,12 +3,16 @@
     min-height: 100vh;
 } */
 
-.fb-mobile{
-    margin-top: 5rem;
+.fb-ph-wrapper{
+    margin-top: 7rem;
+}
+
+.fb-mc-wrapper{
+    margin-top: 2rem;
     margin-bottom: 5rem;
 }
 
-.fb-mobile,
+.fb-mc-wrapper,
 .fb-mc-from,
 .fb-mc{
     display: flex;
@@ -79,11 +83,13 @@
     margin-top: 2rem;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 601px) {
     .fb-ph-wrapper{
-        display: none;
+        margin-top: 9rem;
     }
-
+}
+    
+@media screen and (min-width: 768px) {
     .fb-mc{
         margin-top: 5rem;
         margin-right: 3rem;

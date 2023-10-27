@@ -14,24 +14,24 @@ const Feedback = () => {
     return(
         
         <div className='fb'>
-            {/* fb = feedbackseite */}
+            {/* fb = feedback seite */}
+            {/* ph = page header */}
             {/* mc = mobile content */}
             {/* le = left */}
             {/* ri = right */}
             {/* btn = button */}
+            {/* fb-mobile -> fb-mc-wrapper */}
 
-            <section className='fb-mobile'>
-                <div className='fb-ph-wrapper'>
-                    <Link to={'/home/profile'}>
-                        <PageHeader 
-                            pageTitle='Teile dein Feedback'
-                        />
-                    </Link>
-                </div>
-                
-                
+            <div className='fb-ph-wrapper'>
+                <Link to={'/home/profile'}>
+                    <PageHeader 
+                        pageTitle='Teile dein Feedback'
+                    />
+                </Link>
+            </div>
 
-                <main className='fb-mc'>
+            <main className='fb-mc-wrapper'>
+                <div className='fb-mc'>
                     <div className='fb-mc-text-container'>
                         <p>
                             Vielen Dank, dass du Dir die Zeit nimmst, deine Wünsche, Anregungen und Ideen mit uns zu teilen. Wir werden alles, was uns möglich ist intern besprechen und versuchen umzusetzen, um GoingFor noch besser zu machen. Bei Rückfragen kommen wir gern auf deine Nachricht zurück.
@@ -54,9 +54,8 @@ const Feedback = () => {
                             </Button>  
                         </form>
                     </div>
-
-                </main>
-            </section>
+                </div>
+            </main>
         </div>
     )
 
