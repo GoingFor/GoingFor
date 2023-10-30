@@ -7,16 +7,25 @@ import goingfor_logo from '../../assets/goingfor_logo.png';
 import './style.css';
 
 const Register = () => {
-    const [ name, setName ] = useState('');
+    const [ username, setUsername ] = useState('');
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
 
 
-    const handleRegister = (e) => {
+    const handleRegister = async(e) => {
         e.preventDefault();
 
-        axios.get('http://localhost:4000/test');
-        
+        try {
+            await axios.post('http://localhost:4000/api/auth/signup', {
+                username,
+                email,
+                password
+            });
+
+            console.log('Registrierung erfolgreich. Logge dich jetzt ein!');
+        } catch(err){
+            console.log('Registrierung fehlgeschlagen!')
+        }
     }
 
     return(
@@ -29,8 +38,8 @@ const Register = () => {
                         className='reg-input'
                         type='text'
                         placeholder='Username'
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
                     /> 
                     <input 
                         className='reg-input'
