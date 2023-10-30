@@ -72,9 +72,10 @@ export const signin = async (req, res, next) => {
       .status(200)
       .json({
         success: true,
+        data: validUser,
         msg: `Hello ${validUser.username}, nice to see you again!`
       });
-      
+
   } catch (error) {
     next(error);
   }
