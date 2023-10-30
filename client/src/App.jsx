@@ -15,10 +15,13 @@ import { Home } from './pages/HomePage/index.js';
 import LayoutPage from './pages/LayoutPage/Layout.jsx';
 import MinimalLayoutPage from './pages/minimalLayoutPage/MinimalLayout.jsx';
 import 'typeface-roboto';
+import { UserContextProvider } from './context/UserContext.jsx';
 import CreateEvent from './pages/CreateEvent/CreateEvent.jsx'; 
 
 import './App.css';
-import { UserContextProvider } from './context/UserContext.jsx';
+
+
+
 
 axios.defaults.baseURL = 'http://localhost:3002/api';
 

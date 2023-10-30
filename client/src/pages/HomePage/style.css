@@ -1,13 +1,22 @@
-.home-content{
-    margin-top: 5rem;
-    color: var(--light);
+/* Stil für den Hauptcontainer der Seite */
+.home-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    height: 100vh; /* Setze die gewünschte Höhe für den Hauptcontainer */
 }
 
-.home-text-dummy{
-    font-size: 2rem;
-    margin-top: 2rem;
-    padding: 2rem;
+/* Stil für den Container, der die Karte enthält */
+.map-container {
+    flex: 1; /* Nimmt den verfügbaren Platz ein und dehnt sich in der Höhe aus */
+    z-index: 1;
 }
+
+.nav-container {
+    z-index: 500;
+}
+
+.footercontainer {
+    z-index: 500;
+}
+
+
