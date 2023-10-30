@@ -1,6 +1,7 @@
 import React, { useEffect }from 'react';
 import { Route, Routes } from 'react-router-dom';
 import axios from 'axios';
+import { Route, Routes, Link } from 'react-router-dom';
 import { Info } from './pages/InfoPage/index.js';
 import { Register } from './pages/RegisterPage/index.js';
 import { Login } from './pages/LoginPage/index.js';
@@ -14,6 +15,8 @@ import { Home } from './pages/HomePage/index.js';
 import LayoutPage from './pages/LayoutPage/Layout.jsx';
 import MinimalLayoutPage from './pages/minimalLayoutPage/MinimalLayout.jsx';
 import 'typeface-roboto';
+import CreateEvent from './pages/CreateEvent/CreateEvent.jsx'; 
+
 import './App.css';
 import { UserContextProvider } from './context/UserContext.jsx';
 
@@ -43,6 +46,7 @@ function App() {
                 </Route> 
             </Routes>
         </UserContextProvider>
+
     )
 }
 
