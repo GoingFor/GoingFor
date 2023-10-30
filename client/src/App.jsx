@@ -9,15 +9,13 @@ import { PersonalData } from './pages/PersonalDataPage/index.js';
 import { Feedback } from './pages/FeedbackPage/index.js' ;
 import { Wishlist } from './pages/WishlistPage/index.js';
 import { Hosting } from './pages/HostingPage/index.js';
+import { Home } from './pages/HomePage/index.js';
 import LayoutPage from './pages/LayoutPage/Layout.jsx';
 import MinimalLayoutPage from './pages/minimalLayoutPage/MinimalLayout.jsx';
 import 'typeface-roboto';
 import CreateEvent from './pages/CreateEvent/CreateEvent.jsx'; 
 
 import './App.css';
-
-
-
 
 
 
@@ -35,8 +33,8 @@ function App() {
             </Route>
 
 
-            <Route path='/home' element={ <LayoutPage /> }>
-                {/* <Route index element={ <Home />}/> */}
+            <Route element={ <LayoutPage /> }>
+                <Route path='/home' element={ <Home />}/>
                 <Route path='/home/profile' element={ <Profile/> }/>
                 <Route path='/home/personaldata' element={ <PersonalData />}/>
                 <Route path='/home/feedback' element={ <Feedback />}/>
@@ -49,10 +47,7 @@ function App() {
 
 export default App
 
-// Hero
-//     subtitle="Woraus Träume gemacht sind"
-//     title="Events für Abenteurer"
-//     text="Wir finden für Dich dein einmaliges Ereignis. Sag uns einfach, was Du magst und wir zeigen Dir die beste Location voll mit Abenteuer und Spaß. Sag’s deinen  Freunden und habt eine tolle Zeit zusammen."
+
 
 
 // CHATGPT_INTEGRATION

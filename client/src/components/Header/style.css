@@ -9,7 +9,7 @@ body {
 .nav-container {
     background-color: var(--blk);
     width: 100vw;
-    height: 4rem;
+    height: 6rem;
     position: absolute;
     top: 0;
     box-sizing: border-box;
@@ -20,7 +20,7 @@ body {
 }
 
 .nav-logo img {
-    height: 4rem;
+    height: 10rem;
     padding-left: 1rem;
 }
 
@@ -80,6 +80,7 @@ span {
     color: var(--light);
     text-decoration: none;
     text-transform: uppercase;
+    cursor: pointer;
 }
 
 .submenu {
@@ -126,6 +127,15 @@ span {
 
 
 @media (max-width: 600px) {
+
+  .nav-container {
+    height: 4rem;
+  }
+
+  .nav-logo img {
+    height: 6rem;
+  }
+
   .menu-icon {
     display: block;
     cursor: pointer;

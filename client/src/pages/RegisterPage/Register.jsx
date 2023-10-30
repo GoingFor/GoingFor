@@ -1,13 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 import { Button } from '../../components/Button/index.js';
 import {FaGoogle, FaInstagram, FaFacebook, FaXTwitter} from 'react-icons/fa6';
 import goingfor_logo from '../../assets/goingfor_logo.png';
 import './style.css';
 
 const Register = () => {
+    const [ username, setUsername ] = useState('');
+    const [ email, setEmail ] = useState('');
+    const [ password, setPassword ] = useState('');
 
-    const handleSubmit = (e) => {
+
+    const handleRegister = async(e) => {
         e.preventDefault();
+
+        try {
+            await axios.post('http://localhost:4000/api/auth/signup', {
+                username,
+                email,
+                password
+            });
+
+            console.log('Registrierung erfolgreich. Logge dich jetzt ein!');
+        } catch(err){
+            console.log('Registrierung fehlgeschlagen!')
+        }
     }
 
     return(
@@ -15,23 +33,38 @@ const Register = () => {
                 {/* reg = register */}
                 {/* btn = button */}
             <div className='reg-wrapper'>
-                <form className='reg-form' onSubmit={handleSubmit}>
+                <form className='reg-form' onSubmit={handleRegister}>
                     <input 
                         className='reg-input'
                         type='text'
                         placeholder='Username'
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
                     /> 
                     <input 
                         className='reg-input'
                         type='email'
                         placeholder='Email'
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                     /> 
                     <input 
                         className='reg-input'
                         type='password' 
                         placeholder='Password'
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
-                    <Button className='reg-btn'>Register</Button>
+                    <Link to={'/home'}>
+                        <Button className='reg-btn'>Register</Button>
+                    </Link>
+
+                    <div className='register-to-login'>
+                        <p className='register-to-login-text'>
+                            Du bist bereits registriert?
+                        </p>
+                        <Link className='register-to-login-link' to={'/login'}>Login</Link>
+                    </div>
                 </form>  
 
                 <div className='reg-social-wrapper'>

@@ -1,6 +1,7 @@
 .card {
-  width: 39rem;
-  height: 25rem;
+  /* width: 39rem; */
+  /* height: 25rem; */
+  height: 100%;
   background-color: var(--accent-blue-semi);
   border-radius: 2rem;
   display: flex;

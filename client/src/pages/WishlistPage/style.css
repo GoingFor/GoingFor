@@ -3,7 +3,11 @@
     min-height: 100vh;
 } */
 
-.wl-mobile{
+.wl-ph-wrapper{
+    margin-top: 7rem;
+}
+
+.wl-mc-wrapper{
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -16,3 +20,24 @@
     margin-top: 2rem;
     color: var(--light);
 }
+
+.wl-card-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.wl-carousel {
+    width: 70%;
+    justify-content: center;
+    margin: 0 auto;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-bottom: 4rem;
+}
+
+@media screen and (min-width: 601px) {
+    .wl-ph-wrapper{
+        margin-top: 9rem;
+    }
+}
+    

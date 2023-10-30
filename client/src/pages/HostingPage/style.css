@@ -3,11 +3,11 @@
     min-height: 100vh;
 } */
 
-.ho-mobile{
+.ho-mobile-wrapper{
     width: 100vw;
     display: flex;
     flex-direction: column;
-    margin-top: 2rem;
+    margin-top: 5rem;
 }
 
 .ho-mc{
@@ -16,4 +16,12 @@
     margin-top: 2rem;
     color: var(--light);
 
+}
+
+
+
+@media screen and (min-width: 601px) {
+    .ho-mobile{
+        margin-top: 7rem;
+    }
 }

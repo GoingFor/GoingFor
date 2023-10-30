@@ -42,3 +42,9 @@
    line-height: var(--h-2-line-height);
    letter-spacing: var(--h-2-letter-spacing);
 }
+
+@media screen and (min-width: 768px) {
+    .ph-mc-h2{
+        font-size: var(--h-2-font-size);
+    }
+}

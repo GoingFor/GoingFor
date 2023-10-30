@@ -8,24 +8,25 @@ const Hosting = () => {
     return(
         <div className='ho'>
             {/* ho = hosting seite / meine inserate */}
+            {/* ph = page header */}
             {/* mc = mobile content */}
             {/* le = left */}
             {/* ri = right */}
             {/* btn = button */}
-            <section className='ho-mobile'>
-                <div className='ho-ph-wrapper'>
-                    <Link to={'/home/profile'}>
-                        <PageHeader 
-                            pageTitle='Meine Inserate'
-                        />
-                    </Link>
-                </div>
+            
+            <div className='ho-ph-wrapper'>
+                <Link to={'/home/profile'}>
+                    <PageHeader 
+                        pageTitle='Meine Inserate'
+                    />
+                </Link>
+            </div>
 
-                <main className='ho-mc'>
+            <main className='ho-mobile-wrapper'>
+                <div className='ho-mc'>
                     hier kommt ein grid mit den inseraten rein
-                </main>
-                
-            </section>
+                </div>    
+            </main>
         </div>
     )
 }

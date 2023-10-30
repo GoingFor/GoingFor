@@ -3,8 +3,12 @@
     min-height: 100vh;
 } */
 
+.pd-ph-wrapper{
+    margin-top: 7rem;
+}
+
 /* MOBILE SECTION */
-.pd-mobile{
+.pd-mc-wrapper{
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -69,25 +73,29 @@
 
 
 /* MAIN DESKTOP */
-.pd-desktop{
+.pd-dc-wrapper{
     display: none;
 }
 
-
+@media screen and (min-width: 601px) {
+    .pd-ph-wrapper{
+        margin-top: 9rem;
+    }
+}
 
 @media screen and (min-width: 768px) {
-    .pd-mobile{
+    .pd-mc-wrapper{
         display: none;
     }
 
-    .pd-desktop{
+    .pd-dc-wrapper{
         width: 488px;
         height: 426px;
         display: flex;
         flex-direction: column;
         align-items: center;
         margin: 0 auto;
-        margin-top: 15rem;
+        margin-top: 7rem;
         margin-bottom: 15rem;
         padding: 2rem;
 
@@ -97,22 +105,22 @@
         box-shadow: var(--inset-shadow);
     }
 
-    .pd-desktop-item-wrapper,
-    .pd-desktop-list-item-le{
+    .pd-dc-item-wrapper,
+    .pd-dc-list-item-le{
         display: flex;
         /* padding-top: 1rem; */
         /* padding-bottom: 1rem; */
         /* gap: 10px; */
     }
 
-    .pd-desktop-item-wrapper{
+    .pd-dc-item-wrapper{
         width: 100%;
         align-items: flex-start;
         padding: 10px;
         border-bottom: 1px solid rgba(244, 252, 255, 1);
     }
 
-    .pd-desktop-item-le{
+    .pd-dc-item-le{
         /* width: 80%; */
         align-self: flex-start;
         flex-direction: column;
@@ -121,9 +129,9 @@
         text-align: left;
     }
 
-    .pd-text-body-le,
-    .pd-text-body-sm-le,
-    .pd-text-body-ri{
+    .pd-dc-text-body-le,
+    .pd-dc-text-body-sm-le,
+    .pd-dc-text-body-ri{
         font-family: var(--body-font-family);
         font-size: var(--body-font-size);
         font-style: var(--body-font-style);
@@ -134,13 +142,13 @@
         margin: 0;
     }
 
-    .pd-text-body-sm-le{
+    .pd-dc-text-body-sm-le{
         font-size: var(--body-sm-font-size);
         letter-spacing: var(--body-sm-letter-spacing);
         padding-top: 5px;;
     }
     
-    .pd-text-body-ri{
+    .pd-dc-text-body-ri{
         text-align: right;
         text-decoration: underline;
     }

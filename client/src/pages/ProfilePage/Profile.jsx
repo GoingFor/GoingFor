@@ -21,22 +21,23 @@ const Profile = () => {
     return(
         <div className='pr'>
             {/* pr = profilseite */}
+            {/* ph = page header */}
             {/* mc = mobile content */}
+            {/* dc = desktop content */}
             {/* le = left */}
             {/* ri = right */}
             {/* btn = button */}
 
-            <section className='pr-mobile'>
-                <div className='pr-ph-wrapper'>
-                    <Link to={'/home'}>
-                        <PageHeader 
-                            pageTitle='Profil'
-                        />
-                    </Link>
-                    
-                </div>
+            <div className='pr-ph-wrapper'>
+                <Link to={'/home'}>
+                    <PageHeader 
+                        pageTitle='Profil'
+                    />
+                </Link> 
+            </div>
 
-                <main className='pr-mc'>
+            <main className='pr-mc-wrapper'>
+                <div className='pr-mc'>
                     <div className='pr-mc-user'>
                         <div className='pr-mc-user-le'>
                             <div className='pr-mc-user-avatar-icon'></div>
@@ -117,46 +118,56 @@ const Profile = () => {
                             
                         </ul>  
                     </div>
-                </main>
-            </section>
+                </div>
+            </main>
 
-            <section className='pr-desktop'>
-                <Card className='a-card'>
-                    <div className="text">
-                        <p className="subtitle">Festival Inserieren</p>
-                        <p className="cardText">Inseriere (d)ein Festival und sorge dafür, dass andere Leute es finden.</p>
-                    </div>
-                </Card> 
+            <main className='pr-dc-wrapper'>
+                <div className='pr-dc'>
+                    <Card className='a-card'>
+                        <div className="text">
+                            <p className="subtitle">Festival Inserieren</p>
+                            <p className="cardText">Inseriere (d)ein Festival und sorge dafür, dass andere Leute es finden.</p>
+                        </div>
+                    </Card> 
 
-                <Card className='b-card'>
-                    <div className="text">
-                        <p className="subtitle">Persönliche Daten</p>
-                        <p className="cardText">Mach Angaben zu deiner Person und lass uns wissen, wie wir dich erreichen können.</p>
-                    </div>
-                </Card> 
+                <Link className='pr-dc-link' to={'/home/personaldata'}>
+                    <Card className='b-card'>
+                        <div className="text">
+                            <p className="subtitle">Persönliche Daten</p>
+                            <p className="cardText">Mach Angaben zu deiner Person und lass uns wissen, wie wir dich erreichen können.</p>
+                        </div>
+                    </Card> 
+                </Link>
 
-                <Card className='c-card'>
-                    <div className="text">
-                        <p className="subtitle">Gib uns Feedback</p>
-                        <p className="cardText">Mach Angaben zu deiner Person und lass uns wissen, wie wir dich erreichen können.</p>
-                    </div>
-                </Card> 
+                <Link className='pr-dc-link' to={'/home/feedback'}>
+                    <Card className='c-card'>
+                        <div className="text">
+                            <p className="subtitle">Gib uns Feedback</p>
+                            <p className="cardText">Mach Angaben zu deiner Person und lass uns wissen, wie wir dich erreichen können.</p>
+                        </div>
+                    </Card> 
+                </Link>
 
-                <Card className='d-card'>
-                    <div className="text">
-                        <p className="subtitle">Deine Inserate</p>
-                        <p className="cardText">Verwalte deine inserierten Events.</p>
-                    </div>
-                </Card> 
+                <Link className='pr-dc-link' to={'/home/wishlist'}>
+                    <Card className='d-card'>
+                        <div className="text">
+                            <p className="subtitle">Wunschliste</p>
+                            <p className="cardText">Finde deine gemerkten Festivals wieder</p>
+                        </div>
+                    </Card> 
+                </Link>
 
-                <Card className='e-card'>
-                    <div className="text">
-                        <p className="subtitle">Wunschliste</p>
-                        <p className="cardText">Finde deine gemerkten Festivals wieder</p>
-                    </div>
-                </Card> 
-            </section>
+                <Link className='pr-dc-link' to={'/home/hosting'}>
+                    <Card className='e-card'>
+                        <div className="text">
+                            <p className="subtitle">Deine Inserate</p>
+                            <p className="cardText">Verwalte deine inserierten Events.</p>
+                        </div>
+                    </Card> 
+                </Link>
 
+                </div>
+            </main>
         </div>
     )
 }
