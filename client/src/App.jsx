@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import axios from 'axios';
 import { Info } from './pages/InfoPage/index.js';
 import { Register } from './pages/RegisterPage/index.js';
 import { Login } from './pages/LoginPage/index.js';
@@ -14,6 +15,9 @@ import LayoutPage from './pages/LayoutPage/Layout.jsx';
 import MinimalLayoutPage from './pages/minimalLayoutPage/MinimalLayout.jsx';
 import 'typeface-roboto';
 import './App.css';
+// import { UserContextProvider } from './context/UserContext.jsx';
+
+axios.defaults.baseURL = 'http://localhost:3002/api';
 
 
 
@@ -21,7 +25,6 @@ function App() {
 
       
     return(
-
         <Routes>
             <Route path='/' element={ <MinimalLayoutPage />}>
                 <Route index element={ <Info />}/>

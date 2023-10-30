@@ -9,14 +9,15 @@ import { Strategy as InstagramStrategy } from 'passport-instagram';
 import { Strategy as FacebookStrategy } from 'passport-facebook';
 import { Strategy as TwitterStrategy } from 'passport-twitter';
 
-
+ 
 
 // Singnup
 
-export const signup = async (req, res, next) => {
+export const signup =  async(req, res, next) => {
   const { username, email, password } = req.body;
-  const hashedPassword = bcryptjs.hashSync(password, 10);
-  const newUser = new User({ username, email, password: hashedPassword });
+  // const hashedPassword = bcryptjs.hashSync(password, 10);
+  const newUser = new User({ username, email, password });
+  // res.json({username, email, password})
   try {
     await newUser.save();
     res.status(201).json('User created successfully!');
@@ -24,43 +25,43 @@ export const signup = async (req, res, next) => {
     next(error);
   }
 
-try {
-  const { username, password } = req.body
+// try {
+//   const { username, password } = req.body
 
-  const isUsed = await User.findOne({ username })
+//   const isUsed = await User.findOne({ username })
 
-  if (isUsed) {
-      return res.json({
-          message: 'This username is already taken.',
-      })
-  }
+//   if (isUsed) {
+//       return res.json({
+//           message: 'This username is already taken.',
+//       })
+//   }
 
-  const salt = bcryptjs.genSaltSync(10)
-  const hash = bcryptjs.hashSync(password, salt)
+//   const salt = bcryptjs.genSaltSync(10)
+//   const hash = bcryptjs.hashSync(password, salt)
 
-  const newUser = new User({
-      username,
-      password: hash,
-  })
+//   const newUser = new User({
+//       username,
+//       password: hash,
+//   })
 
-  const token = jwt.sign(
-      {
-          id: newUser._id,
-      },
-      process.env.JWT_SECRET,
-      { expiresIn: '30d' },
-  )
+//   const token = jwt.sign(
+//       {
+//           id: newUser._id,
+//       },
+//       process.env.JWT_SECRET,
+//       { expiresIn: '30d' },
+//   )
 
-  await newUser.save()
+//   await newUser.save()
 
-  res.json({
-      newUser,
-      token,
-      message: 'registration completed successfully',
-  })
-} catch (error) {
-  res.json({ message: 'Error creating user.' })
-}
+//   res.json({
+//       newUser,
+//       token,
+//       message: 'registration completed successfully',
+//   })
+// } catch (error) {
+//   res.json({ message: 'Error creating user.' })
+// }
 }
 
 // Singnin

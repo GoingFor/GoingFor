@@ -16,7 +16,7 @@ const Register = () => {
         e.preventDefault();
 
         try {
-            await axios.post('http://localhost:4000/api/auth/signup', {
+            await axios.post('/auth/signup', {
                 username,
                 email,
                 password
@@ -55,9 +55,9 @@ const Register = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <Link to={'/home'}>
-                        <Button className='reg-btn'>Register</Button>
-                    </Link>
+                    
+                    <Button className='reg-btn'>Register</Button>
+                    
 
                     <div className='register-to-login'>
                         <p className='register-to-login-text'>

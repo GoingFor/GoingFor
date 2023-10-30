@@ -15,7 +15,7 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            await axios.post('http://localhost:4000/api/auth/signin', 
+            await axios.post('http://localhost:3002/api/auth/signin', 
             { email, password });
             console.log('Registrierung erfolgreich. Logge dich jetzt ein!');
             setRedirect(true);
