@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Link } from 'react-router-dom';
 import { Info } from './pages/InfoPage/index.js';
 import { Register } from './pages/RegisterPage/index.js';
 import { Login } from './pages/LoginPage/index.js';
@@ -13,6 +13,8 @@ import { Home } from './pages/HomePage/index.js';
 import LayoutPage from './pages/LayoutPage/Layout.jsx';
 import MinimalLayoutPage from './pages/minimalLayoutPage/MinimalLayout.jsx';
 import 'typeface-roboto';
+import CreateEvent from './pages/CreateEvent/CreateEvent.jsx'; 
+
 import './App.css';
 
 
@@ -27,6 +29,7 @@ function App() {
                 <Route index element={ <Info />}/>
                 <Route path='/login' element={ <Login />}/>
                 <Route path='/register' element={ <Register />}/>
+                <Route path="/create-event" element={<CreateEvent />} /> 
             </Route>
 
 
