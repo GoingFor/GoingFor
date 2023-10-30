@@ -14,6 +14,7 @@ import LayoutPage from './pages/LayoutPage/Layout.jsx';
 import MinimalLayoutPage from './pages/minimalLayoutPage/MinimalLayout.jsx';
 import 'typeface-roboto';
 import './App.css';
+import MapComponent from './components/Map/Map.jsx';
 
 
 
