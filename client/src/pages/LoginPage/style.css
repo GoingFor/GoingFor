@@ -24,7 +24,7 @@
     margin-top: 3rem;
 }
 
-input::placeholder,
+.login-input::placeholder,
 .login-btn{
     font-family: var( --subtitle-sm-font-family);
     font-size: var(--subtitle-sm-font-size);
