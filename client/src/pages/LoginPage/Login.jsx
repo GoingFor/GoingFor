@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import axios from 'axios';
 import { Button } from '../../components/Button/index.js';
 import {FaGoogle, FaInstagram, FaFacebook, FaXTwitter} from 'react-icons/fa6';
+import { UserContext } from '../../context/UserContext.jsx';
 import goingfor_logo from '../../assets/goingfor_logo.png';
 import './style.css';
 
@@ -10,23 +11,28 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [redirect, setRedirect ] = useState(false);
+    const { setUser } = useContext(UserContext);
 
     const handleLogin = async(e) => {
         e.preventDefault();
 
         try {
-            await axios.post('http://localhost:4000/api/auth/signin', 
-            { email, password });
-            console.log('Registrierung erfolgreich. Logge dich jetzt ein!');
+            const {data} = await axios.post('auth/signin', { 
+                email, 
+                password
+            });
+            setUser(data);
+
+            alert('Einloggen erfolgreich.');
             setRedirect(true);
 
         } catch(err){
-            console.log('Login fehlgeschlagen')
+            alert('Login fehlgeschlagen')
         }
     }
 
     if(redirect) {
-        return <Navigate to={'/home'} />
+        return <Navigate to={'/home/profile'} />
     }
 
 

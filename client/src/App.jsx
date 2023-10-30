@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect }from 'react';
+import { Route, Routes } from 'react-router-dom';
+import axios from 'axios';
 import { Route, Routes, Link } from 'react-router-dom';
 import { Info } from './pages/InfoPage/index.js';
 import { Register } from './pages/RegisterPage/index.js';
@@ -16,32 +18,35 @@ import 'typeface-roboto';
 import CreateEvent from './pages/CreateEvent/CreateEvent.jsx'; 
 
 import './App.css';
+import { UserContextProvider } from './context/UserContext.jsx';
+
+axios.defaults.baseURL = 'http://localhost:3002/api';
 
 
 
 function App() {
-
       
     return(
+        <UserContextProvider>
+            <Routes>
+                <Route path='/' element={ <MinimalLayoutPage />}>
+                    <Route index element={ <Info />}/>
+                    <Route path='/login' element={ <Login />}/>
+                    <Route path='/register' element={ <Register />}/>
+                </Route>
 
-        <Routes>
-            <Route path='/' element={ <MinimalLayoutPage />}>
-                <Route index element={ <Info />}/>
-                <Route path='/login' element={ <Login />}/>
-                <Route path='/register' element={ <Register />}/>
-                <Route path="/create-event" element={<CreateEvent />} /> 
-            </Route>
 
+                <Route element={ <LayoutPage /> }>
+                    <Route path='/home' element={ <Home />}/>
+                    <Route path='/home/profile' element={ <Profile/> }/>
+                    <Route path='/home/personaldata' element={ <PersonalData />}/>
+                    <Route path='/home/feedback' element={ <Feedback />}/>
+                    <Route path='/home/wishlist' element={ <Wishlist />}/>
+                    <Route path='/home/hosting' element={ <Hosting />}/>
+                </Route> 
+            </Routes>
+        </UserContextProvider>
 
-            <Route element={ <LayoutPage /> }>
-                <Route path='/home' element={ <Home />}/>
-                <Route path='/home/profile' element={ <Profile/> }/>
-                <Route path='/home/personaldata' element={ <PersonalData />}/>
-                <Route path='/home/feedback' element={ <Feedback />}/>
-                <Route path='/home/wishlist' element={ <Wishlist />}/>
-                <Route path='/home/hosting' element={ <Hosting />}/>
-            </Route> 
-        </Routes>
     )
 }
 

@@ -63,17 +63,18 @@ export const getUserListings = async (req, res, next) => {
   }
 };
 
-export const getUser = async (req, res, next) => {
-  try {
+export const getUser =  (req, res, next) => {
+  res.json('user info');
+  // try {
     
-    const user = await User.findById(req.params.id);
+  //   const user = await User.findById(req.params.id);
   
-    if (!user) return next(errorHandler(404, 'User not found!'));
+  //   if (!user) return next(errorHandler(404, 'User not found!'));
   
-    const { password: pass, ...rest } = user._doc;
+  //   const { password: pass, ...rest } = user._doc;
   
-    res.status(200).json(rest);
-  } catch (error) {
-    next(error);
-  }
+  //   res.status(200).json(rest);
+  // } catch (error) {
+  //   next(error);
+  // }
 };

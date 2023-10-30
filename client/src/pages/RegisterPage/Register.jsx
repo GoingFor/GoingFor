@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import axios from 'axios';
 import { Button } from '../../components/Button/index.js';
 import {FaGoogle, FaInstagram, FaFacebook, FaXTwitter} from 'react-icons/fa6';
@@ -11,20 +11,19 @@ const Register = () => {
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
 
-
     const handleRegister = async(e) => {
         e.preventDefault();
 
         try {
-            await axios.post('http://localhost:4000/api/auth/signup', {
+            await axios.post('/auth/signup', {
                 username,
                 email,
                 password
             });
 
-            console.log('Registrierung erfolgreich. Logge dich jetzt ein!');
+            alert('Registrierung erfolgreich. Du kannst dich nun einloggen.');
         } catch(err){
-            console.log('Registrierung fehlgeschlagen!')
+            alert('Registrierung fehlgeschlagen!')
         }
     }
 
@@ -55,9 +54,9 @@ const Register = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <Link to={'/home'}>
-                        <Button className='reg-btn'>Register</Button>
-                    </Link>
+                    
+                    <Button className='reg-btn'>Register</Button>
+                    
 
                     <div className='register-to-login'>
                         <p className='register-to-login-text'>
