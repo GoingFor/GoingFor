@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import "./style.css";
 import HamburgerImage from '/src/assets/hamburger.png';
 import goingfor_logo from '../../assets/goingfor_logo.png';
+import CreateEvent from "../../pages/CreateEvent/CreateEvent";
 
 const Header = () => {
     const [showNavbar, setShowNavbar] = useState(false);
@@ -124,6 +125,9 @@ const Header = () => {
                     </li>
                     <li>
                     <NavLink to="/profil">Profil</NavLink>
+                    </li>
+                    <li>
+                    <NavLink to="/create-event">Create Event</NavLink> 
                     </li>
                 </ul>
             </div>   
