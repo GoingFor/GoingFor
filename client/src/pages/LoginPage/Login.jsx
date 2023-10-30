@@ -15,13 +15,16 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            await axios.post('http://localhost:3002/api/auth/signin', 
-            { email, password });
-            console.log('Registrierung erfolgreich. Logge dich jetzt ein!');
+            await axios.post('auth/signin', { 
+                email, 
+                password
+            });
+
+            alert('Einloggen erfolgreich.');
             setRedirect(true);
 
         } catch(err){
-            console.log('Login fehlgeschlagen')
+            alert('Login fehlgeschlagen')
         }
     }
 

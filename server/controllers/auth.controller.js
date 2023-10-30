@@ -12,60 +12,47 @@ import { Strategy as TwitterStrategy } from 'passport-twitter';
  
 
 // Singnup
-
 export const signup =  async(req, res, next) => {
-  const { username, email, password } = req.body;
-  // const hashedPassword = bcryptjs.hashSync(password, 10);
-  const newUser = new User({ username, email, password });
-  // res.json({username, email, password})
   try {
+    const { username, email, password } = req.body;
+    const isUsed = await User.findOne({ username });
+
+    if(isUsed){
+      return res.json({
+        message: 'This username is already taken.',
+      });
+    }
+
+    const salt = bcryptjs.genSaltSync(10);
+    const hashedPassword = bcryptjs.hashSync(password, salt);
+
+    const newUser = new User({
+      username,
+      email,
+      password: hashedPassword,
+    });
+
+    // const token = jwt.sign(
+    //   {
+    //     id: newUser._id,
+    //   },
+    //   process.env.JWT_SECRET,
+    //   { expiresIn: '30d' },
+    // );
+
     await newUser.save();
-    res.status(201).json('User created successfully!');
-  } catch (error) {
-    next(error);
+
+    res.status(201).json({
+      data: newUser,
+      message: 'registration completed successfully'
+    });
+
+  } catch(error) {
+    next(error)
   }
-
-// try {
-//   const { username, password } = req.body
-
-//   const isUsed = await User.findOne({ username })
-
-//   if (isUsed) {
-//       return res.json({
-//           message: 'This username is already taken.',
-//       })
-//   }
-
-//   const salt = bcryptjs.genSaltSync(10)
-//   const hash = bcryptjs.hashSync(password, salt)
-
-//   const newUser = new User({
-//       username,
-//       password: hash,
-//   })
-
-//   const token = jwt.sign(
-//       {
-//           id: newUser._id,
-//       },
-//       process.env.JWT_SECRET,
-//       { expiresIn: '30d' },
-//   )
-
-//   await newUser.save()
-
-//   res.json({
-//       newUser,
-//       token,
-//       message: 'registration completed successfully',
-//   })
-// } catch (error) {
-//   res.json({ message: 'Error creating user.' })
-// }
 }
 
 // Singnin
-
 export const signin = async (req, res, next) => {
   const { email, password } = req.body;
   try {
@@ -73,12 +60,21 @@ export const signin = async (req, res, next) => {
     if (!validUser) return next(errorHandler(404, 'User not found!'));
     const validPassword = bcryptjs.compareSync(password, validUser.password);
     if (!validPassword) return next(errorHandler(401, 'Wrong credentials!'));
-    const token = jwt.sign({ id: validUser._id }, process.env.JWT_SECRET);
-    const { password: pass, ...rest } = validUser._doc;
+
+    const token = jwt.sign({ id: validUser._id, email: validUser.email, username: validUser.username }, process.env.JWT_SECRET);
+    // const { password: pass, ...rest } = validUser._doc;
     res
-      .cookie('access_token', token, { httpOnly: true })
+      .cookie('access_token', token, 
+      { 
+        maxAge: 24 * 60 * 60 * 1000,
+        httpOnly: true 
+      })
       .status(200)
-      .json(rest);
+      .json({
+        success: true,
+        msg: `Hello ${validUser.username}, nice to see you again!`
+      });
+      
   } catch (error) {
     next(error);
   }
