@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import axios from 'axios';
 import { Button } from '../../components/Button/index.js';
 import {FaGoogle, FaInstagram, FaFacebook, FaXTwitter} from 'react-icons/fa6';
@@ -7,24 +7,26 @@ import goingfor_logo from '../../assets/goingfor_logo.png';
 import './style.css';
 
 const Login = () => {
-    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [redirect, setRedirect ] = useState(false);
 
-    const handleSubmit = async(e) => {
+    const handleLogin = async(e) => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('api/login', {username, password});
+            await axios.post('http://localhost:4000/api/auth/signin', 
+            { email, password });
+            console.log('Registrierung erfolgreich. Logge dich jetzt ein!');
+            setRedirect(true);
 
-            if(response.status === 200){
-                // erfolgreiche anmeldung = weiterleitung zur startseite
-                window.location.href = '/startseite';
-            } else {
-                console.log('anmedlung fehlgeschlaggen');
-            }
-        } catch(error){
-            console.error('Fehler bei der Anmeldung', error);
+        } catch(err){
+            console.log('Login fehlgeschlagen')
         }
+    }
+
+    if(redirect) {
+        return <Navigate to={'/home'} />
     }
 
 
@@ -33,13 +35,13 @@ const Login = () => {
                 {/* mc = mobile content */}
                 {/* btn = button */}
             <div className='login-wrapper'>
-                <form className='login-form' onSubmit={handleSubmit}>
+                <form className='login-form' onSubmit={handleLogin}>
                     <input 
                         className='login-input'
-                        type='text'
-                        placeholder='Username'
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
+                        type='email'
+                        placeholder='Email'
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                     /> 
                     <input 
                         className='login-input'
@@ -48,10 +50,8 @@ const Login = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    
-                    <Link to={'/home'}>
-                        <Button className='login-btn'>Login</Button>
-                    </Link>
+                    <Button className='login-btn'>Login</Button>
+
 
                     <div className='login-to-register'>
                         <p className='login-to-register-text'>
