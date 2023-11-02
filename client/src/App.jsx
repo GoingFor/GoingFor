@@ -19,10 +19,7 @@ import CreateEvent from './pages/CreateEvent/index';
 import './App.css';
 
 
-
-
-axios.defaults.baseURL = 'http://localhost:3002/api';
-
+axios.defaults.baseURL = '/api';
 
 
 function App() {
