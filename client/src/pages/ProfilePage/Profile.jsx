@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import { Card } from '../../components/Card/index.js';
 import { Button } from '../../components/Button/index.js';
 import { PageHeader } from '../../components/PageHeader/index.js';
@@ -10,32 +11,31 @@ import './style.css';
 
 const Profile = () => {
     const [ userData, setUserData ] = useState({});
-    useEffect(() => {
+
+    const getUserData = () => {
         const token = localStorage.getItem('access_token');
-        console.log(token);
+
         if (token) {
             axios
-            .get('/user/profile', {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            })
-            .then((response) => {
-                console.log(response);
-                setUserData(response.data);
-            })
-            .catch((error) => {
-                console.error('Fehler beim abrufen der benutzerdaten', error);
-            });
+                .get('/user/profile', {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                })
+                .then((response) => {
+                    setUserData(response.data);
+                })
+                .catch((error) => {
+                    console.error('Fehler beim abrufen der benutzerdaten', error);
+                });
         }
+    };
+
+    useEffect(() => {
+        getUserData();
     }, []);
 
-    // Seiten verlinken:
-    // Inseriere ein Festival
-    // Persönliche Daten
-    // Gib uns Feedback
-    // Wunschliste
-    // Meine Inserate
+
 
     return(
         <div className='pr'>
@@ -61,7 +61,7 @@ const Profile = () => {
                         <div className='pr-mc-user-le'>
                             <div className='pr-mc-user-avatar-icon'></div>
                             <div className='pr-mc-user-le-text'>
-                                <p className='pr-mc-user-name'>Pipilotta</p>
+                                <p className='pr-mc-user-name'>{userData.username}</p>
                                 <p className='pr-mc-user-show-pr'>Profil anzeigen</p>
                             </div>
                         </div>

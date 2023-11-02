@@ -11,6 +11,7 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [redirect, setRedirect ] = useState(false);
+    
     const handleLogin = async(e) => {
         e.preventDefault();
         try {
@@ -18,10 +19,10 @@ const Login = () => {
                 email,
                 password
             });
-            console.log(response);
             alert('Einloggen erfolgreich.');
             localStorage.setItem('access_token', response.data.token);
             setRedirect(true);
+
         } catch(err){
             alert('Login fehlgeschlagen')
         }
