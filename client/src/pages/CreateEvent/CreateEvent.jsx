@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './style.css';
 import MapComponent from '../../components/Map';
 
+
 function CreateEvent() {
 
   const [formData, setFormData] = useState({
