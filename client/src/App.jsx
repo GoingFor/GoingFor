@@ -1,5 +1,6 @@
 import React, { useEffect }from 'react';
 import axios from 'axios';
+// import { Route, Routes, Link } from 'react-router-dom';
 import { Info } from './pages/InfoPage/index.js';
 import { Register } from './pages/RegisterPage/index.js';
 import { Login } from './pages/LoginPage/index.js';

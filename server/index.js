@@ -6,6 +6,11 @@ import path from 'path';
 import dotenv from 'dotenv';
 dotenv.config();
 
+//
+import cors from 'cors';
+import bodyParser from 'body-parser';
+//
+
 /* IMPORTS */
 import userRouter from './routes/user.route.js';
 import authRouter from './routes/auth.route.js';
@@ -26,6 +31,18 @@ const PORT = process.env.PORT || 3001
 const DB_USER = process.env.DB_USER
 const DB_PASSWORD = process.env.DB_PASSWORD
 const DB_NAME = process.env.DB_NAME
+
+// const MONGODB_URI = 'mongodb://localhost:27017/deine-datenbank';
+// mongoose.connect(MONGODB_URI, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
+
+
+
+// app.listen(PORT, () => {
+//   console.log(`Server läuft auf Port ${PORT}`);
+// });
 
 
 /* DATENBANK */
@@ -48,6 +65,10 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(setCors);
+//
+app.use(cors());
+app.use(bodyParser.json());
+//
 
 // app.listen(3000, () => {
 //   console.log('Server is running on port 3000');
@@ -57,6 +78,8 @@ app.use(setCors);
 /* ROUTEN */
 app.use('/api/user', userRouter);
 app.use('/api/auth', authRouter);
+// app.use('/api/events', eventsRouter);
+
 // app.use('/api/listing', listingRouter);
 
 

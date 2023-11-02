@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import './style.css';
+
+//
+import axios from 'axios';
+//
+
 import MapComponent from '../../components/Map';
+
 
 
 function CreateEvent() {
@@ -20,6 +26,23 @@ function CreateEvent() {
     endDate: '',
   });
 
+
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormData({
+  //     ...formData,
+  //     [name]: value,
+  //   });
+  // };
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   // Handle form submission here (e.g., send data to an API or process it in your app)
+  //   console.log('Form data submitted:', formData);
+  // };
+  
+//
+
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [isMapOpen, setIsMapOpen] = useState(false);
 
@@ -36,6 +59,7 @@ function CreateEvent() {
     setIsMapOpen(false);
   };
 
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -44,14 +68,25 @@ function CreateEvent() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    try {
+      await axios.post('/api/events', formData);
+      console.log('Event erfolgreich erstellt!');
+    } catch (error) {
+      console.error('Fehler beim Erstellen des Events:', error);
+    }
+
     // Handle form submission here (e.g., send data to an API or process it in your app)
     console.log('Form data submitted:', formData);
     console.log('Ausgewählte Position:', selectedLocation);
 
       //! Logik zum Speichern der Daten hinzufügen!
+
   };
+
+  //
 
   return (
     <div className="form-container">

@@ -27,6 +27,12 @@ router.post('/instagram', instagram);
 // http://localhost:3002/api/auth/signout
 router.get('/signout', signOut)
 
+
+//Event
+// http://localhost:3002/api/events
+router.get('/api/events', signOut)
+
+
 export default router;
 
 
