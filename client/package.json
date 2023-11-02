@@ -21,8 +21,12 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
     "react-leaflet": "^4.2.1",
-    "react-router-dom": "^6.17.0",
-    "typeface-roboto": "^1.1.13"
+    "react-redux": "^8.1.3",
+    "react-router-dom": "^6.18.0",
+    "react-scripts": "^5.0.1",
+    "react-toastify": "^9.1.3",
+    "typeface-roboto": "^1.1.13",
+    "web-vitals": "^3.5.0"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.22.15",
