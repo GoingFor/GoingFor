@@ -11,26 +11,21 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [redirect, setRedirect ] = useState(false);
-    const { setUser } = useContext(UserContext);
-
     const handleLogin = async(e) => {
         e.preventDefault();
-
         try {
-            const {data} = await axios.post('auth/signin', { 
-                email, 
+            const response = await axios.post('auth/signin', {
+                email,
                 password
             });
-            setUser(data);
-
+            console.log(response);
             alert('Einloggen erfolgreich.');
+            localStorage.setItem('access_token', response.data.token);
             setRedirect(true);
-
         } catch(err){
             alert('Login fehlgeschlagen')
         }
     }
-
     if(redirect) {
         return <Navigate to={'/home/profile'} />
     }

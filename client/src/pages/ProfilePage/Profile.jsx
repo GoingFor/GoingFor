@@ -8,8 +8,27 @@ import { HiPencil, HiOutlineHeart, HiMap, HiChevronRight } from 'react-icons/hi2
 
 import './style.css';
 
-
 const Profile = () => {
+    const [ userData, setUserData ] = useState({});
+    useEffect(() => {
+        const token = localStorage.getItem('access_token');
+        console.log(token);
+        if (token) {
+            axios
+            .get('/user/profile', {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
+            .then((response) => {
+                console.log(response);
+                setUserData(response.data);
+            })
+            .catch((error) => {
+                console.error('Fehler beim abrufen der benutzerdaten', error);
+            });
+        }
+    }, []);
 
     // Seiten verlinken:
     // Inseriere ein Festival

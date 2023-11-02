@@ -42,6 +42,10 @@ a{
     --infocolor: rgba(244, 252, 255, 0.8);
     --navuntermenu: rgba(41, 9, 40, 0.85);
 
+    /* shadows */
+    --box-shadow: inset 0px 10px 15px -3px rgba(0,0,0,0.1);
+    --button-shadow: 0px 10px 15px 1px rgba(0,0,0,0.1),inset -8px -8px 14px -5px rgba(0,0,0,0.1);
+
     /* bodytext */
     --body-desktop: "Roboto-Regular", Helvetica, 24px, normal, 400, 0.6px, normal;
     --body-mobile: "Roboto-Regular", Helvetica, 16px, normal, 400, 0.4px, normal;
