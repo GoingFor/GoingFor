@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Footer from '../../components/Footer/Footer.jsx';
-import Header from '../../components/Header/Header.jsx';
 import MapComponent from '../../components/Map/Map';
 import './style.css';
 
@@ -12,7 +11,7 @@ const Home = () => {
             <div className="map-container">
                 <MapComponent />
             </div>
-            <Footer/>
+            {/* <Footer/> */}
         </div>
     );
 };
