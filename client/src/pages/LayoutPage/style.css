@@ -7,12 +7,11 @@
     padding-bottom: 2rem;
 }
 
-.content {
+.site-content {
     width: 100vw;
     background-image: url('../../assets/goingfor_background.png');
     background-position: top center;
     background-size: contain;
     background-repeat: no-repeat;
-    /* min-height: 100vh;  */
     flex-grow: 1;
 }
