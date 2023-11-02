@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import './style.css';
+//
+import axios from 'axios';
+//
+
 
 function CreateEvent() {
   const [formData, setFormData] = useState({
@@ -17,6 +21,21 @@ function CreateEvent() {
     endDate: '',
   });
 
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormData({
+  //     ...formData,
+  //     [name]: value,
+  //   });
+  // };
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   // Handle form submission here (e.g., send data to an API or process it in your app)
+  //   console.log('Form data submitted:', formData);
+  // };
+  
+//
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -25,11 +44,17 @@ function CreateEvent() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here (e.g., send data to an API or process it in your app)
-    console.log('Form data submitted:', formData);
+    try {
+      await axios.post('/api/events', formData);
+      console.log('Event erfolgreich erstellt!');
+    } catch (error) {
+      console.error('Fehler beim Erstellen des Events:', error);
+    }
   };
+
+  //
 
   return (
     <div className="create-event-form">
