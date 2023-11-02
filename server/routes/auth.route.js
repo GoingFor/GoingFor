@@ -28,7 +28,7 @@ router.post('/instagram', instagram);
 router.get('/signout', signOut)
 
 
-//Signout
+//Event
 // http://localhost:3002/api/events
 router.get('/api/events', signOut)
 
