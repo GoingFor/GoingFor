@@ -10,7 +10,7 @@ const LayoutPage = () => {
     return (
         <div className='layoutContainer'>
             <Header/>
-            <div className='content'>
+            <div className='site-content'>
                 <Outlet />
             </div>
              <Footer />

@@ -1,5 +1,4 @@
 import React, { useEffect }from 'react';
-import { Route, Routes } from 'react-router-dom';
 import axios from 'axios';
 import { Route, Routes, Link } from 'react-router-dom';
 import { Info } from './pages/InfoPage/index.js';
@@ -16,7 +15,7 @@ import LayoutPage from './pages/LayoutPage/Layout.jsx';
 import MinimalLayoutPage from './pages/minimalLayoutPage/MinimalLayout.jsx';
 import 'typeface-roboto';
 import { UserContextProvider } from './context/UserContext.jsx';
-import CreateEvent from './pages/CreateEvent/CreateEvent.jsx'; 
+import CreateEvent from './pages/CreateEvent/index'; 
 
 import './App.css';
 
@@ -28,6 +27,7 @@ axios.defaults.baseURL = 'http://localhost:3002/api';
 
 
 function App() {
+
       
     return(
         <UserContextProvider>
@@ -36,6 +36,7 @@ function App() {
                     <Route index element={ <Info />}/>
                     <Route path='/login' element={ <Login />}/>
                     <Route path='/register' element={ <Register />}/>
+                    <Route path='/create' element={<CreateEvent />} />
                 </Route>
 
 
