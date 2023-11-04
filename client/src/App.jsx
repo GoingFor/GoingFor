@@ -4,7 +4,6 @@ import { Route, Routes, Link } from 'react-router-dom';
 import { Info } from './pages/InfoPage/index.js';
 import { Register } from './pages/RegisterPage/index.js';
 import { Login } from './pages/LoginPage/index.js';
-// import Hero from './components/Herosection/Herosection.jsx';ç
 import { Profile } from './pages/ProfilePage/index.js';
 import { PersonalData } from './pages/PersonalDataPage/index.js';
 import { Feedback } from './pages/FeedbackPage/index.js' ;
@@ -13,9 +12,10 @@ import { Hosting } from './pages/HostingPage/index.js';
 import { Home } from './pages/HomePage/index.js';
 import LayoutPage from './pages/LayoutPage/Layout.jsx';
 import MinimalLayoutPage from './pages/minimalLayoutPage/MinimalLayout.jsx';
-import 'typeface-roboto';
 import { AuthProvider } from './context/AuthContext.jsx';
 import CreateEvent from './pages/CreateEvent/index'; 
+import { Account } from './pages/AccountPage/index.js' ;
+import 'typeface-roboto';
 
 import './App.css';
 
@@ -33,7 +33,6 @@ function App() {
                     <Route index element={ <Info />}/>
                     <Route path='/login' element={ <Login />}/>
                     <Route path='/register' element={ <Register />}/>
-                    <Route path='/create' element={<CreateEvent />} />
                 </Route>
 
                 <Route element={ <LayoutPage /> }>
