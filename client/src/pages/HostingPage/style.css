@@ -3,6 +3,10 @@
     min-height: 100vh;
 } */
 
+.ho-ph-wrapper{
+    margin-top: 7rem;
+}
+
 .ho-mobile-wrapper{
     width: 100vw;
     display: flex;

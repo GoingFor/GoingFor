@@ -1,38 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
-// import { Card } from '../../components/Card/index.js';
-// import { Button } from '../../components/Button/index.js';
+// import axios from 'axios';
+import { useAuth } from '../../context/AuthContext.jsx';
 import { PageHeader } from '../../components/PageHeader/index.js';
 import './style.css';
 
 const PersonalData = () => {
-    const [ userData, setUserData ] = useState({});
 
-    const getUserData = () => {
-        const token = localStorage.getItem('access_token');
-
-        if (token) {
-            axios
-                .get('/user/profile', {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                })
-                .then((response) => {
-                    setUserData(response.data);
-                })
-                .catch((error) => {
-                    console.error('Fehler beim abrufen der benutzerdaten', error);
-                });
-        }
-    };
+    const { user, getUserData } = useAuth();
 
     useEffect(() => {
         getUserData();
     }, []);
-
-
+    
 
     return(
         <div className="pd">
@@ -59,7 +39,7 @@ const PersonalData = () => {
                             <div className='pd-mc-list-item-wrapper'>
                                 <div className='pd-mc-list-item-le'>
                                     <p className='pd-mc-text-body-le'>Offizieller Name</p>
-                                    <p className='pd-mc-text-body-sm-le'>Pipi Langstrumpf</p>  
+                                    <p className='pd-mc-text-body-sm-le'>{user.username}</p>  
                                 </div>
                                 <div className='pd-mc-list-item-ri'>
                                     <p className='pd-mc-text-body-ri'>Bearbeiten</p>
@@ -83,7 +63,7 @@ const PersonalData = () => {
                             <div className='pd-mc-list-item-wrapper'>
                                 <div className='pd-mc-list-item-le'>
                                     <p className='pd-mc-text-body-le'>E-Mail Adresse</p>
-                                    <p className='pd-mc-text-body-sm-le'>{userData.email}</p>  
+                                    <p className='pd-mc-text-body-sm-le'>{user.email}</p>  
                                 </div>
                                 <div className='pd-mc-list-item-ri'>
                                     <p className='pd-mc-text-body-ri'>Bearbeiten</p>

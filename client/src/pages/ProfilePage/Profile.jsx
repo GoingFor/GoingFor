@@ -7,7 +7,6 @@ import { Button } from '../../components/Button/index.js';
 import { PageHeader } from '../../components/PageHeader/index.js';
 import { PiUserCircle } from 'react-icons/pi';
 import { HiPencil, HiOutlineHeart, HiMap, HiChevronRight } from 'react-icons/hi2';
-
 import './style.css';
 
 
