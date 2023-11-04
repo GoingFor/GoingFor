@@ -43,6 +43,7 @@ function App() {
                     <Route path='/home/feedback' element={ <Feedback />}/>
                     <Route path='/home/wishlist' element={ <Wishlist />}/>
                     <Route path='/home/hosting' element={ <Hosting />}/>
+                    <Route path='/home/event' element={ <CreateEvent /> }/>
                 </Route> 
             </Routes>
         </AuthProvider>

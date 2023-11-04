@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { Button } from '../../components/Button/index.js';
 import {FaGoogle, FaInstagram, FaFacebook, FaXTwitter} from 'react-icons/fa6';
 import { useAuth } from '../../context/AuthContext.jsx';
