@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useAuth } from '../../context/AuthContext.jsx';
 import { Card } from '../../components/Card/index.js';
 import { Button } from '../../components/Button/index.js';
 import { PageHeader } from '../../components/PageHeader/index.js';
@@ -9,33 +10,19 @@ import { HiPencil, HiOutlineHeart, HiMap, HiChevronRight } from 'react-icons/hi2
 
 import './style.css';
 
+
 const Profile = () => {
-    const [ userData, setUserData ] = useState({});
+    const { user, getUserData } = useAuth();
 
-    const getUserData = () => {
-        const token = localStorage.getItem('access_token');
+    // so geht es schon mal:
+    // auth context: const response, setUser(response.data)
+    // console.log(user.user.username); 
 
-        if (token) {
-            axios
-                .get('/user/profile', {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                })
-                .then((response) => {
-                    setUserData(response.data);
-                })
-                .catch((error) => {
-                    console.error('Fehler beim abrufen der benutzerdaten', error);
-                });
-        }
-    };
+    // console.log(user.username);
 
     useEffect(() => {
         getUserData();
     }, []);
-
-
 
     return(
         <div className='pr'>
@@ -61,7 +48,7 @@ const Profile = () => {
                         <div className='pr-mc-user-le'>
                             <div className='pr-mc-user-avatar-icon'></div>
                             <div className='pr-mc-user-le-text'>
-                                <p className='pr-mc-user-name'>{userData.username}</p>
+                                <p className='pr-mc-user-name'>{user.username}</p>
                                 <p className='pr-mc-user-show-pr'>Profil anzeigen</p>
                             </div>
                         </div>

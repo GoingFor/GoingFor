@@ -14,36 +14,38 @@ import { Home } from './pages/HomePage/index.js';
 import LayoutPage from './pages/LayoutPage/Layout.jsx';
 import MinimalLayoutPage from './pages/minimalLayoutPage/MinimalLayout.jsx';
 import 'typeface-roboto';
-// import { UserContextProvider } from './context/UserContext.jsx';
+import { AuthProvider } from './context/AuthContext.jsx';
 import CreateEvent from './pages/CreateEvent/index'; 
 
 import './App.css';
 
 
-axios.defaults.baseURL = '/api';
+// axios.defaults.baseURL = '/api';
 
 
 function App() {
 
       
     return(
-        <Routes>
-            <Route path='/' element={ <MinimalLayoutPage />}>
-                <Route index element={ <Info />}/>
-                <Route path='/login' element={ <Login />}/>
-                <Route path='/register' element={ <Register />}/>
-                <Route path='/create' element={<CreateEvent />} />
-            </Route>
-            <Route element={ <LayoutPage /> }>
-                <Route path='/home' element={ <Home />}/>
-                <Route path='/home/profile' element={ <Profile/> }/>
-                <Route path='/home/personaldata' element={ <PersonalData />}/>
-                <Route path='/home/feedback' element={ <Feedback />}/>
-                <Route path='/home/wishlist' element={ <Wishlist />}/>
-                <Route path='/home/hosting' element={ <Hosting />}/>
-            </Route> 
-        </Routes>
+        <AuthProvider>
+            <Routes>
+                <Route path='/' element={ <MinimalLayoutPage />}>
+                    <Route index element={ <Info />}/>
+                    <Route path='/login' element={ <Login />}/>
+                    <Route path='/register' element={ <Register />}/>
+                    <Route path='/create' element={<CreateEvent />} />
+                </Route>
 
+                <Route element={ <LayoutPage /> }>
+                    <Route path='/home' element={ <Home />}/>
+                    <Route path='/home/profile' element={ <Profile/> }/>
+                    <Route path='/home/personaldata' element={ <PersonalData />}/>
+                    <Route path='/home/feedback' element={ <Feedback />}/>
+                    <Route path='/home/wishlist' element={ <Wishlist />}/>
+                    <Route path='/home/hosting' element={ <Hosting />}/>
+                </Route> 
+            </Routes>
+        </AuthProvider>
     )
 }
 
