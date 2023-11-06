@@ -10,6 +10,9 @@ dotenv.config();
 // import cors from 'cors';
 // import bodyParser from 'body-parser';
 //
+import postRoute from './routes/posts.js'
+import commentRoute from './routes/comments.js'
+//
 
 /* IMPORTS */
 import userRouter from './routes/user.route.js';
@@ -66,11 +69,32 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use(setCors);
+//
+app.use(cors());
+app.use(bodyParser.json());
+//
+app.use(express.static('uploads'))
+
+// app.listen(3000, () => {
+//   console.log('Server is running on port 3000');
+// });
+
+
+
 
 /* ROUTEN */
 app.use('/api/user', userRouter);
 app.use('/api/auth', authRouter);
+
+//
+app.use('/api/posts', postRoute)
+app.use('/api/comments', commentRoute)
+
+// app.use('/api/events', eventsRouter);
+
 app.use('/api/events', eventRouter);
+
 
 // app.use('/api/listing', listingRouter);
 

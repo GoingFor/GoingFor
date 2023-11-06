@@ -45,6 +45,7 @@ export const verifyToken = (req, res, next) => {
 // };
 
 
+
 // import jwt from 'jsonwebtoken'
 // export const checkAuth = (req, res, next) => {
 //     const token = (req.headers.authorization || '').replace(/Bearer\s?/, '')
@@ -67,3 +68,7 @@ export const verifyToken = (req, res, next) => {
 //         })
 //     }
 // }
+
+
+
+
