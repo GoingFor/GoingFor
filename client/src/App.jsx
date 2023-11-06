@@ -14,7 +14,6 @@ import LayoutPage from './pages/LayoutPage/Layout.jsx';
 import MinimalLayoutPage from './pages/minimalLayoutPage/MinimalLayout.jsx';
 import { AuthProvider } from './context/AuthContext.jsx';
 import CreateEvent from './pages/CreateEvent/index'; 
-import { Account } from './pages/AccountPage/index.js' ;
 import 'typeface-roboto';
 
 import './App.css';

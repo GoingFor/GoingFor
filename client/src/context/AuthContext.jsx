@@ -45,7 +45,7 @@ export const AuthProvider = ({ children }) => {
             return;
         }
         getUserData();
-    }, [isAuthenticated]);
+    }, []);
 
 
     return(

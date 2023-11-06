@@ -13,12 +13,6 @@ import './style.css';
 const Profile = () => {
     const { user, getUserData } = useAuth();
 
-    // so geht es schon mal:
-    // auth context: const response, setUser(response.data)
-    // console.log(user.user.username); 
-
-    // console.log(user.username);
-
     useEffect(() => {
         getUserData();
     }, []);
