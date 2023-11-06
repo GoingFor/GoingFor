@@ -1,41 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { useAuth } from '../../context/AuthContext.jsx';
 import { Card } from '../../components/Card/index.js';
 import { Button } from '../../components/Button/index.js';
 import { PageHeader } from '../../components/PageHeader/index.js';
 import { PiUserCircle } from 'react-icons/pi';
-import { HiPencil, HiOutlineHeart, HiMap, HiChevronRight } from 'react-icons/hi2';
-
+import { HiPencil, HiOutlineHeart, HiMap, HiChevronRight, HiEnvelope } from 'react-icons/hi2';
 import './style.css';
 
-const Profile = () => {
-    const [ userData, setUserData ] = useState({});
-    useEffect(() => {
-        const token = localStorage.getItem('access_token');
-        console.log(token);
-        if (token) {
-            axios
-            .get('/user/profile', {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            })
-            .then((response) => {
-                console.log(response);
-                setUserData(response.data);
-            })
-            .catch((error) => {
-                console.error('Fehler beim abrufen der benutzerdaten', error);
-            });
-        }
-    }, []);
 
-    // Seiten verlinken:
-    // Inseriere ein Festival
-    // Persönliche Daten
-    // Gib uns Feedback
-    // Wunschliste
-    // Meine Inserate
+const Profile = () => {
+    const { user, getUserData } = useAuth();
+
+    useEffect(() => {
+        getUserData();
+    }, []);
 
     return(
         <div className='pr'>
@@ -57,18 +37,22 @@ const Profile = () => {
 
             <main className='pr-mc-wrapper'>
                 <div className='pr-mc'>
-                    <div className='pr-mc-user'>
-                        <div className='pr-mc-user-le'>
-                            <div className='pr-mc-user-avatar-icon'></div>
-                            <div className='pr-mc-user-le-text'>
-                                <p className='pr-mc-user-name'>Pipilotta</p>
-                                <p className='pr-mc-user-show-pr'>Profil anzeigen</p>
+
+                    <div className='pr-mc-user-wrapper'>
+                        <div className="pr-mc-user">
+                            <div className='pr-mc-user-avatar-icon'>
+                                <img 
+                                    src={user.avatar}
+                                    alt={user.username} 
+                                    className='pr-mc-user-avatar-image'
+                                />
                             </div>
-                        </div>
-                        <div className='pr-mc-user-ri'>
-                            <HiChevronRight className='pr-mc-icon-ri'/> 
+                            <div className='pr-mc-user-text'>
+                                <p className='pr-mc-user-name'>{user.username}</p>
+                            </div>   
                         </div>
                     </div>
+                   
 
                     <Button 
                         className='pr-mc-btn' 
@@ -85,20 +69,6 @@ const Profile = () => {
                                         <div className='pr-mc-list-item-le'>
                                             <PiUserCircle className='pr-mc-icon-le'/>
                                             <p className='pr-text-body-le'>Persönliche Daten</p>
-                                        </div>
-                                        <div className='pr-mc-list-item-ri'>
-                                            <HiChevronRight className='pr-mc-icon-ri'/> 
-                                        </div>
-                                    </div>   
-                                </li>
-                            </Link>
-
-                            <Link className='pr-mc-link' to={'/home/feedback'}>
-                                <li className='pr-mc-list-item'> 
-                                    <div className='pr-mc-list-item-wrapper'>
-                                        <div className='pr-mc-list-item-le'>
-                                            <HiPencil className='pr-mc-icon-le'/>
-                                            <p className='pr-text-body-le'>Gib uns Feedback</p>
                                         </div>
                                         <div className='pr-mc-list-item-ri'>
                                             <HiChevronRight className='pr-mc-icon-ri'/> 
@@ -134,6 +104,34 @@ const Profile = () => {
                                     </div>   
                                 </li>
                             </Link>
+
+                            <Link className='pr-mc-link' to='comments'>
+                                <li className='pr-mc-list-item'> 
+                                    <div className='pr-mc-list-item-wrapper'>
+                                        <div className='pr-mc-list-item-le'>
+                                            <HiPencil className='pr-mc-icon-le'/>
+                                            <p className='pr-text-body-le'>Meine verfassten Bewertungen</p>
+                                        </div>
+                                        <div className='pr-mc-list-item-ri'>
+                                            <HiChevronRight className='pr-mc-icon-ri'/> 
+                                        </div>
+                                    </div>   
+                                </li>
+                            </Link>
+
+                            <Link className='pr-mc-link' to={'/home/feedback'}>
+                                <li className='pr-mc-list-item'> 
+                                    <div className='pr-mc-list-item-wrapper'>
+                                        <div className='pr-mc-list-item-le'>
+                                            <HiEnvelope className='pr-mc-icon-le'/>
+                                            <p className='pr-text-body-le'>Gib uns Feedback</p>
+                                        </div>
+                                        <div className='pr-mc-list-item-ri'>
+                                            <HiChevronRight className='pr-mc-icon-ri'/> 
+                                        </div>
+                                    </div>   
+                                </li>
+                            </Link>
                             
                         </ul>  
                     </div>
@@ -158,15 +156,6 @@ const Profile = () => {
                     </Card> 
                 </Link>
 
-                <Link className='pr-dc-link' to={'/home/feedback'}>
-                    <Card className='c-card'>
-                        <div className="text">
-                            <p className="subtitle">Gib uns Feedback</p>
-                            <p className="cardText">Mach Angaben zu deiner Person und lass uns wissen, wie wir dich erreichen können.</p>
-                        </div>
-                    </Card> 
-                </Link>
-
                 <Link className='pr-dc-link' to={'/home/wishlist'}>
                     <Card className='d-card'>
                         <div className="text">
@@ -181,6 +170,24 @@ const Profile = () => {
                         <div className="text">
                             <p className="subtitle">Deine Inserate</p>
                             <p className="cardText">Verwalte deine inserierten Events.</p>
+                        </div>
+                    </Card> 
+                </Link>
+
+                <Link className='pr-dc-link' to='comments'>
+                    <Card className='c-card'>
+                        <div className="text">
+                            <p className="subtitle">Meine verfassten Kommentare</p>
+                            {/* <p className="cardText">Mach Angaben zu deiner Person und lass uns wissen, wie wir dich erreichen können.</p> */}
+                        </div>
+                    </Card> 
+                </Link>
+
+                <Link className='pr-dc-link' to={'/home/feedback'}>
+                    <Card className='c-card'>
+                        <div className="text">
+                            <p className="subtitle">Gib uns Feedback</p>
+                            <p className="cardText">Mach Angaben zu deiner Person und lass uns wissen, wie wir dich erreichen können.</p>
                         </div>
                     </Card> 
                 </Link>

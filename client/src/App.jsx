@@ -1,15 +1,18 @@
 import React, { useEffect }from 'react';
 import axios from 'axios';
+
 //
 
 
 import { Route, Routes } from 'react-router-dom';
 //
 // import { Route, Routes, Link } from 'react-router-dom';
+
+import { Route, Routes, Link } from 'react-router-dom';
+
 import { Info } from './pages/InfoPage/index.js';
 import { Register } from './pages/RegisterPage/index.js';
 import { Login } from './pages/LoginPage/index.js';
-// import Hero from './components/Herosection/Herosection.jsx';ç
 import { Profile } from './pages/ProfilePage/index.js';
 import { PersonalData } from './pages/PersonalDataPage/index.js';
 import { Feedback } from './pages/FeedbackPage/index.js' ;
@@ -18,29 +21,27 @@ import { Hosting } from './pages/HostingPage/index.js';
 import { Home } from './pages/HomePage/index.js';
 import LayoutPage from './pages/LayoutPage/Layout.jsx';
 import MinimalLayoutPage from './pages/minimalLayoutPage/MinimalLayout.jsx';
-import 'typeface-roboto';
-import { UserContextProvider } from './context/UserContext.jsx';
+import { AuthProvider } from './context/AuthContext.jsx';
 import CreateEvent from './pages/CreateEvent/index'; 
+import 'typeface-roboto';
 
 import './App.css';
 
 
-axios.defaults.baseURL = '/api';
+// axios.defaults.baseURL = '/api';
 
 
 function App() {
 
       
     return(
-        <UserContextProvider>
+        <AuthProvider>
             <Routes>
                 <Route path='/' element={ <MinimalLayoutPage />}>
                     <Route index element={ <Info />}/>
                     <Route path='/login' element={ <Login />}/>
                     <Route path='/register' element={ <Register />}/>
-                    <Route path='/create' element={<CreateEvent />} />
                 </Route>
-
 
                 <Route element={ <LayoutPage /> }>
                     <Route path='/home' element={ <Home />}/>
@@ -49,10 +50,10 @@ function App() {
                     <Route path='/home/feedback' element={ <Feedback />}/>
                     <Route path='/home/wishlist' element={ <Wishlist />}/>
                     <Route path='/home/hosting' element={ <Hosting />}/>
+                    <Route path='/home/event' element={ <CreateEvent /> }/>
                 </Route> 
             </Routes>
-        </UserContextProvider>
-
+        </AuthProvider>
     )
 }
 

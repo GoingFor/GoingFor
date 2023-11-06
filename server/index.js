@@ -2,13 +2,13 @@ import express from 'express';
 import mongoose from 'mongoose';
 // import listingRouter from './routes/listing.route.js';
 import cookieParser from 'cookie-parser';
-import path from 'path';
+// import path from 'path';
 import dotenv from 'dotenv';
 dotenv.config();
 
 //
-import cors from 'cors';
-import bodyParser from 'body-parser';
+// import cors from 'cors';
+// import bodyParser from 'body-parser';
 //
 import postRoute from './routes/posts.js'
 import commentRoute from './routes/comments.js'
@@ -17,7 +17,8 @@ import commentRoute from './routes/comments.js'
 /* IMPORTS */
 import userRouter from './routes/user.route.js';
 import authRouter from './routes/auth.route.js';
-import setCors from './middlewares/cors.js';
+import eventRouter from './routes/eventRoute.js';
+// import setCors from './middlewares/cors.js';
 
 // mongoose
 //   .connect(process.env.MONGO)
@@ -60,13 +61,14 @@ async function start() {
 }
 start()
 
-const __dirname = path.resolve();
+// const __dirname = path.resolve();
 
 
 /* MIDDLEWARE */
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 app.use(setCors);
 //
 app.use(cors());
@@ -79,14 +81,20 @@ app.use(express.static('uploads'))
 // });
 
 
+
+
 /* ROUTEN */
 app.use('/api/user', userRouter);
 app.use('/api/auth', authRouter);
+
 //
 app.use('/api/posts', postRoute)
 app.use('/api/comments', commentRoute)
 
 // app.use('/api/events', eventsRouter);
+
+app.use('/api/events', eventRouter);
+
 
 // app.use('/api/listing', listingRouter);
 

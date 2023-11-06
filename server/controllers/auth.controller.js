@@ -14,7 +14,7 @@ import { Strategy as TwitterStrategy } from 'passport-twitter';
 // Singnup
 export const signup =  async(req, res, next) => {
   try {
-    const { username, email, password } = req.body;
+    const { username, email, password, fullname, phonenumber } = req.body;
     const isUsed = await User.findOne({ username });
 
     if(isUsed){
@@ -30,6 +30,8 @@ export const signup =  async(req, res, next) => {
       username,
       email,
       password: hashedPassword,
+      fullname,
+      phonenumber
     });
 
     // const token = jwt.sign(
@@ -58,15 +60,24 @@ export const signin = async (req, res, next) => {
   try {
     const validUser = await User.findOne({ email });
     if (!validUser) return next(errorHandler(404, 'User not found!'));
+    
     const validPassword = bcryptjs.compareSync(password, validUser.password);
     if (!validPassword) return next(errorHandler(401, 'Wrong credentials!'));
 
-    const token = jwt.sign({ id: validUser._id, email: validUser.email, username: validUser.username }, process.env.JWT_SECRET);
+    const token = jwt.sign(
+      { 
+        id: validUser._id, 
+        email: validUser.email, 
+        username: validUser.username 
+      }, 
+      process.env.JWT_SECRET,
+      {expiresIn: 5 * 60 * 1000}
+      );
     // const { password: pass, ...rest } = validUser._doc;
     res
       .cookie('access_token', token, 
       { 
-        maxAge: 24 * 60 * 60 * 1000,
+        maxAge: 30 * 60 * 1000,
         httpOnly: true 
       })
       .status(200)

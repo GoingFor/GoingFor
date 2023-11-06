@@ -1,11 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-// import { Card } from '../../components/Card/index.js';
-// import { Button } from '../../components/Button/index.js';
+import axios from 'axios';
+import { useAuth } from '../../context/AuthContext.jsx';
 import { PageHeader } from '../../components/PageHeader/index.js';
 import './style.css';
 
 const PersonalData = () => {
+    const { user, getUserData } = useAuth();
+    const [ editing, setEditing ] = useState(false);
+    const [editableValue, setEditableValue] = useState('');
+
+    useEffect(() => {
+        getUserData();
+    }, []);
+
+    const saveChanges = async() => {
+        try {
+            const updatedUser = {
+                ...user,
+                [fieldToEdit]: editableValue,
+            };
+
+            axios
+                .put('/api/user/update')
+                .then(response => {
+                    console.log('Benutzerdaten erfolgreich aktualisiert', response.data);
+                    setEditing(false);
+                })
+
+        } catch(err){
+            console.log('leider hat hier die abfrage nicht geklappt')
+        }
+
+    }
+    
+
     return(
         <div className="pd">
         {/* pd = personal data seite*/}
@@ -27,97 +56,44 @@ const PersonalData = () => {
             <main className='pd-mc-wrapper'>
                 <div className='pd-mc'>
                     <ul className='pd-mc-list'>
-                        <li className='pd-mc-list-item'> 
-                            <div className='pd-mc-list-item-wrapper'>
-                                <div className='pd-mc-list-item-le'>
-                                    <p className='pd-mc-text-body-le'>Offizieller Name</p>
-                                    <p className='pd-mc-text-body-sm-le'>Pipi Langstrumpf</p>  
-                                </div>
-                                <div className='pd-mc-list-item-ri'>
-                                    <p className='pd-mc-text-body-ri'>Bearbeiten</p>
-                                </div>
-                            </div>    
-                        </li>
+                        {[
+                            { label: 'Offizieller Name', value: user.fullname },
+                            { label: 'Benutzername', value: user.username },
+                            { label: 'Email', value: user.email },
+                            { label: 'Telefonnummer', value: user.phonenumber },
+                            { label: 'Notfallkontakt', value: 'Einrichten...' },
+                        ].map((item, index) => (
+                            <li className='pd-mc-list-item' key={index}>
+                                <div className='pd-mc-list-item-wrapper'>
+                                    <div className='pd-mc-list-item-le'>
+                                        <p className='pd-mc-text-body-le'>{item.label}</p>
+                                        {editing ?  (
+                                            <input 
+                                                type='text'
+                                                value={editableValue}
+                                                onChange={(e) => setEditableValue(e.target.value)}
+                                            />
+                                        ) : (
+                                            <p className='pd-mc-text-body-sm-le'>{item.value}</p>
+                                            )}
+                                         
+                                    </div>
+                                    <div className='pd-mc-list-item-ri'>
+                                        {editing ? (
+                                            <button onClick={saveChanges}>Speichern</button>
 
-                        <li className='pd-mc-list-item'> 
-                            <div className='pd-mc-list-item-wrapper'>
-                                <div className='pd-mc-list-item-le'>
-                                    <p className='pd-mc-text-body-le'>Telefonnummer</p>
-                                    <p className='pd-mc-text-body-sm-le'>+49 17****555</p>  
+                                        ) : (
+                                            <button onClick={(e) => setEditing(true)}>Bearbeiten</button>
+                                            
+                                        )}
+                                        {/* <p className='pd-mc-text-body-ri'>Bearbeiten</p> */}
+                                    </div>
                                 </div>
-                                <div className='pd-mc-list-item-ri'>
-                                    <p className='pd-mc-text-body-ri'>Bearbeiten</p>
-                                </div>
-                            </div>    
-                        </li>
-
-                        <li className='pd-mc-list-item'> 
-                            <div className='pd-mc-list-item-wrapper'>
-                                <div className='pd-mc-list-item-le'>
-                                    <p className='pd-mc-text-body-le'>E-Mail Adresse</p>
-                                    <p className='pd-mc-text-body-sm-le'>p******@gmail.com</p>  
-                                </div>
-                                <div className='pd-mc-list-item-ri'>
-                                    <p className='pd-mc-text-body-ri'>Bearbeiten</p>
-                                </div>
-                            </div>    
-                        </li>
-
-                        <li className='pd-mc-list-item'> 
-                            <div className='pd-mc-list-item-wrapper'>
-                                <div className='pd-mc-list-item-le'>
-                                    <p className='pd-mc-text-body-le'>Notfallkontakt</p>
-                                    <p className='pd-mc-text-body-sm-le'>Einrichten...</p>  
-                                </div>
-                                <div className='pd-mc-list-item-ri'>
-                                    <p className='pd-mc-text-body-ri'>Bearbeiten</p>
-                                </div>
-                            </div>    
-                        </li>
+                            </li>
+                        ))
+                        }
                     </ul>  
                 </div>
-            </main>  
-
-            <main className='pd-dc-wrapper'>
-                <div className='pd-dc-item-wrapper'>
-                    <div className='pd-dc-item-le'>
-                        <p className='pd-dc-text-body-le'>Offizieller Name</p>
-                        <p className='pd-dc-text-body-sm-le'>Pipi Langstrumpf</p>
-                    </div>
-                    <div className='pd-dc-item-ri'>
-                        <p className='pd-dc-text-body-ri'>Bearbeiten</p>
-                    </div>
-                </div>
-
-                <div className='pd-dc-item-wrapper'>
-                    <div className='pd-dc-item-le'>
-                        <p className='pd-dc-text-body-le'>Telefonnummer</p>
-                        <p className='pd-dc-text-body-sm-le'>+49 17****555</p>
-                    </div>
-                    <div className='pd-dc-item-ri'>
-                        <p className='pd-dc-text-body-ri'>Bearbeiten</p>
-                    </div>
-                </div>    
-
-                <div className='pd-dc-item-wrapper'>
-                    <div className='pd-dc-item-le'>
-                        <p className='pd-dc-text-body-le'>E-Mail Adresse</p>
-                        <p className='pd-dc-text-body-sm-le'>p******@gmail.com</p>
-                    </div>
-                    <div className='pd-dc-item-ri'>
-                        <p className='pd-dc-text-body-ri'>Bearbeiten</p>
-                    </div>
-                </div>
-                <div className='pd-dc-item-wrapper'>
-                    <div className='pd-dc-item-le'>
-                        <p className='pd-dc-text-body-le'>Notfallkontakt</p>
-                        <p className='pd-dc-text-body-sm-le'>Einrichten...</p>
-                    </div>
-                    <div className='pd-dc-item-ri'>
-                        <p className='pd-dc-text-body-ri'>Bearbeiten</p>
-                    </div>
-                </div>
-                
             </main>    
         </div>
     )
