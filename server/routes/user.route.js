@@ -1,15 +1,25 @@
-import express from 'express';
+import express, { Router } from 'express';
 import { deleteUser, test, updateUser,  getUserListings, getUser} from '../controllers/user.controller.js';
 import { verifyToken } from '../utils/verifyUser.js';
 
+/* VARIABELN */
+const userRouter = Router();
 
-const router = express.Router();
+// userRouter.get('/user/test', test);
 
-router.get('/test', test);
-router.post('/update/:id', verifyToken, updateUser);
-router.delete('/delete/:id', verifyToken, deleteUser);
-// router.get('/listings/:id', verifyToken, getUserListings);
-// router.get('/:id', verifyToken, getUser);
-router.get('/profile', verifyToken, getUser);
+// http://localhost:3002/api/user/profile
+// User anzeigen lassen, löschen, bearbeiten:
+// userRouter.get('/user/:id', verifyToken, getUser);
+userRouter
+    .get('/profile', 
+        verifyToken, 
+        getUser)
+    .put('/update/:id', updateUser)
+    
 
-export default router;
+// userRouter.post('/user/update/:id', verifyToken, updateUser);
+// userRouter.delete('/user/delete/:id', verifyToken, deleteUser);
+// userRouter.get('/user/listings/:id', verifyToken, getUserListings);
+
+
+export default userRouter;

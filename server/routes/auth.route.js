@@ -1,38 +1,48 @@
-import express from 'express';
+import express, { Router } from 'express';
 import { facebook, google, instagram, twitter, signOut, signin, signup } from '../controllers/auth.controller.js';
 
-const router = express.Router();
+/* VARIABELN */
+const authRouter = Router();
 
 
 // Register
 // http://localhost:3002/api/auth/signup
-router.post("/signup", signup);
+authRouter
+    .post("/signup", signup);
+
 // Login
 // http://localhost:3002/api/auth/signin
-router.post("/signin", signin);
+authRouter
+    .post("/signin", signin);
+
 //Login Google
 // http://localhost:3002/api/auth/google
-router.post('/google', google);
+authRouter
+    .post('/google', google);
 //Login facebook
 // http://localhost:3002/api/auth/facebook
-router.post('/facebook', facebook);
+authRouter
+    .post('/facebook', facebook);
 //Login twitter
 // http://localhost:3002/api/auth/twitter
-router.post('/twitter', twitter);
+authRouter
+    .post('/twitter', twitter);
 //Login instagram
 // http://localhost:3002/api/auth/instagram
-router.post('/instagram', instagram);
+authRouter
+    .post('/instagram', instagram);
 
 //Signout
 // http://localhost:3002/api/auth/signout
-router.get('/signout', signOut)
+authRouter
+    .get('/signout', signOut)
 
 
 //Event
 // http://localhost:3002/api/events
-router.get('/api/events', signOut)
+// router.get('/api/events', signOut)
 
 
-export default router;
+export default authRouter;
 
 
