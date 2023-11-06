@@ -1,6 +1,6 @@
 import React, { useEffect }from 'react';
 import axios from 'axios';
-// import { Route, Routes, Link } from 'react-router-dom';
+import { Route, Routes, Link } from 'react-router-dom';
 import { Info } from './pages/InfoPage/index.js';
 import { Register } from './pages/RegisterPage/index.js';
 import { Login } from './pages/LoginPage/index.js';
@@ -14,7 +14,7 @@ import { Home } from './pages/HomePage/index.js';
 import LayoutPage from './pages/LayoutPage/Layout.jsx';
 import MinimalLayoutPage from './pages/minimalLayoutPage/MinimalLayout.jsx';
 import 'typeface-roboto';
-import { UserContextProvider } from './context/UserContext.jsx';
+// import { UserContextProvider } from './context/UserContext.jsx';
 import CreateEvent from './pages/CreateEvent/index'; 
 
 import './App.css';
@@ -27,26 +27,22 @@ function App() {
 
       
     return(
-        <UserContextProvider>
-            <Routes>
-                <Route path='/' element={ <MinimalLayoutPage />}>
-                    <Route index element={ <Info />}/>
-                    <Route path='/login' element={ <Login />}/>
-                    <Route path='/register' element={ <Register />}/>
-                    <Route path='/create' element={<CreateEvent />} />
-                </Route>
-
-
-                <Route element={ <LayoutPage /> }>
-                    <Route path='/home' element={ <Home />}/>
-                    <Route path='/home/profile' element={ <Profile/> }/>
-                    <Route path='/home/personaldata' element={ <PersonalData />}/>
-                    <Route path='/home/feedback' element={ <Feedback />}/>
-                    <Route path='/home/wishlist' element={ <Wishlist />}/>
-                    <Route path='/home/hosting' element={ <Hosting />}/>
-                </Route> 
-            </Routes>
-        </UserContextProvider>
+        <Routes>
+            <Route path='/' element={ <MinimalLayoutPage />}>
+                <Route index element={ <Info />}/>
+                <Route path='/login' element={ <Login />}/>
+                <Route path='/register' element={ <Register />}/>
+                <Route path='/create' element={<CreateEvent />} />
+            </Route>
+            <Route element={ <LayoutPage /> }>
+                <Route path='/home' element={ <Home />}/>
+                <Route path='/home/profile' element={ <Profile/> }/>
+                <Route path='/home/personaldata' element={ <PersonalData />}/>
+                <Route path='/home/feedback' element={ <Feedback />}/>
+                <Route path='/home/wishlist' element={ <Wishlist />}/>
+                <Route path='/home/hosting' element={ <Hosting />}/>
+            </Route> 
+        </Routes>
 
     )
 }
