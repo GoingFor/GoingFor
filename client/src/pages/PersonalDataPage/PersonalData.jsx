@@ -6,34 +6,52 @@ import { PageHeader } from '../../components/PageHeader/index.js';
 import './style.css';
 
 const PersonalData = () => {
-    const { user, getUserData } = useAuth();
-    const [ editing, setEditing ] = useState(false);
-    const [editableValue, setEditableValue] = useState('');
+    const { user, getUserData, isAuthenticated } = useAuth();
+    const [ inputValue, setInputValue ] = useState('');
+    const [ editMode, setEditMode ] = useState(false);
+    const [ userData, setUserData ] = useState({});
 
     useEffect(() => {
         getUserData();
     }, []);
 
-    const saveChanges = async() => {
-        try {
-            const updatedUser = {
-                ...user,
-                [fieldToEdit]: editableValue,
-            };
-
-            axios
-                .put('/api/user/update')
-                .then(response => {
-                    console.log('Benutzerdaten erfolgreich aktualisiert', response.data);
-                    setEditing(false);
-                })
-
-        } catch(err){
-            console.log('leider hat hier die abfrage nicht geklappt')
+    useEffect(() => {
+        if(isAuthenticated) {
+            setUserData(user);
         }
+    }, []);
 
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setUserData({
+            ...userData, [name]: value
+        });
     }
-    
+
+    const handleCancelEditing = () => {
+        setInputValue('');
+        setEditMode(false);
+    }
+
+    const updateUserData = async(updatedData) => {
+        try {
+            const {data} = await axios.put('/api/user/update', updatedData);
+        } catch(err) {
+            console.err('Fehler beim Aktualisieren der Benutzerdaten', err)
+        }
+    }
+
+    const handleSaveChanges = async() => {
+        try {
+            const updatedData = { ...userData };
+            await updateUserData(updatedData);
+            setEditMode(false);
+            setInputValue('');
+            await getUserData();
+        } catch(err){
+            console.log('Das speichern des aktualisierten Users hat nicht geklappt');
+        }
+    }
 
     return(
         <div className="pd">
@@ -57,36 +75,50 @@ const PersonalData = () => {
                 <div className='pd-mc'>
                     <ul className='pd-mc-list'>
                         {[
-                            { label: 'Offizieller Name', value: user.fullname },
-                            { label: 'Benutzername', value: user.username },
-                            { label: 'Email', value: user.email },
-                            { label: 'Telefonnummer', value: user.phonenumber },
-                            { label: 'Notfallkontakt', value: 'Einrichten...' },
-                        ].map((item, index) => (
-                            <li className='pd-mc-list-item' key={index}>
+                            { label: 'Offizieller Name', key: 'fullname', value: userData?.fullname  },
+                            { label: 'Benutzername', key: 'username', value: userData?.username },
+                            { label: 'Email', key: 'email', value: userData?.email},
+                            { label: 'Telefonnummer', key: 'phonenumber', value: userData?.phonenumber },
+                        ].map((item) => (
+                            <li className='pd-mc-list-item' key={item.key}>
                                 <div className='pd-mc-list-item-wrapper'>
                                     <div className='pd-mc-list-item-le'>
                                         <p className='pd-mc-text-body-le'>{item.label}</p>
-                                        {editing ?  (
+                                        {editMode === item.key ? (
                                             <input 
+                                                className='pd-mc-text-body-le-input'
                                                 type='text'
-                                                value={editableValue}
-                                                onChange={(e) => setEditableValue(e.target.value)}
+                                                name={item.key}
+                                                value={item.value}
+                                                onChange={handleChange}
                                             />
                                         ) : (
                                             <p className='pd-mc-text-body-sm-le'>{item.value}</p>
-                                            )}
-                                         
+                                        )}
+                                                                              
                                     </div>
                                     <div className='pd-mc-list-item-ri'>
-                                        {editing ? (
-                                            <button onClick={saveChanges}>Speichern</button>
+                                        {editMode === item.key ? (
+                                            <>
+                                                <button 
+                                                    className='pd-mc-text-body-ri' 
+                                                    onClick={handleSaveChanges}
+                                                >   Speichern
+                                                </button>
 
+                                                <button
+                                                    className='pd-mc-text-body-ri'
+                                                    onClick={handleCancelEditing}
+                                                >   Abbrechen
+                                                </button>
+                                            </>   
                                         ) : (
-                                            <button onClick={(e) => setEditing(true)}>Bearbeiten</button>
-                                            
+                                            <button 
+                                                className='pd-mc-text-body-ri'
+                                                onClick={() => setEditMode(item.key)}
+                                            >   Bearbeiten
+                                            </button>
                                         )}
-                                        {/* <p className='pd-mc-text-body-ri'>Bearbeiten</p> */}
                                     </div>
                                 </div>
                             </li>

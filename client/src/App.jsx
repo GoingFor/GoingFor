@@ -1,15 +1,6 @@
 import React, { useEffect }from 'react';
 import axios from 'axios';
-
-//
-
-
-import { Route, Routes } from 'react-router-dom';
-//
-// import { Route, Routes, Link } from 'react-router-dom';
-
 import { Route, Routes, Link } from 'react-router-dom';
-
 import { Info } from './pages/InfoPage/index.js';
 import { Register } from './pages/RegisterPage/index.js';
 import { Login } from './pages/LoginPage/index.js';
@@ -24,16 +15,11 @@ import MinimalLayoutPage from './pages/minimalLayoutPage/MinimalLayout.jsx';
 import { AuthProvider } from './context/AuthContext.jsx';
 import CreateEvent from './pages/CreateEvent/index'; 
 import 'typeface-roboto';
-
 import './App.css';
-
-
-// axios.defaults.baseURL = '/api';
 
 
 function App() {
 
-      
     return(
         <AuthProvider>
             <Routes>

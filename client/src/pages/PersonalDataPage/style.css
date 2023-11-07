@@ -88,7 +88,6 @@
     .pd-mc{
         width: 50%;
         display: flex;
-        /* align-self: center; */
         flex-direction: column;
         align-items: ;
         margin: 0 auto;

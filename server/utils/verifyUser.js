@@ -8,12 +8,11 @@ export const verifyToken = (req, res, next) => {
   try {
     const token = req.cookies.access_token;
     if (!token) {
-      return res.status(401).json({ error: 'Nicht authentifiziert' });
+      return next(errorHandler(401, 'Unauthorized'));
     }
 
     const verifyUser = jwt.verify(token, process.env.JWT_SECRET);
     req.user = verifyUser;
-
     next();
     
   } catch (error) {
@@ -68,7 +67,3 @@ export const verifyToken = (req, res, next) => {
 //         })
 //     }
 // }
-
-
-
-
