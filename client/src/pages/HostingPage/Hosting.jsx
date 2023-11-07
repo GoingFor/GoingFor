@@ -17,7 +17,7 @@ const Hosting = () => {
             <div className='ho-ph-wrapper'>
                 <Link to={'/home/profile'}>
                     <PageHeader 
-                        pageTitle='Meine Inserate'
+                        pageTitle='Meine Festivals'
                     />
                 </Link>
             </div>
