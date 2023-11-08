@@ -13,8 +13,8 @@ export const updateUser = async(req, res, next) => {
 		const userId = req.user.id;
 		const {fullname, username, email, phonenumber} = req.body;
 
-		console.log(userId);
-		console.log(req.body);
+		// console.log(userId);
+		// console.log(req.body);
 
 		const user = await User.findById(userId);
 
@@ -24,7 +24,7 @@ export const updateUser = async(req, res, next) => {
 		user.phonenumber = phonenumber || user.phonenumber;
 
 		await user.save();
-		console.log(user);
+		// console.log(user);
 
 		res.status(201).json({
 			msg: 'Daten aktualisiert',

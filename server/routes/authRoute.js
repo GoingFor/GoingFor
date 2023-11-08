@@ -1,5 +1,9 @@
+/** EXTERNE DEPENDENCIES */
 import express, { Router } from 'express';
-import { facebook, google, instagram, twitter, signOut, signin, signup } from '../controllers/auth.controller.js';
+
+/** IMPORTS */
+import { facebook, google, instagram, twitter, signOut, signin, signup } from '../controllers/authController.js';
+import { signupValidation } from '../validation/userValidation.js';
 
 /* VARIABELN */
 const authRouter = Router();
@@ -8,7 +12,9 @@ const authRouter = Router();
 // Register
 // http://localhost:3002/api/auth/signup
 authRouter
-    .post("/signup", signup);
+    .post("/signup", 
+        signupValidation,
+        signup);
 
 // Login
 // http://localhost:3002/api/auth/signin

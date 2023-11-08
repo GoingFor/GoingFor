@@ -26,7 +26,7 @@ const Register = () => {
             navigate('/login');
 
         } catch(err){
-            alert('Registrierung fehlgeschlagen!')
+            console.log('Registrierung fehlgeschlagen!', err.response.data.msg);
         }
     }
 
