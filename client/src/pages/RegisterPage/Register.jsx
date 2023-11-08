@@ -10,6 +10,7 @@ const Register = () => {
     const [ username, setUsername ] = useState('');
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
+    const [ errors, setErrors ] = useState([]);
     const navigate = useNavigate();
 
     const handleRegister = async(e) => {
@@ -22,11 +23,13 @@ const Register = () => {
                 password
             });
 
+
             alert('Registrierung erfolgreich. Du kannst dich nun einloggen.');
             navigate('/login');
 
-        } catch(err){
-            console.log('Registrierung fehlgeschlagen!', err.response.data.msg);
+        } catch(error){
+            console.log('Registrierung fehlgeschlagen!', error.response.data.msg);
+            setErrors(error.response.data.msg);
         }
     }
 
@@ -59,7 +62,15 @@ const Register = () => {
                     />
                     
                     <Button className='reg-btn'>Register</Button>
-                    
+
+                    {/* Anzeige von Fehlermeldungen beim Registrieren */}
+                    {errors.length > 0 && (
+                        <div className='reg-error-msg'>
+                            {errors.map((err, index) => (
+                                <div className='reg-error-msg-txt' key={index}>{err}</div>
+                            ))}
+                        </div>
+                    )}
 
                     <div className='register-to-login'>
                         <p className='register-to-login-text'>

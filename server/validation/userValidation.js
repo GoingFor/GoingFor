@@ -18,10 +18,11 @@ const signupValidation = [
     body('email')
         .not()
         .isEmpty()
-        .withMessage('Bitte gib eine gültige Emailadresse an.')
+        .withMessage('Email darf nicht leer sein.')
         .trim()
         .isEmail()
         .normalizeEmail()
+        .withMessage('Bitte gib eine gültige Emailadresse an.')
 ];
 
 export { signupValidation };

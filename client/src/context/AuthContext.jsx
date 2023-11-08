@@ -11,6 +11,7 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
     const [ user, setUser ] = useState({});
     const [ isAuthenticated, setIsAuthenticated ] = useState(false);
+    const [ errors, setErrors ] = useState([]);
 
     useEffect(() => {
         if(!isAuthenticated) {
@@ -29,8 +30,9 @@ export const AuthProvider = ({ children }) => {
             setIsAuthenticated(true);
             alert('Einloggen erfolgreich.');
 
-        } catch(err){
-            alert(`Login fehlgeschlagen, ${err.message}`);
+        } catch(error){
+            // alert(`Login fehlgeschlagen, ${err.message}`);
+            console.log('Login fehlgeschlagen', error.message);
         }
     }
 
