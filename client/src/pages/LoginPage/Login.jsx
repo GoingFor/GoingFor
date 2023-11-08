@@ -15,8 +15,12 @@ const Login = () => {
     
     const handleLogin = async(e) => {
         e.preventDefault();
-        login(email, password);
-        navigate('/home/profile');   
+        try {
+            await login(email, password);
+            navigate('/home/profile');   
+        } catch(error) {
+            console.log('Hier lief was schief', error);
+        }  
     }
 
 

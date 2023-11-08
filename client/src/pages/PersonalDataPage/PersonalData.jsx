@@ -35,7 +35,7 @@ const PersonalData = () => {
 
     const updateUserData = async(updatedData) => {
         try {
-            const {data} = await axios.put('/api/user/update', updatedData);
+            const {data} = await axios.put('/api/user/updatedata', updatedData);
         } catch(err) {
             console.err('Fehler beim Aktualisieren der Benutzerdaten', err)
         }
