@@ -22,7 +22,7 @@ const Hosting = () => {
                 </Link>
             </div>
 
-            <main className='ho-mobile-wrapper'>
+            <main className='ho-mc-wrapper'>
                 <div className='ho-mc'>
                     hier kommt ein grid mit den inseraten rein
                 </div>    

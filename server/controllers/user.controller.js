@@ -1,7 +1,3 @@
-import bcryptjs from 'bcryptjs';
-
-import jwt from 'jsonwebtoken';
-
 import User from '../models/User.js';
 import { errorHandler } from '../utils/error.js';
 // import Listing from '../models/listing.model.js';
@@ -14,21 +10,30 @@ export const test = (req, res) => {
 
 export const updateUser = async(req, res, next) => {
 	try {
-		// const userId = req.user.id;
-		const { id } = req.params;
-		const updatedUserData = req.body;
+		const userId = req.user.id;
+		const {fullname, username, email, phonenumber} = req.body;
 
-		const user = await User.findByIdAndUpdate(id, updatedUserData,
-			{
-				new: true
-			});
+		console.log(userId);
+		console.log(req.body);
+
+		const user = await User.findById(userId);
+
+		user.fullname = fullname || user.fullname;
+		user.username = username || user.username;
+		user.email = email || user.email;
+		user.phonenumber = phonenumber || user.phonenumber;
+
+		await user.save();
+		console.log(user);
 
 		res.status(201).json({
 			msg: 'Daten aktualisiert',
 			data: user
 		});
 
+
 	} catch(err){
+		console.log(err);
 		next(err)
 	}
 }

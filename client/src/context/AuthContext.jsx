@@ -12,6 +12,12 @@ export const AuthProvider = ({ children }) => {
     const [ user, setUser ] = useState({});
     const [ isAuthenticated, setIsAuthenticated ] = useState(false);
 
+    useEffect(() => {
+        if(!isAuthenticated) {
+            return;
+        }
+    }, []);
+
     const login = async(email, password) => {
         try {
             const response = await axios.post('/api/auth/signin', {
@@ -32,20 +38,20 @@ export const AuthProvider = ({ children }) => {
         try {
             const {data} = await axios.get('/api/user/profile');
             setUser(data.user);
-            // console.log(response.data.user.username);
-            // return response.data;
-
         } catch(err){
             alert(`Fehler beim Abrufen der Benutzerdaten, ${err.message}`);
         }
     }
 
-    useEffect(() => {
-        if(!isAuthenticated) {
-            return;
-        }
-        getUserData();
-    }, []);
+    // const updateUserData = async(updatedData) => {
+    //     try {
+    //         const {data} = await axios.put('/api/user/update', {updatedData});
+    //         setUser(data.user)
+
+    //     } catch(err) {
+    //         console.err('Fehler beim Aktualisieren der Benutzerdaten', err)
+    //     }
+    // }
 
 
     return(
@@ -55,6 +61,7 @@ export const AuthProvider = ({ children }) => {
                 isAuthenticated,
                 login,
                 getUserData
+                // updateUserData
             }}
         >
             { children }

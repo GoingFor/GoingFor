@@ -6,28 +6,13 @@ import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 dotenv.config();
 
-//
-// import cors from 'cors';
-// import bodyParser from 'body-parser';
-//
-import postRoute from './routes/posts.js'
-import commentRoute from './routes/comments.js'
-//
 
 /* IMPORTS */
 import userRouter from './routes/user.route.js';
 import authRouter from './routes/auth.route.js';
 import eventRouter from './routes/eventRoute.js';
-// import setCors from './middlewares/cors.js';
-
-// mongoose
-//   .connect(process.env.MONGO)
-//   .then(() => {
-//     console.log('Connected to MongoDB!');
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
+import postRoute from './routes/posts.js'
+import commentRoute from './routes/comments.js'
 
 /* VARIABELN */
 const app = express();
@@ -36,19 +21,6 @@ const DB_USER = process.env.DB_USER
 const DB_PASSWORD = process.env.DB_PASSWORD
 const DB_NAME = process.env.DB_NAME
 
-// const MONGODB_URI = 'mongodb://localhost:27017/deine-datenbank';
-// mongoose.connect(MONGODB_URI, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// });
-
-
-
-// app.listen(PORT, () => {
-//   console.log(`Server läuft auf Port ${PORT}`);
-// });
-
-
 /* DATENBANK */
 async function start() {
   try {
@@ -56,10 +28,11 @@ async function start() {
           `mongodb+srv://${DB_USER}:${DB_PASSWORD}@atlascluster.u1jgjau.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`,
       )
   } catch (error) {
-      console.log(error)
+      console.log('Connection failed',error)
   }
 }
 start()
+
 
 // const __dirname = path.resolve();
 
@@ -68,31 +41,13 @@ start()
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-app.use(setCors);
-//
-app.use(cors());
-app.use(bodyParser.json());
-//
-app.use(express.static('uploads'))
-
-// app.listen(3000, () => {
-//   console.log('Server is running on port 3000');
-// });
-
-
-
+app.use(express.static('uploads'));
 
 /* ROUTEN */
 app.use('/api/user', userRouter);
 app.use('/api/auth', authRouter);
-
-//
 app.use('/api/posts', postRoute)
 app.use('/api/comments', commentRoute)
-
-// app.use('/api/events', eventsRouter);
-
 app.use('/api/events', eventRouter);
 
 

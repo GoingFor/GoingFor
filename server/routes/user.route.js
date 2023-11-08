@@ -14,7 +14,9 @@ userRouter
     .get('/profile', 
         verifyToken, 
         getUser)
-    .put('/update/:id', updateUser)
+    .put('/update', 
+        verifyToken,
+        updateUser)
     
 
 // userRouter.post('/user/update/:id', verifyToken, updateUser);
