@@ -11,7 +11,7 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
     const [ user, setUser ] = useState({});
     const [ isAuthenticated, setIsAuthenticated ] = useState(false);
-    const [ errors, setErrors ] = useState([]);
+    // const [ error, setError ] = useState({});
 
     useEffect(() => {
         if(!isAuthenticated) {
@@ -28,24 +28,23 @@ export const AuthProvider = ({ children }) => {
             
             setUser(response);
             setIsAuthenticated(true);
-            alert('Einloggen erfolgreich.');
+            console.log('Frontend AuthContext: Einloggen erfolgreich.', setIsAuthenticated);
 
         } catch(error){
-            // alert(`Login fehlgeschlagen, ${err.message}`);
-            console.log('Login fehlgeschlagen', error.message);
+            console.log('Auth Context: Error empfangen aus backend:', error.response.data);
         }
     }
 
     const getUserData = async() => {
-        try {
-            const {data} = await axios.get('/api/user/getdata');
-            setUser(data.user);
-            setIsAuthenticated(true);
-        } catch(err){
-            alert(`Fehler beim Abrufen der Benutzerdaten, ${err.message}`);
+        if(isAuthenticated) {
+            try {
+                const {data} = await axios.get('/api/user/getdata');
+                setUser(data.user);
+            } catch(error) {
+                console.log('Fehler beim Abrufen der benutzerdaten', error.message)
+            }     
         }
-    }
-
+}
 
     return(
         <AuthContext.Provider 
@@ -54,6 +53,7 @@ export const AuthProvider = ({ children }) => {
                 isAuthenticated,
                 login,
                 getUserData
+                // setError
             }}
         >
             { children }
