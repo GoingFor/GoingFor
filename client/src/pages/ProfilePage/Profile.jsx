@@ -11,7 +11,7 @@ import './style.css';
 
 
 const Profile = () => {
-    const { user, getUserData } = useAuth();
+    const { user, getUserData, logout } = useAuth();
 
     useEffect(() => {
         getUserData();
@@ -132,9 +132,20 @@ const Profile = () => {
                                     </div>   
                                 </li>
                             </Link>
-                            
                         </ul>  
+
+                        
+
                     </div>
+
+                    <Link className='pr-mc-link' to={'/'}>
+                        <Button 
+                            className='pr-mc-btn' 
+                            onClick={logout}
+                                >Logout
+                        </Button>
+                    </Link>
+                    
                 </div>
             </main>
 

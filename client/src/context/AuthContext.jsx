@@ -28,10 +28,10 @@ export const AuthProvider = ({ children }) => {
             
             setUser(response);
             setIsAuthenticated(true);
-            console.log('Frontend AuthContext: Einloggen erfolgreich.', setIsAuthenticated);
+            console.log('Frontend AuthContext: Einloggen erfolgreich.');
 
         } catch(error){
-            console.log('Auth Context: Error empfangen aus backend:', error.response.data);
+            console.log('Auth Context Login: Error empfangen aus backend:', error.response.data);
         }
     }
 
@@ -41,10 +41,21 @@ export const AuthProvider = ({ children }) => {
                 const {data} = await axios.get('/api/user/getdata');
                 setUser(data.user);
             } catch(error) {
-                console.log('Fehler beim Abrufen der benutzerdaten', error.message)
+                console.log('Auth Context getUserData: Fehler beim Abrufen der Benutzerdaten', error.message)
             }     
         }
 }
+
+    const logout = async() => {
+        try {
+            const response = await axios.post('/api/auth/signout');
+            setUser(response);
+            console.log('Auth Context Logout: Meldung vom backend:', response.data.msg);
+            setIsAuthenticated(false);
+        } catch (error) {
+            console.log('Auth Context Logout: Fehler beim Ausloggen', error);
+        }
+    }
 
     return(
         <AuthContext.Provider 
@@ -52,7 +63,8 @@ export const AuthProvider = ({ children }) => {
                 user, 
                 isAuthenticated,
                 login,
-                getUserData
+                getUserData,
+                logout
                 // setError
             }}
         >
