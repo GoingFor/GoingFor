@@ -1,5 +1,5 @@
 import express, { Router } from 'express';
-import { deleteUser, test, updateUser,  getUserListings, getUser} from '../controllers/user.controller.js';
+import { deleteUser, test, updateUser,  getUserListings, getUser} from '../controllers/userController.js';
 import { verifyToken } from '../utils/verifyUser.js';
 
 /* VARIABELN */
@@ -11,10 +11,10 @@ const userRouter = Router();
 // User anzeigen lassen, löschen, bearbeiten:
 // userRouter.get('/user/:id', verifyToken, getUser);
 userRouter
-    .get('/profile', 
+    .get('/getdata', 
         verifyToken, 
         getUser)
-    .put('/update', 
+    .put('/updatedata', 
         verifyToken,
         updateUser)
     

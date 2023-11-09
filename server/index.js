@@ -8,8 +8,8 @@ dotenv.config();
 
 
 /* IMPORTS */
-import userRouter from './routes/user.route.js';
-import authRouter from './routes/auth.route.js';
+import userRouter from './routes/userRoute.js';
+import authRouter from './routes/authRoute.js';
 import eventRouter from './routes/eventRoute.js';
 import postRoute from './routes/posts.js'
 import commentRoute from './routes/comments.js'

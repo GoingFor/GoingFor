@@ -29,7 +29,7 @@ const PersonalData = () => {
     }
 
     const handleCancelEditing = () => {
-        setInputValue('');
+        setInputValue({});
         setEditMode(false);
     }
 
@@ -46,7 +46,7 @@ const PersonalData = () => {
             const updatedData = { ...userData };
             await updateUserData(updatedData);
             setEditMode(false);
-            setInputValue('');
+            setInputValue({});
             await getUserData();
         } catch(err){
             console.log('Das speichern des aktualisierten Users hat nicht geklappt');
@@ -89,7 +89,7 @@ const PersonalData = () => {
                                                 className='pd-mc-text-body-le-input'
                                                 type='text'
                                                 name={item.key}
-                                                value={item.value}
+                                                value={userData[item.key] || ''}
                                                 onChange={handleChange}
                                             />
                                         ) : (

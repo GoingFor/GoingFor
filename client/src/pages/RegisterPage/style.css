@@ -6,22 +6,17 @@
     display: flex;
     flex-direction: column;
     align-items: center; 
-
 }
 
 .reg-wrapper{
-    height: auto;
+    max-width: 200px;
     margin-top: 3rem;
     border-radius: 1.25rem;
+    padding: 30px;
     background: var(--accent-blue-light);
     box-shadow: var(--inset-shadow);   
     
     /* border: 2px solid green; */
-}
-
-.reg-form{
-    max-width: 100rem;
-    margin-top: 3rem;
 }
 
 .reg-input::placeholder,
@@ -57,10 +52,22 @@
     margin-top: 3rem;
 }
 
+.reg-error-msg{
+    font-size: var(--body-sm-font-size);
+    margin-top: 1rem;
+    padding: 20px 10px;
+    color: tomato;
+    border-radius: 30px;
+}
+
+
+
 .register-to-login{
     display: flex;
     justify-content: center;
     align-items: center;
+    color: var(--grey);
+    font-size: var(--body-sm-font-size);
     /* border: 2px solid red; */
 }
 
