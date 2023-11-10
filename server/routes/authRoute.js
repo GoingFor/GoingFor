@@ -4,6 +4,7 @@ import express, { Router } from 'express';
 /** IMPORTS */
 import { facebook, google, instagram, twitter, signOut, signin, signup } from '../controllers/authController.js';
 import { signupValidation } from '../validation/userValidation.js';
+import { verifyToken } from '../utils/verifyUser.js';
 
 /* VARIABELN */
 const authRouter = Router();
@@ -41,12 +42,10 @@ authRouter
 //Signout
 // http://localhost:3002/api/auth/signout
 authRouter
-    .get('/signout', signOut)
+    .post('/signout', 
+        verifyToken,
+        signOut)
 
-
-//Event
-// http://localhost:3002/api/events
-// router.get('/api/events', signOut)
 
 
 export default authRouter;

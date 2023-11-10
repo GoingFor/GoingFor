@@ -1,6 +1,6 @@
 /** EXTERNE DEPENDENCIES */
 import bcryptjs from 'bcryptjs';
-import validator, { validationResult } from 'express-validator';
+import validator, { cookie, validationResult } from 'express-validator';
 import passport from 'passport';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import { Strategy as InstagramStrategy } from 'passport-instagram';
@@ -89,6 +89,7 @@ export const signin = async (req, res, next) => {
       .json({
         data: validUser
       });
+    // console.log('---hier der cookie---', token);
 
   } catch (error) {
     next(error);
@@ -236,12 +237,17 @@ export const twitter = async (req, res, next) => {
 };
 
 // signOut
-
-export const signOut = async (req, res, next) => {
+export const signOut = (req, res, next) => {
   try {
-    res.clearCookie('access_token');
-    res.status(200).json('User has been logged out!');
+    return res
+      .clearCookie('access_token')
+      .status(201)
+      .json({
+        success: true,
+        msg: 'Erfolgreich ausgeloggt'
+      });
+    
   } catch (error) {
-    next(error);
-  }
+    next(error)
+  }   
 };

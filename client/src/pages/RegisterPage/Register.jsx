@@ -24,7 +24,7 @@ const Register = () => {
             });
 
 
-            alert('Registrierung erfolgreich. Du kannst dich nun einloggen.');
+            console.log('Registrierung erfolgreich. Du kannst dich nun einloggen.');
             navigate('/login');
 
         } catch(error){

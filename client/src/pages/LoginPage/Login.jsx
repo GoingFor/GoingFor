@@ -10,16 +10,19 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const { login } = useAuth();
+    const { login, isAuthenticated } = useAuth();
     const navigate = useNavigate();
     
     const handleLogin = async(e) => {
         e.preventDefault();
         try {
             await login(email, password);
-            navigate('/home/profile');   
+            if(isAuthenticated) {
+                navigate('/home/profile');   
+            }
         } catch(error) {
             console.log('Hier lief was schief', error);
+            // setError(error);
         }  
     }
 
@@ -45,6 +48,9 @@ const Login = () => {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                     <Button className='login-btn'>Login</Button>
+
+                    {/* Anzeige von Fehlermeldungen beim Registrieren */}
+                    {/* {error && <div className='login-error-message'>{error.message}</div>} */}
 
 
                     <div className='login-to-register'>
