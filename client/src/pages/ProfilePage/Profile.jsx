@@ -11,7 +11,7 @@ import './style.css';
 
 
 const Profile = () => {
-    const { user, getUserData } = useAuth();
+    const { user, getUserData, logout } = useAuth();
 
     useEffect(() => {
         getUserData();
@@ -132,20 +132,34 @@ const Profile = () => {
                                     </div>   
                                 </li>
                             </Link>
-                            
                         </ul>  
+
+                        
+
                     </div>
+
+                    <Link className='pr-mc-link' to={'/'}>
+                        <Button 
+                            className='pr-mc-btn' 
+                            onClick={logout}
+                                >Logout
+                        </Button>
+                    </Link>
+                    
                 </div>
             </main>
 
             <main className='pr-dc-wrapper'>
                 <div className='pr-dc'>
+                <Link className='pr-dc-link' to={'/home/event'}>
                     <Card className='a-card'>
                         <div className="text">
                             <p className="subtitle">Festival Inserieren</p>
                             <p className="cardText">Inseriere (d)ein Festival und sorge dafür, dass andere Leute es finden.</p>
                         </div>
                     </Card> 
+                </Link>
+                    
 
                 <Link className='pr-dc-link' to={'/home/personaldata'}>
                     <Card className='b-card'>
@@ -157,7 +171,7 @@ const Profile = () => {
                 </Link>
 
                 <Link className='pr-dc-link' to={'/home/wishlist'}>
-                    <Card className='d-card'>
+                    <Card className='c-card'>
                         <div className="text">
                             <p className="subtitle">Wunschliste</p>
                             <p className="cardText">Finde deine gemerkten Festivals wieder</p>
@@ -166,25 +180,25 @@ const Profile = () => {
                 </Link>
 
                 <Link className='pr-dc-link' to={'/home/hosting'}>
-                    <Card className='e-card'>
+                    <Card className='d-card'>
                         <div className="text">
-                            <p className="subtitle">Deine Inserate</p>
+                            <p className="subtitle">Deine erstellten Festivals</p>
                             <p className="cardText">Verwalte deine inserierten Events.</p>
                         </div>
                     </Card> 
                 </Link>
 
                 <Link className='pr-dc-link' to='comments'>
-                    <Card className='c-card'>
+                    <Card className='d-card'>
                         <div className="text">
-                            <p className="subtitle">Meine verfassten Kommentare</p>
-                            {/* <p className="cardText">Mach Angaben zu deiner Person und lass uns wissen, wie wir dich erreichen können.</p> */}
+                            <p className="subtitle">Deine verfassten Kommentare</p>
+                            <p className="cardText">Schaue dir an, welche Festivals zu bisher bewertet hast.</p>
                         </div>
                     </Card> 
                 </Link>
 
                 <Link className='pr-dc-link' to={'/home/feedback'}>
-                    <Card className='c-card'>
+                    <Card className='f-card'>
                         <div className="text">
                             <p className="subtitle">Gib uns Feedback</p>
                             <p className="cardText">Mach Angaben zu deiner Person und lass uns wissen, wie wir dich erreichen können.</p>

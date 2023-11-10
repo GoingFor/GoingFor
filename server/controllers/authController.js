@@ -1,22 +1,32 @@
-import User from '../models/User.js';
+/** EXTERNE DEPENDENCIES */
 import bcryptjs from 'bcryptjs';
-import { errorHandler } from '../utils/error.js';
-import jwt from 'jsonwebtoken';
-
+import validator, { cookie, validationResult } from 'express-validator';
 import passport from 'passport';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import { Strategy as InstagramStrategy } from 'passport-instagram';
 import { Strategy as FacebookStrategy } from 'passport-facebook';
 import { Strategy as TwitterStrategy } from 'passport-twitter';
+import jwt from 'jsonwebtoken';
 
- 
+/** IMPORTS */
+import User from '../models/User.js';
+import { errorHandler } from '../utils/error.js';
+
 
 // Singnup
 export const signup =  async(req, res, next) => {
   try {
     const { username, email, password, fullname, phonenumber } = req.body;
-    const isUsed = await User.findOne({ username });
 
+    const error = validator.validationResult(req).errors;
+        if(error.length > 0) {
+            return res.status(400).json({
+                success: false,
+                msg: error.map(err => err.msg)
+            });
+        };
+
+    const isUsed = await User.findOne({ username });
     if(isUsed){
       return res.json({
         message: 'This username is already taken.',
@@ -34,14 +44,6 @@ export const signup =  async(req, res, next) => {
       phonenumber
     });
 
-    // const token = jwt.sign(
-    //   {
-    //     id: newUser._id,
-    //   },
-    //   process.env.JWT_SECRET,
-    //   { expiresIn: '30d' },
-    // );
-
     await newUser.save();
 
     res.status(201).json({
@@ -56,10 +58,13 @@ export const signup =  async(req, res, next) => {
 
 // Singnin
 export const signin = async (req, res, next) => {
-  const { email, password } = req.body;
   try {
+    const { email, password } = req.body;
     const validUser = await User.findOne({ email });
-    if (!validUser) return next(errorHandler(404, 'User not found!'));
+    // console.log(validUser);
+    if (!validUser) {
+      next(errorHandler(404, 'User not found!'));
+    }
     
     const validPassword = bcryptjs.compareSync(password, validUser.password);
     if (!validPassword) return next(errorHandler(401, 'Wrong credentials!'));
@@ -71,7 +76,7 @@ export const signin = async (req, res, next) => {
         username: validUser.username 
       }, 
       process.env.JWT_SECRET,
-      {expiresIn: 5 * 60 * 1000}
+      {expiresIn: 30 * 60 * 1000}
       );
     // const { password: pass, ...rest } = validUser._doc;
     res
@@ -84,6 +89,7 @@ export const signin = async (req, res, next) => {
       .json({
         data: validUser
       });
+    // console.log('---hier der cookie---', token);
 
   } catch (error) {
     next(error);
@@ -231,12 +237,17 @@ export const twitter = async (req, res, next) => {
 };
 
 // signOut
-
-export const signOut = async (req, res, next) => {
+export const signOut = (req, res, next) => {
   try {
-    res.clearCookie('access_token');
-    res.status(200).json('User has been logged out!');
+    return res
+      .clearCookie('access_token')
+      .status(201)
+      .json({
+        success: true,
+        msg: 'Erfolgreich ausgeloggt'
+      });
+    
   } catch (error) {
-    next(error);
-  }
+    next(error)
+  }   
 };

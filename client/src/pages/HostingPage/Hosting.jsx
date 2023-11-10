@@ -17,12 +17,12 @@ const Hosting = () => {
             <div className='ho-ph-wrapper'>
                 <Link to={'/home/profile'}>
                     <PageHeader 
-                        pageTitle='Meine Inserate'
+                        pageTitle='Meine Festivals'
                     />
                 </Link>
             </div>
 
-            <main className='ho-mobile-wrapper'>
+            <main className='ho-mc-wrapper'>
                 <div className='ho-mc'>
                     hier kommt ein grid mit den inseraten rein
                 </div>    

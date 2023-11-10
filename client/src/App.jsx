@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Link } from 'react-router-dom';
 import { Info } from './pages/InfoPage/index.js';
 import { Register } from './pages/RegisterPage/index.js';
 import { Login } from './pages/LoginPage/index.js';
@@ -18,12 +18,8 @@ import 'typeface-roboto';
 import './App.css';
 
 
-// axios.defaults.baseURL = '/api';
-
-
 function App() {
 
-      
     return(
         <AuthProvider>
             <Routes>

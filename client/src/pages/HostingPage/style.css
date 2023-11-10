@@ -7,7 +7,7 @@
     margin-top: 7rem;
 }
 
-.ho-mobile-wrapper{
+.ho-mc-wrapper{
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -23,9 +23,8 @@
 }
 
 
-
 @media screen and (min-width: 601px) {
-    .ho-mobile{
-        margin-top: 7rem;
+    .ho-ph-wrapper{
+        margin-top: 9rem;
     }
 }

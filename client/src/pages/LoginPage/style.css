@@ -57,6 +57,14 @@
     margin-top: 3rem;
 }
 
+.login-error-message{
+    font-size: var(--body-sm-font-size);
+    margin-top: 1rem;
+    padding: 20px 10px;
+    color: tomato;
+    border-radius: 30px;
+}
+
 .login-to-register{
     display: flex;
     justify-content: center;

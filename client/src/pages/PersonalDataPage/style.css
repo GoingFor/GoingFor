@@ -1,8 +1,3 @@
-/* .pd{
-    min-width: 100vw;
-    min-height: 100vh;
-} */
-
 .pd-ph-wrapper{
     margin-top: 7rem;
 }
@@ -51,6 +46,7 @@
 .pd-mc-text-body-le,
 .pd-mc-text-body-sm-le,
 .pd-mc-text-body-ri{
+    color: var(--light);
     font-family: var(--body-font-family);
     font-size: var(--body-font-size);
     font-style: var(--body-font-style);
@@ -69,6 +65,9 @@
 .pd-mc-text-body-ri{
     text-align: right;
     text-decoration: underline;
+    background: none;
+    outline: none;
+    border: none;
 }
 
 
@@ -88,7 +87,6 @@
     .pd-mc{
         width: 50%;
         display: flex;
-        /* align-self: center; */
         flex-direction: column;
         align-items: ;
         margin: 0 auto;

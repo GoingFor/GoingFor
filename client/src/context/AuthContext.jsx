@@ -11,6 +11,13 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
     const [ user, setUser ] = useState({});
     const [ isAuthenticated, setIsAuthenticated ] = useState(false);
+    // const [ error, setError ] = useState({});
+
+    useEffect(() => {
+        if(!isAuthenticated) {
+            return;
+        }
+    }, []);
 
     const login = async(email, password) => {
         try {
@@ -21,32 +28,34 @@ export const AuthProvider = ({ children }) => {
             
             setUser(response);
             setIsAuthenticated(true);
-            alert('Einloggen erfolgreich.');
+            console.log('Frontend AuthContext: Einloggen erfolgreich.');
 
-        } catch(err){
-            alert(`Login fehlgeschlagen, ${err.message}`);
+        } catch(error){
+            console.log('Auth Context Login: Error empfangen aus backend:', error.response.data);
         }
     }
 
     const getUserData = async() => {
-        try {
-            const {data} = await axios.get('/api/user/profile');
-            setUser(data.user);
-            // console.log(response.data.user.username);
-            // return response.data;
+        if(isAuthenticated) {
+            try {
+                const {data} = await axios.get('/api/user/getdata');
+                setUser(data.user);
+            } catch(error) {
+                console.log('Auth Context getUserData: Fehler beim Abrufen der Benutzerdaten', error.message)
+            }     
+        }
+}
 
-        } catch(err){
-            alert(`Fehler beim Abrufen der Benutzerdaten, ${err.message}`);
+    const logout = async() => {
+        try {
+            const response = await axios.post('/api/auth/signout');
+            setUser(response);
+            console.log('Auth Context Logout: Meldung vom backend:', response.data.msg);
+            setIsAuthenticated(false);
+        } catch (error) {
+            console.log('Auth Context Logout: Fehler beim Ausloggen', error);
         }
     }
-
-    useEffect(() => {
-        if(!isAuthenticated) {
-            return;
-        }
-        getUserData();
-    }, []);
-
 
     return(
         <AuthContext.Provider 
@@ -54,7 +63,9 @@ export const AuthProvider = ({ children }) => {
                 user, 
                 isAuthenticated,
                 login,
-                getUserData
+                getUserData,
+                logout
+                // setError
             }}
         >
             { children }
