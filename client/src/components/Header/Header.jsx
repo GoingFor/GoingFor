@@ -127,7 +127,7 @@ const Header = () => {
                     <NavLink to={'/home/profile'}>Profil</NavLink>
                     </li>
                     <li>
-                    <NavLink to="home/create">Event erstellen</NavLink> 
+                    <NavLink to="home/event">Event erstellen</NavLink> 
                     </li>
                 </ul>
             </div>   

@@ -1,2 +1,3 @@
 import CreateEvent from './CreateEvent';
-export default CreateEvent ;
+// export default CreateEvent ;
+export  {CreateEvent} ;
