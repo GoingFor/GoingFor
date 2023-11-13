@@ -16,13 +16,13 @@ const Home = () => {
           <button
            className="map-list-toggle-button"
            onClick={toggleMapView}>
-            {mapInitialized ? 'Listenansicht' : 'Kartenansicht'}
+            {mapInitialized ? 'Kartenansicht':'Listenansicht'  }
           </button>
   
           {mapInitialized ? (
-            <MapComp />
-          ) : (
             <EventList />
+          ) : (
+            <MapComp />
           )}
         </div>
       </div>
