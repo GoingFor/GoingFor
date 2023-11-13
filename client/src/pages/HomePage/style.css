@@ -6,7 +6,7 @@
 }
 
 /* Stil für den Container, der die Karte enthält */
-.map-container {
+.home-content-container {
     flex: 1; /* Nimmt den verfügbaren Platz ein und dehnt sich in der Höhe aus */
     z-index: 1;
 }
