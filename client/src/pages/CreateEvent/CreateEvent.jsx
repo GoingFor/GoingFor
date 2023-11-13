@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import './style.css';
-
-//
 import axios from 'axios';
-//
-
 import MapComponent from '../../components/Map';
 
 
@@ -14,34 +10,17 @@ function CreateEvent() {
   const [formData, setFormData] = useState({
     name: '',
     description: '',
-    date: '',
-    camping: '',
-    ticketLink: '',
+    campingOptions: [],
+    websiteLink: '',
     cheapestTicket: '',
     savingTip: '',
     offeredDescription: '',
-    accessibility: '',
+    accessibilityOptions: [],
     photos: '',
     startDate: '',
     endDate: '',
+    genreOptions: [],
   });
-
-
-  const [selectedLocation, setSelectedLocation] = useState(null);
-  const [isMapOpen, setIsMapOpen] = useState(false);
-
-  const handleLocationSelect = (location) => {
-    setSelectedLocation(location);
-    closeMap();
-  };
-
-  const openMap = () => {
-    setIsMapOpen(true);
-  };
-
-  const closeMap = () => {
-    setIsMapOpen(false);
-  };
 
 
   const handleChange = (e) => {
@@ -52,54 +31,46 @@ function CreateEvent() {
     }));
   };
 
-  // const handleChange = (e) => {
-  //   const { name, value, files } = e.target;
+  const handleCampingCheckboxChange = (option) => {
+    const updatedCampingOptions = formData.campingOptions.includes(option)
+      ? formData.campingOptions.filter((item) => item !== option)
+      : [...formData.campingOptions, option];
+    setFormData({ ...formData, campingOptions: updatedCampingOptions });
+  };
+  const handleGenreCheckboxChange = (option) => {
+    const updatedGenreOptions = formData.genreOptions.includes(option)
+      ? formData.genreOptions.filter((item) => item !== option)
+      : [...formData.genreOptions, option];
+    setFormData({ ...formData, genreOptions: updatedGenreOptions });
+  };
 
-  //   if (name === 'photos' && files.length > 0) {
-  //     const uploadedFile = files[0];
-  //     setFormData({
-  //       ...formData,
-  //       [name]: uploadedFile,
-  //     });
-  //   } else {
-  //     const value = e.target.value;
-  //     setFormData({
-  //       ...formData,
-  //       [name]: value,
-  //     });
-  //   }
-  // };
+  const handleAccessibilityCheckboxChange = (option) => {
+    const updatedAccessibilityOptions = formData.accessibilityOptions.includes(option)
+      ? formData.accessibilityOptions.filter((item) => item !== option)
+      : [...formData.accessibilityOptions, option];
+    setFormData({ ...formData, accessibilityOptions: updatedAccessibilityOptions });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
-      await axios.post('/api/events/createevent', formData);
+      console.log('Form data before sending:', formData);
+  
+      const response = await axios.post('/api/events/createevent', formData);
+  
+      console.log('Server response:', response.data);
       console.log('Event erfolgreich erstellt!', formData);
     } catch (error) {
       console.error('Fehler beim Erstellen des Events:', error);
     }
-
-    // Handle form submission here (e.g., send data to an API or process it in your app)
-    console.log('Form data submitted:', formData);
-    console.log('Ausgewählte Position:', selectedLocation);
-
-    // Logik zum Speichern der Daten hinzufügen!
-
   };
-
-  //
+  
 
   return (
     <div className="form-container">
       <div className="create-event-form">
         <h2 className="create-event-heading">Neues Event erstellen</h2>
-
-        <button className='form-button' onClick={openMap}>Wähle den Ort auf der Karte</button>
-
-        {isMapOpen && <div className="map-container-in-form"><MapComponent onLocationSelect={handleLocationSelect} onClose={closeMap} />
-        </div>}
-
 
         <form onSubmit={handleSubmit}>
           <div className='create-form-input-container'>
@@ -128,38 +99,117 @@ function CreateEvent() {
           </div>
 
           <div className='create-form-input-container'>
-            <label className='create-form-label' htmlFor="date">Datum</label>
-            <input
-              className='create-form-input'
-              type="date"
-              id="date"
-              name="date"
-              value={formData.date}
-              onChange={handleChange}
-              required
-            />
+          <label className='create-form-label'>
+            Genres
+            <p className='input-description'>
+              Welche Musikgenres sind vertreten?
+            </p>
+            </label>
+          <div>
+          <label className='create-form-label-checkbox'>
+              <input
+                className='create-form-input'
+                type="checkbox"
+                value="Rock"
+                checked={formData.genreOptions.includes('Rock')}
+                onChange={() => handleGenreCheckboxChange('Rock')}
+              />
+              Rock
+            </label>
+            <label className='create-form-label-checkbox'>
+              <input
+                className='create-form-input'
+                type="checkbox"
+                value="Pop"
+                checked={formData.genreOptions.includes('Pop')}
+                onChange={() => handleGenreCheckboxChange('Pop')}
+              />
+              Pop
+            </label>
+            <label className='create-form-label-checkbox'>
+              <input
+                className='create-form-input'
+                type="checkbox"
+                value="Elektro"
+                checked={formData.genreOptions.includes('Elektro')}
+                onChange={() => handleGenreCheckboxChange('Elektro')}
+              />
+              Elektro
+            </label>
+            <label className='create-form-label-checkbox'>
+              <input
+                className='create-form-input'
+                type="checkbox"
+                value="Gothic"
+                checked={formData.genreOptions.includes('Gothic')}
+                onChange={() => handleGenreCheckboxChange('Gothic')}
+              />
+              Gothic
+            </label>
+            {/* ... Weitere Genres hier ... */}
           </div>
+        </div>
 
           <div className='create-form-input-container'>
-            <label className='create-form-label' htmlFor="camping">Camping</label>
+          <label className='create-form-label'>
+            Camping
+            <p className='input-description'>
+              Ist Camping vor Ort möglich? Wähle alle zutreffenden Optionen aus
+            </p>
+            </label>
+          <div>
+          <label className='create-form-label-checkbox'>
+              <input
+                className='create-form-input'
+                type="checkbox"
+                value="Zeltplätze"
+                checked={formData.campingOptions.includes('Zeltplätze')}
+                onChange={() => handleCampingCheckboxChange('Zeltplätze')}
+              />
+              Zeltplätze
+            </label>
+            <label className='create-form-label-checkbox'>
+              <input
+                className='create-form-input'
+                type="checkbox"
+                value="Wohnmobile"
+                checked={formData.campingOptions.includes('Wohnmobile')}
+                onChange={() => handleCampingCheckboxChange('Wohnmobile')}
+              />
+              Wohnmobile
+            </label>
+            <label className='create-form-label-checkbox'>
+              <input
+                className='create-form-input'
+                type="checkbox"
+                value="Reservierung"
+                checked={formData.campingOptions.includes('Reservierung')}
+                onChange={() => handleCampingCheckboxChange('Reservierung')}
+              />
+              Reservierung erforderlich
+            </label>
+            <label className='create-form-label-checkbox'>
+              <input
+                className='create-form-input'
+                type="checkbox"
+                value="Nein"
+                checked={formData.campingOptions.includes('Nein')}
+                onChange={() => handleCampingCheckboxChange('Nein')}
+              />
+              Nicht möglich
+            </label>
+            {/* ... Weitere Camping-Optionen hier ... */}
+          </div>
+        </div>
+
+          <div className='create-form-input-container'>
+            <label className='create-form-label' htmlFor="websiteLink">Website Link</label>
             <input
               className='create-form-input'
               type="text"
-              id="camping"
-              name="camping"
-              value={formData.camping}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className='create-form-input-container'>
-            <label className='create-form-label' htmlFor="ticketLink">Ticket Link</label>
-            <input
-              className='create-form-input'
-              type="text"
-              id="ticketLink"
-              name="ticketLink"
-              value={formData.ticketLink}
+              id="websiteLink"
+              name="websiteLink"
+              value={formData.websiteLink}
               onChange={handleChange}
             />
           </div>
@@ -201,16 +251,59 @@ function CreateEvent() {
           </div>
 
           <div className='create-form-input-container'>
-            <label className='create-form-label' htmlFor="accessibility">Barrierefreiheit</label>
-            <input
-              className='create-form-input'
-              type="text"
-              id="accessibility"
-              name="accessibility"
-              value={formData.accessibility}
-              onChange={handleChange}
-            />
+          <label className='create-form-label'>
+            Barrierefreiheit
+            <p className='input-description'>
+              Wählen Sie die Barrierefreiheitsoptionen für das Event aus.
+            </p>
+          </label>
+          <div>
+            <label
+            className='create-form-label-checkbox'>
+              <input
+                className='create-form-input'
+                type="checkbox"
+                value="Rollstuhlgerecht"
+                checked={formData.accessibilityOptions.includes('Rollstuhlgerecht')}
+                onChange={() => handleAccessibilityCheckboxChange('Rollstuhlgerecht')}
+              />
+              Rollstuhlgerecht
+            </label>
+            <label
+            className='create-form-label-checkbox'>
+              <input
+                className='create-form-input'
+                type="checkbox"
+                value="Gehörlosenfreundlich"
+                checked={formData.accessibilityOptions.includes('Gehörlosenfreundlich')}
+                onChange={() => handleAccessibilityCheckboxChange('Gehörlosenfreundlich')}
+              />
+              Gehörlosenfreundlich
+            </label>
+            <label
+            className='create-form-label-checkbox'>
+              <input
+                className='create-form-input'
+                type="checkbox"
+                value="Hilfe"
+                checked={formData.accessibilityOptions.includes('Hilfe')}
+                onChange={() => handleAccessibilityCheckboxChange('Hilfe')}
+              />
+              Hilfe vor Ort
+            </label>
+            <label
+            className='create-form-label-checkbox'>
+              <input
+                className='create-form-input'
+                type="checkbox"
+                value="Begleitperson"
+                checked={formData.accessibilityOptions.includes('Begleitperson')}
+                onChange={() => handleAccessibilityCheckboxChange('Begleitperson')}
+              />
+              Begleitperson gratis
+            </label>
           </div>
+        </div>
 
           <div className='create-form-input-container'>
             <label className='create-form-label' htmlFor="photos">Hier Fotos uploaden</label>
@@ -248,9 +341,6 @@ function CreateEvent() {
             />
           </div>
 
-          {selectedLocation && <p>Ausgewählte Position: {selectedLocation.lat}, {selectedLocation.lng}</p>}
-
-
           <button className='form-button' type="submit">Event erstellen</button>
         </form>
       </div>
@@ -259,84 +349,3 @@ function CreateEvent() {
 }
 
 export default CreateEvent;
-
-
-
-
-//
-
-
-
-// import React, { useState } from 'react';
-// import './style.css'
-
-// function CreateEvent() {
-//   const [formData, setFormData] = useState({
-//     name: '',
-//     description: '',
-// date: '',
-// });
-
-// const handleChange = (e) => {
-// const { name, value } = e.target;
-// setFormData({
-// ...formData,
-// [name]: value,
-// });
-// };
-
-// const handleSubmit = (e) => {
-// e.preventDefault();
-// // Handle form submission here (e.g., send data to an API or process it in your app)
-// console.log('Form data submitted:', formData);
-// };
-
-// return (
-// <div className='create-form-input-container'>
-// <h2>Create a New Event</h2>
-// <form onSubmit={handleSubmit}>
-// <div>
-// <label className='create-form-label' htmlFor="name">Event Name:</label>
-// <input
-//          type="text"
-//          id="name"
-//          name="name"
-//          value={formData.name}
-//          onChange={handleChange}
-//          required
-//        />
-// </div>
-
-// php
-// Copy code
-//     <div>
-//       <label htmlFor="description">Description:</label>
-//       <textarea
-//         id="description"
-//         name="description"
-//         value={formData.description}
-//         onChange={handleChange}
-//         required
-//       ></textarea>
-//     </div>
-
-//     <div>
-//       <label htmlFor="date">Date:</label>
-//       <input
-//         type="date"
-//         id="date"
-//         name="date"
-//         value={formData.date}
-//         onChange={handleChange}
-//         required
-//       />
-//     </div>
-
-//     <button type="submit">Create Event</button>
-//   </form>
-// </div>
-// );
-// }
-
-// export default CreateEvent;
-
