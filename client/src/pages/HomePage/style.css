@@ -11,6 +11,17 @@
     z-index: 1;
 }
 
+.map-list-toggle-button {
+    border-radius: 2rem;
+    position: absolute;
+    top: 8rem;
+    left: 1rem;
+    background-color: var(--accent-blue-semi);
+    color: var(--light);
+    padding: 5px;
+    z-index: 1000;
+}
+
 .nav-container {
     z-index: 500;
 }

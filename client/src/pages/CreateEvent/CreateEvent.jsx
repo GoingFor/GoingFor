@@ -9,8 +9,6 @@ function CreateEvent() {
 
   const [formData, setFormData] = useState({
     name: '',
-    lat: '',
-    lng: '',
     description: '',
     campingOptions: [],
     websiteLink: '',
@@ -246,6 +244,16 @@ function CreateEvent() {
                 onChange={() => handleGenreCheckboxChange('Pop')}
               />
               Pop
+            </label>
+            <label className='create-form-label-checkbox'>
+              <input
+                className='create-form-input-checks'
+                type="checkbox"
+                value="Metal"
+                checked={formData.genreOptions.includes('Metal')}
+                onChange={() => handleGenreCheckboxChange('Metal')}
+              />
+              Metal
             </label>
             <label className='create-form-label-checkbox'>
               <input

@@ -35,6 +35,12 @@
 .EventList-h3 {
     font-size: 1rem;
 }
+.EventList-h3-date {
+    background-color: var(--accent-blue-semi);
+    font-size: 1rem;
+    border-radius: 2rem;
+    padding: 0.5rem;
+}
 
 .EventList-text {
     font-size: 0.8rem;
