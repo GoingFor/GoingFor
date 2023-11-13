@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Footer from '../../components/Footer/Footer.jsx';
-import MapComponent from '../../components/Map/Map';
+import EventList from '../../components/EventList/EventList.jsx';
+//import MapComponent from '../../components/Map/Map';
 import './style.css';
 
 const Home = () => {
@@ -8,10 +8,9 @@ const Home = () => {
 
     return (
         <div className="home-container">
-            <div className="map-container">
-                <MapComponent />
+            <div className="home-content-container">
+                <EventList />
             </div>
-            {/* <Footer/> */}
         </div>
     );
 };

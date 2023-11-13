@@ -25,6 +25,12 @@
     padding: 1rem;
 }
 
+.address-input-group{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 /* Styling for form labels */
 .create-form-label {
     display: block;
@@ -36,6 +42,7 @@
 
 .input-description {
     font-size: 0.8rem;
+    color: var(--light);
 }
 
 /* Styling for form input fields and textareas */
@@ -59,6 +66,26 @@
     border-radius: 1rem;
 }
 
+.create-form-input-checks{
+    color: var(--light);
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    align-items: center;
+}
+
+.create-form-label-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--light);
+  margin-bottom: 0.5rem; 
+}
+
+.create-form-input {
+  margin-right: 0.5rem; 
+}
+  
 
 /* Styling for the submit button */
 .form-button {

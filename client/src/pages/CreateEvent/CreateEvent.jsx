@@ -9,6 +9,8 @@ function CreateEvent() {
 
   const [formData, setFormData] = useState({
     name: '',
+    lat: '',
+    lng: '',
     description: '',
     campingOptions: [],
     websiteLink: '',
@@ -20,6 +22,11 @@ function CreateEvent() {
     startDate: '',
     endDate: '',
     genreOptions: [],
+    locationOptions:[],
+    street: '',
+    number: '',
+    zipCode: '',
+    city: ''
   });
 
 
@@ -75,6 +82,9 @@ function CreateEvent() {
         <form onSubmit={handleSubmit}>
           <div className='create-form-input-container'>
             <label className='create-form-label' htmlFor="name">Event Name</label>
+            <p className='input-description'>
+              Der offizielle Name des Festivals
+            </p>
             <input
               className='create-form-input'
               type="text"
@@ -88,15 +98,126 @@ function CreateEvent() {
 
           <div className='create-form-input-container'>
             <label className='create-form-label' htmlFor="description">Kurze Beschreibung</label>
+            <p className='input-description'>
+              Beschreibe dein Event (max 300 Zeichen)
+            </p>
             <textarea
               className='create-form-textarea'
               id="description"
               name="description"
               value={formData.description}
               onChange={handleChange}
+              maxLength={300} 
               required
             ></textarea>
           </div>
+
+          <div className='create-form-input-container'>
+            <div className="address-input-group">
+              <div>
+                <label className='create-form-label' htmlFor="street">Straße</label>
+                <input
+                  className='create-form-input'
+                  type="text"
+                  id="street"
+                  name="street"
+                  value={formData.street}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div>
+                <label className='create-form-label' htmlFor="number">Nummer</label>
+                <input
+                  className='create-form-input'
+                  type="text"
+                  id="number"
+                  name="number"
+                  value={formData.number}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className='create-form-input-container'>
+            <div className="address-input-group">
+              <div>
+                <label className='create-form-label' htmlFor="zipCode">PLZ</label>
+                <input
+                  className='create-form-input'
+                  type="text"
+                  id="zipCode"
+                  name="zipCode"
+                  value={formData.zipCode}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div>
+                <label className='create-form-label' htmlFor="city">Ort</label>
+                <input
+                  className='create-form-input'
+                  type="text"
+                  id="city"
+                  name="city"
+                  value={formData.city}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className='create-form-input-container'>
+            <label className='create-form-label'>
+              Location
+              <p className='input-description'>
+                Brauchen Besucher Gummistiefel oder Sonnenbrille?
+              </p>
+              </label> 
+            <label className='create-form-label-checkbox'>
+                <input
+                  className='create-form-input-checks'
+                  type="checkbox"
+                  value="Indoor"
+                  checked={formData.genreOptions.includes('Indoor')}
+                  onChange={() => handleGenreCheckboxChange('Indoor')}
+                />
+                Indoor
+              </label>
+            <label className='create-form-label-checkbox'>
+              <input
+                className='create-form-input-checks'
+                type="checkbox"
+                value="OutdoorWiese"
+                checked={formData.genreOptions.includes('OutdoorWiese')}
+                onChange={() => handleGenreCheckboxChange('OutdoorWiese')}
+              />
+              Outdoor - Wiese
+            </label>
+            <label className='create-form-label-checkbox'>
+              <input
+                className='create-form-input-checks'
+                type="checkbox"
+                value="OutdoorBefestigt"
+                checked={formData.genreOptions.includes('OutdoorBefestigt')}
+                onChange={() => handleGenreCheckboxChange('OutdoorBefestigt')}
+              />
+              Outdoor Befestigt
+            </label>
+            <label className='create-form-label-checkbox'>
+              <input
+                className='create-form-input-checks'
+                type="checkbox"
+                value="IndoorOutdoor"
+                checked={formData.genreOptions.includes('IndoorOutdoor')}
+                onChange={() => handleGenreCheckboxChange('IndoorOutdoor')}
+              />
+              Kombination Indoor und Outdoor
+            </label>
+            </div>
 
           <div className='create-form-input-container'>
           <label className='create-form-label'>
@@ -108,7 +229,7 @@ function CreateEvent() {
           <div>
           <label className='create-form-label-checkbox'>
               <input
-                className='create-form-input'
+                className='create-form-input-checks'
                 type="checkbox"
                 value="Rock"
                 checked={formData.genreOptions.includes('Rock')}
@@ -118,7 +239,7 @@ function CreateEvent() {
             </label>
             <label className='create-form-label-checkbox'>
               <input
-                className='create-form-input'
+                className='create-form-input-checks'
                 type="checkbox"
                 value="Pop"
                 checked={formData.genreOptions.includes('Pop')}
@@ -128,7 +249,7 @@ function CreateEvent() {
             </label>
             <label className='create-form-label-checkbox'>
               <input
-                className='create-form-input'
+                className='create-form-input-checks'
                 type="checkbox"
                 value="Elektro"
                 checked={formData.genreOptions.includes('Elektro')}
@@ -138,13 +259,83 @@ function CreateEvent() {
             </label>
             <label className='create-form-label-checkbox'>
               <input
-                className='create-form-input'
+                className='create-form-input-checks'
                 type="checkbox"
                 value="Gothic"
                 checked={formData.genreOptions.includes('Gothic')}
                 onChange={() => handleGenreCheckboxChange('Gothic')}
               />
               Gothic
+            </label>
+            <label className='create-form-label-checkbox'>
+              <input
+                className='create-form-input-checks'
+                type="checkbox"
+                value="Hip-Hop"
+                checked={formData.genreOptions.includes('Hip-Hop')}
+                onChange={() => handleGenreCheckboxChange('Hip-Hop')}
+              />
+              Hip-Hop
+            </label>
+            <label className='create-form-label-checkbox'>
+              <input
+                className='create-form-input-checks'
+                type="checkbox"
+                value="Indie"
+                checked={formData.genreOptions.includes('Indie')}
+                onChange={() => handleGenreCheckboxChange('Indie')}
+              />
+              Indie
+            </label>
+            <label className='create-form-label-checkbox'>
+              <input
+                className='create-form-input-checks'
+                type="checkbox"
+                value="Mittelalter"
+                checked={formData.genreOptions.includes('Mittelalter')}
+                onChange={() => handleGenreCheckboxChange('Mittelalter')}
+              />
+              Mittelalter
+            </label>
+            <label className='create-form-label-checkbox'>
+              <input
+                className='create-form-input-checks'
+                type="checkbox"
+                value="Jazz"
+                checked={formData.genreOptions.includes('Jazz')}
+                onChange={() => handleGenreCheckboxChange('Jazz')}
+              />
+              Jazz
+            </label>
+            <label className='create-form-label-checkbox'>
+              <input
+                className='create-form-input-checks'
+                type="checkbox"
+                value="Blues"
+                checked={formData.genreOptions.includes('Blues')}
+                onChange={() => handleGenreCheckboxChange('Blues')}
+              />
+              Blues
+            </label>
+            <label className='create-form-label-checkbox'>
+              <input
+                className='create-form-input-checks'
+                type="checkbox"
+                value="Reagae"
+                checked={formData.genreOptions.includes('Reagae')}
+                onChange={() => handleGenreCheckboxChange('Reagae')}
+              />
+              Reagae
+            </label>
+            <label className='create-form-label-checkbox'>
+              <input
+                className='create-form-input-checks'
+                type="checkbox"
+                value="Schlager"
+                checked={formData.genreOptions.includes('Schlager')}
+                onChange={() => handleGenreCheckboxChange('Schlager')}
+              />
+              Schlager
             </label>
             {/* ... Weitere Genres hier ... */}
           </div>
@@ -160,7 +351,7 @@ function CreateEvent() {
           <div>
           <label className='create-form-label-checkbox'>
               <input
-                className='create-form-input'
+                className='create-form-input-checks'
                 type="checkbox"
                 value="Zeltplätze"
                 checked={formData.campingOptions.includes('Zeltplätze')}
@@ -170,7 +361,7 @@ function CreateEvent() {
             </label>
             <label className='create-form-label-checkbox'>
               <input
-                className='create-form-input'
+                className='create-form-input-checks'
                 type="checkbox"
                 value="Wohnmobile"
                 checked={formData.campingOptions.includes('Wohnmobile')}
@@ -180,7 +371,7 @@ function CreateEvent() {
             </label>
             <label className='create-form-label-checkbox'>
               <input
-                className='create-form-input'
+                className='create-form-input-checks'
                 type="checkbox"
                 value="Reservierung"
                 checked={formData.campingOptions.includes('Reservierung')}
@@ -190,7 +381,7 @@ function CreateEvent() {
             </label>
             <label className='create-form-label-checkbox'>
               <input
-                className='create-form-input'
+                className='create-form-input-checks'
                 type="checkbox"
                 value="Nein"
                 checked={formData.campingOptions.includes('Nein')}
@@ -204,6 +395,9 @@ function CreateEvent() {
 
           <div className='create-form-input-container'>
             <label className='create-form-label' htmlFor="websiteLink">Website Link</label>
+            <p className='input-description'>
+              Füge einen Link zur offiziellen Website oder Social Media hinzu
+            </p>
             <input
               className='create-form-input'
               type="text"
@@ -228,6 +422,9 @@ function CreateEvent() {
 
           <div className='create-form-input-container'>
             <label className='create-form-label' htmlFor="savingTip">Spartipps</label>
+            <p className='input-description'>
+              Gibt es Kombi- oder EarlyBird Tickets?
+            </p>
             <input
               className='create-form-input'
               type="text"
@@ -240,6 +437,12 @@ function CreateEvent() {
 
           <div className='create-form-input-container'>
             <label className='create-form-label' htmlFor="offeredDescription">Was wird geboten</label>
+            <p className='input-description'>
+              Liste hier hervorzuhebende Dinge auf. z.B. Sitzplätze im Schatten oder VIP-Pakete
+            </p>
+            <p className='input-description'>
+              Trennung durch Komma
+            </p>
             <input
               className='create-form-input'
               type="text"

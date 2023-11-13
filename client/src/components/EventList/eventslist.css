@@ -1,0 +1,41 @@
+.eventListContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    margin-top: 5rem;
+    justify-content: center;
+    align-items: center; 
+}
+
+.EventList-card {
+    width: 80%;
+    min-height: 10rem;
+    color: var(--light);
+    margin-bottom: 1rem; 
+    border-radius: 2rem;
+    padding: 1rem;
+    background-color: var(--accent-blue-semi);
+    box-shadow: var(--box-shadow);
+}
+
+.EventList-heading {
+    color: var(--light);
+    font-size: 2rem;
+}
+
+.EventList-img {
+    width: 100%;
+    height: 2rem;
+}
+
+.EventList-h1 {
+    font-size: 1.5rem;
+}
+
+.EventList-h3 {
+    font-size: 1rem;
+}
+
+.EventList-text {
+    font-size: 0.8rem;
+}
