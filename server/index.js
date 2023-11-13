@@ -19,8 +19,8 @@ const DB_USER = process.env.DB_USER
 const DB_PASSWORD = process.env.DB_PASSWORD
 const DB_NAME = process.env.DB_NAME
 
-/* DATENBANK */
 
+/* DATENBANK */
 async function start() {
   try {
     await mongoose.connect(
@@ -45,8 +45,6 @@ app.use('/api/auth', authRouter);
 app.use('/api/posts', postRoute)
 app.use('/api/comments', commentRoute)
 app.use('/api/events', eventRouter);
-app.listen(PORT, () => console.log(`Der Server läuft auf dem Port: ${PORT}`));
-
 
 // // app.use('/api/listing', listingRouter);
 
@@ -59,18 +57,27 @@ app.listen(PORT, () => console.log(`Der Server läuft auf dem Port: ${PORT}`));
 
 
 // /* ERROR HANDLING */
-// app.use((err, req, res, next) => {
-//   const statusCode = err.statusCode || 500;
-//   const message = err.message || 'Internal Server Error';
-//   return res.status(statusCode).json({
-//     success: false,
-//     statusCode,
-//     message,
-//   });
-// });
+app.use((err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+  const message = err.message || 'Internal Server Error';
+  return res.status(statusCode).json({
+    success: false,
+    statusCode,
+    message,
+  });
+});
 
 // /* LISTENER */
-// app.listen(PORT, () => console.log(`Server started on port: ${PORT}`))
+app.listen(PORT, () => console.log(`Server started on port: ${PORT}`))
+
+
+
+
+
+
+
+
+
 
 // // CHATGPT_INTEGRATION
 // // const express = require('express');

@@ -1,0 +1,32 @@
+.evt-ph-wrapper{
+    margin-top: 7rem;
+}
+
+.evt-mc{
+    margin-top: 2rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    color: var(--light);
+}
+
+.evt-mc-header{
+    font-family: var(--subtitle-sm-font-family);
+    font-size: var(--subtitle-sm-font-size);
+    font-style: var(--subtitle-sm-font-style);
+    font-weight: var(--subtitle-sm-font-weight);
+    letter-spacing: var(--subtitle-sm-letter-spacing);
+    line-height: var(--subtitle-sm-line-height);
+
+    text-align: left;
+}
+
+.evt-mc-des{
+    font-family: var(--h-6-font-family);
+    font-size: var(--h-6-font-size);
+    font-style: var(--h-6-font-style);
+    font-weight: var(--h-6-font-weight);
+    letter-spacing: var(--h-6-letter-spacing);
+    line-height: var(--h-6-line-height);
+
+    text-align: left;
+}
