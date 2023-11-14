@@ -1,8 +1,10 @@
 import axios from 'axios';
-import L from 'leaflet';
+import { useState, useEffect, useRef } from 'react';
+import * as L from 'leaflet';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { useState, useEffect, useRef } from 'react';
+
+
 
 const MapComp = () => {
   const [events, setEvents] = useState([]);
@@ -25,10 +27,12 @@ const MapComp = () => {
 
   const getAddressCoordinates = async (address) => {
     try {
-      const response = await axios.get(
-        `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(address)}`
-      );
-  
+        const apiKey = 'c12334f54874412b87e3c2d4e182416f'; 
+        const response = await axios.get(
+          `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(address)}&apiKey=${apiKey}`
+        );
+        console.log(address);
+
       if (response.data && response.data.features && response.data.features.length > 0) {
         const { coordinates } = response.data.features[0].geometry;
         return { lat: coordinates[1], lon: coordinates[0] };
@@ -42,12 +46,13 @@ const MapComp = () => {
   };
 
   const setMarkers = async () => {
-    // Annahme: Nehmen Sie an, dass jedes Event eine Adresse hat
+    
     events.forEach(async (event) => {
-      const { street, number, zipCode, city, name, description } = event;
-      const address = `${street} ${number}, ${zipCode} ${city}`;
+      const { street, housenumber, postcode, city, name, description } = event;
+      const address = `${street} ${housenumber}, ${postcode} ${city}`;
       try {        
         const coordinates = await getAddressCoordinates(address);
+        console.log(coordinates);
         console.log(address);
         const map = mapRef.current;
 
@@ -68,8 +73,8 @@ const MapComp = () => {
   return (
     <div id="map">
       <MapContainer
-        center={[52.646559927548765, 7.088724562463824]}
-        zoom={5}
+        center={[52.52, 13.41]}
+        zoom={6}
         style={{ height: '100vh' }}
         zoomControl={false}
         layersControl={false}
