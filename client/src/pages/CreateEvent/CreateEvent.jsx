@@ -22,8 +22,8 @@ function CreateEvent() {
     genreOptions: [],
     locationOptions:[],
     street: '',
-    number: '',
-    zipCode: '',
+    housenumber: '',
+    postcode: '',
     city: ''
   });
 
@@ -97,7 +97,7 @@ function CreateEvent() {
           <div className='create-form-input-container'>
             <label className='create-form-label' htmlFor="description">Kurze Beschreibung</label>
             <p className='input-description'>
-              Beschreibe dein Event (max 300 Zeichen)
+              Beschreibe dein Event 
             </p>
             <textarea
               className='create-form-textarea'
@@ -105,7 +105,6 @@ function CreateEvent() {
               name="description"
               value={formData.description}
               onChange={handleChange}
-              maxLength={300} 
               required
             ></textarea>
           </div>
@@ -125,13 +124,13 @@ function CreateEvent() {
                 />
               </div>
               <div>
-                <label className='create-form-label' htmlFor="number">Nummer</label>
+                <label className='create-form-label' htmlFor="housenumber">Nummer</label>
                 <input
                   className='create-form-input'
                   type="text"
-                  id="number"
-                  name="number"
-                  value={formData.number}
+                  id="housenumber"
+                  name="housenumber"
+                  value={formData.housenumber}
                   onChange={handleChange}
                   required
                 />
@@ -142,13 +141,13 @@ function CreateEvent() {
           <div className='create-form-input-container'>
             <div className="address-input-group">
               <div>
-                <label className='create-form-label' htmlFor="zipCode">PLZ</label>
+                <label className='create-form-label' htmlFor="postcode">PLZ</label>
                 <input
                   className='create-form-input'
                   type="text"
-                  id="zipCode"
-                  name="zipCode"
-                  value={formData.zipCode}
+                  id="postcode"
+                  name="postcode"
+                  value={formData.postcode}
                   onChange={handleChange}
                   required
                 />
