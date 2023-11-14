@@ -14,6 +14,7 @@ import LayoutPage from './pages/LayoutPage/Layout.jsx';
 import MinimalLayoutPage from './pages/minimalLayoutPage/MinimalLayout.jsx';
 import { AuthProvider } from './context/AuthContext.jsx';
 import {CreateEvent} from './pages/CreateEvent/index.js';
+import {Event} from './pages/OneEventPage/index.js';
 import 'typeface-roboto';
 import './App.css';
 
@@ -36,7 +37,8 @@ function App() {
                     <Route path='/home/feedback' element={ <Feedback />}/>
                     <Route path='/home/wishlist' element={ <Wishlist />}/>
                     <Route path='/home/hosting' element={ <Hosting />}/>
-                    <Route path='/home/event' element={ <CreateEvent /> }/>
+                    <Route path='/home/createevent' element={ <CreateEvent /> }/>
+                    <Route path='/home/event/:id' element={ <Event /> }/>
                 </Route> 
             </Routes>
         </AuthProvider>

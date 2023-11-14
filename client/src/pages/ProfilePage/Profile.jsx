@@ -54,10 +54,12 @@ const Profile = () => {
                     </div>
                    
 
-                    <Button 
-                        className='pr-mc-btn' 
-                            >Inseriere ein Festival
-                    </Button>
+                    <Link className='pr-mc-link' to={'/home/createevent'}>
+                        <Button 
+                            className='pr-mc-btn' 
+                                >Inseriere ein Festival
+                        </Button>
+                    </Link>
 
                     <div className='pr-mc-text'>
                         <h4 className='pr-mc-text-header'>Einstellungen</h4>

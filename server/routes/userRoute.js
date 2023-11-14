@@ -8,7 +8,7 @@ const userRouter = Router();
 // userRouter.get('/user/test', test);
 
 // http://localhost:3002/api/user/profile
-// User anzeigen lassen, löschen, bearbeiten:
+// User anzeigen lassen, bearbeiten:
 // userRouter.get('/user/:id', verifyToken, getUser);
 userRouter
     .get('/getdata', 

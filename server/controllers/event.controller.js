@@ -10,3 +10,19 @@ export const createEvent = async(req, res, next) => {
         res.status(500).json({ error: 'Fehler beim Speichern des Events.' });
     }
 }
+
+
+export const getEvent = async(req, res, next) => {
+    try {
+        const eventId = req.params.id;
+        // const event = await Event.find({ name });
+        const event = await Event.findById(eventId);
+        res.status(200).json({
+            success: true,
+            event
+        });
+
+    } catch(err) {
+        next(err);
+    }
+}
