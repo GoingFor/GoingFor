@@ -2,7 +2,13 @@
     margin-top: 7rem;
 }
 
+.evt-mc-wrapper{
+    margin-bottom: 5rem;
+}
+
 .evt-mc{
+    display: flex;
+    flex-direction: column;
     margin-top: 2rem;
     margin-right: 2rem;
     margin-left: 2rem;
@@ -29,4 +35,77 @@
     line-height: var(--h-6-line-height);
 
     text-align: left;
+}
+
+.evt-mc-grid-wrapper{
+    border-bottom: 1px solid var(--light-grey);
+}
+
+.evt-mc-grid{
+    display: grid;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    gap: 20px 10px;
+}
+
+.evt {
+    margin: 0;
+}
+
+.evt-mc-offered-des-wrapper{
+    border-bottom: 1px solid var(--light-grey);
+}
+
+.evt-mc-offered-des{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.evt-mc-subtitle-xs{
+    font-family: var(--subtitle-xs-font-family);
+    font-size: var(--subtitle-xs-font-size);
+    font-style: var(--subtitle-xs-font-style);
+    font-weight: var(--subtitle-xs-font-weight);
+    letter-spacing: var(--subtitle-xs-letter-spacing);
+    line-height: var(--subtitle-xs-line-height);
+}
+
+.evt-mc-offered-des-list {
+    padding: 0;
+    margin: 2rem;
+    text-align: left;
+
+    font-family: var(--body-font-family);
+    font-size: var(--body-font-size);
+    font-style: var(--body-font-style);
+    font-weight: var(--body-font-weight);
+    letter-spacing: var(--body-letter-spacing);
+    line-height: var(--body-line-height);
+}
+
+.evt-mc-reviews{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.evt-mc-card-wrapper{
+    display: flex;
+    margin: 2rem;
+    gap: 20px;
+}
+
+.evt-mc-card{
+    width: 200px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 1rem;
+    border-radius: 20px;
+    background: var(--accent-blue-semi);
+    box-shadow: var(--inset-shadow);    
 }
