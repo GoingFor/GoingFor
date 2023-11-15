@@ -10,10 +10,22 @@ const EventList = () => {
     const fetchEvents = async () => {
       try {
         const response = await axios.get('/api/events/list');
-        setEvents(response.data);
+        console.log('Response data:', response.data);
+        setEvents(response.data.data);
+
         
       } catch (error) {
-        console.error('Fehler beim Abrufen der Event-Daten:', error);
+        if (error.response) {
+          // Die Anfrage wurde gemacht und der Server hat mit einem Statuscode geantwortet
+          // Der Statuscode liegt im Bereich von 2xx, aber die Antwort enthält einen Fehler
+          console.error('Fehlerhafte Antwort vom Server:', error.response.data);
+        } else if (error.request) {
+          // Die Anfrage wurde gemacht, aber es kam keine Antwort zurück
+          console.error('Keine Antwort vom Server erhalten');
+        } else {
+          // Etwas ist während der Anfrage-Einrichtung schiefgegangen
+          console.error('Fehler bei der Anfrage:', error.message);
+        }
       }
     };
 

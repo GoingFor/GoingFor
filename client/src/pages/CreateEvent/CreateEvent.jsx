@@ -60,8 +60,6 @@ function CreateEvent() {
     e.preventDefault();
   
     try {
-      console.log('Form data before sending:', formData);
-  
       const response = await axios.post('/api/events/createevent', formData);
   
       console.log('Server response:', response.data);
