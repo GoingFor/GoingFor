@@ -207,7 +207,7 @@ function CreateEvent() {
                   className='create-form-input-checks'
                   type="checkbox"
                   value="Indoor"
-                  checked={formData.genreOptions.includes('Indoor')}
+                  checked={formData.locationOptions.includes('Indoor')}
                   onChange={() => handleLocationCheckboxChange('Indoor')}
                 />
                 Indoor
@@ -217,7 +217,7 @@ function CreateEvent() {
                 className='create-form-input-checks'
                 type="checkbox"
                 value="OutdoorWiese"
-                checked={formData.genreOptions.includes('OutdoorWiese')}
+                checked={formData.locationOptions.includes('OutdoorWiese')}
                 onChange={() => handleLocationCheckboxChange('OutdoorWiese')}
               />
               Outdoor - Wiese
@@ -227,7 +227,7 @@ function CreateEvent() {
                 className='create-form-input-checks'
                 type="checkbox"
                 value="OutdoorBefestigt"
-                checked={formData.genreOptions.includes('OutdoorBefestigt')}
+                checked={formData.locationOptions.includes('OutdoorBefestigt')}
                 onChange={() => handleLocationCheckboxChange('OutdoorBefestigt')}
               />
               Outdoor Befestigt
@@ -237,7 +237,7 @@ function CreateEvent() {
                 className='create-form-input-checks'
                 type="checkbox"
                 value="IndoorOutdoor"
-                checked={formData.genreOptions.includes('IndoorOutdoor')}
+                checked={formData.locationOptions.includes('IndoorOutdoor')}
                 onChange={() => handleLocationCheckboxChange('IndoorOutdoor')}
               />
               Kombination Indoor und Outdoor

@@ -38,6 +38,7 @@ const EventList = () => {
         <div className='eventListContainer'>
             <h1 className="EventList-heading">Entdecke alle Festivals!</h1>
 
+          <div className='eventListCardContainer'>
           {events.map((event) => (
             <div key={event._id} className="EventList-card">
                 {event.photos && <img className="EventList-img" src={event.photos} alt={event.name} />}
@@ -52,6 +53,7 @@ const EventList = () => {
               <p className="EventList-text">{event.description}</p>
             </div>
           ))}
+          </div>
         </div>
       );
 };

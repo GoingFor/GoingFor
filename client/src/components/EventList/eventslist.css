@@ -4,18 +4,27 @@
     width: 100vw;
     margin-top: 7rem;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
+}
+
+.eventListCardContainer{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
 }
 
 .EventList-card {
-    width: 80%;
+    width: 40%;
     min-height: 10rem;
     color: var(--light);
     margin-bottom: 1rem; 
     border-radius: 2rem;
     padding: 1rem;
     background-color: var(--accent-blue-semi);
-    box-shadow: var(--box-shadow);
+    box-shadow: var(--box-shadow); 
+    border:0.5px solid var(--accentblue);
 }
 
 .EventList-heading {
