@@ -22,6 +22,7 @@ const eventSchema = new mongoose.Schema({
     default: [],
   },
   websiteLink: String,
+  offeredDescription: String,
   cheapestTicket: String,
   savingTip: String,
   eventLink: String,
