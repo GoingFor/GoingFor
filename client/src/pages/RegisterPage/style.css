@@ -9,10 +9,10 @@
 }
 
 .reg-wrapper{
-    max-width: 200px;
+    min-width: 220px;
     margin-top: 3rem;
     border-radius: 1.25rem;
-    padding: 30px;
+    padding: 10px;
     background: var(--accent-blue-light);
     box-shadow: var(--inset-shadow);   
     
@@ -59,8 +59,6 @@
     color: tomato;
     border-radius: 30px;
 }
-
-
 
 .register-to-login{
     display: flex;

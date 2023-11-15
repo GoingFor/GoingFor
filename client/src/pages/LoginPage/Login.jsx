@@ -10,7 +10,7 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const { login, isAuthenticated } = useAuth();
+    const { login, isAuthenticated, errors } = useAuth();
     const navigate = useNavigate();
     
     const handleLogin = async(e) => {
@@ -22,7 +22,6 @@ const Login = () => {
             }
         } catch(error) {
             console.log('Hier lief was schief', error);
-            // setError(error);
         }  
     }
 
@@ -50,14 +49,16 @@ const Login = () => {
                     <Button className='login-btn'>Login</Button>
 
                     {/* Anzeige von Fehlermeldungen beim Registrieren */}
-                    {/* {error && <div className='login-error-message'>{error.message}</div>} */}
+                    {errors.length > 0 && (
+                        <div className='login-error-msg'>{errors}</div>
+                    )}
 
 
                     <div className='login-to-register'>
                         <p className='login-to-register-text'>
-                            Du hast noch kein Konto?
+                            Noch nicht registriert?
                         </p>
-                        <Link className='login-to-register-link' to={'/register'}>Jetzt registrieren</Link>
+                        <Link className='login-to-register-link' to={'/register'}>Anmelden!</Link>
                     </div>
                 </form> 
 
