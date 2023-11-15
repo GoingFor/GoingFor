@@ -44,6 +44,7 @@
 
 .evt-mc-grid{
     display: grid;
+    grid-template-columns: 1fr;
     margin-top: 3rem;
     margin-bottom: 3rem;
     gap: 20px 10px;
@@ -109,4 +110,12 @@
     border-radius: 20px;
     background: var(--accent-blue-semi);
     box-shadow: var(--inset-shadow);    
+}
+
+
+@media screen and (min-width: 601px) {
+    .evt-mc-grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
