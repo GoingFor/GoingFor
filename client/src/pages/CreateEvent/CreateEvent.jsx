@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './style.css';
 import axios from 'axios';
-import MapComponent from '../../components/Map';
 
 function CreateEvent() {
 
@@ -62,6 +61,31 @@ function CreateEvent() {
   
       console.log('Server response:', response.data);
       console.log('Event erfolgreich erstellt!', formData);
+
+        // Show success alert
+    alert('Festival erfolgreich erstellt!');
+
+    // Clear the form data
+    setFormData({
+      name: '',
+      description: '',
+      campingOptions: [],
+      websiteLink: '',
+      cheapestTicket: '',
+      savingTip: '',
+      offeredDescription: '',
+      accessibilityOptions: [],
+      photos: '',
+      startDate: '',
+      endDate: '',
+      genreOptions: [],
+      locationOptions: [],
+      street: '',
+      housenumber: '',
+      postcode: '',
+      city: '',
+    });
+    
     } catch (error) {
       console.error('Fehler beim Erstellen des Events:', error);
     }
