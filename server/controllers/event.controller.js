@@ -26,3 +26,22 @@ export const getEvent = async(req, res, next) => {
         next(err);
     }
 }
+
+
+export const getAllEvents = async(req, res) => {
+    try {
+        const events = await Event.find();
+
+        res.status(200).json({
+            success: true,
+            data: events
+        });
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({
+            success: false,
+            error: 'Internale Serverfehler'
+        });
+    }
+};
