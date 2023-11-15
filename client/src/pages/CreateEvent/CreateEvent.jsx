@@ -53,6 +53,14 @@ function CreateEvent() {
     setFormData({ ...formData, accessibilityOptions: updatedAccessibilityOptions });
   };
 
+  const handleLocationCheckboxChange = (option) => {
+    const updatedLocationOptions = formData.locationOptions.includes(option)
+      ? formData.locationOptions.filter((item) => item !== option)
+      : [...formData.locationOptions, option];
+    setFormData({ ...formData, locationOptions: updatedLocationOptions });
+  };
+  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
   
@@ -200,7 +208,7 @@ function CreateEvent() {
                   type="checkbox"
                   value="Indoor"
                   checked={formData.genreOptions.includes('Indoor')}
-                  onChange={() => handleGenreCheckboxChange('Indoor')}
+                  onChange={() => handleLocationCheckboxChange('Indoor')}
                 />
                 Indoor
               </label>
@@ -210,7 +218,7 @@ function CreateEvent() {
                 type="checkbox"
                 value="OutdoorWiese"
                 checked={formData.genreOptions.includes('OutdoorWiese')}
-                onChange={() => handleGenreCheckboxChange('OutdoorWiese')}
+                onChange={() => handleLocationCheckboxChange('OutdoorWiese')}
               />
               Outdoor - Wiese
             </label>
@@ -220,7 +228,7 @@ function CreateEvent() {
                 type="checkbox"
                 value="OutdoorBefestigt"
                 checked={formData.genreOptions.includes('OutdoorBefestigt')}
-                onChange={() => handleGenreCheckboxChange('OutdoorBefestigt')}
+                onChange={() => handleLocationCheckboxChange('OutdoorBefestigt')}
               />
               Outdoor Befestigt
             </label>
@@ -230,7 +238,7 @@ function CreateEvent() {
                 type="checkbox"
                 value="IndoorOutdoor"
                 checked={formData.genreOptions.includes('IndoorOutdoor')}
-                onChange={() => handleGenreCheckboxChange('IndoorOutdoor')}
+                onChange={() => handleLocationCheckboxChange('IndoorOutdoor')}
               />
               Kombination Indoor und Outdoor
             </label>
@@ -263,6 +271,16 @@ function CreateEvent() {
                 onChange={() => handleGenreCheckboxChange('Pop')}
               />
               Pop
+            </label>
+            <label className='create-form-label-checkbox'>
+              <input
+                className='create-form-input-checks'
+                type="checkbox"
+                value="Punk"
+                checked={formData.genreOptions.includes('Punk')}
+                onChange={() => handleGenreCheckboxChange('Punk')}
+              />
+              Punk
             </label>
             <label className='create-form-label-checkbox'>
               <input
