@@ -25,12 +25,22 @@ const Event = () => {
                 setEvent(data.event);
                 console.log('else: event after setting state:', data.event);
             }
-            
-
         } catch(error) {
             console.log('Event - getEventData: Fehler beim Abrufen der Eventdaten', error)
         }
     }
+
+    const calcDateDiff = (startDate, endDate) => {
+        if (endDate) {
+          const start = new Date(startDate);
+          const end = new Date(endDate);
+          const timeDiff = end - start;
+          const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+          return `${daysDiff} Tage`;
+        } else {
+          return new Date(startDate).toLocaleDateString();
+        }
+      };
 
 
 
@@ -66,8 +76,15 @@ const Event = () => {
                         <Card>
                             <div className="text">
                                 <p className="subtitle">Wann?</p>
-                                <p className="cardText">{new Date(event.startDate).toLocaleDateString()}</p>
-                                <p className="cardText">{new Date(event.endDate).toLocaleDateString()}</p>
+                                {event.endDate ? (
+                                    <>
+                                        <p className="cardText">{new Date(event.startDate).toLocaleDateString()} - {new Date(event.endDate).toLocaleDateString()}</p>
+                                        <p className="cardText">{calcDateDiff(event.startDate, event.endDate)}</p>
+                                    </>
+                                ):(
+                                    <p className="cardText">{new Date(event.startDate).toLocaleDateString()}</p>
+                                )
+                                }
                             </div>
                         </Card> 
 
@@ -132,11 +149,11 @@ const Event = () => {
                                 </Card> 
                         )}
 
-                        {event.eventLink && (
+                        {event.websiteLink && (
                             <Card>
                                 <div className="text">
                                     <p className="subtitle">Mehr</p>
-                                    <p className="cardText">{event.eventLink}</p>
+                                    <p className="cardText">{event.websiteLink}</p>
                                     <p className="cardText"></p>
                                 </div>
                             </Card> 

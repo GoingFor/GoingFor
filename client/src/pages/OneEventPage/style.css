@@ -9,10 +9,16 @@
 .evt-mc{
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin-top: 2rem;
     margin-right: 2rem;
     margin-left: 2rem;
     color: var(--light);
+}
+
+.evt-mc-header,
+.evt-mc-des{
+    align-self: flex-start;
 }
 
 .evt-mc-header{
