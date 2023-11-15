@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     width: 100vw;
-    margin-top: 5rem;
+    margin-top: 7rem;
     justify-content: center;
     align-items: center; 
 }
@@ -28,8 +28,12 @@
     height: 2rem;
 }
 
-.EventList-h1 {
+.EventList-h1 a{
     font-size: 1.5rem;
+    color: var(--light);
+}
+.EventList-h1 a:visited{
+    color: var(--accent-blue-semi);
 }
 
 .EventList-h3 {
