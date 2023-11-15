@@ -27,12 +27,13 @@
 }
 
 .evt-mc-des{
-    font-family: var(--h-6-font-family);
-    font-size: var(--h-6-font-size);
-    font-style: var(--h-6-font-style);
-    font-weight: var(--h-6-font-weight);
-    letter-spacing: var(--h-6-letter-spacing);
-    line-height: var(--h-6-line-height);
+    margin-top: 1rem;
+    font-family: var(--body-font-family);
+    font-size: var(--body-font-size);
+    font-style: var(--body-font-style);
+    font-weight: var(--body-font-weight);
+    letter-spacing: var(--body-letter-spacing);
+    line-height: var(--body-line-height);
 
     text-align: left;
 }
