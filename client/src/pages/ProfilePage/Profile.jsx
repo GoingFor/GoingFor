@@ -54,7 +54,7 @@ const Profile = () => {
                     </div>
                    
 
-                    <Link className='pr-mc-link' to={'/home/createevent'}>
+                    <Link className='pr-mc-link' to={'/home/event'}>
                         <Button 
                             className='pr-mc-btn' 
                                 >Inseriere ein Festival
