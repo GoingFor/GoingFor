@@ -3,8 +3,6 @@ import './style.css';
 import axios from 'axios';
 import MapComponent from '../../components/Map';
 
-
-
 function CreateEvent() {
 
   const [formData, setFormData] = useState({
