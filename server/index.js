@@ -4,6 +4,11 @@ import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 dotenv.config();
 
+//
+// import Event from './models/Event.js';
+// import multer from 'multer';
+//
+
 /* IMPORTS */
 import userRouter from './routes/userRoute.js';
 import authRouter from './routes/authRoute.js';
@@ -70,6 +75,33 @@ app.use((err, req, res, next) => {
 // /* LISTENER */
 app.listen(PORT, () => console.log(`Server started on port: ${PORT}`))
 
+
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, 'uploads/');
+//   },
+//   filename: (req, file, cb) => {
+//     cb(null, Date.now() + '-' + file.originalname);
+//   },
+// });
+
+// const upload = multer({ storage: storage });
+
+// app.post('/api/upload', upload.single('photos'), async (req, res) => {
+//   try {
+//     const event = new Event({
+//       // Andere Felder aus req.body hinzufügen
+//       photos: req.file.path, // Annahme, dass Sie ein Feld 'photos' für den Dateipfad haben
+//     });
+
+//     await event.save();
+
+//     res.status(201).json({ message: 'Datei hochgeladen und Event erstellt!' });
+//   } catch (error) {
+//     console.error('Fehler beim Hochladen der Datei:', error);
+//     res.status(500).json({ error: 'Serverfehler beim Hochladen der Datei' });
+//   }
+// });
 
 
 
