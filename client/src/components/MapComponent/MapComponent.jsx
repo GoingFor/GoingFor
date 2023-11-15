@@ -11,6 +11,8 @@ const MapComp = () => {
   const mapRef = useRef(null); 
   const addressRef = useRef(null); 
 
+  
+
   useEffect(() => {
     const fetchEvents = async () => {
       try {
@@ -31,7 +33,6 @@ const MapComp = () => {
         const response = await axios.get(
           `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(address)}&apiKey=${apiKey}`
         );
-        console.log(address);
 
       if (response.data && response.data.features && response.data.features.length > 0) {
         const { coordinates } = response.data.features[0].geometry;
@@ -43,6 +44,13 @@ const MapComp = () => {
       console.error('Error during geocoding:', error);
       throw error;
     }
+  };
+
+  const openPopupOnClick = (marker, popupContent) => {
+    marker.bindPopup(popupContent);
+    marker.on('click', () => {
+      marker.openPopup();
+    });
   };
 
   const setMarkers = async () => {
@@ -63,8 +71,10 @@ const MapComp = () => {
 
         const marker = L.marker([coordinates.lat, coordinates.lon]).addTo(map);
         
-        const popupContent = `<b>${name}</b><br>${description}<br><a href="/event/${event.id}">Details anzeigen</a>`;
-        marker.bindPopup(popupContent).openPopup();
+        const popupContent = `<b>${name}</b><br>
+        ${description}<br><a href="/home/event/${event._id}">Details anzeigen</a>`;
+
+        openPopupOnClick(marker, popupContent);
       } catch (error) {
         console.error('Error setting marker:', error);
       }
