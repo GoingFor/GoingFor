@@ -15,8 +15,8 @@ const MapComp = () => {
     const fetchEvents = async () => {
       try {
         const response = await axios.get('/api/events/list');
-        console.log(response.data);
-        setEvents(response.data);
+        const eventData = response.data.data || [];
+        setEvents(eventData);
       } catch (error) {
         console.error('Fehler beim Abrufen der Event-Daten:', error);
       }
@@ -46,6 +46,11 @@ const MapComp = () => {
   };
 
   const setMarkers = async () => {
+
+    if (!Array.isArray(events)) {
+      console.error('Events is not an array:', events);
+      return;
+    }
     
     events.forEach(async (event) => {
       const { street, housenumber, postcode, city, name, description } = event;
