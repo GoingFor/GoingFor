@@ -57,10 +57,10 @@ const Event = () => {
                     <div className='evt-mc-grid-wrapper'>
                         <div className='evt-mc-grid'>
                         <Card>
-                            <div className="text evt">
-                                <p className="evt subtitle">Wann?</p>
-                                <p className="evt cardText">{event.startDate}</p>
-                                <p className="evt cardText">{event.endDate}</p>
+                            <div className="text">
+                                <p className="subtitle">Wann?</p>
+                                <p className="cardText">{event.startDate}</p>
+                                <p className="cardText">{event.endDate}</p>
                             </div>
                         </Card> 
 

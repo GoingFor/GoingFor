@@ -10,18 +10,14 @@
 }
 
 .login-wrapper{
-    height: auto;
+    min-width: 220px;
     margin-top: 3rem;
     border-radius: 1.25rem;
+    padding: 10px;
     background: var(--accent-blue-light);
     box-shadow: var(--inset-shadow);   
     
     /* border: 2px solid green; */
-}
-
-.login-form{
-    max-width: 100rem;
-    margin-top: 3rem;
 }
 
 .login-input::placeholder,
@@ -57,7 +53,7 @@
     margin-top: 3rem;
 }
 
-.login-error-message{
+.login-error-msg{
     font-size: var(--body-sm-font-size);
     margin-top: 1rem;
     padding: 20px 10px;
@@ -69,6 +65,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: var(--grey);
+    font-size: var(--body-sm-font-size);
     /* border: 2px solid red; */
 }
 
