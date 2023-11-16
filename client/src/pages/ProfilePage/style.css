@@ -96,6 +96,7 @@
 .pr-mc-list-item-le{
     justify-content: flex-start;
     flex: 1;
+    text-align: left;
 }
 
 .pr-mc-icon-le,
