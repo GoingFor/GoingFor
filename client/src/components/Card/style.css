@@ -1,0 +1,44 @@
+.card {
+  /* width: 39rem; */
+  /* height: 25rem; */
+  width: 300px;
+  height: 200px;
+  background-color: var(--accent-blue-semi);
+  border-radius: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-shadow: var(--drop-shadow);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+
+}
+
+.subtitle, .cardText {
+  font-family: "Roboto-Bold", Helvetica;
+  font-style: normal;
+  letter-spacing: 0.48px;
+  line-height: normal;
+  color: rgba(244, 252, 255, 1);
+  margin: 0rem;
+}
+
+.subtitle {
+  font-size: 32px;
+  font-weight: 700;
+  font-variant: small-caps;
+  margin-bottom: 1rem;
+
+}
+
+.cardText {
+  font-size: 24px;
+  font-weight: 400;
+
+}

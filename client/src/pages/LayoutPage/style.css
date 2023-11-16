@@ -1,0 +1,19 @@
+.layoutContainer {
+    background-color: var(--blk);
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 2rem;
+}
+
+.site-content {
+    width: 100vw;
+    background-image: url('../../assets/goingfor_background.png');
+    background-position: top center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    flex-grow: 1;
+    margin-bottom: 3rem;
+    overflow-y: auto; 
+}

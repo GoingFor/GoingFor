@@ -1,0 +1,29 @@
+.minimal-layoutContainer{
+    background-image: url('../../assets/goingfor_background.png');
+    background-color: var(--blk);
+    min-height: 00vh;
+    width: 100vw;
+    background-position: top center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.rechtliches {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    position: absolute;
+    bottom: 0.3rem;
+    width: 100%;
+}
+
+.rechtliches a {
+    transition: font-size 0.3s ease; 
+    color: grey;
+    text-decoration: none;
+}
+
+.rechtliches a:hover {
+    color: var(--light);
+}

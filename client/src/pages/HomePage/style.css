@@ -1,0 +1,33 @@
+/* Stil für den Hauptcontainer der Seite */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Setze die gewünschte Höhe für den Hauptcontainer */
+}
+
+/* Stil für den Container, der die Karte enthält */
+.home-content-container {
+    flex: 1; /* Nimmt den verfügbaren Platz ein und dehnt sich in der Höhe aus */
+    z-index: 1;
+}
+
+.map-list-toggle-button {
+    border-radius: 2rem;
+    position: absolute;
+    top: 8rem;
+    left: 1rem;
+    background-color: var(--accent-blue-semi);
+    color: var(--light);
+    padding: 5px;
+    z-index: 1000;
+}
+
+.nav-container {
+    z-index: 500;
+}
+
+.footercontainer {
+    z-index: 500;
+}
+
+

@@ -1,0 +1,129 @@
+.login,
+.login-wrapper,
+.login-form,
+.login-social-wrapper{
+    /* layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+
+}
+
+.login-wrapper{
+    min-width: 220px;
+    margin-top: 3rem;
+    border-radius: 1.25rem;
+    padding: 10px;
+    background: var(--accent-blue-light);
+    box-shadow: var(--inset-shadow);   
+    
+    /* border: 2px solid green; */
+}
+
+.login-input::placeholder,
+.login-btn{
+    font-family: var( --subtitle-sm-font-family);
+    font-size: var(--subtitle-sm-font-size);
+    font-style: var(--subtitle-sm-font-style);
+    font-weight: var(--subtitle-sm-font-weight);
+    line-height: var(--subtitle-sm-line-height);
+    font-variant: small-caps;
+    letter-spacing: var(--subtitle-sm-letter-spacing);  
+}
+
+.login-input{
+    color: var(--grey);
+    display: flex;
+    text-align: center; 
+    padding: 1rem;
+    margin: 1rem;
+
+    border-radius: 1.25rem;
+    border: none;
+    outline: none;
+    background: var(--accent-blue-semi);
+    box-shadow: var(--inset-shadow);
+}
+
+.login-input:focus-visible{
+    border: 1px solid rgba(73, 201, 242, 1);
+}
+
+.login-btn{
+    margin-top: 3rem;
+}
+
+.login-error-msg{
+    font-size: var(--body-sm-font-size);
+    margin-top: 1rem;
+    padding: 20px 10px;
+    color: tomato;
+    border-radius: 30px;
+}
+
+.login-to-register{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--grey);
+    font-size: var(--body-sm-font-size);
+    /* border: 2px solid red; */
+}
+
+.login-to-register-text,
+.login-to-register-link{
+    color: #1a1a1a;
+    /* border: 2px solid red; */
+}
+
+.login-to-register-link{
+    text-decoration: underline;
+    margin-left: 0.25rem;
+}
+
+.login-btn,
+.login-social-text,
+.social-icon{
+    color: var(--light);
+}
+
+.login-social-wrapper{
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}  
+
+.login-social-text{
+    font-family: var(--body-sm-font-family);
+    font-size: var(--body-sm-font-size);
+    font-style: var(--body-sm-font-style);
+    font-weight: var(--body-sm-font-weight);
+    letter-spacing: var(--body-sm-letter-spacing);
+    line-height: var(--body-sm-line-height);
+} 
+
+.login-social-icon-wrapper,
+.login-logo-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+.social-icon{
+    font-size: 2rem;
+    background: none;
+    border: none;
+} 
+
+.social-icon:hover{
+    cursor: pointer;
+} 
+
+.login-logo-wrapper{
+    padding: 5px; 
+} 
+
+.login-logo{
+    object-fit: contain;
+    object-position: top center;
+    height: 30vh;
+}

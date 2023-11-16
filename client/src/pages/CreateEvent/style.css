@@ -1,0 +1,176 @@
+/* Styling for the form container */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 70rem;
+    margin: 0 auto; 
+    margin-top: 6rem;   
+}
+
+.create-event-form {
+    width: 100%;
+    background: var(--accent-blue-semi);
+    border-radius: 2rem;
+    margin: 2rem;
+    box-shadow: var(--box-shadow);
+}
+
+.create-event-heading{
+    color: var(--light);
+    font-size: 2.5rem;
+}
+
+.create-form-input-container {
+    padding: 1rem;
+}
+
+.address-input-group{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* Styling for form labels */
+.create-form-label {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 20px;
+    color: var(--light);
+}
+
+.input-description {
+    font-size: 0.8rem;
+    color: var(--light);
+}
+
+/* Styling for form input fields and textareas */
+.create-form-input[type="text"],
+.create-form-input[type="email"],
+.create-form-textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--accentblue);
+    border-radius: 1rem;
+    font-size: 16px;
+    background-color: var(--accent-blue-semi);
+}
+
+.create-form-input[type="date"],
+.create-form-input[type="file"] {
+    background-color: var(--accent-blue-semi);
+    color: var(--light); 
+    border: none;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.create-form-input-checks{
+    color: var(--light);
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    align-items: center;
+}
+
+.create-form-label-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--light);
+  margin-bottom: 0.5rem; 
+}
+
+.create-form-input {
+  margin-right: 0.5rem; 
+}
+  
+
+/* Styling for the submit button */
+.form-button {
+    font-size: 18px;
+    background-color: var(--accentblue);
+    color: var(--light);
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    margin: 5rem;
+    width: 50%;
+    padding: 1rem;
+    box-shadow: var(--button-shadow);
+}
+
+.form-button:hover {
+    background-color: var(--accentpurple);
+}
+
+.map-container-in-form {
+    width: 80%; /* Breite 100%, um sie innerhalb des Elternelements zu zentrieren */
+    height: 300px; /* Setze die Höhe nach deinen Wünschen */
+    margin: 0 auto; /* Automatische seitliche Margins für das Zentrieren */
+  }
+
+
+
+
+@media (min-width: 400px) {
+    .form-container {
+        max-width: 90%;
+    }
+
+    .create-form-label {
+        font-size: 24px;
+    }
+
+    .create-form-input[type="text"],
+    .create-form-input[type="email"],
+    .create-form-textarea {
+        font-size: 18px;
+    }
+
+    .form-button {
+        width: 30%;
+    }
+}
+
+
+  
+
+/* Media query for screens wider than 768px (tablets) */
+@media (min-width: 768px) {
+    .form-container {
+        max-width: 90%;
+    }
+
+    .create-form-label {
+        font-size: 24px;
+    }
+
+    .create-form-input[type="text"],
+    .create-form-input[type="email"],
+    .create-form-textarea {
+        font-size: 18px;
+    }
+
+    
+}
+
+/* Media query for screens wider than 1024px (desktop) */
+@media (min-width: 1024px) {
+    .form-container {
+        max-width: 70%;
+    }
+
+    .create-form-label {
+        font-size: 28px;
+    }
+
+    .create-form-input[type="text"],
+    .create-form-input[type="email"],
+    .create-form-textarea {
+        font-size: 20px;
+    }
+
+   
+}

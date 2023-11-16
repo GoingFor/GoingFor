@@ -1,0 +1,73 @@
+.ip{
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    justify-content: center;
+}
+
+.ip-logo-wrapper,
+.ip-subtitle-wrapper,
+.button-wrapper{
+    /* width: 100vw; */
+    /* height: 30%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    /* border: 2px solid red; */
+}
+
+.button-wrapper{
+    justify-content: space-evenly;
+    margin-top: 2rem;
+}
+
+.ip-logo{
+    object-fit: contain;
+    object-position: top center;
+    height: 30vh;
+}
+
+.ip-subtitle,
+.ip-login-btn,
+.ip-register-btn{
+    color: var(--light);
+    font-family: var(--subtitle-sm-font-family);
+    font-size: var(--subtitle-sm-font-size);
+    font-style: var(--subtitle-sm-font-style);
+    font-weight: var(--subtitle-sm-font-weight);
+    letter-spacing: var(--subtitle-sm-letter-spacing);
+    line-height: var(--subtitle-sm-line-height);
+    font-variant: small-caps;
+}
+.ip-heros {
+    padding-top: 4rem;
+   
+}
+
+.ip-carousel {
+    width: 70%;
+    justify-content: center;
+    margin: 0 auto;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-bottom: 4rem;
+}
+
+.hero-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--light);
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+.hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: var(--accentblue);
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+

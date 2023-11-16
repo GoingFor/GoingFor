@@ -1,0 +1,108 @@
+.pd-ph-wrapper{
+    margin-top: 7rem;
+}
+
+/* MOBILE SECTION */
+.pd-mc-wrapper{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+    /* border: 2px solid red; */
+}
+
+.pd-mc{
+    margin-left: 3rem;
+    margin-right: 3rem;
+    margin-top: 2rem;
+    color: var(--light);
+}
+
+.pd-mc-list{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.pd-mc-list-item{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--light-grey);
+}
+
+.pd-mc-list-item-wrapper,
+.pd-mc-list-item-le{
+    display: flex;
+    gap: 10px;
+}
+
+.pd-mc-list-item-le{
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+}
+
+.pd-mc-text-body-le,
+.pd-mc-text-body-sm-le,
+.pd-mc-text-body-ri{
+    color: var(--light);
+    font-family: var(--body-font-family);
+    font-size: var(--body-font-size);
+    font-style: var(--body-font-style);
+    font-weight: var(--body-font-weight);
+    letter-spacing: var(--body-letter-spacing);
+    line-height: var(--body-line-height);
+
+    margin: 0;
+}
+
+.pd-mc-text-body-sm-le{
+    font-size: var(--body-sm-font-size);
+    letter-spacing: var(--body-sm-letter-spacing);
+}
+
+.pd-mc-text-body-ri{
+    text-align: right;
+    text-decoration: underline;
+    background: none;
+    outline: none;
+    border: none;
+}
+
+
+/* @media screen and (min-width: 601px) {
+    .pd-ph-wrapper{
+        margin-top: 9rem;
+    }
+} */
+
+@media screen and (min-width: 816px) {
+
+    .pd-ph-wrapper{
+        margin-top: 9rem;
+    }
+
+    .pd-mc-wrapper{
+        margin-top: 3rem;
+        margin-bottom: 5rem;
+    }
+
+    .pd-mc{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        /* align-items: ; */
+        margin: 0 auto;
+        /* margin-top: 7rem; */
+        /* margin-bottom: 15rem; */
+        padding: 2rem;
+
+        /* color: var(--light); */
+        border-radius: 20px;
+        background: var(--accent-blue-semi);
+        box-shadow: var(--inset-shadow);
+    }
+
+
+}

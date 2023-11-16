@@ -1,0 +1,32 @@
+.btn{
+    /* subtitle-sm */
+    color: var(--light);
+    font-family: var( --subtitle-sm-font-family);
+    font-size: var(--subtitle-sm-font-size);
+    font-style: var(--subtitle-sm-font-style);
+    font-weight: var(--subtitle-sm-font-weight);
+    line-height: var(--subtitle-sm-line-height);
+    font-variant: small-caps;
+    letter-spacing: var(--subtitle-sm-letter-spacing);
+
+    /* layout */
+    /* width: 9rem; */
+    /* height: 4.25rem; */
+    display: flex;
+    padding: 1rem 1.625rem;
+    /* padding: 12px 22px; */
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    flex-shrink: 0;
+
+    /* style */
+    border-radius: 1.25rem;
+    border: none;
+    background: var(--accent-blue-semi);
+    box-shadow: var(--inset-shadow);
+}
+
+.btn:hover{
+    cursor: pointer;
+}

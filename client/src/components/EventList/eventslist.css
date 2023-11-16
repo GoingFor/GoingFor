@@ -1,0 +1,60 @@
+.eventListContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    margin-top: 7rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.eventListCardContainer{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.EventList-card {
+    width: 40%;
+    min-height: 10rem;
+    color: var(--light);
+    margin-bottom: 1rem; 
+    border-radius: 2rem;
+    padding: 1rem;
+    background-color: var(--accent-blue-semi);
+    box-shadow: var(--box-shadow); 
+    border:0.5px solid var(--accentblue);
+}
+
+.EventList-heading {
+    color: var(--light);
+    font-size: 2rem;
+}
+
+.EventList-img {
+    width: 100%;
+    height: 2rem;
+}
+
+.EventList-h1 a{
+    font-size: 1.5rem;
+    color: var(--light);
+}
+.EventList-h1 a:visited{
+    color: var(--accent-blue-semi);
+}
+
+.EventList-h3 {
+    font-size: 1rem;
+}
+.EventList-h3-date {
+    background-color: var(--accent-blue-semi);
+    font-size: 1rem;
+    border-radius: 2rem;
+    padding: 0.5rem;
+}
+
+.EventList-text {
+    font-size: 0.8rem;
+}

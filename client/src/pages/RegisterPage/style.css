@@ -1,0 +1,128 @@
+.reg,
+.reg-wrapper,
+.reg-form,
+.reg-social-wrapper{
+    /* layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.reg-wrapper{
+    min-width: 220px;
+    margin-top: 3rem;
+    border-radius: 1.25rem;
+    padding: 10px;
+    background: var(--accent-blue-light);
+    box-shadow: var(--inset-shadow);   
+    
+    /* border: 2px solid green; */
+}
+
+.reg-input::placeholder,
+.reg-btn{
+    font-family: var( --subtitle-sm-font-family);
+    font-size: var(--subtitle-sm-font-size);
+    font-style: var(--subtitle-sm-font-style);
+    font-weight: var(--subtitle-sm-font-weight);
+    line-height: var(--subtitle-sm-line-height);
+    font-variant: small-caps;
+    letter-spacing: var(--subtitle-sm-letter-spacing);  
+}
+
+.reg-input{
+    color: var(--grey);
+    display: flex;
+    text-align: center; 
+    padding: 1rem;
+    margin: 1rem;
+
+    border-radius: 1.25rem;
+    border: none;
+    outline: none;
+    background: var(--accent-blue-semi);
+    box-shadow: var(--inset-shadow);
+}
+
+.reg-input:focus-visible{
+    border: 1px solid rgba(73, 201, 242, 1);
+}
+
+.reg-btn{
+    margin-top: 3rem;
+}
+
+.reg-error-msg{
+    font-size: var(--body-sm-font-size);
+    margin-top: 1rem;
+    padding: 20px 10px;
+    color: tomato;
+    border-radius: 30px;
+}
+
+.register-to-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--grey);
+    font-size: var(--body-sm-font-size);
+    /* border: 2px solid red; */
+}
+
+.register-to-login-text,
+.register-to-login-link{
+    color: #1a1a1a;
+    /* border: 2px solid red; */
+}
+
+.register-to-login-link{
+    text-decoration: underline;
+    margin-left: 0.25rem;
+}
+
+.reg-btn,
+.reg-social-text,
+.reg-icon{
+    color: var(--light);
+}
+
+.reg-social-wrapper{
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}  
+
+.reg-social-text{
+    font-family: var(--body-sm-font-family);
+    font-size: var(--body-sm-font-size);
+    font-style: var(--body-sm-font-style);
+    font-weight: var(--body-sm-font-weight);
+    letter-spacing: var(--body-sm-letter-spacing);
+    line-height: var(--body-sm-line-height);
+} 
+
+.reg-social-icon-wrapper,
+.reg-logo-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+.reg-icon{
+    font-size: 2rem;
+    background: none;
+    border: none;
+} 
+
+.reg-icon:hover{
+    cursor: pointer;
+} 
+
+.reg-logo-wrapper{
+    padding: 5px; 
+} 
+
+.reg-logo{
+    object-fit: contain;
+    object-position: top center;
+    height: 30vh;
+}
