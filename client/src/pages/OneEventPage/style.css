@@ -9,10 +9,16 @@
 .evt-mc{
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin-top: 2rem;
     margin-right: 2rem;
     margin-left: 2rem;
     color: var(--light);
+}
+
+.evt-mc-header,
+.evt-mc-des{
+    align-self: flex-start;
 }
 
 .evt-mc-header{
@@ -27,12 +33,13 @@
 }
 
 .evt-mc-des{
-    font-family: var(--h-6-font-family);
-    font-size: var(--h-6-font-size);
-    font-style: var(--h-6-font-style);
-    font-weight: var(--h-6-font-weight);
-    letter-spacing: var(--h-6-letter-spacing);
-    line-height: var(--h-6-line-height);
+    margin-top: 1rem;
+    font-family: var(--body-font-family);
+    font-size: var(--body-font-size);
+    font-style: var(--body-font-style);
+    font-weight: var(--body-font-weight);
+    letter-spacing: var(--body-letter-spacing);
+    line-height: var(--body-line-height);
 
     text-align: left;
 }
@@ -43,6 +50,7 @@
 
 .evt-mc-grid{
     display: grid;
+    grid-template-columns: 1fr;
     margin-top: 3rem;
     margin-bottom: 3rem;
     gap: 20px 10px;
@@ -108,4 +116,16 @@
     border-radius: 20px;
     background: var(--accent-blue-semi);
     box-shadow: var(--inset-shadow);    
+}
+
+
+@media screen and (min-width: 816px) {
+    .evt-ph-wrapper{
+        margin-top: 9rem;
+    }
+
+    .evt-mc-grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
 }

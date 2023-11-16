@@ -1,16 +1,16 @@
 {
     "slides": [
       {
-        "src": "https://picsum.photos/id/476/600/400",
-        "alt": "wald"
-      },
-      {
-        "src": "https://picsum.photos/id/639/600/400",
-        "alt": "riesenrad"
+        "src": "https://picsum.photos/id/492/600/400",
+        "alt": "pusteblume"
       },
       {
         "src": "https://picsum.photos/id/452/600/400",
         "alt": "Konzert"
+      },
+      {
+        "src": "https://picsum.photos/id/476/600/400",
+        "alt": "wald"
       }
     ]
   }

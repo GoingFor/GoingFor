@@ -96,6 +96,7 @@
 .pr-mc-list-item-le{
     justify-content: flex-start;
     flex: 1;
+    text-align: left;
 }
 
 .pr-mc-icon-le,
@@ -122,13 +123,19 @@
     display: none;
 }
 
-@media screen and (min-width: 601px) {
+/* @media screen and (min-width: 601px) {
     .pr-ph-wrapper{
         margin-top: 9rem;
     }
-}
+} */
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 816px) {
+
+    .pr-ph-wrapper{
+        margin-top: 9rem;
+    }
+
+
     .pr-mc-wrapper{
         display: none;
     }

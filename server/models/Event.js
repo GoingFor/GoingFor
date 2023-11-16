@@ -22,13 +22,14 @@ const eventSchema = new mongoose.Schema({
     default: [],
   },
   websiteLink: String,
+  offeredDescription: String,
   cheapestTicket: String,
   savingTip: String,
   eventLink: String,
   photos: String, // Du kannst dieses Feld entsprechend deiner Anforderungen ändern
   street: String, 
   housenumber: String,  
-  postcode: String,       
+  postcode: Number,       
   city: String  
 });
   

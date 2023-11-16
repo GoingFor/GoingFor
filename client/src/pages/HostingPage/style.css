@@ -15,15 +15,30 @@
 }
 
 .ho-mc{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-left: 3rem;
     margin-right: 3rem;
     margin-top: 2rem;
-    color: var(--light);
 
+    color: var(--light)
 }
 
+.ho-card-wrapper{
+    margin-top: 5rem;
+}
 
-@media screen and (min-width: 601px) {
+.ho-text{
+    font-family: var(--body-font-family);
+    font-size: var(--body-font-size);
+    font-style: var(--body-font-style);
+    font-weight: var(--body-font-weight);
+    letter-spacing: var(--body-letter-spacing);
+    line-height: var( --body-line-height);
+}
+
+@media screen and (min-width: 816px) {
     .ho-ph-wrapper{
         margin-top: 9rem;
     }

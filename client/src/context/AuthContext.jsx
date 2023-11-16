@@ -11,7 +11,7 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
     const [ user, setUser ] = useState({});
     const [ isAuthenticated, setIsAuthenticated ] = useState(false);
-    // const [ error, setError ] = useState({});
+    const [ errors, setErrors ] = useState([]);
 
     useEffect(() => {
         if(!isAuthenticated) {
@@ -31,7 +31,8 @@ export const AuthProvider = ({ children }) => {
             console.log('Frontend AuthContext: Einloggen erfolgreich.');
 
         } catch(error){
-            console.log('Auth Context Login: Error empfangen aus backend:', error.response.data);
+            console.log('Auth Context Login: Error empfangen aus backend:', error.response.data.message);
+            setErrors(error.response.data.message)
         }
     }
 
@@ -64,8 +65,8 @@ export const AuthProvider = ({ children }) => {
                 isAuthenticated,
                 login,
                 getUserData,
-                logout
-                // setError
+                logout,
+                errors
             }}
         >
             { children }
