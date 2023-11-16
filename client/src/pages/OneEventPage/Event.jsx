@@ -14,19 +14,23 @@ const Event = () => {
         getEventData(id);
     }, [id])
 
-
     const getEventData = async(eventId) => {
         try {
             const { data } = await axios.get(`/api/events/getevent/${eventId}`);
-            setEvent({...data.event, offeredDescription: data.event.offeredDescription.split(', ')});
-            console.log('event after setting state:', data.event.offeredDescription);
+
+            if(data.event.offeredDescription){
+                setEvent({...data.event, offeredDescription: data.event.offeredDescription.split(', ')});
+                console.log('if: event after setting state:', data.event.offeredDescription);
+            } else {
+                setEvent(data.event);
+                console.log('else: event after setting state:', data.event);
+            }
+            
 
         } catch(error) {
             console.log('Event - getEventData: Fehler beim Abrufen der Eventdaten', error)
         }
     }
-
-
 
 
 
@@ -52,23 +56,26 @@ const Event = () => {
             <main className='evt-mc-wrapper'>
                 <div className="evt-mc">
                     <div className="evt-mc-header">{event.name}</div>
-                    <div className="evt-mc-des">{event.description}</div>
+                    {event.description && (
+                        <div className="evt-mc-des">{event.description}</div>
+                    )}
 
                     <div className='evt-mc-grid-wrapper'>
                         <div className='evt-mc-grid'>
+                        
                         <Card>
                             <div className="text">
                                 <p className="subtitle">Wann?</p>
-                                <p className="cardText">{event.startDate}</p>
-                                <p className="cardText">{event.endDate}</p>
+                                <p className="cardText">{new Date(event.startDate).toLocaleDateString()}</p>
+                                <p className="cardText">{new Date(event.endDate).toLocaleDateString()}</p>
                             </div>
                         </Card> 
 
                         <Card>
                             <div className="text">
                                 <p className="subtitle">Wo?</p>
-                                <p className="cardText">{event.street} {event.number}</p>
-                                <p className="cardText">{event.zipCode} {event.city}</p>
+                                <p className="cardText">{event.street} {event.housenumber}</p>
+                                <p className="cardText">{event.postcode} {event.city}</p>
                             </div>
                         </Card>
 
@@ -80,49 +87,75 @@ const Event = () => {
                             </div>
                         </Card> 
 
-                        <Card>
-                            <div className="text">
-                                <p className="subtitle">Genres</p>
-                                <p className="cardText">{event.genreOptions}</p>
-                            </div>
-                        </Card> 
+                        {
+                            event.genreOptions && 
+                            event.genreOptions.length > 0 && (
+                                <Card>
+                                    <div className="text">
+                                        <p className="subtitle">Genres</p>
+                                        <p className="cardText">{event.genreOptions.join(', ')}</p>
+                                    </div>
+                                </Card> 
+                        )}
 
-                        <Card>
-                            <div className="text">
-                                <p className="subtitle">Camping</p>
-                                <p className="cardText">{event.campingOptions}</p>
-                            </div>
-                        </Card> 
+                        {
+                            event.locationOptions && 
+                            event.locationOptions.length > 0 && (
+                                <Card>
+                                    <div className="text">
+                                        <p className="subtitle">Location</p>
+                                        <p className="cardText">{event.locationOptions}</p>
+                                    </div>
+                                </Card> 
+                        )}
 
-                        <Card>
-                            <div className="text">
-                                <p className="subtitle">Barrierefreiheit</p>
-                                <p className="cardText">{event.accessibilityOptions}</p>
-                            </div>
-                        </Card> 
+                        {
+                            event.campingOptions && 
+                            event.campingOptions.length > 0 && (
+                                <Card>
+                                    <div className="text">
+                                        <p className="subtitle">Camping</p>
+                                        <p className="cardText">{event.campingOptions.join(', ')}</p>
+                                    </div>
+                                </Card> 
+                        )}
 
-                        <Card>
-                            <div className="text">
-                                <p className="subtitle">Mehr</p>
-                                <p className="cardText">{event.websiteLink}</p>
-                                <p className="cardText"></p>
-                            </div>
-                        </Card> 
+                        
+                        {   
+                            event.accessibilityOptions && 
+                            event.accessibilityOptions.length > 0 && (
+                                <Card>
+                                    <div className="text">
+                                        <p className="subtitle">Barrierefreiheit</p>
+                                        <p className="cardText">{event.accessibilityOptions.join(', ')}</p>
+                                    </div>
+                                </Card> 
+                        )}
+
+                        {event.eventLink && (
+                            <Card>
+                                <div className="text">
+                                    <p className="subtitle">Mehr</p>
+                                    <p className="cardText">{event.eventLink}</p>
+                                    <p className="cardText"></p>
+                                </div>
+                            </Card> 
+                        )}
                         </div>
                     </div>
 
-                    <div className="evt-mc-offered-des-wrapper">
-                        <div className='evt-mc-offered-des'>
-                            <p className="evt-mc-subtitle-xs">Was dir dieses Event bietet</p>
-                            {event.offeredDescription && (
+                    { event.offeredDescription && (
+                        <div className="evt-mc-offered-des-wrapper">
+                            <div className='evt-mc-offered-des'>
+                                <p className="evt-mc-subtitle-xs">Was dir dieses Event bietet</p>
                                 <ul className='evt-mc-offered-des-list'>
                                     {event.offeredDescription.map((item, index) => (
                                         <li key={index}>{item}</li>
                                     ))}
                                 </ul> 
-                            )}
+                            </div>    
                         </div>
-                    </div>
+                    )}
 
                     <div className="evt-mc-reviews-wrapper">
                         <div className='evt-mc-reviews'>
