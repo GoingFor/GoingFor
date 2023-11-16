@@ -70,9 +70,16 @@ const MapComp = () => {
         const map = mapRef.current;
 
         const marker = L.marker([coordinates.lat, coordinates.lon]).addTo(map);
+
+        const genreList = event.genreOptions.map(genre => `<li>${genre}</li>`).join('');
         
-        const popupContent = `<b>${name}</b><br>
-        ${description}<br><a href="/home/event/${event._id}">Details anzeigen</a>`;
+        const popupContent = `
+        <b>${name}</b><br>
+        ${postcode} ${city}<br>
+        <ul>${genreList}</ul>
+        <a href="/home/event/${event._id}">
+          Details anzeigen
+        </a>`;
 
         openPopupOnClick(marker, popupContent);
       } catch (error) {

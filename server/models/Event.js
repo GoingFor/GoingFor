@@ -29,7 +29,7 @@ const eventSchema = new mongoose.Schema({
   photos: String, // Du kannst dieses Feld entsprechend deiner Anforderungen ändern
   street: String, 
   housenumber: String,  
-  postcode: String,       
+  postcode: Number,       
   city: String  
 });
   
