@@ -180,7 +180,6 @@ const Event = () => {
                             <div className="evt-mc-card-wrapper">
                                 <div className="evt-mc-card">
                                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea sequi esse totam accusantium nostrum. Necessitatibus repudiandae similique reiciendis architecto, consequuntur nam vel nemo cum, dolore facilis voluptate nobis vitae tempora?</p>
-                                    
                                 </div>
                                 
                                 <div className="evt-mc-card">
