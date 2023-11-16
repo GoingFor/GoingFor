@@ -96,14 +96,17 @@ const Event = () => {
                             </div>
                         </Card>
 
-                        <Card>
-                            <div className="text">
-                                <p className="subtitle">Tickets</p>
-                                <p className="cardText">{event.cheapestTicket}</p>
-                                <p className="cardText">{event.savingTip}</p>
-                            </div>
-                        </Card> 
-
+                        {
+                            ( event.cheapestTicket || event.savingTip ) && (
+                                <Card>
+                                    <div className="text">
+                                        <p className="subtitle">Tickets</p>
+                                        <p className="cardText">{event.cheapestTicket}</p>
+                                        <p className="cardText">{event.savingTip}</p>
+                                    </div>
+                                </Card> 
+                            )}
+                        
                         {
                             event.genreOptions && 
                             event.genreOptions.length > 0 && (
