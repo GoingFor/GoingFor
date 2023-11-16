@@ -113,7 +113,11 @@
 }
 
 
-@media screen and (min-width: 601px) {
+@media screen and (min-width: 816px) {
+    .evt-ph-wrapper{
+        margin-top: 9rem;
+    }
+
     .evt-mc-grid{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
