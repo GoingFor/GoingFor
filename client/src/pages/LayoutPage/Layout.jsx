@@ -7,14 +7,14 @@ import './style.css';
 
 
 const LayoutPage = () => {
-    const { isAuthenticated } = useAuth();
-    const navigate = useNavigate();
+    // const { isAuthenticated } = useAuth();
+    // const navigate = useNavigate();
 
-    useEffect(() => {
-        if(!isAuthenticated){
-            navigate('/login');
-        }
-    }, []);
+    // useEffect(() => {
+    //     if(!isAuthenticated){
+    //         navigate('/login');
+    //     }
+    // }, []);
 
 
     return (
