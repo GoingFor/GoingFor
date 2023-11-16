@@ -18,7 +18,7 @@ const Login = () => {
         try {
             await login(email, password);
             if(isAuthenticated) {
-                navigate('/home/profile');   
+                navigate('/home');   
             }
         } catch(error) {
             console.log('Hier lief was schief', error);
