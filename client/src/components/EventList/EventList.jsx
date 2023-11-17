@@ -43,7 +43,7 @@ const EventList = () => {
             <div key={event._id} className="EventList-card">
                 {event.photos && <img className="EventList-img" src={event.photos} alt={event.name} />}
               <h1 className="EventList-h1">
-              <a href={`/home/event/${event._id}`}>{event.name}</a>
+              <Link to={`/home/event/${event._id}`}>{event.name}</Link>
               </h1>
               <h3 className="EventList-h3-date">
                 {new Date(event.startDate).toLocaleDateString()} - {new Date(event.endDate).toLocaleDateString()}
