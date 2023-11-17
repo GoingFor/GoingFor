@@ -1,11 +1,21 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext.jsx';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/index.js';
 import './style.css';
 
 
 const LayoutPage = () => {
+    const { isAuthenticated } = useAuth();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if(!isAuthenticated){
+            navigate('/login');
+        }
+    }, []);
+
 
     return (
         <div className='layoutContainer'>
