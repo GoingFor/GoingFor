@@ -13,6 +13,7 @@
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
+    text-align: center;
 }
 
 .EventList-card {
@@ -48,6 +49,12 @@
 .EventList-h3 {
     font-size: 1rem;
 }
+
+.EventList-ul {
+    list-style: none;
+    text-align: center;
+    margin-right: 1.5rem;
+}
 .EventList-h3-date {
     background-color: var(--accent-blue-semi);
     font-size: 1rem;
@@ -57,4 +64,11 @@
 
 .EventList-text {
     font-size: 0.8rem;
+}
+
+@media (max-width: 815px) {
+    .EventList-card{
+        width: 80%;
+    }
+    
 }

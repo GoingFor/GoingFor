@@ -6,6 +6,8 @@ import './eventslist.css';
 const EventList = () => {
   const [events, setEvents] = useState([]);
 
+  const genreList = event.genreOptions ? event.genreOptions.map(genre => <li key={genre}>{genre}</li>) : null;
+
   useEffect(() => {
     const fetchEvents = async () => {
       try {
@@ -34,6 +36,8 @@ const EventList = () => {
   // Leeres Array, damit useEffect nur einmal ausgeführt wird
 
  
+
+ 
     return (
         <div className='eventListContainer'>
             <h1 className="EventList-heading">Entdecke alle Festivals!</h1>
@@ -49,7 +53,11 @@ const EventList = () => {
                 {new Date(event.startDate).toLocaleDateString()} - {new Date(event.endDate).toLocaleDateString()}
               </h3>
               <h3 className="EventList-h3">{event.postcode} {event.city}</h3>
-              <h3 className="EventList-h3">{event.genre}</h3>
+              <ul className="EventList-ul">
+              {event.genreOptions && Array.isArray(event.genreOptions) && event.genreOptions.map(genre => (
+                <li key={genre}>{genre}</li>
+              ))}
+            </ul>
               <p className="EventList-text">{event.description}</p>
             </div>
           ))}
