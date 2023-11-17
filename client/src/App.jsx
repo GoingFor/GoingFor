@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
-import { Route, Routes, Link } from 'react-router-dom';
+import { Route, Routes, Link, useLocation } from 'react-router-dom';
 import { Info } from './pages/InfoPage/index.js';
 import { Register } from './pages/RegisterPage/index.js';
 import { Login } from './pages/LoginPage/index.js';
@@ -18,17 +18,27 @@ import {Event} from './pages/OneEventPage/index.js';
 import 'typeface-roboto';
 import './App.css';
 
+const ScrollToTop = () => {
+    const location = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location.pathname]);
+
+    return null;
+}
 
 function App() {
 
     return(
         <AuthProvider>
+            <ScrollToTop />
             <Routes>
                 <Route path='/' element={ <MinimalLayoutPage />}>
                     <Route index element={ <Info />}/>
                     <Route path='/login' element={ <Login />}/>
                     <Route path='/register' element={ <Register />}/>
-                </Route>
+                </Route>  
 
                 <Route element={ <LayoutPage /> }>
                     <Route path='/home' element={ <Home />}/>

@@ -10,19 +10,17 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const { login, isAuthenticated, errors } = useAuth();
+    const { login, errors } = useAuth();
     const navigate = useNavigate();
     
     const handleLogin = async(e) => {
         e.preventDefault();
-        try {
-            await login(email, password);
-            if(isAuthenticated) {
-                navigate('/home');   
-            }
-        } catch(error) {
-            console.log('Hier lief was schief', error);
-        }  
+
+        const loginSuccessful = await login(email, password);
+
+        if(loginSuccessful) {
+            navigate('/home');   
+        }
     }
 
 

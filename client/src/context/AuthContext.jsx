@@ -29,10 +29,12 @@ export const AuthProvider = ({ children }) => {
             setUser(response);
             setIsAuthenticated(true);
             console.log('Frontend AuthContext: Einloggen erfolgreich.');
+            return true;
 
         } catch(error){
             console.log('Auth Context Login: Error empfangen aus backend:', error.response.data.message);
-            setErrors(error.response.data.message)
+            setErrors(error.response.data.message);
+            return false;
         }
     }
 

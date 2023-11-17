@@ -76,13 +76,14 @@ export const signin = async (req, res, next) => {
         username: validUser.username 
       }, 
       process.env.JWT_SECRET,
-      {expiresIn: 30 * 60 * 1000}
+      {expiresIn: '4h'}
+      // {expiresIn: 30 * 60 * 1000}
       );
     // const { password: pass, ...rest } = validUser._doc;
     res
       .cookie('access_token', token, 
       { 
-        maxAge: 30 * 60 * 1000,
+        maxAge: 4 * 60 * 60 * 1000, // 4 stunden
         httpOnly: true 
       })
       .status(200)
