@@ -17,6 +17,7 @@ const Profile = () => {
         getUserData();
     }, []);
 
+    
     return(
         <div className='pr'>
             {/* pr = profilseite */}
