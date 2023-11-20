@@ -48,11 +48,9 @@ const Event = () => {
     
 
     const handleAddEvent = async(event) => {
+        // console.log(user);
         try {
-            await axios.put('/api/user/addevent', {
-                event,
-                user
-            });
+            await axios.put('/api/user/addevent', {event});
             
             console.log('event erfolgreich auf die wunschliste gepackt!', event);
             

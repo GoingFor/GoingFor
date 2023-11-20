@@ -113,27 +113,24 @@ export const getUser =  async(req, res, next) => {
 
 export const addEventToUser = async(req, res, next) => {
 	try {
-		const {event, user} = req.body;
-		// const userId = req.userId;
-		// const eventId = req.eventId;
+		
+		const {event} = req.body;
+		const eventId = event._id;
+		const userId = req.user.id;
+		
+		// // prüfen ob in db
+		const userData = await User.findById(userId);
+        const eventData = await Event.findById(eventId);
 
-		// prüfen ob in db
-		const userData = await User.findById(user._id);
-        const eventData = await Event.findById(event._id);
-		// console.log('eventdata', eventData);
-		// console.log('userdata', userData);
-
-
-		// prüfen ob event schon geliked 
-		const alreadyLikedEvent = await User.findOne({likedEvents: {$in: event._id}});
-		if(alreadyLikedEvent) {
+		const alreadyLiked = await User.findOne({likedEvents: {$in: event._id}});
+		if(alreadyLiked) {
 			return res.status(409).json({
 				success: false,
-				msg: 'Dir gefällt das Event bereits'
+				msg: 'Du hast das Festival bereits auf deiner Liste'
 			});
 		}
 
-		userData.likedEvents.push(event._id);
+		userData.likedEvents.push(eventId);
 		await userData.save();
 
 		res.status(200).json({
