@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import axios from 'axios';
 import { Route, Routes, Link } from 'react-router-dom';
 import { Info } from './pages/InfoPage/index.js';
@@ -20,6 +20,7 @@ import './App.css';
 
 
 function App() {
+    const [selectedGenre, setSelectedGenre] = useState(null);
 
     return(
         <AuthProvider>
@@ -31,7 +32,8 @@ function App() {
                 </Route>
 
                 <Route element={ <LayoutPage /> }>
-                    <Route path='/home' element={ <Home />}/>
+                    {/* <Route path='/home' element={ <Home />}/> */}
+                    <Route path='/home' element={<Home selectedGenre={selectedGenre} />} />
                     <Route path='/home/profile' element={ <Profile/> }/>
                     <Route path='/home/personaldata' element={ <PersonalData />}/>
                     <Route path='/home/feedback' element={ <Feedback />}/>
@@ -39,6 +41,7 @@ function App() {
                     <Route path='/home/hosting' element={ <Hosting />}/>
                     <Route path='/home/event' element={ <CreateEvent /> }/>
                     <Route path='/home/event/:id' element={ <Event /> }/>
+                    <Route path="/events/genres/:genre" element={<Home/>} />
                 </Route> 
             </Routes>
         </AuthProvider>

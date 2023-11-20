@@ -29,9 +29,9 @@ const MapComp = () => {
 
   const getAddressCoordinates = async (address) => {
     try {
-        const apiKey = 'c12334f54874412b87e3c2d4e182416f'; 
+        const geofyApiKey = 'c12334f54874412b87e3c2d4e182416f'; 
         const response = await axios.get(
-          `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(address)}&apiKey=${apiKey}`
+          `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(address)}&apiKey=${geofyApiKey}`
         );
 
       if (response.data && response.data.features && response.data.features.length > 0) {
@@ -65,8 +65,6 @@ const MapComp = () => {
       const address = `${street} ${housenumber}, ${postcode} ${city}`;
       try {        
         const coordinates = await getAddressCoordinates(address);
-        console.log(coordinates);
-        console.log(address);
         const map = mapRef.current;
 
         const marker = L.marker([coordinates.lat, coordinates.lon]).addTo(map);
