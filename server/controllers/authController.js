@@ -26,7 +26,7 @@ export const signup =  async(req, res, next) => {
             });  
         };
 
-    const isUsed = await User.find({ $or: [{ username }, { email }] });
+    const isUsed = await User.findOne({ $or: [{ username }, { email }] });
     
     if(isUsed){
       return res.status(401).json({
@@ -40,9 +40,7 @@ export const signup =  async(req, res, next) => {
     const newUser = new User({
       username,
       email,
-      password: hashedPassword,
-      fullname,
-      phonenumber
+      password: hashedPassword
     });
 
     await newUser.save();
