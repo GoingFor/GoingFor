@@ -1,4 +1,6 @@
+/** IMPORTS */
 import User from '../models/User.js';
+import Event from '../models/Event.js';
 import { errorHandler } from '../utils/error.js';
 // import Listing from '../models/listing.model.js';
 
@@ -12,9 +14,6 @@ export const updateUser = async(req, res, next) => {
 	try {
 		const userId = req.user.id;
 		const {fullname, username, email, phonenumber} = req.body;
-
-		// console.log(userId);
-		// console.log(req.body);
 
 		const user = await User.findById(userId);
 
@@ -96,7 +95,8 @@ export const getUser =  async(req, res, next) => {
 	try {
 
 		const userId = req.user.id;
-		const user = await User.findById(userId);
+		const user = await User.findById(userId).populate('likedEvents', '-_id');
+		// .populate('likedEvents', '-_id')
 
 		if(!user) {
 			return next(errorHandler(404, 'User not found!'));
@@ -110,3 +110,40 @@ export const getUser =  async(req, res, next) => {
 		next(error);
 	}
 };
+
+export const addEventToUser = async(req, res, next) => {
+	try {
+		const {event, user} = req.body;
+		// const userId = req.userId;
+		// const eventId = req.eventId;
+
+		// prüfen ob in db
+		const userData = await User.findById(user._id);
+        const eventData = await Event.findById(event._id);
+		// console.log('eventdata', eventData);
+		// console.log('userdata', userData);
+
+
+		// prüfen ob event schon geliked 
+		const alreadyLikedEvent = await User.findOne({likedEvents: {$in: event._id}});
+		if(alreadyLikedEvent) {
+			return res.status(409).json({
+				success: false,
+				msg: 'Dir gefällt das Event bereits'
+			});
+		}
+
+		userData.likedEvents.push(event._id);
+		await userData.save();
+
+		res.status(200).json({
+            success: true,
+            message: 'Dir gefällt nun das Event:',
+            userData
+        });
+
+	} catch(error){
+		next(error)
+	}
+}
+
