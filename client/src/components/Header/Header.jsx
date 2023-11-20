@@ -69,19 +69,19 @@ const Header = () => {
               <NavLink to={'/home'}>Home</NavLink>
             </li>
             <li onClick={() => setShowGenresMenu(!showGenresMenu)}>
-              <span>Genres</span>
-              {showGenresMenu && (
+            <span>Genres</span>
+            {showGenresMenu && (
                 <ul className="submenu">
-                  <li><NavLink to="/home">Alle anzeigen</NavLink></li>
-                  {genres.map((genre) => (
+                <li><NavLink to="/home">Alle anzeigen</NavLink></li>
+                {genres.map((genre) => (
                     <li key={genre}>
-                      <NavLink to={`events/genres/${genre}`} onClick={() => handleGenreClick(genre)}>
+                    <NavLink to={`/events/genres/${genre}`} onClick={() => handleGenreClick(genre)}>
                         {genre}
-                      </NavLink>
+                    </NavLink>
                     </li>
-                  ))}
+                ))}
                 </ul>
-              )}
+            )}
             </li>
             <li>
               <NavLink to='/home/contact'>Kontakt</NavLink>

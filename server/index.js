@@ -46,7 +46,6 @@ app.use('/api/posts', postRoute)
 app.use('/api/comments', commentRoute)
 app.use('/api/events', eventRouter);
 
-
 // // app.use('/api/listing', listingRouter);
 
 

@@ -1,18 +1,18 @@
 import axios from 'axios';
 import { useState, useEffect, useRef } from 'react';
+import { useParams } from 'react-router-dom'; 
 import * as L from 'leaflet';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-
 
 
 const MapComp = () => {
   const [events, setEvents] = useState([]);
   const mapRef = useRef(null); 
   const addressRef = useRef(null); 
+  const { genre } = useParams(); 
 
   
-
   useEffect(() => {
     const fetchEvents = async () => {
       try {
@@ -54,23 +54,40 @@ const MapComp = () => {
   };
 
   const setMarkers = async () => {
+    const map = mapRef.current;
+
+    if (!map) {
+      console.error('Map not available.');
+      return;
+    }
+
+    // Entferne alle Marker von der Karte
+    map.eachLayer((layer) => {
+      if (layer instanceof L.Marker) {
+        map.removeLayer(layer);
+      }
+    });
 
     if (!Array.isArray(events)) {
       console.error('Events is not an array:', events);
       return;
     }
 
-    events.forEach(async (event) => {
+    const filteredEvents = genre
+      ? events.filter(event => {
+          const includesGenre = event.genreOptions.includes(genre);
+          console.log(`${event.name} - Includes Genre: ${includesGenre}`);
+          return includesGenre;
+        })
+      : events;
+
+    filteredEvents.forEach(async (event) => {
       const { street, housenumber, postcode, city, name, description } = event;
       const address = `${street} ${housenumber}, ${postcode} ${city}`;
       try {        
         const coordinates = await getAddressCoordinates(address);
-        const map = mapRef.current;
 
         const marker = L.marker([coordinates.lat, coordinates.lon]).addTo(map);
-
-
-      
 
         const genreList = event.genreOptions.map(genre => `<li>${genre}</li>`).join('');
         
@@ -83,7 +100,6 @@ const MapComp = () => {
         </a>`;
 
         openPopupOnClick(marker, popupContent);
-
       } catch (error) {
         console.error('Error setting marker:', error);
       }
@@ -92,7 +108,7 @@ const MapComp = () => {
 
   useEffect(() => {
     setMarkers();
-  }, [events]);
+  }, [events, genre]);
 
   return (
     <div id="map">
