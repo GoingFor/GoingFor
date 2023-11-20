@@ -3,15 +3,18 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './eventslist.css';
 
-const EventList = () => {
+const EventList = ({ selectedGenre }) => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
     const fetchEvents = async () => {
-      try {
-        const response = await axios.get('/api/events/list');
-        console.log('Response data:', response.data);
-        setEvents(response.data.data);
+        try {
+            const response = await axios.get('/api/events/list');
+            const allEvents = response.data.data;
+            const filteredEvents = selectedGenre
+                ? allEvents.filter(event => event.genre === selectedGenre)
+                : allEvents;
+            setEvents(filteredEvents);
 
         
       } catch (error) {
@@ -30,7 +33,7 @@ const EventList = () => {
     };
 
     fetchEvents();
-  }, []); 
+  }, [selectedGenre]); 
   // Leeres Array, damit useEffect nur einmal ausgeführt wird
 
  

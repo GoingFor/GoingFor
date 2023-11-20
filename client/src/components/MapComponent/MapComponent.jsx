@@ -54,6 +54,7 @@ const MapComp = () => {
   };
 
   const setMarkers = async () => {
+  
     const map = mapRef.current;
 
     if (!map) {
@@ -81,7 +82,7 @@ const MapComp = () => {
         })
       : events;
 
-    filteredEvents.forEach(async (event) => {
+      for (const event of filteredEvents) {
       const { street, housenumber, postcode, city, name, description } = event;
       const address = `${street} ${housenumber}, ${postcode} ${city}`;
       try {        
@@ -103,7 +104,7 @@ const MapComp = () => {
       } catch (error) {
         console.error('Error setting marker:', error);
       }
-    });
+    };
   };
 
   useEffect(() => {
@@ -119,6 +120,7 @@ const MapComp = () => {
         zoomControl={false}
         layersControl={false}
         ref={mapRef}
+        whenCreated={(map) => (mapRef.current = map)}
       >
         <TileLayer
           url="https://{s}.tile.thunderforest.com/transport-dark/{z}/{x}/{y}.png?apikey=dddc9e07de57409598a166dc35e41db3"

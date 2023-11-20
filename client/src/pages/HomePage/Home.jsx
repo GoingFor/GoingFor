@@ -10,12 +10,11 @@ const Home = () => {
   const [events, setEvents] = useState([]);
   const { genre } = useParams();
 
-  const toggleMapView = () => {
-    setMapInitialized(!mapInitialized);
-  };
+  // const toggleMapView = () => {
+  //   setMapInitialized(!mapInitialized);
+  // };
 
   useEffect(() => {
-    console.log('Selected Genre:', genre);
 
     const fetchEvents = async () => {
       try {
@@ -36,34 +35,31 @@ const Home = () => {
   const filteredEvents = genre
   ? events.filter(event => {
       const includesGenre = event.genreOptions.includes(genre);
-      console.log(`${event.name} - Includes Genre: ${includesGenre}`);
       return includesGenre;
     })
   : events;
 
-console.log('Filtered Events:', filteredEvents);
-
-
   return (
     <div className="home-container">
       <div className="home-content-container">
-        <button
+        {/* <button
           className="map-list-toggle-button"
           onClick={toggleMapView}>
           {mapInitialized ? 'Karte' : 'Liste'}
-        </button>
+        </button> */}
         <div>
           {filteredEvents.map((event) => (
             <div key={event._id}>{event.name}</div>
           ))}
         </div>
+        <MapComp />
 
-        {mapInitialized
+        {/* {mapInitialized
           ? (
-            <EventList />)
+            <EventList/>)
           : (
             <MapComp />
-          )}
+          )} */}
       </div>
     </div>
   );
