@@ -154,9 +154,10 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(3, 2fr);
-        gap: 20px 10px;
-        margin-left: 5rem;
-        margin-right: 5rem;
+        gap: 20px 40px;
+        margin-left: 3rem;
+        margin-right: 3rem;
+        margin-bottom: 3rem;
 
         /* border: 2px solid red; */
     }
