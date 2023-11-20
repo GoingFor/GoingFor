@@ -95,7 +95,7 @@ export const getUser =  async(req, res, next) => {
 	try {
 
 		const userId = req.user.id;
-		const user = await User.findById(userId).populate('likedEvents', '-_id');
+		const user = await User.findById(userId);
 		// .populate('likedEvents', '-_id')
 
 		if(!user) {
@@ -117,18 +117,19 @@ export const addEventToUser = async(req, res, next) => {
 		const {event} = req.body;
 		const eventId = event._id;
 		const userId = req.user.id;
+		// console.log('eventid', eventId);
 		
 		// // prüfen ob in db
 		const userData = await User.findById(userId);
         const eventData = await Event.findById(eventId);
 
-		const alreadyLiked = await User.findOne({likedEvents: {$in: event._id}});
-		if(alreadyLiked) {
+		const alreadyLiked = userData.likedEvents.includes(eventId);
+		if (alreadyLiked) {
 			return res.status(409).json({
 				success: false,
 				msg: 'Du hast das Festival bereits auf deiner Liste'
 			});
-		}
+		} 
 
 		userData.likedEvents.push(eventId);
 		await userData.save();
@@ -144,3 +145,27 @@ export const addEventToUser = async(req, res, next) => {
 	}
 }
 
+export const removeEventFromUser = async(req, res, next) => {
+    try {
+        const { eventId } = req.body;
+        const userId = req.user.id;
+        // console.log(eventId);
+
+		const user = await User.findByIdAndUpdate(userId, 
+			{ 
+				$pull: { likedEvents: eventId } 
+			}, 
+			{ 
+				new: true 
+			});
+		
+		res.status(201).json({
+			success: true,
+			msg: 'event erfolgreich entfernt'
+		});
+
+
+    }catch(error) {
+        next(error)
+    }
+}

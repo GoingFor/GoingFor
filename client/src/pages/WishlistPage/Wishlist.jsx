@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import { useAuth } from '../../context/AuthContext.jsx';
 import { PageHeader } from '../../components/PageHeader/index.js';
 import { Carousel } from '../../components/Carousel/Carousel.jsx';
@@ -9,6 +10,7 @@ import './style.css';
 
 const Wishlist = () => {
     const { user } = useAuth();
+    const [eventsData, setEventsData] = useState([]);
 
     const calcDateDiff = (startDate, endDate) => {
         if (endDate) {
@@ -22,7 +24,45 @@ const Wishlist = () => {
         }
     };
 
-    
+    const getEvents = async(eventIds) => {
+        const eventsData = [];
+        for (const eventId of eventIds) {
+            try {
+                const response = await axios.get(`/api/events/getevent/${eventId}`);
+                eventsData.push(response.data);
+                // console.log(response.data);
+
+
+            } catch (error) {
+                console.log('fehler beim abrufen der events', error)
+            }
+        }
+        return eventsData;
+    }
+
+    useEffect(() => {
+        if( user && user.likedEvents && user.likedEvents.length > 0) {
+            getEvents(user.likedEvents)
+                .then((eventsData) => {
+                    setEventsData(eventsData);
+                    // console.log(eventsData[0].event.name);
+                })
+                .catch((error) => {
+                    console.log('fehler beim abrufen der eventdaten', error);
+                })
+        }
+    }, [user]);
+
+
+    const handleDelEvent = async(eventId) => {
+        try {
+            await axios.delete('/api/user/removeevent', {data: {eventId}});
+            setEventsData(eventsData.filter((event) => event.event._id !== eventId));
+
+        } catch(error){
+            console.log('Fehler beim entfernen des events', error);
+        }
+    }
 
 
 
@@ -46,10 +86,10 @@ const Wishlist = () => {
 
             <main className='wl-mc-wrapper'>
                 <div className='wl-mc'>
-                    {user && user.likedEvents && user.likedEvents.length > 0 ? (
+                    {eventsData.length > 0 ? (
                         <ul className='wl-mc-list'>
-                            {user.likedEvents.map((ev, index) => (
-                                <li key={index}>
+                            {eventsData.map((data) => (
+                                <li key={data.event._id}>
                                     
                                     <div className='wl-card-wrapper'>
                                         <div className='wl-carousel'>
@@ -58,17 +98,17 @@ const Wishlist = () => {
 
                                         <div className='wl-text-info'>
                                             <div className='wl-text-le'>
-                                                <div className='wl-subtitle'>{ev.name}</div>
+                                                <div className='wl-subtitle'>{data.event.name}</div>
                                                 <div className='wl-sr-le-wrapper'>
-                                                    <p className='wl-sr-le'>{ev.postcode} {ev.city}</p>
-                                                    {ev.endDate? (
+                                                    <p className='wl-sr-le'>{data.event.postcode} {data.event.city}</p>
+                                                    {data.event.endDate? (
                                                         <>
-                                                        <p className='wl-sr-le'>{new Date(ev.startDate).toLocaleDateString()} - {new Date(ev.endDate).toLocaleDateString()}</p>
-                                                        <p className='wl-sr-le'>{calcDateDiff(ev.startDate, ev.endDate)}</p>
+                                                        <p className='wl-sr-le'>{new Date(data.event.startDate).toLocaleDateString()} - {new Date(data.event.endDate).toLocaleDateString()}</p>
+                                                        <p className='wl-sr-le'>{calcDateDiff(data.event.startDate, data.event.endDate)}</p>
                                                         </>
                                                     ):(
-                                                        <p className='wl-sr-le'>{new Date(ev.startDate).toLocaleDateString()}</p>
-                                                    )} 
+                                                        <p className='wl-sr-le'>{new Date(data.event.startDate).toLocaleDateString()}</p>
+                                                    )}  
                                                 </div>
                                             </div>
                                             <div className='wl-text-ri'>
@@ -79,7 +119,7 @@ const Wishlist = () => {
                                         <div className='wl-del'>
                                             <button
                                                 className='wl-del-btn'                                            
-                                                
+                                                onClick={() => handleDelEvent(data.event._id)}
                                             >   Aus Wunschliste entfernen
                                             </button>
                                         </div>
