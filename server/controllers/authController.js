@@ -16,20 +16,21 @@ import { errorHandler } from '../utils/error.js';
 // Singnup
 export const signup =  async(req, res, next) => {
   try {
-    const { username, email, password, fullname, phonenumber } = req.body;
+    const { username, email, password } = req.body;
 
     const error = validator.validationResult(req).errors;
         if(error.length > 0) {
             return res.status(400).json({
                 success: false,
                 msg: error.map(err => err.msg)
-            });
+            });  
         };
 
-    const isUsed = await User.findOne({ username });
+    const isUsed = await User.find({ $or: [{ username }, { email }] });
+    
     if(isUsed){
-      return res.json({
-        message: 'This username is already taken.',
+      return res.status(401).json({
+        message: 'Benutzername und/oder Email schon vergeben!',
       });
     }
 

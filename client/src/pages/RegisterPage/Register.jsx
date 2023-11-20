@@ -23,13 +23,19 @@ const Register = () => {
                 password
             });
 
-
             console.log('Registrierung erfolgreich. Du kannst dich nun einloggen.');
             navigate('/login');
 
         } catch(error){
-            console.log('Registrierung fehlgeschlagen!', error.response.data.msg);
-            setErrors(error.response.data.msg);
+            if(error.response.data.msg) {
+                console.log('Registrierung fehlgeschlagen!', error.response.data.msg);
+                setErrors(error.response.data.msg);
+            } else {
+                console.log('Registrierung fehlgeschlagen!', error.response.data.message);
+                setErrors([error.response.data.message]);
+
+            }
+            
         }
     }
 
