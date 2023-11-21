@@ -41,6 +41,7 @@ function App() {
                     <Route path='/home/contact' element={ <Contact />}/>
                     <Route path='/home/event' element={ <CreateEvent /> }/>
                     <Route path='/home/event/:id' element={ <Event /> }/>
+                    <Route path="/events/genres/:genre" element={<Home/>} />
                 </Route> 
             </Routes>
         </AuthProvider>
