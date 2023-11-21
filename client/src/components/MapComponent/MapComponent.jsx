@@ -51,6 +51,7 @@ const MapComp = () => {
       marker.openPopup();
     });
   };
+  
 
   const setMarkers = async () => {
   
