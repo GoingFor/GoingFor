@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import "./style.css";
 import { IoMdAddCircleOutline, IoMdSearch, IoIosHeartEmpty } from "react-icons/io";
 import { PiUserCircleLight } from "react-icons/pi";
@@ -9,36 +10,36 @@ const Footer = () =>
         <div className="footercontainer">
             <div className="footericons">
                 <div className="iconcontainer">
-                <a className="footer-link" href="/home/hosting">
+                    <Link className="footer-link" to={'/home/event'}>
                         <div className="icon">
                             <IoMdAddCircleOutline/>
                         </div>
                         <p>Eintragen</p>
-                    </a>
+                    </Link>
                 </div>
                 <div className="iconcontainer">
-                    <a className="footer-link" href="/home/find">
+                    <Link className="footer-link" to={'/home'}>
                         <div className="icon">
                             <IoMdSearch/>
                         </div>
                         <p>Entdecken</p>
-                    </a>
+                    </Link>
                 </div>
                 <div className="iconcontainer">
-                    <a className="footer-link" href="/home/wishlist">
+                    <Link className="footer-link" to={'/home/wishlist'}>
                         <div className="icon">
                             <IoIosHeartEmpty/>
                         </div>
                         <p>Gemerkt</p>
-                    </a>
+                    </Link>
                 </div>
                 <div className="iconcontainer">
-                    <a className="footer-link" href="/home/profile">
+                    <Link className="footer-link" to={'/home/profile'}>
                         <div className="icon">
                             <PiUserCircleLight/>
                         </div>
                         <p>Profil</p>
-                    </a>
+                    </Link>
                 </div>
             </div>
             

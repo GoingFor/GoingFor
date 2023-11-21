@@ -16,6 +16,23 @@
     margin-left: 2rem;
     color: var(--light);
 }
+.evt-ph-btn{
+    align-self: flex-start;
+    padding: 0;
+    margin-bottom: 1rem;
+    background: none;
+    border: none;
+}
+
+.evt-ph-icon{
+    font-size: 2rem;
+    color: var(--light);
+    fill: var(--unlike);
+}
+
+.liked{
+    fill: var(--like);
+}
 
 .evt-mc-header,
 .evt-mc-des{

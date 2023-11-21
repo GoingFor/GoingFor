@@ -12,6 +12,7 @@ const MapComp = () => {
   const addressRef = useRef(null); 
   const { genre } = useParams(); 
 
+<<<<<<< HEAD
   const fetchEvents = async () => {
     try {
       const response = await axios.get('/api/events/list');
@@ -22,6 +23,9 @@ const MapComp = () => {
     }
   };
 
+=======
+  
+>>>>>>> develop2
   useEffect(() => {
     fetchEvents();
   }, []);

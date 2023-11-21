@@ -17,6 +17,7 @@ const Profile = () => {
         getUserData();
     }, []);
 
+    
     return(
         <div className='pr'>
             {/* pr = profilseite */}
@@ -209,6 +210,14 @@ const Profile = () => {
                 </Link>
 
                 </div>
+
+                <Link className='pr-dc-link' to={'/'}>
+                    <Button 
+                        className='pr-mc-btn' 
+                        onClick={logout}
+                            >Logout
+                    </Button>
+                </Link>
             </main>
         </div>
     )

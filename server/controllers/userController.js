@@ -1,4 +1,6 @@
+/** IMPORTS */
 import User from '../models/User.js';
+import Event from '../models/Event.js';
 import { errorHandler } from '../utils/error.js';
 // import Listing from '../models/listing.model.js';
 
@@ -12,9 +14,6 @@ export const updateUser = async(req, res, next) => {
 	try {
 		const userId = req.user.id;
 		const {fullname, username, email, phonenumber} = req.body;
-
-		// console.log(userId);
-		// console.log(req.body);
 
 		const user = await User.findById(userId);
 
@@ -97,6 +96,7 @@ export const getUser =  async(req, res, next) => {
 
 		const userId = req.user.id;
 		const user = await User.findById(userId);
+		// .populate('likedEvents', '-_id')
 
 		if(!user) {
 			return next(errorHandler(404, 'User not found!'));
@@ -110,3 +110,62 @@ export const getUser =  async(req, res, next) => {
 		next(error);
 	}
 };
+
+export const addEventToUser = async(req, res, next) => {
+	try {
+		
+		const {event} = req.body;
+		const eventId = event._id;
+		const userId = req.user.id;
+		// console.log('eventid', eventId);
+		
+		// // prüfen ob in db
+		const userData = await User.findById(userId);
+        const eventData = await Event.findById(eventId);
+
+		const alreadyLiked = userData.likedEvents.includes(eventId);
+		if (alreadyLiked) {
+			return res.status(409).json({
+				success: false,
+				msg: 'Du hast das Festival bereits auf deiner Liste'
+			});
+		} 
+
+		userData.likedEvents.push(eventId);
+		await userData.save();
+
+		res.status(200).json({
+            success: true,
+            message: 'Dir gefällt nun das Event:',
+            userData
+        });
+
+	} catch(error){
+		next(error)
+	}
+}
+
+export const removeEventFromUser = async(req, res, next) => {
+    try {
+        const { eventId } = req.body;
+        const userId = req.user.id;
+        // console.log(eventId);
+
+		const user = await User.findByIdAndUpdate(userId, 
+			{ 
+				$pull: { likedEvents: eventId } 
+			}, 
+			{ 
+				new: true 
+			});
+		
+		res.status(201).json({
+			success: true,
+			msg: 'event erfolgreich entfernt'
+		});
+
+
+    }catch(error) {
+        next(error)
+    }
+}

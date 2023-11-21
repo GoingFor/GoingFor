@@ -10,7 +10,10 @@ import authRouter from './routes/authRoute.js';
 import eventRouter from './routes/eventRoute.js';
 import postRoute from './routes/posts.js';
 import commentRoute from './routes/comments.js';
+<<<<<<< HEAD
 import contactRoute from './routes/contactRoute.js';
+=======
+>>>>>>> develop2
 
 
 const app = express();

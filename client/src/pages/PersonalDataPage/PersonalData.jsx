@@ -54,7 +54,7 @@ const PersonalData = () => {
     }
 
     return(
-        <div className="pd">
+        <div className='pd'>
         {/* pd = personal data seite*/}
         {/* ph = page header */}
         {/* mc = mobile content */}
@@ -78,7 +78,7 @@ const PersonalData = () => {
                             { label: 'Offizieller Name', key: 'fullname', value: userData?.fullname  },
                             { label: 'Benutzername', key: 'username', value: userData?.username },
                             { label: 'Email', key: 'email', value: userData?.email},
-                            { label: 'Telefonnummer', key: 'phonenumber', value: userData?.phonenumber },
+                            { label: 'Telefonnummer', key: 'phonenumber', value: userData?.phonenumber }
                         ].map((item) => (
                             <li className='pd-mc-list-item' key={item.key}>
                                 <div className='pd-mc-list-item-wrapper'>
