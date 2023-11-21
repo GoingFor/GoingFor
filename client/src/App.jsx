@@ -15,6 +15,7 @@ import MinimalLayoutPage from './pages/minimalLayoutPage/MinimalLayout.jsx';
 import { AuthProvider } from './context/AuthContext.jsx';
 import {CreateEvent} from './pages/CreateEvent/index.js';
 import {Event} from './pages/OneEventPage/index.js';
+import Contact from './pages/Contact/Contact.jsx';
 import 'typeface-roboto';
 import './App.css';
 
@@ -37,6 +38,7 @@ function App() {
                     <Route path='/home/feedback' element={ <Feedback />}/>
                     <Route path='/home/wishlist' element={ <Wishlist />}/>
                     <Route path='/home/hosting' element={ <Hosting />}/>
+                    <Route path='/home/contact' element={ <Contact />}/>
                     <Route path='/home/event' element={ <CreateEvent /> }/>
                     <Route path='/home/event/:id' element={ <Event /> }/>
                 </Route> 

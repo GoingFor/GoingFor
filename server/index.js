@@ -8,8 +8,9 @@ dotenv.config();
 import userRouter from './routes/userRoute.js';
 import authRouter from './routes/authRoute.js';
 import eventRouter from './routes/eventRoute.js';
-import postRoute from './routes/posts.js'
-import commentRoute from './routes/comments.js'
+import postRoute from './routes/posts.js';
+import commentRoute from './routes/comments.js';
+import contactRoute from './routes/contactRoute.js';
 
 
 const app = express();
@@ -45,6 +46,7 @@ app.use('/api/auth', authRouter);
 app.use('/api/posts', postRoute)
 app.use('/api/comments', commentRoute)
 app.use('/api/events', eventRouter);
+app.use('/api', contactRoute);
 
 // // app.use('/api/listing', listingRouter);
 
