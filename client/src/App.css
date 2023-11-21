@@ -61,6 +61,8 @@ a{
     --light-grey: rgba(174, 174, 174, 1);
     --infocolor: rgba(244, 252, 255, 0.8);
     --navuntermenu: rgba(41, 9, 40, 0.85);
+    --like: rgba(255, 77, 77, 1);
+    --unlike: rgba(102, 102, 102, 0.8);
 
     /* shadows */
     --box-shadow: inset 0px 10px 15px -3px rgba(0,0,0,0.1);

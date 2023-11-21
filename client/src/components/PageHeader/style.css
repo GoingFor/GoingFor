@@ -1,13 +1,20 @@
-.ph-mc{
+.ph-mc,
+.ph-mc-le{
     display: flex;
-    align-items: flex-start; 
+    align-items: center; 
     gap: 1rem; 
-    margin-left: 2rem;
-    margin-right: 2rem;
     
     /* border: 2px solid red; */
-
 }
+
+.ph-mc{
+    /* gap: 1rem;  */
+    justify-content: space-between;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    /* border: 2px solid red; */
+}
+
 
 .ph-mc-return-btn{
     width: 40px;
@@ -29,6 +36,7 @@
     font-size: 1rem;
     color: var(--light);
 }
+
 
 .ph-mc-h2{
    color: var(--light);

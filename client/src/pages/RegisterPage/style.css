@@ -9,10 +9,10 @@
 }
 
 .reg-wrapper{
-    min-width: 220px;
+    width: 250px;
     margin-top: 3rem;
     border-radius: 1.25rem;
-    padding: 10px;
+    padding-top: 10px;
     background: var(--accent-blue-light);
     box-shadow: var(--inset-shadow);   
     

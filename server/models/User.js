@@ -26,7 +26,11 @@ const userSchema = new mongoose.Schema(
     },
     phonenumber: {
       type: String
-    }
+    },
+    likedEvents: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Event'
+  }]
 
   },
   { timestamps: true }

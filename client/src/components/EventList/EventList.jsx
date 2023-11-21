@@ -6,6 +6,8 @@ import './eventslist.css';
 const EventList = ({ selectedGenre }) => {
   const [events, setEvents] = useState([]);
 
+  const genreList = event.genreOptions ? event.genreOptions.map(genre => <li key={genre}>{genre}</li>) : null;
+
   useEffect(() => {
     const fetchEvents = async () => {
         try {
@@ -37,6 +39,8 @@ const EventList = ({ selectedGenre }) => {
   // Leeres Array, damit useEffect nur einmal ausgeführt wird
 
  
+
+ 
     return (
         <div className='eventListContainer'>
             <h1 className="EventList-heading">Entdecke alle Festivals!</h1>
@@ -46,13 +50,17 @@ const EventList = ({ selectedGenre }) => {
             <div key={event._id} className="EventList-card">
                 {event.photos && <img className="EventList-img" src={event.photos} alt={event.name} />}
               <h1 className="EventList-h1">
-              <a href={`/home/event/${event._id}`}>{event.name}</a>
+              <Link to={`/home/event/${event._id}`}>{event.name}</Link>
               </h1>
               <h3 className="EventList-h3-date">
                 {new Date(event.startDate).toLocaleDateString()} - {new Date(event.endDate).toLocaleDateString()}
               </h3>
               <h3 className="EventList-h3">{event.postcode} {event.city}</h3>
-              <h3 className="EventList-h3">{event.genre}</h3>
+              <ul className="EventList-ul">
+              {event.genreOptions && Array.isArray(event.genreOptions) && event.genreOptions.map(genre => (
+                <li key={genre}>{genre}</li>
+              ))}
+            </ul>
               <p className="EventList-text">{event.description}</p>
             </div>
           ))}

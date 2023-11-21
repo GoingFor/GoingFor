@@ -1,5 +1,5 @@
 import express, { Router } from 'express';
-import { deleteUser, test, updateUser,  getUserListings, getUser} from '../controllers/userController.js';
+import { deleteUser, test, updateUser,  getUserListings, getUser, addEventToUser, removeEventFromUser} from '../controllers/userController.js';
 import { verifyToken } from '../utils/verifyUser.js';
 
 /* VARIABELN */
@@ -17,6 +17,15 @@ userRouter
     .put('/updatedata', 
         verifyToken,
         updateUser)
+    // .put('/addevent/:eventId',
+    //     verifyToken,
+    //     addEventToUser)
+    .put('/addevent',
+        verifyToken,
+        addEventToUser)
+    .delete('/removeevent',
+        verifyToken,
+        removeEventFromUser);
     
 
 // userRouter.post('/user/update/:id', verifyToken, updateUser);

@@ -16,20 +16,21 @@ import { errorHandler } from '../utils/error.js';
 // Singnup
 export const signup =  async(req, res, next) => {
   try {
-    const { username, email, password, fullname, phonenumber } = req.body;
+    const { username, email, password } = req.body;
 
     const error = validator.validationResult(req).errors;
         if(error.length > 0) {
             return res.status(400).json({
                 success: false,
                 msg: error.map(err => err.msg)
-            });
+            });  
         };
 
-    const isUsed = await User.findOne({ username });
+    const isUsed = await User.findOne({ $or: [{ username }, { email }] });
+    
     if(isUsed){
-      return res.json({
-        message: 'This username is already taken.',
+      return res.status(401).json({
+        message: 'Benutzername und/oder Email schon vergeben!',
       });
     }
 
@@ -39,9 +40,7 @@ export const signup =  async(req, res, next) => {
     const newUser = new User({
       username,
       email,
-      password: hashedPassword,
-      fullname,
-      phonenumber
+      password: hashedPassword
     });
 
     await newUser.save();
@@ -76,13 +75,14 @@ export const signin = async (req, res, next) => {
         username: validUser.username 
       }, 
       process.env.JWT_SECRET,
-      {expiresIn: 30 * 60 * 1000}
+      {expiresIn: '4h'}
+      // {expiresIn: 30 * 60 * 1000}
       );
     // const { password: pass, ...rest } = validUser._doc;
     res
       .cookie('access_token', token, 
       { 
-        maxAge: 30 * 60 * 1000,
+        maxAge: 4 * 60 * 60 * 1000, // 4 stunden
         httpOnly: true 
       })
       .status(200)

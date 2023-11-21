@@ -2,9 +2,6 @@ import { body } from 'express-validator';
 
 const signupValidation = [
     body('password')
-        .not()
-        .isEmpty()
-        .withMessage('Passwort darf nicht leer sein.')
         .isLength({ min: 5 })
         .withMessage('Passwort muss mindestens 5 Zeichen lang sein.')
         .not()
@@ -13,12 +10,9 @@ const signupValidation = [
     body('username')
         .not()
         .isEmpty()
-        .withMessage('Bitte gib einen Benutzernamen an.')
-        .trim(),
+        .trim()
+        .withMessage('Bitte gib einen Benutzernamen an.'),
     body('email')
-        .not()
-        .isEmpty()
-        .withMessage('Email darf nicht leer sein.')
         .trim()
         .isEmail()
         .normalizeEmail()

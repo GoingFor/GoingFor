@@ -8,15 +8,19 @@ import { createEvent, getEvent, getAllEvents,getEventsByGenre } from '../control
 const eventRouter = Router();
 
 eventRouter
-    .post('/createevent', createEvent);
+    .post('/createevent', 
+        verifyToken,
+        createEvent);
 
 eventRouter
-    .get('/list', getAllEvents);
+    .get('/list', 
+        verifyToken,
+        getAllEvents);
 
 // ein spez. Event anzeigen lassen
 eventRouter
     .get('/getevent/:id',
-        // verifyToken,
+        verifyToken,
         getEvent);
 
 eventRouter
