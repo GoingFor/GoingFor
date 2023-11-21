@@ -7,16 +7,17 @@ export const sendEmail = async (req, res) => {
 try {
   const { name, email, message } = req.body;
 
+  const MAIL_USER = process.env.MAIL_USER;
+  const MAIL_PASS = process.env.MAIL_PASS;
+
   // Konfiguriere den Nodemailer-Transporter
   const transporter = nodemailer.createTransport({
     host: "smtp.office365.com",
     port: 587,
     secure: false,
     auth: {
-    //   user: process.env.MAIL_USER,
-    //   pass: process.env.MAIL_PASS
-      user: 'goingfor@outlook.de',
-      pass: 'SJMR-fbw-wd22-d09'
+      user: MAIL_USER,
+      pass: MAIL_PASS
     }
   });
 
