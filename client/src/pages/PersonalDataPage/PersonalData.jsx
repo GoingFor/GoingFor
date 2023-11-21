@@ -54,7 +54,7 @@ const PersonalData = () => {
     }
 
     return(
-        <div className="pd">
+        <div className='pd'>
         {/* pd = personal data seite*/}
         {/* ph = page header */}
         {/* mc = mobile content */}
