@@ -1,3 +1,4 @@
+/** EXTERNE DEPENDENCIES */
 import { body } from 'express-validator';
 
 const signupValidation = [

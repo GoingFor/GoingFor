@@ -1,15 +1,13 @@
+/** EXTERNE DEPENDENCIES */
 import express, { Router } from 'express';
+
+/** IMPORTS */
 import { deleteUser, test, updateUser,  getUserListings, getUser, addEventToUser, removeEventFromUser} from '../controllers/userController.js';
 import { verifyToken } from '../utils/verifyUser.js';
 
 /* VARIABELN */
 const userRouter = Router();
 
-// userRouter.get('/user/test', test);
-
-// http://localhost:3002/api/user/profile
-// User anzeigen lassen, bearbeiten:
-// userRouter.get('/user/:id', verifyToken, getUser);
 userRouter
     .get('/getdata', 
         verifyToken, 
@@ -17,9 +15,6 @@ userRouter
     .put('/updatedata', 
         verifyToken,
         updateUser)
-    // .put('/addevent/:eventId',
-    //     verifyToken,
-    //     addEventToUser)
     .put('/addevent',
         verifyToken,
         addEventToUser)

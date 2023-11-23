@@ -1,6 +1,9 @@
+/** EXTERNE DEPENDENCIES */
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 dotenv.config();
+
+/** IMPORTS */
 import { errorHandler } from './error.js';
 
 export const verifyToken = (req, res, next) => {
@@ -22,4 +25,3 @@ export const verifyToken = (req, res, next) => {
       });
   }
 }
-
