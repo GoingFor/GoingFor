@@ -15,8 +15,8 @@ const Contact = () => {
   const DeveloperInfo = ({ name, role, imageUrl }) => (
     <div className='developerCard'>
       <img className='developerImg' src={`/${imageUrl}`} alt={`${name} - ${role}`} />
-      <h3>{name}</h3>
-      <p>{role}</p>
+      <h3 className='developer-name'>{name}</h3>
+      <p className='developer-role'>{role}</p>
     </div>
   );
 
@@ -137,7 +137,7 @@ const Contact = () => {
 
       <ContactForm />
       <div className="developers">
-        <h2>Die Köpfe dahinter</h2>
+        <h2 className='developers-h2'>Die Köpfe dahinter</h2>
         <div className='developerContainer'>
             {developers.map((developer, index) => (
             <DeveloperInfo key={index} {...developer} />
