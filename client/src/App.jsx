@@ -9,6 +9,7 @@ import { PersonalData } from './pages/PersonalDataPage/index.js';
 import { Feedback } from './pages/FeedbackPage/index.js';
 import { Wishlist } from './pages/WishlistPage/index.js';
 import { Hosting } from './pages/HostingPage/index.js';
+import { Comment } from './pages/CommentPage/index.js';
 import { Home } from './pages/HomePage/index.js';
 import LayoutPage from './pages/LayoutPage/Layout.jsx';
 import MinimalLayoutPage from './pages/minimalLayoutPage/MinimalLayout.jsx';
@@ -47,10 +48,10 @@ function App() {
                     <Route path='/home' element={<Home selectedGenre={selectedGenre} />} />
                     <Route path='/home/profile' element={ <Profile/> }/>
                     <Route path='/home/personaldata' element={ <PersonalData />}/>
-                    {/* <Route path='/home/feedback' element={ <Feedback />}/> */}
                     <Route path='/home/wishlist' element={ <Wishlist />}/>
                     <Route path='/home/hosting' element={ <Hosting />}/>
                     <Route path='/home/contact' element={ <Contact />}/>
+                    <Route path='/home/comment' element={ <Comment />}/>
                     <Route path='/home/event' element={ <CreateEvent /> }/>
                     <Route path='/home/event/:id' element={ <Event /> }/>
                     <Route path="/events/genres/:genre" element={<Home/>} />
