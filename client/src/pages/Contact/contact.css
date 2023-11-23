@@ -1,0 +1,57 @@
+.contactPageContainer {
+    margin-top: 6rem;
+    display: flex;
+    flex-direction: column;
+    color: var(--light);
+    font-size: 1.6rem;
+
+}
+
+.contactForm {
+    background-color: var(--accent-blue-semi);
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-radius: 2rem;
+}
+
+.contactFormInput, 
+.contactFormButton {
+    background-color: var(--accent-blue-semi);
+    color: var(--light);
+    height: 3rem;
+    border-radius: 2rem;
+    font-size: 1.6rem;
+    padding-left: 0.5rem;
+}
+
+.contactFormTextarea {
+    background-color: var(--accent-blue-semi);
+    font-size: 1.6rem;
+    padding-left: 0.5rem;
+    color: var(--light);
+    font-family: 'Roboto';
+}
+
+.developers {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.developerContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.developerCard {
+    width: 24%;
+}
+
+.developerImg {
+    width: 10rem;
+    border-radius: 50%;
+}
