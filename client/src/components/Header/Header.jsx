@@ -4,7 +4,7 @@ import axios from "axios";
 import "./style.css";
 import HamburgerImage from '/src/assets/hamburger.png';
 import goingfor_logo from '../../assets/goingfor_logo.png';
-import Home from '../../pages/Homepage/Home'; 
+// import Home from '../../pages/Homepage/Home'; 
 
 
 const Header = () => {
@@ -54,7 +54,7 @@ const Header = () => {
       const handleGenreClick = (genre) => {
         setSelectedGenre(genre);
         setDisplayMode('genre');
-        setShowGenresMenu(false);
+        setShowGenreMenu(false);
     
         // Filtere die Events nach dem ausgewählten Genre
         const newFilteredEvents = events.filter((event) => {

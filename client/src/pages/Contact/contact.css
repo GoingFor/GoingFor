@@ -1,10 +1,31 @@
 .contactPageContainer {
-    margin-top: 6rem;
+    /* margin-top: 6rem; */
     display: flex;
     flex-direction: column;
     color: var(--light);
     font-size: 1.6rem;
 
+}
+
+.cp-ph-wrapper{
+    margin-top: 7rem;
+}
+
+.cp-subtitle-wrapper{
+    margin-top: 3rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    margin-bottom: 3rem;
+}
+
+
+.cp-subtitle-text{
+    font-family: var(--subtitle-sm-font-family);
+    font-size: var(--subtitle-sm-font-size);
+    font-style: var(--subtitle-sm-font-style);
+    font-weight: var(--subtitle-sm-font-weight);
+    letter-spacing: var(--subtitle-sm-letter-spacing);
+    line-height: var(--subtitle-sm-line-height);
 }
 
 .contactForm {
@@ -45,6 +66,7 @@
 .developerContainer {
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
 }
 
 .developerCard {
@@ -54,4 +76,11 @@
 .developerImg {
     width: 10rem;
     border-radius: 50%;
+}
+
+
+@media screen and (min-width: 816px) {
+    .cp-ph-wrapper{
+        margin-top: 9rem;
+    }    
 }
