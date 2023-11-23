@@ -6,7 +6,6 @@ import { Register } from './pages/RegisterPage/index.js';
 import { Login } from './pages/LoginPage/index.js';
 import { Profile } from './pages/ProfilePage/index.js';
 import { PersonalData } from './pages/PersonalDataPage/index.js';
-import { Feedback } from './pages/FeedbackPage/index.js';
 import { Wishlist } from './pages/WishlistPage/index.js';
 import { Hosting } from './pages/HostingPage/index.js';
 import { Comment } from './pages/CommentPage/index.js';
