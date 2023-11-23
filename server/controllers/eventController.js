@@ -65,3 +65,25 @@ export const getEventsByGenre = async (req, res) => {
       });
     }
   };
+
+export const getEventByGenre = async(req, res) => {
+    const genre = req.params.genre;
+
+    try {
+        const events = await Event.find({ genreOptions: { $regex: new RegExp(genre, 'i') } });
+
+
+        res.status(200).json({
+            success: true,
+            data: events,
+        });
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({
+            success: false,
+            error: 'Internale Serverfehler',
+        });
+    }
+
+}

@@ -10,56 +10,56 @@ const Home = () => {
   const [events, setEvents] = useState([]);
   const { genre } = useParams();
 
-  // const toggleMapView = () => {
-  //   setMapInitialized(!mapInitialized);
-  // };
+  const toggleMapView = () => {
+    setMapInitialized(!mapInitialized);
+  };
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    const fetchEvents = async () => {
-      try {
-        const response = await axios.get('/api/events/list');
-        if (response.data.success) {
-          setEvents(response.data.data);
-        } else {
-          console.error('Error fetching events:', response.data.message);
-        }
-      } catch (error) {
-        console.error('Error fetching events:', error);
-      }
-    };
+  //   const fetchEvents = async () => {
+  //     try {
+  //       const response = await axios.get('/api/events/list');
+  //       if (response.data.success) {
+  //         setEvents(response.data.data);
+  //       } else {
+  //         console.error('Error fetching events:', response.data.message);
+  //       }
+  //     } catch (error) {
+  //       console.error('Error fetching events:', error);
+  //     }
+  //   };
 
-    fetchEvents();
-  }, []);
+  //   fetchEvents();
+  // }, []);
 
-  const filteredEvents = genre
-  ? events.filter(event => {
-      const includesGenre = event.genreOptions.includes(genre);
-      return includesGenre;
-    })
-  : events;
+  // const filteredEvents = genre
+  // ? events.filter(event => {
+  //     const includesGenre = event.genreOptions.includes(genre);
+  //     return includesGenre;
+  //   })
+  // : events;
 
   return (
     <div className="home-container">
       <div className="home-content-container">
-        {/* <button
+        <button
           className="map-list-toggle-button"
           onClick={toggleMapView}>
           {mapInitialized ? 'Karte' : 'Liste'}
-        </button> */}
-        <div>
+        </button>
+        {/* <div>
           {filteredEvents.map((event) => (
             <div key={event._id}>{event.name}</div>
           ))}
-        </div>
-        <MapComp />
+        </div> */}
+        {/* <MapComp /> */}
 
-        {/* {mapInitialized
+        {mapInitialized
           ? (
             <EventList/>)
           : (
             <MapComp />
-          )} */}
+          )}
       </div>
     </div>
   );

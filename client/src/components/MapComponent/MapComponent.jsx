@@ -12,21 +12,18 @@ const MapComp = () => {
   const addressRef = useRef(null); 
   const { genre } = useParams(); 
 
-<<<<<<< HEAD
-  const fetchEvents = async () => {
-    try {
-      const response = await axios.get('/api/events/list');
-      const eventData = response.data.data || [];
-      setEvents(eventData);
-    } catch (error) {
-      console.error('Fehler beim Abrufen der Event-Daten:', error);
-    }
-  };
-
-=======
   
->>>>>>> develop2
   useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const response = await axios.get('/api/events/list');
+        const eventData = response.data.data || [];
+        setEvents(eventData);
+      } catch (error) {
+        console.error('Fehler beim Abrufen der Event-Daten:', error);
+      }
+    };
+    
     fetchEvents();
   }, []);
 

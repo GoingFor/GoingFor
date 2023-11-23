@@ -1,7 +1,7 @@
 .minimal-layoutContainer{
     background-image: url('../../assets/goingfor_background.png');
     background-color: var(--blk);
-    min-height: 00vh;
+    min-height: 100vh;
     width: 100vw;
     background-position: top center;
     background-size: contain;
