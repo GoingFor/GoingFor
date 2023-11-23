@@ -4,6 +4,16 @@ import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 dotenv.config();
 
+import cors from 'cors';
+
+import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
+
+
+//
+import passport from 'passport';
+
+//
+
 /* IMPORTS */
 import userRouter from './routes/userRoute.js';
 import authRouter from './routes/authRoute.js';
@@ -19,6 +29,9 @@ const DB_USER = process.env.DB_USER
 const DB_PASSWORD = process.env.DB_PASSWORD
 const DB_NAME = process.env.DB_NAME
 
+const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
+const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
+
 
 /* DATENBANK */
 async function start() {
@@ -31,7 +44,29 @@ async function start() {
       console.log('Connection failed',error)
   }
 }
+
 start();
+
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: GOOGLE_CLIENT_ID,
+      clientSecret: GOOGLE_CLIENT_SECRET,
+      callbackURL: 'http://localhost:3002/api/auth/google/callback',
+    },
+    (accessToken, refreshToken, profile, done) => {
+      // Функция обратного вызова, где вы обработаете данные, полученные от Google
+      // и передадите управление в следующий обработчик
+      return done(null, profile);
+    }
+  )
+);
+
+
+app.use(cors());
+
+
+app.use(passport.initialize());
 
 app.use(cookieParser());
 app.use(express.json());
@@ -45,6 +80,12 @@ app.use('/api/auth', authRouter);
 app.use('/api/posts', postRoute)
 app.use('/api/comments', commentRoute)
 app.use('/api/events', eventRouter);
+
+app.use('/api/auth/google', authRouter);
+
+
+
+
 
 // // app.use('/api/listing', listingRouter);
 

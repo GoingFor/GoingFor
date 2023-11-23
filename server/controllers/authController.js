@@ -99,41 +99,160 @@ export const signin = async (req, res, next) => {
 // Social_Media_login
 // Google
 
+
+// export const google = async (req, res, next) => {
+//   try {
+//     const { email } = req.user;
+
+//     // Проверим, есть ли пользователь с таким email в базе данных
+//     const existingUser = await User.findOne({ email });
+
+//     if (existingUser) {
+//       // Если пользователь существует, генерируем JWT-токен
+//       const token = jwt.sign(
+//         {
+//           id: existingUser._id,
+//           email: existingUser.email,
+//           username: existingUser.username,
+//         },
+//         process.env.JWT_SECRET,
+//         { expiresIn: '4h' }
+//       );
+
+//       // Отправляем токен в cookie и возвращаем его на клиент
+//       res
+//         .cookie('access_token', token, { maxAge: 4 * 60 * 60 * 1000, httpOnly: true })
+//         .status(200)
+//         .json({ data: existingUser });
+//     } else {
+//       // Если пользователя нет, создаем нового пользователя в базе данных
+//       const newUser = new User({
+//         email: req.user.email, // или используйте другие данные, которые вы получаете от Google
+//         // Дополнительные данные, которые вы хотите сохранить для нового пользователя
+//         // username, password и другие поля, если они требуются
+//       });
+
+//       await newUser.save();
+
+//       // Генерируем JWT-токен для нового пользователя
+//       const token = jwt.sign(
+//         {
+//           id: newUser._id,
+//           email: newUser.email,
+//           username: newUser.username,
+//         },
+//         process.env.JWT_SECRET,
+//         { expiresIn: '4h' }
+//       );
+
+//       // Отправляем токен в cookie и возвращаем его на клиент
+//       res
+//         .cookie('access_token', token, { maxAge: 4 * 60 * 60 * 1000, httpOnly: true })
+//         .status(200)
+//         .json({ data: newUser });
+//     }
+//   } catch (error) {
+//     next(error);
+//   }
+// };
+
 export const google = async (req, res, next) => {
   try {
-    const user = await User.findOne({ email: req.body.email });
-    if (user) {
-      const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-      const { password: pass, ...rest } = user._doc;
-      res
-        .cookie('access_token', token, { httpOnly: true })
-        .status(200)
-        .json(rest);
-    } else {
-      const generatedPassword =
-        Math.random().toString(36).slice(-8) +
-        Math.random().toString(36).slice(-8);
-      const hashedPassword = bcryptjs.hashSync(generatedPassword, 10);
-      const newUser = new User({
-        username:
-          req.body.name.split(' ').join('').toLowerCase() +
-          Math.random().toString(36).slice(-4),
-        email: req.body.email,
-        password: hashedPassword,
-        avatar: req.body.photo,
+// Обработчик GET-запроса на /api/auth/google/callback
+authRouter.get('/google/callback', 
+  passport.authenticate('google', { failureRedirect: '/' }), 
+  (req, res) => {
+    // Если аутентификация успешна, profile теперь содержит данные о пользователе
+    const { id, username } = req.user; // Пример: извлекаем ID и имя пользователя
+
+    // Ваша логика для получения защищенного кода
+    const protectedCode = generateProtectedCode(); // Замените эту функцию своей логикой
+
+    // Генерация нового токена с информацией о пользователе
+    const token = jwt.sign(
+      {
+        id,
+        username,
+        protectedCode
+      },
+      process.env.JWT_SECRET,
+      { expiresIn: '4h' }
+    );
+
+    // Отправляем токен в cookie и возвращаем его на клиент
+    res
+      .cookie('access_token', token, { maxAge: 4 * 60 * 60 * 1000, httpOnly: true })
+      .status(200)
+      .json({ 
+        token,
+        username,
+        protectedCode
       });
-      await newUser.save();
-      const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET);
-      const { password: pass, ...rest } = newUser._doc;
-      res
-        .cookie('access_token', token, { httpOnly: true })
-        .status(200)
-        .json(rest);
-    }
-  } catch (error) {
-    next(error);
   }
+);
+
+// Ваш обработчик /api/auth/google
+authRouter.post('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+
+} catch (error) {
+  next(error);
+}
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// export const google = async (req, res, next) => {
+//   try {
+//     const user = await User.findOne({ email: req.body.email });
+//     if (user) {
+//       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+//       const { password: pass, ...rest } = user._doc;
+//       res
+//         .cookie('access_token', token, { httpOnly: true })
+//         .status(200)
+//         .json(rest);
+//     } else {
+//       const generatedPassword =
+//         Math.random().toString(36).slice(-8) +
+//         Math.random().toString(36).slice(-8);
+//       const hashedPassword = bcryptjs.hashSync(generatedPassword, 10);
+//       const newUser = new User({
+//         username:
+//           req.body.name.split(' ').join('').toLowerCase() +
+//           Math.random().toString(36).slice(-4),
+//         email: req.body.email,
+//         password: hashedPassword,
+//         avatar: req.body.photo,
+//       });
+//       await newUser.save();
+//       const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET);
+//       const { password: pass, ...rest } = newUser._doc;
+//       res
+//         .cookie('access_token', token, { httpOnly: true })
+//         .status(200)
+//         .json(rest);
+//     }
+//   } catch (error) {
+//     next(error);
+//   }
+// };
 
 // facebook
 export const facebook = async (req, res, next) => {

@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '../../components/Button/index.js';
-import {FaGoogle, FaInstagram, FaFacebook, FaXTwitter} from 'react-icons/fa6';
+import {FaGoogle, FaInstagram, FaFacebook, FaTwitter} from 'react-icons/fa';
 import { useAuth } from '../../context/AuthContext.jsx';
 import goingfor_logo from '../../assets/goingfor_logo.png';
 import './style.css';
+
+import Axios from 'axios';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -22,6 +24,40 @@ const Login = () => {
             navigate('/home');   
         }
     }
+
+// const handleLogin = async (e) => {
+//   e.preventDefault();
+//   const loginSuccessful = await login(email, password);
+//   if (loginSuccessful) {
+//       navigate('/home');
+//   }
+// }
+
+    //
+    const handleSocialLogin = async (provider) => {
+      try {
+          const socialAuthURL = `http://localhost:3002/api/auth/${provider}`;
+          const response = await Axios.post(socialAuthURL, {
+              email: 'example@example.com',
+              name: 'John Doe',
+          });
+          if (response.data) {
+              navigate('/home');
+          }
+      } catch (error) {
+          console.error('Ошибка социальной авторизации:', error);
+      }
+  };
+      
+      
+          //     if (response.data) {
+      //       navigate('/home');
+      //     }
+      //   } catch (error) {
+      //     console.error('Ошибка социальной авторизации:', error);
+      //   }
+      // };
+    //
 
 
     return(
@@ -63,7 +99,7 @@ const Login = () => {
                 <div className='login-social-wrapper'>
                     <p className='login-social-text'>or login with</p>
 
-                    <div className='login-social-icon-wrapper'>
+                    {/* <div className='login-social-icon-wrapper'>
                         <button className='social-icon'>
                             <FaGoogle/>
                         </button>
@@ -77,13 +113,31 @@ const Login = () => {
                         </button>
 
                         <button className='social-icon'>
-                            <FaXTwitter/>
+                            <FaTwitter/>
                         </button> 
-                    </div>
+                    </div> */}
+
+<div className='login-social-icon-wrapper'>
+      {/* Добавляем вызов handleSocialLogin для каждой социальной сети */}
+      <button className='social-icon' onClick={() => handleSocialLogin('google')}>
+        <FaGoogle/>
+      </button>
+
+      <button className='social-icon' onClick={() => handleSocialLogin('instagram')}>
+        <FaInstagram/>
+      </button>
+
+      <button className='social-icon' onClick={() => handleSocialLogin('facebook')}>
+        <FaFacebook/>
+      </button>
+
+      <button className='social-icon' onClick={() => handleSocialLogin('twitter')}>
+        <FaTwitter/>
+      </button> 
+    </div>
                     
                 </div>  
-            </div>
-              
+            </div>              
             <div className='login-logo-wrapper'>
                 <img className='login-logo' src={goingfor_logo} alt='goingfor-logo'/>
             </div>
