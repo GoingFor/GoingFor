@@ -1,22 +1,35 @@
+/** EXTERNE DEPENDENCIES */
 import express, { Router } from 'express';
 
-/* IMPORTS */
+/** IMPORTS */
 import { verifyToken } from '../utils/verifyUser.js';
-import { createEvent, getEvent, getAllEvents } from '../controllers/event.controller.js';
+import { createEvent, getEvent, getAllEvents, getEventsByGenre, getEventByGenre } from '../controllers/eventController.js';
 
-/* VARIABLEN */
+/** VARIABLEN */
 const eventRouter = Router();
 
 eventRouter
-    .post('/createevent', createEvent);
+    .post('/createevent', 
+        verifyToken,
+        createEvent);
 
 eventRouter
-    .get('/list', getAllEvents);
+    .get('/list', 
+        verifyToken,
+        getAllEvents);
 
 // ein spez. Event anzeigen lassen
 eventRouter
     .get('/getevent/:id',
-        // verifyToken,
+        verifyToken,
         getEvent);
+
+eventRouter
+    .get('/genres', 
+        getEventsByGenre);    
+        
+eventRouter
+    .get('/events/genres/:genre', 
+        getEventByGenre)
 
 export default eventRouter;

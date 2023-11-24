@@ -1,0 +1,39 @@
+.comment-ph-wrapper{
+    margin-top: 7rem;
+}
+
+.comment-mc-wrapper{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+}
+
+.comment-mc{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    margin-top: 2rem;
+
+    color: var(--light)
+}
+
+/* .comment-card-wrapper{
+    margin-top: 5rem;
+} */
+
+.comment-text{
+    font-family: var(--body-font-family);
+    font-size: var(--body-font-size);
+    font-style: var(--body-font-style);
+    font-weight: var(--body-font-weight);
+    letter-spacing: var(--body-letter-spacing);
+    line-height: var( --body-line-height);
+}
+
+@media screen and (min-width: 816px) {
+    .comment-ph-wrapper{
+        margin-top: 9rem;
+    }
+}

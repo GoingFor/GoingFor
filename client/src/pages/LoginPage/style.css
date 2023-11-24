@@ -10,7 +10,7 @@
 }
 
 .login-wrapper{
-    min-width: 220px;
+    width: 250px;
     margin-top: 3rem;
     border-radius: 1.25rem;
     padding: 10px;

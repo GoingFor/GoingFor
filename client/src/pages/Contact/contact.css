@@ -1,0 +1,132 @@
+.contactPageContainer {
+    /* margin-top: 6rem; */
+    display: flex;
+    flex-direction: column;
+    color: var(--light);
+    /* font-size: 1.6rem; */
+}
+
+.cp-ph-wrapper{
+    margin-top: 7rem;
+}
+
+.cp-subtitle-wrapper{
+    margin-top: 3rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    margin-bottom: 3rem;
+}
+
+
+.cp-subtitle-text,
+.developer-name{
+    font-family: var(--body-desktop-font-family);
+    font-size: var(--body-desktop-font-size);
+    font-style: var(--body-desktop-font-style);
+    font-weight: var(--body-desktop-font-weight);
+    letter-spacing: var(--body-desktop-letter-spacing);
+    line-height: var(--body-desktop-line-height);
+
+    
+}
+
+.contactForm {
+    background-color: var(--accent-blue-semi);
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-radius: 2rem;
+}
+
+.contactFormInput, 
+.contactFormButton {
+    background-color: var(--accent-blue-semi);
+    color: var(--light);
+    height: 3rem;
+    border-radius: 2rem;
+    font-size: 1.6rem;
+    padding-left: 0.5rem;
+    border: none;
+}
+
+.contactFormTextarea {
+    background-color: var(--accent-blue-semi);
+    font-size: 1.6rem;
+    padding-left: 0.5rem;
+    color: var(--light);
+    font-family: 'Roboto';
+}
+
+.developers {
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+}
+
+.developers-h2{
+    font-family: var(--h-2-font-family);
+    font-size: var(--h-4-font-size);
+    font-style: var(--h-2-font-style);
+    font-weight: var(--h-2-font-weight);
+    line-height: var(--h-2-line-height);
+    letter-spacing: var(--h-2-letter-spacing);
+}
+
+.developerContainer {
+    justify-content: center;
+    display: flex; 
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.developerCard {
+    width: 24%;
+    min-width: 160px;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 2rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+
+
+
+.developerImg {
+    width: 10rem;
+    border-radius: 50%;
+}
+
+.developer-name{
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.developer-role{
+    font-family: var(--body-font-family);
+    font-size: var(--body-font-size);
+    font-style: var(--body-font-style);
+    font-weight: var(--body-font-weight);
+    letter-spacing: var(--body-letter-spacing);
+    line-height: var(--body-line-height);
+
+}
+
+.developer-role{
+    margin-top: 0.5rem;
+}
+
+
+
+@media screen and (min-width: 816px) {
+    .cp-ph-wrapper{
+        margin-top: 9rem;
+    }    
+}

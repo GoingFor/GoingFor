@@ -1,18 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext.jsx';
 import axios from 'axios';
 import { PageHeader } from '../../components/PageHeader/index.js';
 import {Card} from '../../components/Card/index.js';
+import { HiOutlineHeart, HiHeart  } from 'react-icons/hi2';
 import './style.css';
 
 const Event = () => {
     const { id } = useParams();
     const [ event, setEvent ] = useState({});
-
+    const [ liked, setLiked ] = useState(false);
+    const [ userData, setUserData ] = useState({})
+    const { user } = useAuth();
 
     useEffect(() => {
         getEventData(id);
-    }, [id])
+        // Überprüfe, ob das Event in der Wunschliste des Benutzers ist und setze den "Liked"-Status entsprechend
+        if (user && user.likedEvents && user.likedEvents.includes(id)) {
+            setLiked(true);
+        }
+    }, [id, user])
 
     const getEventData = async(eventId) => {
         try {
@@ -34,14 +42,26 @@ const Event = () => {
         if (endDate) {
           const start = new Date(startDate);
           const end = new Date(endDate);
-          const timeDiff = end - start;
+          const timeDiff = end - start + 1;
           const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
           return `${daysDiff} Tage`;
         } else {
           return new Date(startDate).toLocaleDateString();
         }
       };
+    
 
+    const handleAddEvent = async(event) => {
+        // console.log(user);
+        try {
+            await axios.put('/api/user/addevent', {event});
+            setLiked(true); // Event wurde zur Wunschliste hinzugefügt
+            console.log('event erfolgreich auf die wunschliste gepackt!', event);
+            
+        } catch(error){
+            console.log('fehler beim hinzufügen des events:', error.response.data);
+        } 
+    }
 
 
     return(
@@ -57,14 +77,22 @@ const Event = () => {
 
             <div className='evt-ph-wrapper'>
                 <Link to={'/home'}>
-                    <PageHeader 
-                        pageTitle='Event'
-                    />
+                    <PageHeader pageTitle='Event' />
                 </Link> 
+                
             </div>
 
             <main className='evt-mc-wrapper'>
                 <div className="evt-mc">
+
+                <button className='evt-ph-btn' onClick={() => handleAddEvent(event)}>
+                        {liked ? (
+                            <HiHeart className={`evt-ph-icon liked`} />
+                        ) : (
+                            <HiOutlineHeart className={`evt-ph-icon`} />
+                        )}
+                    </button>
+
                     <div className="evt-mc-header">{event.name}</div>
                     {event.description && (
                         <div className="evt-mc-des">{event.description}</div>
@@ -96,14 +124,17 @@ const Event = () => {
                             </div>
                         </Card>
 
-                        <Card>
-                            <div className="text">
-                                <p className="subtitle">Tickets</p>
-                                <p className="cardText">{event.cheapestTicket}</p>
-                                <p className="cardText">{event.savingTip}</p>
-                            </div>
-                        </Card> 
-
+                        {
+                            ( event.cheapestTicket || event.savingTip ) && (
+                                <Card>
+                                    <div className="text">
+                                        <p className="subtitle">Tickets</p>
+                                        <p className="cardText">{event.cheapestTicket}</p>
+                                        <p className="cardText">{event.savingTip}</p>
+                                    </div>
+                                </Card> 
+                            )}
+                        
                         {
                             event.genreOptions && 
                             event.genreOptions.length > 0 && (

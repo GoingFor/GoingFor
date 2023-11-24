@@ -382,6 +382,36 @@ function CreateEvent() {
               />
               Schlager
             </label>
+            <label className='create-form-label-checkbox'>
+              <input
+                className='create-form-input-checks'
+                type="checkbox"
+                value="Techno"
+                checked={formData.genreOptions.includes('Techno')}
+                onChange={() => handleGenreCheckboxChange('Techno')}
+              />
+              Techno
+            </label>
+            <label className='create-form-label-checkbox'>
+              <input
+                className='create-form-input-checks'
+                type="checkbox"
+                value="Acoustic"
+                checked={formData.genreOptions.includes('Acoustic')}
+                onChange={() => handleGenreCheckboxChange('Acoustic')}
+              />
+              Acoustic
+            </label>
+            <label className='create-form-label-checkbox'>
+              <input
+                className='create-form-input-checks'
+                type="checkbox"
+                value="Hardcore"
+                checked={formData.genreOptions.includes('Hardcore')}
+                onChange={() => handleGenreCheckboxChange('Hardcore')}
+              />
+              Hardcore
+            </label>
             {/* ... Weitere Genres hier ... */}
           </div>
         </div>
