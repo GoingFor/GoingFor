@@ -75,23 +75,28 @@
 }
 
 .developerContainer {
-    display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    display: flex; 
     align-items: center;
     flex-wrap: wrap;
     margin-top: 3rem;
     margin-left: 2rem;
     margin-right: 2rem;
-    /* border: 2px solid red;   */
 }
 
 .developerCard {
-    /* width: 24%; */
+    width: 24%;
+    min-width: 160px;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
     margin-bottom: 2rem;
-    /* border: 2px solid green; */
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
+
+
+
 
 .developerImg {
     width: 10rem;

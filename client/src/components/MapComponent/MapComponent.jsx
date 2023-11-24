@@ -54,6 +54,7 @@ const MapComp = () => {
   };
   
 
+
   const setMarkers = async () => {
   
     const map = mapRef.current;
@@ -97,7 +98,9 @@ const MapComp = () => {
         <b>${name}</b><br>
         ${postcode} ${city}<br>
         <ul>${genreList}</ul>
-        <a to="/home/event/${event._id}">
+
+        <a href="/home/event/${event._id}" >
+
           Details anzeigen
         </a>`;
 
