@@ -4,7 +4,7 @@ import { useAuth } from '../../context/AuthContext.jsx';
 import axios from 'axios';
 import { PageHeader } from '../../components/PageHeader/index.js';
 import {Card} from '../../components/Card/index.js';
-import { HiOutlineHeart } from 'react-icons/hi2';
+import { HiOutlineHeart, HiHeart  } from 'react-icons/hi2';
 import './style.css';
 
 const Event = () => {
@@ -16,7 +16,11 @@ const Event = () => {
 
     useEffect(() => {
         getEventData(id);
-    }, [id])
+        // Überprüfe, ob das Event in der Wunschliste des Benutzers ist und setze den "Liked"-Status entsprechend
+        if (user && user.likedEvents && user.likedEvents.includes(id)) {
+            setLiked(true);
+        }
+    }, [id, user])
 
     const getEventData = async(eventId) => {
         try {
@@ -51,7 +55,7 @@ const Event = () => {
         // console.log(user);
         try {
             await axios.put('/api/user/addevent', {event});
-            
+            setLiked(true); // Event wurde zur Wunschliste hinzugefügt
             console.log('event erfolgreich auf die wunschliste gepackt!', event);
             
         } catch(error){
@@ -81,9 +85,13 @@ const Event = () => {
             <main className='evt-mc-wrapper'>
                 <div className="evt-mc">
 
-                    <button className='evt-ph-btn' onClick={() => handleAddEvent(event)}>
-                        <HiOutlineHeart className={`evt-ph-icon ${liked ? 'liked' : ''}`}/>
-                    </button> 
+                <button className='evt-ph-btn' onClick={() => handleAddEvent(event)}>
+                        {liked ? (
+                            <HiHeart className={`evt-ph-icon liked`} />
+                        ) : (
+                            <HiOutlineHeart className={`evt-ph-icon`} />
+                        )}
+                    </button>
 
                     <div className="evt-mc-header">{event.name}</div>
                     {event.description && (
