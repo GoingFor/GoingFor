@@ -9,7 +9,7 @@ const Contact = () => {
     { name: 'Sasa Misic', role: 'Teamlead', imageUrl: 'photos/developers/sasa.jpg' },
     { name: 'Jana Heyn', role: 'Git Hub Leader', imageUrl: 'photos/developers/jana.jpg' },
     { name: 'Melanie Silies', role: 'Frontend Engineer', imageUrl: 'photos/developers/melli.jpg' },
-    { name: 'Roman Tide', role: 'Backend Engineer', imageUrl: 'photos/developers/jana.jpg' },
+    { name: 'Roman Tide', role: 'Backend Engineer', imageUrl: 'photos/developers/roman.png' },
   ];
 
   const DeveloperInfo = ({ name, role, imageUrl }) => (

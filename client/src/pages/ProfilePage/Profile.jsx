@@ -69,10 +69,16 @@ const Profile = () => {
                             <Link className='pr-mc-link' to={'/home/personaldata'}>
                                 <li className='pr-mc-list-item'> 
                                     <div className='pr-mc-list-item-wrapper'>
+                                        <div className='pr-mc-list-item-le'>
                                             <PiUserCircle className='pr-mc-icon-le'/>
-                                        <p className='pr-text-body-le'><strong>Persönliche Daten</strong> <br />
-                                            Mach Angaben zu deiner Person und lass uns wissen, wie wir dich erreichen können</p>
-                                        <HiChevronRight className='pr-mc-icon-ri' /> 
+                                            <div className='pr-mc-text-le'>
+                                            <p className='pr-text-body-le'>Persönliche Daten</p> 
+                                            <p className='pr-text-body-le-grey'>Mach Angaben zu deiner Person und lass uns wissen, wie wir dich erreichen können</p>
+                                            </div>
+                                        </div>
+                                        <div className='pr-mc-list-item-ri'>
+                                            <HiChevronRight className='pr-mc-icon-ri'/> 
+                                        </div>
                                     </div>   
                                 </li>
                             </Link>
@@ -82,7 +88,10 @@ const Profile = () => {
                                     <div className='pr-mc-list-item-wrapper'>
                                         <div className='pr-mc-list-item-le'>
                                             <HiOutlineHeart className='pr-mc-icon-le'/>
-                                            <p className='pr-text-body-le'>Wunschliste</p>
+                                            <div className='pr-mc-text-le'>
+                                            <p className='pr-text-body-le'>Wunschliste</p> 
+                                            <p className='pr-text-body-le-grey'>Deine persönliche Wunschliste</p>
+                                            </div>
                                         </div>
                                         <div className='pr-mc-list-item-ri'>
                                             <HiChevronRight className='pr-mc-icon-ri'/> 
@@ -96,7 +105,10 @@ const Profile = () => {
                                     <div className='pr-mc-list-item-wrapper'>
                                         <div className='pr-mc-list-item-le'>
                                             <HiMap className='pr-mc-icon-le'/>
-                                            <p className='pr-text-body-le'>Meine Inserate</p>
+                                            <div className='pr-mc-text-le'>
+                                            <p className='pr-text-body-le'>Meine Inserate</p> 
+                                            <p className='pr-text-body-le-grey'>Deine erstellten Events</p>
+                                            </div>
                                         </div>
                                         <div className='pr-mc-list-item-ri'>
                                             <HiChevronRight className='pr-mc-icon-ri'/> 
@@ -110,7 +122,10 @@ const Profile = () => {
                                     <div className='pr-mc-list-item-wrapper'>
                                         <div className='pr-mc-list-item-le'>
                                             <HiPencil className='pr-mc-icon-le'/>
-                                            <p className='pr-text-body-le'>Meine verfassten Bewertungen</p>
+                                            <div className='pr-mc-text-le'>
+                                            <p className='pr-text-body-le'>Meine verfassten Bewertungen</p> 
+                                            <p className='pr-text-body-le-grey'>Deine bisherigen Bewertungen</p>
+                                            </div>
                                         </div>
                                         <div className='pr-mc-list-item-ri'>
                                             <HiChevronRight className='pr-mc-icon-ri'/> 
@@ -124,7 +139,10 @@ const Profile = () => {
                                     <div className='pr-mc-list-item-wrapper'>
                                         <div className='pr-mc-list-item-le'>
                                             <HiEnvelope className='pr-mc-icon-le'/>
-                                            <p className='pr-text-body-le'>Gib uns Feedback</p>
+                                            <div className='pr-mc-text-le'>
+                                            <p className='pr-text-body-le'>Gib uns Feedback</p> 
+                                            <p className='pr-text-body-le-grey'>Schreibe den Entwicklern eine Nachricht</p>
+                                            </div>
                                         </div>
                                         <div className='pr-mc-list-item-ri'>
                                             <HiChevronRight className='pr-mc-icon-ri'/> 

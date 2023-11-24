@@ -37,6 +37,10 @@
     height: 100px;
     /* border: 2px solid red; */
 }
+.pr-mc-text{
+    max-width: 800px;
+    margin: 0 auto;
+}
 
 .pr-mc-user-avatar-image{
     width: 100%;
@@ -69,6 +73,8 @@
     margin: 0;
     padding: 0;
     list-style-type: none;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .pr-mc-link{
@@ -99,6 +105,13 @@
     text-align: left;
 }
 
+
+
+.pr-text-body-le-grey{
+    color: grey;
+    margin-top: -0.7rem;
+}
+
 .pr-mc-icon-le,
 .pr-text-body-le,
 .pr-pr-mc-icon-ri{
@@ -109,7 +122,13 @@
     letter-spacing: var(--body-letter-spacing);
     line-height: var(--body-line-height);
 
-    margin: 0;
+    /* margin: 0; */
+}
+
+.pr-text-body-le{
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
 }
 
 .pr-mc-icon-le,
