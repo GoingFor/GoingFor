@@ -55,6 +55,7 @@ const MapComp = () => {
   
 
   const setMarkers = async () => {
+  
     const map = mapRef.current;
 
     if (!map) {
@@ -75,46 +76,36 @@ const MapComp = () => {
     }
 
     const filteredEvents = genre
-      ? events.filter((event) => {
+      ? events.filter(event => {
           const includesGenre = event.genreOptions.includes(genre);
           console.log(`${event.name} - Includes Genre: ${includesGenre}`);
           return includesGenre;
         })
       : events;
 
-    for (const event of filteredEvents) {
-      const { street, housenumber, postcode, city, name, description, _id } = event;
+      for (const event of filteredEvents) {
+      const { street, housenumber, postcode, city, name, description } = event;
       const address = `${street} ${housenumber}, ${postcode} ${city}`;
-      try {
+      try {        
         const coordinates = await getAddressCoordinates(address);
 
         const marker = L.marker([coordinates.lat, coordinates.lon]).addTo(map);
 
-        const genreList = event.genreOptions.map((genre) => `<li>${genre}</li>`).join('');
+        const genreList = event.genreOptions.map(genre => `<li>${genre}</li>`).join('');
+        
+        const popupContent = `
+        <b>${name}</b><br>
+        ${postcode} ${city}<br>
+        <ul>${genreList}</ul>
+        <a href="/home/event/${event._id}">
+          Details anzeigen
+        </a>`;
 
-        const popupContent = (
-          <div>
-            <b>{name}</b>
-            <br />
-            {postcode} {city}
-            <br />
-            <ul>{genreList}</ul>
-            <Link to={`/home/event/${_id}`}>Details anzeigen</Link>
-          </div>
-        );
-
-        marker.bindPopup(popupContent);
-        marker.on('click', () => {
-          marker.openPopup();
-        });
-        marker.on('popupopen', () => {
-          // Hier könntest du die gewünschten Aktionen für das Öffnen des Popups durchführen
-          console.log('Popup opened');
-        });
+        openPopupOnClick(marker, popupContent);
       } catch (error) {
         console.error('Error setting marker:', error);
       }
-    }
+    };
   };
 
   useEffect(() => {
