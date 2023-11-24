@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { PageHeader } from '../../components/PageHeader/index.js';
+import { Button } from '../../components/Button/index.js';
 import './contact.css';
 
 const Contact = () => {
@@ -12,8 +15,8 @@ const Contact = () => {
   const DeveloperInfo = ({ name, role, imageUrl }) => (
     <div className='developerCard'>
       <img className='developerImg' src={`/${imageUrl}`} alt={`${name} - ${role}`} />
-      <h3>{name}</h3>
-      <p>{role}</p>
+      <h3 className='developer-name'>{name}</h3>
+      <p className='developer-role'>{role}</p>
     </div>
   );
 
@@ -118,13 +121,23 @@ const Contact = () => {
 
   return (
     <div className='contactPageContainer'>
-      <h1>Kontaktiere uns</h1>
-      <p>Du hast anregungen, Wünsche oder Feedback? </p>
-      <p>Fühl dich frei, und über das Formular zu kontaktieren.</p>
+
+      <div className='cp-ph-wrapper'>
+        <Link to={'/home/profile'}>
+          <PageHeader 
+            pageTitle='Kontaktiere uns'
+                    />
+        </Link>
+      </div>
+
+      <div className='cp-subtitle-wrapper'>
+        <p className='cp-subtitle-text'>Du hast Anregungen, Wünsche oder Feedback? </p>
+        <p className='cp-subtitle-text'>Fühl dich frei, uns über das Formular zu kontaktieren.</p>
+      </div>
 
       <ContactForm />
       <div className="developers">
-        <h2>Die Köpfe dahinter</h2>
+        <h2 className='developers-h2'>Die Köpfe dahinter</h2>
         <div className='developerContainer'>
             {developers.map((developer, index) => (
             <DeveloperInfo key={index} {...developer} />

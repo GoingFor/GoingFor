@@ -19,15 +19,16 @@
 .wl-mc-list{
     display: grid;
     grid-template-columns: repeat(1, 1fr);
+    list-style: none;
     padding: 0;
     margin: 0;
 }
 
 .wl-card-wrapper{
     /* width: 300px; */
-    margin-left: 3rem;
-    margin-right: 3rem;
-    margin-bottom: 3rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 2rem;
 }
 
 .wl-text-info,

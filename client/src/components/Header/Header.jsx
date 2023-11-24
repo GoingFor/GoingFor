@@ -53,8 +53,7 @@ const Header = () => {
 
       const handleGenreClick = (genre) => {
         setSelectedGenre(genre);
-        // setDisplayMode('genre');
-        // setShowGenresMenu(false);
+
     
         // Filtere die Events nach dem ausgewählten Genre
         const newFilteredEvents = events.filter((event) => {

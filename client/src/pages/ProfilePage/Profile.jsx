@@ -105,7 +105,7 @@ const Profile = () => {
                                 </li>
                             </Link>
 
-                            <Link className='pr-mc-link' to='comments'>
+                            <Link className='pr-mc-link' to={'/home/comment'}>
                                 <li className='pr-mc-list-item'> 
                                     <div className='pr-mc-list-item-wrapper'>
                                         <div className='pr-mc-list-item-le'>
@@ -119,7 +119,7 @@ const Profile = () => {
                                 </li>
                             </Link>
 
-                            <Link className='pr-mc-link' to={'/home/feedback'}>
+                            <Link className='pr-mc-link' to={'/home/contact'}>
                                 <li className='pr-mc-list-item'> 
                                     <div className='pr-mc-list-item-wrapper'>
                                         <div className='pr-mc-list-item-le'>
@@ -148,7 +148,6 @@ const Profile = () => {
                     
                 </div>
             </main>
-
 
         </div>
     )
