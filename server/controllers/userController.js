@@ -17,7 +17,8 @@ export const updateUser = async(req, res, next) => {
 
 		const user = await User.findById(userId);
 
-		user.fullname = fullname || user.fullname;
+		// user.fullname = fullname || user.fullname;
+		user.fullname = fullname;
 		user.username = username || user.username;
 		user.email = email || user.email;
 		user.phonenumber = phonenumber || user.phonenumber;
