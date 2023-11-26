@@ -2,26 +2,24 @@
     margin-top: 7rem;
 }
 
-.comment-mc-wrapper{
-    display: flex;
-    flex-direction: column;
-    margin-top: 2rem;
-}
-
+.comment-mc-wrapper,
 .comment-mc{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 2rem;
+}
+
+.comment-mc{
     margin-left: 3rem;
     margin-right: 3rem;
-    margin-top: 2rem;
 
     color: var(--light)
 }
 
-/* .comment-card-wrapper{
+.comment-card-wrapper{
     margin-top: 5rem;
-} */
+}
 
 .comment-text{
     font-family: var(--body-font-family);

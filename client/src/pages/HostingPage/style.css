@@ -7,19 +7,17 @@
     margin-top: 7rem;
 }
 
-.ho-mc-wrapper{
-    display: flex;
-    flex-direction: column;
-    margin-top: 2rem;
-}
-
+.ho-mc-wrapper,
 .ho-mc{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 2rem;
+}
+
+.ho-mc{
     margin-left: 3rem;
     margin-right: 3rem;
-    margin-top: 2rem;
 
     color: var(--light)
 }

@@ -5,7 +5,6 @@ import { useAuth } from '../../context/AuthContext.jsx';
 import { PageHeader } from '../../components/PageHeader/index.js';
 import { Carousel } from '../../components/Carousel/Carousel.jsx';
 import { Button } from '../../components/Button/index.js';
-import festivalmeppenData from './festivalmeppenData.json';
 import parookavilleData from './parookavilleData.json';
 import './style.css';
 
@@ -101,7 +100,7 @@ const Wishlist = () => {
                                     
                                     <div className='wl-card-wrapper'>
                                         <div className='wl-carousel'>
-                                            <Carousel data={festivalmeppenData.slides}/>
+                                            <Carousel data={parookavilleData.slides}/>
                                         </div>
 
                                         <div className='wl-text-info'>
