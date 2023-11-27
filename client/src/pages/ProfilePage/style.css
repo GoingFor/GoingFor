@@ -136,6 +136,10 @@
     font-size: var(--body-desktop-font-size);
 }
 
+.pr-mc-text-le{
+    flex: 1;
+}
+
 
 /* MAIN DESKTOP */
 .pr-dc-wrapper{

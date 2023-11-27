@@ -3,17 +3,24 @@
 }
 
 .wl-mc-wrapper,
-.wl-card-wrapper{
+.wl-card-wrapper,
+.wl-mc{
     display: flex;
     flex-direction: column;
+    /* align-items: center; */
     margin-top: 2rem;
 }
 
 .wl-mc{
     align-self: center;
+    margin-top: 2rem;
     margin-bottom: 3rem;
     margin-left: 5rem;
     margin-right: 5rem;
+}
+
+.wl-mc-link{
+    align-self: center;
 }
 
 .wl-mc-list{
@@ -22,6 +29,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    margin-top: 2rem;
 }
 
 .wl-card-wrapper{
@@ -38,10 +46,10 @@
 }
 
 .wl-text-info{
+    justify-content: flex-start;
     margin-top: 1rem;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
-    justify-content: space-between;
 }
 
 .wl-del{
@@ -61,6 +69,7 @@
 .wl-text-le{
     flex-direction: column;
     text-align: left;
+    flex: 1;
 }
 
 .wl-subtitle{
@@ -96,6 +105,19 @@
 .wl-text-ri{
     text-align: right;
     margin-top: 0.5rem;
+}
+
+.wl-list-empty-text{
+    margin-top: 5rem;
+
+    font-family: var(--body-font-family);
+    font-size: var(--body-font-size);
+    font-style: var(--body-font-style);
+    font-weight: var(--body-font-weight);
+    letter-spacing: var(--body-letter-spacing);
+    line-height: var( --body-line-height);
+
+    color: var(--light);
 }
 
 

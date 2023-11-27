@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useAuth } from '../../context/AuthContext.jsx';
 import { PageHeader } from '../../components/PageHeader/index.js';
 import { Carousel } from '../../components/Carousel/Carousel.jsx';
+import { Button } from '../../components/Button/index.js';
 import festivalmeppenData from './festivalmeppenData.json';
 import parookavilleData from './parookavilleData.json';
 import './style.css';
@@ -86,6 +87,13 @@ const Wishlist = () => {
 
             <main className='wl-mc-wrapper'>
                 <div className='wl-mc'>
+                    <Link className='wl-mc-link' to={'/home'}>
+                        <Button 
+                            className='wl-mc-btn' 
+                                >Finde dein Festival
+                        </Button>
+                    </Link>
+
                     {eventsData.length > 0 ? (
                         <ul className='wl-mc-list'>
                             {eventsData.map((data) => (
@@ -130,7 +138,7 @@ const Wishlist = () => {
                             ))}
                         </ul>
                     ) : (
-                        <p className='wl-subtitle'>Du hast keine Events in deiner Wunschliste.</p>
+                        <p className='wl-list-empty-text'>Du hast keine Events in deiner Wunschliste.</p>
                     )}
                 </div>
             </main>
