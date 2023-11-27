@@ -24,6 +24,13 @@ const Comment = () => {
 
             <main className='comment-mc-wrapper'>
                 <div className='comment-mc'>
+                <Link className='comment-mc-link' to={'/home'}>
+                        <Button 
+                            className='comment-mc-btn' 
+                                >Finde dein Festival
+                        </Button>
+                    </Link>
+
                     <div className='comment-card-wrapper'>
                         <p className='comment-text'>Du hast noch kein Festival bewertet!</p>
                     </div>

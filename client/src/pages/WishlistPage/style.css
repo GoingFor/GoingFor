@@ -7,21 +7,20 @@
 .wl-mc{
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     margin-top: 2rem;
 }
 
 .wl-mc{
-    align-self: center;
-    margin-top: 2rem;
     margin-bottom: 3rem;
     margin-left: 5rem;
     margin-right: 5rem;
 }
 
-.wl-mc-link{
-    align-self: center;
+.wl-mc-wrapper,
+.wl-mc{
+    align-items: center;
 }
+
 
 .wl-mc-list{
     display: grid;
